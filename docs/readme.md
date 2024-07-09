@@ -163,4 +163,6 @@ https://github.com/the1812/Bilibili-Evolved
 
 https://github.com/Eished/jkforum_helper
 
+https://github.com/Eished/douyu-helper
+
 https://github.com/lisonge/vite-plugin-monkey
