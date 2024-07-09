@@ -28,6 +28,25 @@ const baseOptions = {
   module: {
     rules: [
       {
+        test: /\.html$/i,
+        use: {
+          loader: 'html-loader',
+          options: {
+            sources: {
+              list: [
+                '...', // 所有默认支持的标签和属性，这个一定要加上，不然就只会检测a标签了
+                {
+                  tag: 'a',
+                  attribute: 'href',
+                  type: 'src',
+                },
+              ],
+            },
+            minimize: true,
+          },
+        },
+      },
+      {
         test: /\.(js|jsx|mjs)$/,
         exclude: /node_modules/,
         use: [

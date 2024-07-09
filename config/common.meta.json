@@ -1,15 +1,22 @@
 {
-  "name": "斗鱼直播助手",
-  "namespace": "https://github.com/Eished/douyu-helper",
-  "version": "2022.08.22",
-  "description": "斗鱼直播自动切换画质，全局设置最高画质或最低画质，可单独设置每个直播间画质：原画、4K、2K、1080p、蓝光、720p、超清、高清清晰度，自动记忆并切换到上次选择的画质。油猴开发模板，Tampermonkey template",
-  "author": "Eished",
-  "copyright": "Eished",
+  "name": "Douyu斗鱼 主播开播下播提醒 + 粤语/国语语音播报通知",
+  "namespace": "https://github.com/Zirpon/douyu-helper.git",
+  "version": "3.3.4",
+  "description": "手动打开关注页面并放置在后台(https://www.douyu.com/directory/myFollow)  有主播开播/更改标题时自动发送通知提醒",
+  "author": "anonymous, hlc1209, P",
+  "copyright": "zepung",
   "license": "MIT",
-  "match": ["*://*.douyu.com/*"],
+  "match": ["https://www.douyu.com/directory/myFollow"],
   "run-at": "document-idle",
-  "supportURL": "https://github.com/Eished/douyu-helper/issues",
-  "homepage": "https://github.com/Eished/douyu-helper",
-  "grant": ["GM_getValue", "GM_setValue", "GM_registerMenuCommand"],
-  "icon": "https://www.google.com/s2/favicons?domain=douyu.com"
+  "supportURL": "https://greasyfork.org/zh-CN/scripts/498616-douyu%E6%96%97%E9%B1%BC-%E4%B8%BB%E6%92%AD%E5%BC%80%E6%92%AD%E4%B8%8B%E6%92%AD%E6%8F%90%E9%86%92-%E7%B2%A4%E8%AF%AD-%E5%9B%BD%E8%AF%AD%E8%AF%AD%E9%9F%B3%E6%92%AD%E6%8A%A5%E9%80%9A%E7%9F%A5/feedback",
+  "homepage": "https://greasyfork.org/zh-CN/scripts/498616-douyu%E6%96%97%E9%B1%BC-%E4%B8%BB%E6%92%AD%E5%BC%80%E6%92%AD%E4%B8%8B%E6%92%AD%E6%8F%90%E9%86%92-%E7%B2%A4%E8%AF%AD-%E5%9B%BD%E8%AF%AD%E8%AF%AD%E9%9F%B3%E6%92%AD%E6%8A%A5%E9%80%9A%E7%9F%A5",
+  "grant": [
+    "GM_xmlhttpRequest",
+    "GM_openInTab",
+    "GM_notification",
+    "GM_getValue",
+    "GM_setValue",
+    "GM_registerMenuCommand"
+  ],
+  "icon": "https://www.douyu.com/favicon.ico"
 }
