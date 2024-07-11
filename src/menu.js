@@ -3,8 +3,6 @@ import './assets/styles.css';
 import api from './douyu_livebc';
 import menuinner from './menuinner.html';
 
-//var domHead = document.getElementsByTagName('head')[0];
-
 export default class BaseClass {
   constructor() {
     GM_getValue('LANG', 'zh-CN');

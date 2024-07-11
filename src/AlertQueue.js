@@ -22,7 +22,7 @@ export default class AlertQueue {
   add(alertContent) {
     this.altert_arr.push(alertContent);
     this.step_arr = Array.from(new Array(this.altert_arr.length).keys());
-    console.log(this.altert_arr, this.step_arr, this.altert_arr.length);
+    //console.log(this.altert_arr, this.step_arr, this.altert_arr.length);
     if (this.altert_arr.length > 1) {
       // 关掉之前的 alertQueue
       this.closeAlert();
@@ -60,10 +60,10 @@ export default class AlertQueue {
             // 从0开始
             currentProgressStep: index,
             willClose: (params) => {
-              console.log('param willClose' + curstep, params);
+              //console.log('param willClose' + curstep, params);
             },
             didClose: () => {
-              console.log('param didClose ' + curstep, terminate);
+              //console.log('param didClose ' + curstep, terminate);
               if (!terminate) {
                 this.alertQueue.update({ progressSteps: this.step_arr });
                 this.dps();
@@ -75,12 +75,12 @@ export default class AlertQueue {
             },
           })
           .then((params) => {
-            console.log('params ' + curstep, index, params);
+            //console.log('params ' + curstep, index, params);
             if (params.isConfirmed) {
               if (curstep >= this.altert_arr.length - 1) {
                 terminate = true;
               }
-              console.log('params.isConfirmed' + curstep, index, this.altert_arr.length, params, terminate);
+              //console.log('params.isConfirmed' + curstep, index, this.altert_arr.length, params, terminate);
             } else {
               this.closeAlert();
             }
