@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name                Douyu斗鱼 主播开播下播提醒 + 粤语/国语语音播报通知
 // @namespace           https://github.com/Zirpon/douyu-helper.git
-// @version             3.3.6
+// @version             3.3.7
 // @description         手动打开关注页面并放置在后台(https://www.douyu.com/directory/myFollow)  有主播开播/更改标题时自动发送通知提醒
 // @author              anonymous, hlc1209, P
 // @copyright           zepung
@@ -47,6 +47,8 @@ var es_array_iterator = __webpack_require__(752);
 var es_object_to_string = __webpack_require__(228);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
 var web_dom_collections_iterator = __webpack_require__(6265);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.parse-int.js
+var es_parse_int = __webpack_require__(2320);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.define-property.js
 var es_object_define_property = __webpack_require__(739);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.promise.js
@@ -117,6 +119,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -126,17 +129,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 var AlertQueue = /*#__PURE__*/function () {
-  function AlertQueue(term_func) {
+  function AlertQueue() {
+    var term_func = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
     _classCallCheck(this, AlertQueue);
 
     this.altert_arr = [];
-    this.step_arr = []; // 最终执行func
+    this.step_arr = []; // 最终执行func 关掉最后一个通知 不刷新了
 
-    this.term_func = term_func;
+    this.term_func = term_func; // 显示标记
+
+    this.showFlag = false;
     this.alertQueue = sweetalert2_all_default().mixin({
       // alert 模板 可自定义
       progressSteps: this.step_arr,
       confirmButtonText: 'Next >',
+      showCloseButton: true,
       // 改为true 后 鼠标 点 非confirm button 的地方 会关闭alert 触发 dps()函数 执行
       allowOutsideClick: false,
       // optional classes to avoid backdrop blinking between steps
@@ -152,6 +160,20 @@ var AlertQueue = /*#__PURE__*/function () {
   _createClass(AlertQueue, [{
     key: "add",
     value: function add(alertContent) {
+      if (alertContent === 'showAlert') {
+        if (this.showFlag) {
+          return;
+        } else {
+          if (this.altert_arr.length > 0) {
+            this.dps();
+          } else {
+            console.log('altert_arr length: ' + this.altert_arr.length);
+          }
+        }
+
+        return;
+      }
+
       this.altert_arr.push(alertContent);
       this.step_arr = Array.from(new Array(this.altert_arr.length).keys()); //console.log(this.altert_arr, this.step_arr, this.altert_arr.length);
 
@@ -197,6 +219,7 @@ var AlertQueue = /*#__PURE__*/function () {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
+                _this.showFlag = true;
                 _loop = /*#__PURE__*/_regeneratorRuntime().mark(function _loop(index) {
                   var curstep;
                   return _regeneratorRuntime().wrap(function _loop$(_context) {
@@ -212,7 +235,8 @@ var AlertQueue = /*#__PURE__*/function () {
                             willClose: function willClose(params) {//console.log('param willClose' + curstep, params);
                             },
                             didClose: function didClose() {
-                              //console.log('param didClose ' + curstep, terminate);
+                              _this.showFlag = false; //console.log('param didClose ' + curstep, terminate);
+
                               if (!terminate) {
                                 _this.alertQueue.update({
                                   progressSteps: _this.step_arr
@@ -220,9 +244,61 @@ var AlertQueue = /*#__PURE__*/function () {
 
                                 _this.dps();
                               } else {
-                                if (_this.term_func) {
-                                  _this.term_func();
-                                }
+                                var swalWithBootstrapButtons = sweetalert2_all_default().mixin({
+                                  customClass: {
+                                    confirmButton: 'btn btn-success',
+                                    cancelButton: 'btn btn-danger'
+                                  },
+                                  buttonsStyling: true
+                                });
+                                var timerInterval;
+                                swalWithBootstrapButtons.fire({
+                                  title: '刷新网页吗',
+                                  //text: 'You wont be able to revert this! ',
+                                  //icon: 'warning',
+                                  showCancelButton: true,
+                                  confirmButtonText: 'Yes, refresh it!',
+                                  cancelButtonText: 'No, cancel!',
+                                  reverseButtons: false,
+                                  timer: 3000,
+                                  timerProgressBar: true,
+                                  html: '<p>I will close in <b></b> seconds.</p>',
+                                  didOpen: function didOpen() {
+                                    //Swal2.showLoading();
+                                    var timer = sweetalert2_all_default().getPopup().querySelector('b');
+                                    timerInterval = setInterval(function () {
+                                      timer.textContent = "".concat(Math.ceil(parseInt(sweetalert2_all_default().getTimerLeft()) / 1000));
+                                    }, 100);
+                                  },
+                                  willClose: function willClose() {
+                                    clearInterval(timerInterval);
+                                  }
+                                }).then(function (result) {
+                                  if (result.isConfirmed) {
+                                    swalWithBootstrapButtons.fire({
+                                      title: 'refresh!',
+                                      text: '网页即将刷新 请稍候. 😘',
+                                      icon: 'success',
+                                      timer: 800,
+                                      showConfirmButton: false
+                                    }).then(function (result) {
+                                      if (result.isDismissed && result.dismiss == (sweetalert2_all_default()).DismissReason.timer && _this.term_func) {
+                                        _this.term_func(1);
+                                      }
+                                    });
+                                  } else if (result.isDismissed
+                                  /* Read more about handling dismissals below */
+                                  //result.dismiss === Swal2.DismissReason.cancel
+                                  ) {
+                                    swalWithBootstrapButtons.fire({
+                                      title: 'Cancelled',
+                                      text: '网页没刷新 请继续享用 😀:)',
+                                      timer: 800,
+                                      showConfirmButton: false //icon: 'error',
+
+                                    });
+                                  }
+                                });
                               }
                             }
                           }).then(function (params) {
@@ -232,6 +308,13 @@ var AlertQueue = /*#__PURE__*/function () {
                                 terminate = true;
                               } //console.log('params.isConfirmed' + curstep, index, this.altert_arr.length, params, terminate);
 
+                            }
+
+                            if (params.isDismissed == true && params.dismiss == (sweetalert2_all_default()).DismissReason.close) {
+                              // 收起通知弹窗 通知仍然保存在队列中
+                              terminate = true; //不刷新
+
+                              _this.closeAlert();
                             } else {
                               _this.closeAlert();
                             }
@@ -246,20 +329,20 @@ var AlertQueue = /*#__PURE__*/function () {
                 });
                 index = 0;
 
-              case 2:
+              case 3:
                 if (!(index < _this.altert_arr.length)) {
-                  _context2.next = 7;
+                  _context2.next = 8;
                   break;
                 }
 
-                return _context2.delegateYield(_loop(index), "t0", 4);
+                return _context2.delegateYield(_loop(index), "t0", 5);
 
-              case 4:
+              case 5:
                 index++;
-                _context2.next = 2;
+                _context2.next = 3;
                 break;
 
-              case 7:
+              case 8:
               case "end":
                 return _context2.stop();
             }
@@ -549,7 +632,8 @@ function notifyTitle(s) {
 
 /* harmony default export */ const douyu_livebc = ({
   initScript: initScript,
-  speak: speak
+  speak: speak,
+  G_ALERT_QUEUE: G_ALERT_QUEUE
 });
 
 /***/ }),
@@ -668,6 +752,9 @@ var BaseClass = /*#__PURE__*/function () {
     GM_getValue('GM_notice', true);
     GM_registerMenuCommand('设置', function () {
       return _this.menuFun();
+    });
+    GM_registerMenuCommand('显示通知历史', function () {
+      return douyu_livebc["default"].G_ALERT_QUEUE.add('showAlert');
     });
   }
 
@@ -8432,6 +8519,37 @@ module.exports.f = function (C) {
 
 /***/ }),
 
+/***/ 7897:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var global = __webpack_require__(9037);
+var fails = __webpack_require__(3689);
+var uncurryThis = __webpack_require__(8844);
+var toString = __webpack_require__(4327);
+var trim = (__webpack_require__(1435).trim);
+var whitespaces = __webpack_require__(6350);
+
+var $parseInt = global.parseInt;
+var Symbol = global.Symbol;
+var ITERATOR = Symbol && Symbol.iterator;
+var hex = /^[+-]?0x/i;
+var exec = uncurryThis(hex.exec);
+var FORCED = $parseInt(whitespaces + '08') !== 8 || $parseInt(whitespaces + '0x16') !== 22
+  // MS Edge 18- broken with boxed symbols
+  || (ITERATOR && !fails(function () { $parseInt(Object(ITERATOR)); }));
+
+// `parseInt` method
+// https://tc39.es/ecma262/#sec-parseint-string-radix
+module.exports = FORCED ? function parseInt(string, radix) {
+  var S = trim(toString(string));
+  return $parseInt(S, (radix >>> 0) || (exec(hex, S) ? 16 : 10));
+} : $parseInt;
+
+
+/***/ }),
+
 /***/ 5391:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -9325,6 +9443,45 @@ module.exports = {
 
 /***/ }),
 
+/***/ 1435:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var uncurryThis = __webpack_require__(8844);
+var requireObjectCoercible = __webpack_require__(4684);
+var toString = __webpack_require__(4327);
+var whitespaces = __webpack_require__(6350);
+
+var replace = uncurryThis(''.replace);
+var ltrim = RegExp('^[' + whitespaces + ']+');
+var rtrim = RegExp('(^|[^' + whitespaces + '])[' + whitespaces + ']+$');
+
+// `String.prototype.{ trim, trimStart, trimEnd, trimLeft, trimRight }` methods implementation
+var createMethod = function (TYPE) {
+  return function ($this) {
+    var string = toString(requireObjectCoercible($this));
+    if (TYPE & 1) string = replace(string, ltrim, '');
+    if (TYPE & 2) string = replace(string, rtrim, '$1');
+    return string;
+  };
+};
+
+module.exports = {
+  // `String.prototype.{ trimLeft, trimStart }` methods
+  // https://tc39.es/ecma262/#sec-string.prototype.trimstart
+  start: createMethod(1),
+  // `String.prototype.{ trimRight, trimEnd }` methods
+  // https://tc39.es/ecma262/#sec-string.prototype.trimend
+  end: createMethod(2),
+  // `String.prototype.trim` method
+  // https://tc39.es/ecma262/#sec-string.prototype.trim
+  trim: createMethod(3)
+};
+
+
+/***/ }),
+
 /***/ 146:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -9854,6 +10011,18 @@ module.exports = function (name) {
       : createWellKnownSymbol('Symbol.' + name);
   } return WellKnownSymbolsStore[name];
 };
+
+
+/***/ }),
+
+/***/ 6350:
+/***/ ((module) => {
+
+"use strict";
+
+// a string of all valid unicode whitespaces
+module.exports = '\u0009\u000A\u000B\u000C\u000D\u0020\u00A0\u1680\u2000\u2001\u2002' +
+  '\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
 
 
 /***/ }),
@@ -10455,6 +10624,23 @@ var toString = __webpack_require__(5073);
 if (!TO_STRING_TAG_SUPPORT) {
   defineBuiltIn(Object.prototype, 'toString', toString, { unsafe: true });
 }
+
+
+/***/ }),
+
+/***/ 2320:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var $parseInt = __webpack_require__(7897);
+
+// `parseInt` method
+// https://tc39.es/ecma262/#sec-parseint-string-radix
+$({ global: true, forced: parseInt !== $parseInt }, {
+  parseInt: $parseInt
+});
 
 
 /***/ }),
