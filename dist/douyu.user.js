@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name                Douyu斗鱼 主播开播下播提醒 + 粤语/国语语音播报通知
 // @namespace           https://github.com/Zirpon/douyu-helper.git
-// @version             3.3.5
+// @version             3.3.6
 // @description         手动打开关注页面并放置在后台(https://www.douyu.com/directory/myFollow)  有主播开播/更改标题时自动发送通知提醒
 // @author              anonymous, hlc1209, P
 // @copyright           zepung
@@ -153,8 +153,7 @@ var AlertQueue = /*#__PURE__*/function () {
     key: "add",
     value: function add(alertContent) {
       this.altert_arr.push(alertContent);
-      this.step_arr = Array.from(new Array(this.altert_arr.length).keys());
-      console.log(this.altert_arr, this.step_arr, this.altert_arr.length);
+      this.step_arr = Array.from(new Array(this.altert_arr.length).keys()); //console.log(this.altert_arr, this.step_arr, this.altert_arr.length);
 
       if (this.altert_arr.length > 1) {
         // 关掉之前的 alertQueue
@@ -210,12 +209,10 @@ var AlertQueue = /*#__PURE__*/function () {
                             title: _this.altert_arr[index],
                             // 从0开始
                             currentProgressStep: index,
-                            willClose: function willClose(params) {
-                              console.log('param willClose' + curstep, params);
+                            willClose: function willClose(params) {//console.log('param willClose' + curstep, params);
                             },
                             didClose: function didClose() {
-                              console.log('param didClose ' + curstep, terminate);
-
+                              //console.log('param didClose ' + curstep, terminate);
                               if (!terminate) {
                                 _this.alertQueue.update({
                                   progressSteps: _this.step_arr
@@ -229,14 +226,12 @@ var AlertQueue = /*#__PURE__*/function () {
                               }
                             }
                           }).then(function (params) {
-                            console.log('params ' + curstep, index, params);
-
+                            //console.log('params ' + curstep, index, params);
                             if (params.isConfirmed) {
                               if (curstep >= _this.altert_arr.length - 1) {
                                 terminate = true;
-                              }
+                              } //console.log('params.isConfirmed' + curstep, index, this.altert_arr.length, params, terminate);
 
-                              console.log('params.isConfirmed' + curstep, index, _this.altert_arr.length, params, terminate);
                             } else {
                               _this.closeAlert();
                             }
@@ -659,7 +654,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 /*--create style--*/
 
 
- //var domHead = document.getElementsByTagName('head')[0];
+
 
 var BaseClass = /*#__PURE__*/function () {
   function BaseClass() {
