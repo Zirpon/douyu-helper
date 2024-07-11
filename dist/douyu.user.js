@@ -21,18 +21,265 @@
 /* eslint-disable */ /* spell-checker: disable */
 // @[ You can find all source codes in GitHub repo ]
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 3461:
+/***/ 8804:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var core_js_modules_web_timers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6869);
-/* harmony import */ var core_js_modules_web_timers_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_timers_js__WEBPACK_IMPORTED_MODULE_0__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ douyu_livebc)
+});
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.timers.js
+var web_timers = __webpack_require__(6869);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.from.js
+var es_array_from = __webpack_require__(7049);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.iterator.js
+var es_string_iterator = __webpack_require__(1694);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.iterator.js
+var es_array_iterator = __webpack_require__(752);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
+var es_object_to_string = __webpack_require__(228);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
+var web_dom_collections_iterator = __webpack_require__(6265);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.define-property.js
+var es_object_define_property = __webpack_require__(739);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.promise.js
+var es_promise = __webpack_require__(3964);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.js
+var es_symbol = __webpack_require__(9749);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.description.js
+var es_symbol_description = __webpack_require__(6544);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.iterator.js
+var es_symbol_iterator = __webpack_require__(4254);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.async-iterator.js
+var es_symbol_async_iterator = __webpack_require__(8373);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.to-string-tag.js
+var es_symbol_to_string_tag = __webpack_require__(6793);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.json.to-string-tag.js
+var es_json_to_string_tag = __webpack_require__(7629);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.math.to-string-tag.js
+var es_math_to_string_tag = __webpack_require__(7509);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.create.js
+var es_object_create = __webpack_require__(1013);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.get-prototype-of.js
+var es_object_get_prototype_of = __webpack_require__(8052);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.for-each.js
+var es_array_for_each = __webpack_require__(9693);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.for-each.js
+var web_dom_collections_for_each = __webpack_require__(7522);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
+var es_function_name = __webpack_require__(4284);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.set-prototype-of.js
+var es_object_set_prototype_of = __webpack_require__(5399);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.reverse.js
+var es_array_reverse = __webpack_require__(3374);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.slice.js
+var es_array_slice = __webpack_require__(9730);
+// EXTERNAL MODULE: ./node_modules/sweetalert2/dist/sweetalert2.all.js
+var sweetalert2_all = __webpack_require__(6455);
+var sweetalert2_all_default = /*#__PURE__*/__webpack_require__.n(sweetalert2_all);
+;// CONCATENATED MODULE: ./src/AlertQueue.js
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+
+
+var AlertQueue = /*#__PURE__*/function () {
+  function AlertQueue(term_func) {
+    _classCallCheck(this, AlertQueue);
+
+    this.altert_arr = [];
+    this.step_arr = []; // 最终执行func
+
+    this.term_func = term_func;
+    this.alertQueue = sweetalert2_all_default().mixin({
+      // alert 模板 可自定义
+      progressSteps: this.step_arr,
+      confirmButtonText: 'Next >',
+      // 改为true 后 鼠标 点 非confirm button 的地方 会关闭alert 触发 dps()函数 执行
+      allowOutsideClick: false,
+      // optional classes to avoid backdrop blinking between steps
+      showClass: {
+        backdrop: 'swal2-noanimation'
+      },
+      hideClass: {
+        backdrop: 'swal2-noanimation'
+      }
+    });
+  }
+
+  _createClass(AlertQueue, [{
+    key: "add",
+    value: function add(alertContent) {
+      this.altert_arr.push(alertContent);
+      this.step_arr = Array.from(new Array(this.altert_arr.length).keys());
+      console.log(this.altert_arr, this.step_arr, this.altert_arr.length);
+
+      if (this.altert_arr.length > 1) {
+        // 关掉之前的 alertQueue
+        this.closeAlert();
+      } else {
+        //未初始化 首次运行
+        this.dps();
+      }
+    }
+  }, {
+    key: "closeAlert",
+    value: function closeAlert(self) {
+      var refreshInterval = 0;
+      var timeFun = window.setInterval(function () {
+        var _this$AlertQueue;
+
+        // 构造函数后 alert_queue 没有元素 close 函数 是 undefined 所以判断一下
+        // 后面插入元素 就能用了
+        if ((_this$AlertQueue = this.AlertQueue) !== null && _this$AlertQueue !== void 0 && _this$AlertQueue.close) {
+          this.alertQueue.close();
+        }
+
+        window.clearInterval(timeFun);
+      }, refreshInterval);
+    } // 生成 alert queue 收到关闭 当前alert queue 异步消息的时候
+    // 顺序关掉 queue 内 所有alert
+    // 然后再 重新生成新的 alert queue
+    // 因为 目前 Swal2 项目作者并没有进队出队的 api
+
+  }, {
+    key: "dps",
+    value: function dps(self) {
+      var _this = this;
+
+      var terminate = false;
+
+      _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var _loop, index;
+
+        return _regeneratorRuntime().wrap(function _callee$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _loop = /*#__PURE__*/_regeneratorRuntime().mark(function _loop(index) {
+                  var curstep;
+                  return _regeneratorRuntime().wrap(function _loop$(_context) {
+                    while (1) {
+                      switch (_context.prev = _context.next) {
+                        case 0:
+                          curstep = index + 1;
+                          _context.next = 3;
+                          return _this.alertQueue.fire({
+                            title: _this.altert_arr[index],
+                            // 从0开始
+                            currentProgressStep: index,
+                            willClose: function willClose(params) {
+                              console.log('param willClose' + curstep, params);
+                            },
+                            didClose: function didClose() {
+                              console.log('param didClose ' + curstep, terminate);
+
+                              if (!terminate) {
+                                _this.alertQueue.update({
+                                  progressSteps: _this.step_arr
+                                });
+
+                                _this.dps();
+                              } else {
+                                if (_this.term_func) {
+                                  _this.term_func();
+                                }
+                              }
+                            }
+                          }).then(function (params) {
+                            console.log('params ' + curstep, index, params);
+
+                            if (params.isConfirmed) {
+                              if (curstep >= _this.altert_arr.length - 1) {
+                                terminate = true;
+                              }
+
+                              console.log('params.isConfirmed' + curstep, index, _this.altert_arr.length, params, terminate);
+                            } else {
+                              _this.closeAlert();
+                            }
+                          });
+
+                        case 3:
+                        case "end":
+                          return _context.stop();
+                      }
+                    }
+                  }, _loop);
+                });
+                index = 0;
+
+              case 2:
+                if (!(index < _this.altert_arr.length)) {
+                  _context2.next = 7;
+                  break;
+                }
+
+                return _context2.delegateYield(_loop(index), "t0", 4);
+
+              case 4:
+                index++;
+                _context2.next = 2;
+                break;
+
+              case 7:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  }]);
+
+  return AlertQueue;
+}();
+
+
+;// CONCATENATED MODULE: ./src/douyu_livebc.js
+
 
 var baseURL = 'https://douyu.com';
 var save = {};
@@ -157,9 +404,8 @@ function shim_GM_notification() {
 }
 
 function reloadPage() {
-  var refreshInterval = 5 * 1000; //* 3600 * 24; // 设置刷新间隔时间（单位：秒）
-  //test();
-  //location.reload();
+  var sec = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 5;
+  var refreshInterval = sec * 1000; //* 3600 * 24; // 设置刷新间隔时间（单位：秒）
 
   var timeFun = window.setInterval(function () {
     location.reload();
@@ -179,7 +425,10 @@ function append_notify(res) {
     status = isLive && res.data.list[each].show_status == 1;
 
     if (!isLive) {
-      console.log(res.data.list[each].nickname + '-' + res.data.list[each].room_id + '-' + isLive + '-' + status + '-视频轮播ing');
+      /*
+      console.log(
+        res.data.list[each].nickname + '-' + res.data.list[each].room_id + '-' + isLive + '-' + status + '-视频轮播ing'
+      );*/
     }
 
     if (!(res.data.list[each].room_id in save)) {
@@ -259,16 +508,15 @@ function append_notify(res) {
     _loop(each);
   }
 
-  if (init_flag != 0 && changed == 1) {
+  if (init_flag != 0 && changed == 1 && GM_getValue('GM_notice', true) == true) {
     reloadPage();
   }
 
-  init_flag = 1;
-  console.log('Following rooms checked');
+  init_flag = 1; //console.log('Following rooms checked');
 }
 
 function check() {
-  console.log('Following rooms checking');
+  //console.log('Following rooms checking');
   GM_xmlhttpRequest({
     method: 'GET',
     url: "https://www.douyu.com/wgapi/livenc/liveweb/follow/list?sort=0&cid1=0",
@@ -279,13 +527,15 @@ function check() {
   });
 }
 
+var G_ALERT_QUEUE = new AlertQueue(reloadPage);
+
 function wrap_GM_notification(param) {
   var bGMnotice = GM_getValue('GM_notice', true);
 
   if (bGMnotice) {
     GM_notification(param);
   } else {
-    console.log('GM_notification disabled');
+    G_ALERT_QUEUE.add(param.title); //console.log('GM_notification disabled');
   }
 }
 
@@ -302,7 +552,7 @@ function notifyTitle(s) {
   });
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ const douyu_livebc = ({
   initScript: initScript,
   speak: speak
 });
@@ -312,6 +562,7 @@ function notifyTitle(s) {
 /***/ 791:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
@@ -383,8 +634,8 @@ var update = injectStylesIntoStyleTag_default()(styles/* default */.Z, options);
 
        /* harmony default export */ const assets_styles = (styles/* default */.Z && styles/* default.locals */.Z.locals ? styles/* default.locals */.Z.locals : undefined);
 
-// EXTERNAL MODULE: ./src/douyu_bc_api.js
-var douyu_bc_api = __webpack_require__(3461);
+// EXTERNAL MODULE: ./src/douyu_livebc.js + 1 modules
+var douyu_livebc = __webpack_require__(8804);
 ;// CONCATENATED MODULE: ./src/menuinner.html
 // Module
 var code = "<div class=\"zhmMask\"></div> <div class=\"wrap-box\" id=\"setWrap\"> <ul class=\"iconSetUlHead\"> <li class=\"iconSetPageHead\"><span></span><span> 语音播报设置 </span><span class=\"iconSetSave\">×</span></li> </ul> <ul class=\"setWrapLi\"> <br/> <div class=\"setWrapLiContent\"> <p>语音开关：</p> <div> <label class=\"switch\"> <input type=\"checkbox\" id=\"togBtn\"/> <div class=\"slider round\"></div> </label> </div> </div> <br/> <br/> <div class=\"setWrapLiContent\"> <p>语种：</p> <div><input type=\"radio\" name=\"lang\" value=\"zh-CN\" id=\"ch_sim\"/><label for=\"ch_sim\">国语</label></div> <div><input type=\"radio\" name=\"lang\" value=\"zh-HK\" id=\"ch_sim\"/><label for=\"ch_sim\">粤语</label></div> </div> <br/> <div class=\"setWrapLiContent\"> <p>语速：</p> <select id=\"framework\"></select> <button id=\"btn2\">Submit</button> </div> <br/> <div class=\"setWrapLiContent\"> <p>通知弹窗开关：</p> <div> <label class=\"switch\"> <input type=\"checkbox\" id=\"gmTogBtn\"/> <div class=\"slider round\"></div> </label> </div> </div> <br/> </ul> <div style=\"height:40px\"></div> <div class=\"iconSetFoot\"> <ul class=\"iconSetFootLi\"></ul> </div> </div> ";
@@ -541,7 +792,7 @@ var BaseClass = /*#__PURE__*/function () {
             var strLang = GM_getValue('LANG', 'zh-HK') === 'zh-CN' ? '国语' : '粤语';
             var sTxt = bSwitch + '，' + strGMSwitch + '，播报语言设置为' + strLang + '，语速设置为' + numRate;
             console.log(sTxt);
-            douyu_bc_api["default"].speak({
+            douyu_livebc["default"].speak({
               text: sTxt
             }, function () {
               console.log('语音播放结束：' + sTxt);
@@ -575,6 +826,7 @@ var BaseClass = /*#__PURE__*/function () {
 /***/ 3152:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
@@ -602,6 +854,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".zhmMask {\r\n  z-index: 999999999;\r\
 /***/ 3645:
 /***/ ((module) => {
 
+"use strict";
 
 
 /*
@@ -693,6 +946,7 @@ module.exports = function (cssWithMappingToString) {
 /***/ 1667:
 /***/ ((module) => {
 
+"use strict";
 
 
 module.exports = function (url, options) {
@@ -725,6 +979,7 @@ module.exports = function (url, options) {
 /***/ 8081:
 /***/ ((module) => {
 
+"use strict";
 
 
 module.exports = function (i) {
@@ -736,6 +991,7 @@ module.exports = function (i) {
 /***/ 3379:
 /***/ ((module) => {
 
+"use strict";
 
 
 var stylesInDOM = [];
@@ -846,6 +1102,7 @@ module.exports = function (list, options) {
 /***/ 569:
 /***/ ((module) => {
 
+"use strict";
 
 
 var memo = {};
@@ -891,6 +1148,7 @@ module.exports = insertBySelector;
 /***/ 9216:
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -908,6 +1166,7 @@ module.exports = insertStyleElement;
 /***/ 3565:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -926,6 +1185,7 @@ module.exports = setAttributesWithoutAttributes;
 /***/ 7795:
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -1002,6 +1262,7 @@ module.exports = domAPI;
 /***/ 4589:
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -1021,18 +1282,4695 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ 6455:
+/***/ (function(module) {
+
+/*!
+* sweetalert2 v11.12.2
+* Released under the MIT License.
+*/
+(function (global, factory) {
+   true ? module.exports = factory() :
+  0;
+})(this, (function () { 'use strict';
+
+  function _arrayLikeToArray(r, a) {
+    (null == a || a > r.length) && (a = r.length);
+    for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e];
+    return n;
+  }
+  function _arrayWithHoles(r) {
+    if (Array.isArray(r)) return r;
+  }
+  function _arrayWithoutHoles(r) {
+    if (Array.isArray(r)) return _arrayLikeToArray(r);
+  }
+  function _assertClassBrand(e, t, n) {
+    if ("function" == typeof e ? e === t : e.has(t)) return arguments.length < 3 ? t : n;
+    throw new TypeError("Private element is not present on this object");
+  }
+  function _assertThisInitialized(e) {
+    if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    return e;
+  }
+  function _callSuper(t, o, e) {
+    return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e));
+  }
+  function _checkPrivateRedeclaration(e, t) {
+    if (t.has(e)) throw new TypeError("Cannot initialize the same private elements twice on an object");
+  }
+  function _classCallCheck(a, n) {
+    if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function");
+  }
+  function _classPrivateFieldGet2(s, a) {
+    return s.get(_assertClassBrand(s, a));
+  }
+  function _classPrivateFieldInitSpec(e, t, a) {
+    _checkPrivateRedeclaration(e, t), t.set(e, a);
+  }
+  function _classPrivateFieldSet2(s, a, r) {
+    return s.set(_assertClassBrand(s, a), r), r;
+  }
+  function _construct(t, e, r) {
+    if (_isNativeReflectConstruct()) return Reflect.construct.apply(null, arguments);
+    var o = [null];
+    o.push.apply(o, e);
+    var p = new (t.bind.apply(t, o))();
+    return p;
+  }
+  function _defineProperties(e, r) {
+    for (var t = 0; t < r.length; t++) {
+      var o = r[t];
+      o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o);
+    }
+  }
+  function _createClass(e, r, t) {
+    return r && _defineProperties(e.prototype, r), Object.defineProperty(e, "prototype", {
+      writable: !1
+    }), e;
+  }
+  function _createForOfIteratorHelper(r, e) {
+    var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+    if (!t) {
+      if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e  ) {
+        t && (r = t);
+        var n = 0,
+          F = function () {};
+        return {
+          s: F,
+          n: function () {
+            return n >= r.length ? {
+              done: !0
+            } : {
+              done: !1,
+              value: r[n++]
+            };
+          },
+          e: function (r) {
+            throw r;
+          },
+          f: F
+        };
+      }
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    var o,
+      a = !0,
+      u = !1;
+    return {
+      s: function () {
+        t = t.call(r);
+      },
+      n: function () {
+        var r = t.next();
+        return a = r.done, r;
+      },
+      e: function (r) {
+        u = !0, o = r;
+      },
+      f: function () {
+        try {
+          a || null == t.return || t.return();
+        } finally {
+          if (u) throw o;
+        }
+      }
+    };
+  }
+  function _get() {
+    return _get = "undefined" != typeof Reflect && Reflect.get ? Reflect.get.bind() : function (e, t, r) {
+      var p = _superPropBase(e, t);
+      if (p) {
+        var n = Object.getOwnPropertyDescriptor(p, t);
+        return n.get ? n.get.call(arguments.length < 3 ? e : r) : n.value;
+      }
+    }, _get.apply(null, arguments);
+  }
+  function _getPrototypeOf(t) {
+    return _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) {
+      return t.__proto__ || Object.getPrototypeOf(t);
+    }, _getPrototypeOf(t);
+  }
+  function _inherits(t, e) {
+    if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function");
+    t.prototype = Object.create(e && e.prototype, {
+      constructor: {
+        value: t,
+        writable: !0,
+        configurable: !0
+      }
+    }), Object.defineProperty(t, "prototype", {
+      writable: !1
+    }), e && _setPrototypeOf(t, e);
+  }
+  function _isNativeReflectConstruct() {
+    try {
+      var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+    } catch (t) {}
+    return (_isNativeReflectConstruct = function () {
+      return !!t;
+    })();
+  }
+  function _iterableToArray(r) {
+    if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r);
+  }
+  function _iterableToArrayLimit(r, l) {
+    var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+    if (null != t) {
+      var e,
+        n,
+        i,
+        u,
+        a = [],
+        f = !0,
+        o = !1;
+      try {
+        if (i = (t = t.call(r)).next, 0 === l) ; else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0);
+      } catch (r) {
+        o = !0, n = r;
+      } finally {
+        try {
+          if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return;
+        } finally {
+          if (o) throw n;
+        }
+      }
+      return a;
+    }
+  }
+  function _nonIterableRest() {
+    throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+  function _nonIterableSpread() {
+    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+  function _possibleConstructorReturn(t, e) {
+    if (e && ("object" == typeof e || "function" == typeof e)) return e;
+    if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined");
+    return _assertThisInitialized(t);
+  }
+  function _setPrototypeOf(t, e) {
+    return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) {
+      return t.__proto__ = e, t;
+    }, _setPrototypeOf(t, e);
+  }
+  function _slicedToArray(r, e) {
+    return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest();
+  }
+  function _superPropBase(t, o) {
+    for (; !{}.hasOwnProperty.call(t, o) && null !== (t = _getPrototypeOf(t)););
+    return t;
+  }
+  function _toConsumableArray(r) {
+    return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread();
+  }
+  function _toPrimitive(t, r) {
+    if ("object" != typeof t || !t) return t;
+    var e = t[Symbol.toPrimitive];
+    if (void 0 !== e) {
+      var i = e.call(t, r );
+      if ("object" != typeof i) return i;
+      throw new TypeError("@@toPrimitive must return a primitive value.");
+    }
+    return (String )(t);
+  }
+  function _toPropertyKey(t) {
+    var i = _toPrimitive(t, "string");
+    return "symbol" == typeof i ? i : i + "";
+  }
+  function _typeof(o) {
+    "@babel/helpers - typeof";
+
+    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+      return typeof o;
+    } : function (o) {
+      return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+    }, _typeof(o);
+  }
+  function _unsupportedIterableToArray(r, a) {
+    if (r) {
+      if ("string" == typeof r) return _arrayLikeToArray(r, a);
+      var t = {}.toString.call(r).slice(8, -1);
+      return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0;
+    }
+  }
+
+  var RESTORE_FOCUS_TIMEOUT = 100;
+
+  /** @type {GlobalState} */
+  var globalState = {};
+  var focusPreviousActiveElement = function focusPreviousActiveElement() {
+    if (globalState.previousActiveElement instanceof HTMLElement) {
+      globalState.previousActiveElement.focus();
+      globalState.previousActiveElement = null;
+    } else if (document.body) {
+      document.body.focus();
+    }
+  };
+
+  /**
+   * Restore previous active (focused) element
+   *
+   * @param {boolean} returnFocus
+   * @returns {Promise<void>}
+   */
+  var restoreActiveElement = function restoreActiveElement(returnFocus) {
+    return new Promise(function (resolve) {
+      if (!returnFocus) {
+        return resolve();
+      }
+      var x = window.scrollX;
+      var y = window.scrollY;
+      globalState.restoreFocusTimeout = setTimeout(function () {
+        focusPreviousActiveElement();
+        resolve();
+      }, RESTORE_FOCUS_TIMEOUT); // issues/900
+
+      window.scrollTo(x, y);
+    });
+  };
+
+  var swalPrefix = 'swal2-';
+
+  /**
+   * @typedef
+   * { | 'container'
+   *   | 'shown'
+   *   | 'height-auto'
+   *   | 'iosfix'
+   *   | 'popup'
+   *   | 'modal'
+   *   | 'no-backdrop'
+   *   | 'no-transition'
+   *   | 'toast'
+   *   | 'toast-shown'
+   *   | 'show'
+   *   | 'hide'
+   *   | 'close'
+   *   | 'title'
+   *   | 'html-container'
+   *   | 'actions'
+   *   | 'confirm'
+   *   | 'deny'
+   *   | 'cancel'
+   *   | 'default-outline'
+   *   | 'footer'
+   *   | 'icon'
+   *   | 'icon-content'
+   *   | 'image'
+   *   | 'input'
+   *   | 'file'
+   *   | 'range'
+   *   | 'select'
+   *   | 'radio'
+   *   | 'checkbox'
+   *   | 'label'
+   *   | 'textarea'
+   *   | 'inputerror'
+   *   | 'input-label'
+   *   | 'validation-message'
+   *   | 'progress-steps'
+   *   | 'active-progress-step'
+   *   | 'progress-step'
+   *   | 'progress-step-line'
+   *   | 'loader'
+   *   | 'loading'
+   *   | 'styled'
+   *   | 'top'
+   *   | 'top-start'
+   *   | 'top-end'
+   *   | 'top-left'
+   *   | 'top-right'
+   *   | 'center'
+   *   | 'center-start'
+   *   | 'center-end'
+   *   | 'center-left'
+   *   | 'center-right'
+   *   | 'bottom'
+   *   | 'bottom-start'
+   *   | 'bottom-end'
+   *   | 'bottom-left'
+   *   | 'bottom-right'
+   *   | 'grow-row'
+   *   | 'grow-column'
+   *   | 'grow-fullscreen'
+   *   | 'rtl'
+   *   | 'timer-progress-bar'
+   *   | 'timer-progress-bar-container'
+   *   | 'scrollbar-measure'
+   *   | 'icon-success'
+   *   | 'icon-warning'
+   *   | 'icon-info'
+   *   | 'icon-question'
+   *   | 'icon-error'
+   * } SwalClass
+   * @typedef {Record<SwalClass, string>} SwalClasses
+   */
+
+  /**
+   * @typedef {'success' | 'warning' | 'info' | 'question' | 'error'} SwalIcon
+   * @typedef {Record<SwalIcon, string>} SwalIcons
+   */
+
+  /** @type {SwalClass[]} */
+  var classNames = ['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'no-transition', 'toast', 'toast-shown', 'show', 'hide', 'close', 'title', 'html-container', 'actions', 'confirm', 'deny', 'cancel', 'default-outline', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'input-label', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loader', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'timer-progress-bar-container', 'scrollbar-measure', 'icon-success', 'icon-warning', 'icon-info', 'icon-question', 'icon-error'];
+  var swalClasses = classNames.reduce(function (acc, className) {
+    acc[className] = swalPrefix + className;
+    return acc;
+  }, /** @type {SwalClasses} */{});
+
+  /** @type {SwalIcon[]} */
+  var icons = ['success', 'warning', 'info', 'question', 'error'];
+  var iconTypes = icons.reduce(function (acc, icon) {
+    acc[icon] = swalPrefix + icon;
+    return acc;
+  }, /** @type {SwalIcons} */{});
+
+  var consolePrefix = 'SweetAlert2:';
+
+  /**
+   * Capitalize the first letter of a string
+   *
+   * @param {string} str
+   * @returns {string}
+   */
+  var capitalizeFirstLetter = function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
+  /**
+   * Standardize console warnings
+   *
+   * @param {string | string[]} message
+   */
+  var warn = function warn(message) {
+    console.warn("".concat(consolePrefix, " ").concat(_typeof(message) === 'object' ? message.join(' ') : message));
+  };
+
+  /**
+   * Standardize console errors
+   *
+   * @param {string} message
+   */
+  var error = function error(message) {
+    console.error("".concat(consolePrefix, " ").concat(message));
+  };
+
+  /**
+   * Private global state for `warnOnce`
+   *
+   * @type {string[]}
+   * @private
+   */
+  var previousWarnOnceMessages = [];
+
+  /**
+   * Show a console warning, but only if it hasn't already been shown
+   *
+   * @param {string} message
+   */
+  var warnOnce = function warnOnce(message) {
+    if (!previousWarnOnceMessages.includes(message)) {
+      previousWarnOnceMessages.push(message);
+      warn(message);
+    }
+  };
+
+  /**
+   * Show a one-time console warning about deprecated params/methods
+   *
+   * @param {string} deprecatedParam
+   * @param {string?} useInstead
+   */
+  var warnAboutDeprecation = function warnAboutDeprecation(deprecatedParam) {
+    var useInstead = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    warnOnce("\"".concat(deprecatedParam, "\" is deprecated and will be removed in the next major release.").concat(useInstead ? " Use \"".concat(useInstead, "\" instead.") : ''));
+  };
+
+  /**
+   * If `arg` is a function, call it (with no arguments or context) and return the result.
+   * Otherwise, just pass the value through
+   *
+   * @param {Function | any} arg
+   * @returns {any}
+   */
+  var callIfFunction = function callIfFunction(arg) {
+    return typeof arg === 'function' ? arg() : arg;
+  };
+
+  /**
+   * @param {any} arg
+   * @returns {boolean}
+   */
+  var hasToPromiseFn = function hasToPromiseFn(arg) {
+    return arg && typeof arg.toPromise === 'function';
+  };
+
+  /**
+   * @param {any} arg
+   * @returns {Promise<any>}
+   */
+  var asPromise = function asPromise(arg) {
+    return hasToPromiseFn(arg) ? arg.toPromise() : Promise.resolve(arg);
+  };
+
+  /**
+   * @param {any} arg
+   * @returns {boolean}
+   */
+  var isPromise = function isPromise(arg) {
+    return arg && Promise.resolve(arg) === arg;
+  };
+
+  /**
+   * Gets the popup container which contains the backdrop and the popup itself.
+   *
+   * @returns {HTMLElement | null}
+   */
+  var getContainer = function getContainer() {
+    return document.body.querySelector(".".concat(swalClasses.container));
+  };
+
+  /**
+   * @param {string} selectorString
+   * @returns {HTMLElement | null}
+   */
+  var elementBySelector = function elementBySelector(selectorString) {
+    var container = getContainer();
+    return container ? container.querySelector(selectorString) : null;
+  };
+
+  /**
+   * @param {string} className
+   * @returns {HTMLElement | null}
+   */
+  var elementByClass = function elementByClass(className) {
+    return elementBySelector(".".concat(className));
+  };
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  var getPopup = function getPopup() {
+    return elementByClass(swalClasses.popup);
+  };
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  var getIcon = function getIcon() {
+    return elementByClass(swalClasses.icon);
+  };
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  var getIconContent = function getIconContent() {
+    return elementByClass(swalClasses['icon-content']);
+  };
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  var getTitle = function getTitle() {
+    return elementByClass(swalClasses.title);
+  };
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  var getHtmlContainer = function getHtmlContainer() {
+    return elementByClass(swalClasses['html-container']);
+  };
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  var getImage = function getImage() {
+    return elementByClass(swalClasses.image);
+  };
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  var getProgressSteps = function getProgressSteps() {
+    return elementByClass(swalClasses['progress-steps']);
+  };
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  var getValidationMessage = function getValidationMessage() {
+    return elementByClass(swalClasses['validation-message']);
+  };
+
+  /**
+   * @returns {HTMLButtonElement | null}
+   */
+  var getConfirmButton = function getConfirmButton() {
+    return /** @type {HTMLButtonElement} */elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.confirm));
+  };
+
+  /**
+   * @returns {HTMLButtonElement | null}
+   */
+  var getCancelButton = function getCancelButton() {
+    return /** @type {HTMLButtonElement} */elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.cancel));
+  };
+
+  /**
+   * @returns {HTMLButtonElement | null}
+   */
+  var getDenyButton = function getDenyButton() {
+    return /** @type {HTMLButtonElement} */elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.deny));
+  };
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  var getInputLabel = function getInputLabel() {
+    return elementByClass(swalClasses['input-label']);
+  };
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  var getLoader = function getLoader() {
+    return elementBySelector(".".concat(swalClasses.loader));
+  };
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  var getActions = function getActions() {
+    return elementByClass(swalClasses.actions);
+  };
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  var getFooter = function getFooter() {
+    return elementByClass(swalClasses.footer);
+  };
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  var getTimerProgressBar = function getTimerProgressBar() {
+    return elementByClass(swalClasses['timer-progress-bar']);
+  };
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  var getCloseButton = function getCloseButton() {
+    return elementByClass(swalClasses.close);
+  };
+
+  // https://github.com/jkup/focusable/blob/master/index.js
+  var focusable = "\n  a[href],\n  area[href],\n  input:not([disabled]),\n  select:not([disabled]),\n  textarea:not([disabled]),\n  button:not([disabled]),\n  iframe,\n  object,\n  embed,\n  [tabindex=\"0\"],\n  [contenteditable],\n  audio[controls],\n  video[controls],\n  summary\n";
+  /**
+   * @returns {HTMLElement[]}
+   */
+  var getFocusableElements = function getFocusableElements() {
+    var popup = getPopup();
+    if (!popup) {
+      return [];
+    }
+    /** @type {NodeListOf<HTMLElement>} */
+    var focusableElementsWithTabindex = popup.querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])');
+    var focusableElementsWithTabindexSorted = Array.from(focusableElementsWithTabindex)
+    // sort according to tabindex
+    .sort(function (a, b) {
+      var tabindexA = parseInt(a.getAttribute('tabindex') || '0');
+      var tabindexB = parseInt(b.getAttribute('tabindex') || '0');
+      if (tabindexA > tabindexB) {
+        return 1;
+      } else if (tabindexA < tabindexB) {
+        return -1;
+      }
+      return 0;
+    });
+
+    /** @type {NodeListOf<HTMLElement>} */
+    var otherFocusableElements = popup.querySelectorAll(focusable);
+    var otherFocusableElementsFiltered = Array.from(otherFocusableElements).filter(function (el) {
+      return el.getAttribute('tabindex') !== '-1';
+    });
+    return _toConsumableArray(new Set(focusableElementsWithTabindexSorted.concat(otherFocusableElementsFiltered))).filter(function (el) {
+      return isVisible$1(el);
+    });
+  };
+
+  /**
+   * @returns {boolean}
+   */
+  var isModal = function isModal() {
+    return hasClass(document.body, swalClasses.shown) && !hasClass(document.body, swalClasses['toast-shown']) && !hasClass(document.body, swalClasses['no-backdrop']);
+  };
+
+  /**
+   * @returns {boolean}
+   */
+  var isToast = function isToast() {
+    var popup = getPopup();
+    if (!popup) {
+      return false;
+    }
+    return hasClass(popup, swalClasses.toast);
+  };
+
+  /**
+   * @returns {boolean}
+   */
+  var isLoading = function isLoading() {
+    var popup = getPopup();
+    if (!popup) {
+      return false;
+    }
+    return popup.hasAttribute('data-loading');
+  };
+
+  /**
+   * Securely set innerHTML of an element
+   * https://github.com/sweetalert2/sweetalert2/issues/1926
+   *
+   * @param {HTMLElement} elem
+   * @param {string} html
+   */
+  var setInnerHtml = function setInnerHtml(elem, html) {
+    elem.textContent = '';
+    if (html) {
+      var parser = new DOMParser();
+      var parsed = parser.parseFromString(html, "text/html");
+      var head = parsed.querySelector('head');
+      head && Array.from(head.childNodes).forEach(function (child) {
+        elem.appendChild(child);
+      });
+      var body = parsed.querySelector('body');
+      body && Array.from(body.childNodes).forEach(function (child) {
+        if (child instanceof HTMLVideoElement || child instanceof HTMLAudioElement) {
+          elem.appendChild(child.cloneNode(true)); // https://github.com/sweetalert2/sweetalert2/issues/2507
+        } else {
+          elem.appendChild(child);
+        }
+      });
+    }
+  };
+
+  /**
+   * @param {HTMLElement} elem
+   * @param {string} className
+   * @returns {boolean}
+   */
+  var hasClass = function hasClass(elem, className) {
+    if (!className) {
+      return false;
+    }
+    var classList = className.split(/\s+/);
+    for (var i = 0; i < classList.length; i++) {
+      if (!elem.classList.contains(classList[i])) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  /**
+   * @param {HTMLElement} elem
+   * @param {SweetAlertOptions} params
+   */
+  var removeCustomClasses = function removeCustomClasses(elem, params) {
+    Array.from(elem.classList).forEach(function (className) {
+      if (!Object.values(swalClasses).includes(className) && !Object.values(iconTypes).includes(className) && !Object.values(params.showClass || {}).includes(className)) {
+        elem.classList.remove(className);
+      }
+    });
+  };
+
+  /**
+   * @param {HTMLElement} elem
+   * @param {SweetAlertOptions} params
+   * @param {string} className
+   */
+  var applyCustomClass = function applyCustomClass(elem, params, className) {
+    removeCustomClasses(elem, params);
+    if (!params.customClass) {
+      return;
+    }
+    var customClass = params.customClass[( /** @type {keyof SweetAlertCustomClass} */className)];
+    if (!customClass) {
+      return;
+    }
+    if (typeof customClass !== 'string' && !customClass.forEach) {
+      warn("Invalid type of customClass.".concat(className, "! Expected string or iterable object, got \"").concat(_typeof(customClass), "\""));
+      return;
+    }
+    addClass(elem, customClass);
+  };
+
+  /**
+   * @param {HTMLElement} popup
+   * @param {import('./renderers/renderInput').InputClass | SweetAlertInput} inputClass
+   * @returns {HTMLInputElement | null}
+   */
+  var getInput$1 = function getInput(popup, inputClass) {
+    if (!inputClass) {
+      return null;
+    }
+    switch (inputClass) {
+      case 'select':
+      case 'textarea':
+      case 'file':
+        return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses[inputClass]));
+      case 'checkbox':
+        return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.checkbox, " input"));
+      case 'radio':
+        return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.radio, " input:checked")) || popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.radio, " input:first-child"));
+      case 'range':
+        return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.range, " input"));
+      default:
+        return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.input));
+    }
+  };
+
+  /**
+   * @param {HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement} input
+   */
+  var focusInput = function focusInput(input) {
+    input.focus();
+
+    // place cursor at end of text in text input
+    if (input.type !== 'file') {
+      // http://stackoverflow.com/a/2345915
+      var val = input.value;
+      input.value = '';
+      input.value = val;
+    }
+  };
+
+  /**
+   * @param {HTMLElement | HTMLElement[] | null} target
+   * @param {string | string[] | readonly string[] | undefined} classList
+   * @param {boolean} condition
+   */
+  var toggleClass = function toggleClass(target, classList, condition) {
+    if (!target || !classList) {
+      return;
+    }
+    if (typeof classList === 'string') {
+      classList = classList.split(/\s+/).filter(Boolean);
+    }
+    classList.forEach(function (className) {
+      if (Array.isArray(target)) {
+        target.forEach(function (elem) {
+          condition ? elem.classList.add(className) : elem.classList.remove(className);
+        });
+      } else {
+        condition ? target.classList.add(className) : target.classList.remove(className);
+      }
+    });
+  };
+
+  /**
+   * @param {HTMLElement | HTMLElement[] | null} target
+   * @param {string | string[] | readonly string[] | undefined} classList
+   */
+  var addClass = function addClass(target, classList) {
+    toggleClass(target, classList, true);
+  };
+
+  /**
+   * @param {HTMLElement | HTMLElement[] | null} target
+   * @param {string | string[] | readonly string[] | undefined} classList
+   */
+  var removeClass = function removeClass(target, classList) {
+    toggleClass(target, classList, false);
+  };
+
+  /**
+   * Get direct child of an element by class name
+   *
+   * @param {HTMLElement} elem
+   * @param {string} className
+   * @returns {HTMLElement | undefined}
+   */
+  var getDirectChildByClass = function getDirectChildByClass(elem, className) {
+    var children = Array.from(elem.children);
+    for (var i = 0; i < children.length; i++) {
+      var child = children[i];
+      if (child instanceof HTMLElement && hasClass(child, className)) {
+        return child;
+      }
+    }
+  };
+
+  /**
+   * @param {HTMLElement} elem
+   * @param {string} property
+   * @param {*} value
+   */
+  var applyNumericalStyle = function applyNumericalStyle(elem, property, value) {
+    if (value === "".concat(parseInt(value))) {
+      value = parseInt(value);
+    }
+    if (value || parseInt(value) === 0) {
+      elem.style.setProperty(property, typeof value === 'number' ? "".concat(value, "px") : value);
+    } else {
+      elem.style.removeProperty(property);
+    }
+  };
+
+  /**
+   * @param {HTMLElement | null} elem
+   * @param {string} display
+   */
+  var show = function show(elem) {
+    var display = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'flex';
+    elem && (elem.style.display = display);
+  };
+
+  /**
+   * @param {HTMLElement | null} elem
+   */
+  var hide = function hide(elem) {
+    elem && (elem.style.display = 'none');
+  };
+
+  /**
+   * @param {HTMLElement | null} elem
+   * @param {string} display
+   */
+  var showWhenInnerHtmlPresent = function showWhenInnerHtmlPresent(elem) {
+    var display = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'block';
+    if (!elem) {
+      return;
+    }
+    new MutationObserver(function () {
+      toggle(elem, elem.innerHTML, display);
+    }).observe(elem, {
+      childList: true,
+      subtree: true
+    });
+  };
+
+  /**
+   * @param {HTMLElement} parent
+   * @param {string} selector
+   * @param {string} property
+   * @param {string} value
+   */
+  var setStyle = function setStyle(parent, selector, property, value) {
+    /** @type {HTMLElement | null} */
+    var el = parent.querySelector(selector);
+    if (el) {
+      el.style.setProperty(property, value);
+    }
+  };
+
+  /**
+   * @param {HTMLElement} elem
+   * @param {any} condition
+   * @param {string} display
+   */
+  var toggle = function toggle(elem, condition) {
+    var display = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'flex';
+    condition ? show(elem, display) : hide(elem);
+  };
+
+  /**
+   * borrowed from jquery $(elem).is(':visible') implementation
+   *
+   * @param {HTMLElement | null} elem
+   * @returns {boolean}
+   */
+  var isVisible$1 = function isVisible(elem) {
+    return !!(elem && (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length));
+  };
+
+  /**
+   * @returns {boolean}
+   */
+  var allButtonsAreHidden = function allButtonsAreHidden() {
+    return !isVisible$1(getConfirmButton()) && !isVisible$1(getDenyButton()) && !isVisible$1(getCancelButton());
+  };
+
+  /**
+   * @param {HTMLElement} elem
+   * @returns {boolean}
+   */
+  var isScrollable = function isScrollable(elem) {
+    return !!(elem.scrollHeight > elem.clientHeight);
+  };
+
+  /**
+   * borrowed from https://stackoverflow.com/a/46352119
+   *
+   * @param {HTMLElement} elem
+   * @returns {boolean}
+   */
+  var hasCssAnimation = function hasCssAnimation(elem) {
+    var style = window.getComputedStyle(elem);
+    var animDuration = parseFloat(style.getPropertyValue('animation-duration') || '0');
+    var transDuration = parseFloat(style.getPropertyValue('transition-duration') || '0');
+    return animDuration > 0 || transDuration > 0;
+  };
+
+  /**
+   * @param {number} timer
+   * @param {boolean} reset
+   */
+  var animateTimerProgressBar = function animateTimerProgressBar(timer) {
+    var reset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    var timerProgressBar = getTimerProgressBar();
+    if (!timerProgressBar) {
+      return;
+    }
+    if (isVisible$1(timerProgressBar)) {
+      if (reset) {
+        timerProgressBar.style.transition = 'none';
+        timerProgressBar.style.width = '100%';
+      }
+      setTimeout(function () {
+        timerProgressBar.style.transition = "width ".concat(timer / 1000, "s linear");
+        timerProgressBar.style.width = '0%';
+      }, 10);
+    }
+  };
+  var stopTimerProgressBar = function stopTimerProgressBar() {
+    var timerProgressBar = getTimerProgressBar();
+    if (!timerProgressBar) {
+      return;
+    }
+    var timerProgressBarWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
+    timerProgressBar.style.removeProperty('transition');
+    timerProgressBar.style.width = '100%';
+    var timerProgressBarFullWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
+    var timerProgressBarPercent = timerProgressBarWidth / timerProgressBarFullWidth * 100;
+    timerProgressBar.style.width = "".concat(timerProgressBarPercent, "%");
+  };
+
+  /**
+   * Detect Node env
+   *
+   * @returns {boolean}
+   */
+  var isNodeEnv = function isNodeEnv() {
+    return typeof window === 'undefined' || typeof document === 'undefined';
+  };
+
+  var sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses['html-container'], "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n   <div class=\"").concat(swalClasses.icon, "\"></div>\n   <img class=\"").concat(swalClasses.image, "\" />\n   <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n   <div class=\"").concat(swalClasses['html-container'], "\" id=\"").concat(swalClasses['html-container'], "\"></div>\n   <input class=\"").concat(swalClasses.input, "\" id=\"").concat(swalClasses.input, "\" />\n   <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n   <div class=\"").concat(swalClasses.range, "\">\n     <input type=\"range\" />\n     <output></output>\n   </div>\n   <select class=\"").concat(swalClasses.select, "\" id=\"").concat(swalClasses.select, "\"></select>\n   <div class=\"").concat(swalClasses.radio, "\"></div>\n   <label class=\"").concat(swalClasses.checkbox, "\">\n     <input type=\"checkbox\" id=\"").concat(swalClasses.checkbox, "\" />\n     <span class=\"").concat(swalClasses.label, "\"></span>\n   </label>\n   <textarea class=\"").concat(swalClasses.textarea, "\" id=\"").concat(swalClasses.textarea, "\"></textarea>\n   <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <div class=\"").concat(swalClasses.loader, "\"></div>\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\"></button>\n     <button type=\"button\" class=\"").concat(swalClasses.deny, "\"></button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar-container'], "\">\n     <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n   </div>\n </div>\n").replace(/(^|\n)\s*/g, '');
+
+  /**
+   * @returns {boolean}
+   */
+  var resetOldContainer = function resetOldContainer() {
+    var oldContainer = getContainer();
+    if (!oldContainer) {
+      return false;
+    }
+    oldContainer.remove();
+    removeClass([document.documentElement, document.body], [swalClasses['no-backdrop'], swalClasses['toast-shown'], swalClasses['has-column']]);
+    return true;
+  };
+  var resetValidationMessage$1 = function resetValidationMessage() {
+    globalState.currentInstance.resetValidationMessage();
+  };
+  var addInputChangeListeners = function addInputChangeListeners() {
+    var popup = getPopup();
+    var input = getDirectChildByClass(popup, swalClasses.input);
+    var file = getDirectChildByClass(popup, swalClasses.file);
+    /** @type {HTMLInputElement} */
+    var range = popup.querySelector(".".concat(swalClasses.range, " input"));
+    /** @type {HTMLOutputElement} */
+    var rangeOutput = popup.querySelector(".".concat(swalClasses.range, " output"));
+    var select = getDirectChildByClass(popup, swalClasses.select);
+    /** @type {HTMLInputElement} */
+    var checkbox = popup.querySelector(".".concat(swalClasses.checkbox, " input"));
+    var textarea = getDirectChildByClass(popup, swalClasses.textarea);
+    input.oninput = resetValidationMessage$1;
+    file.onchange = resetValidationMessage$1;
+    select.onchange = resetValidationMessage$1;
+    checkbox.onchange = resetValidationMessage$1;
+    textarea.oninput = resetValidationMessage$1;
+    range.oninput = function () {
+      resetValidationMessage$1();
+      rangeOutput.value = range.value;
+    };
+    range.onchange = function () {
+      resetValidationMessage$1();
+      rangeOutput.value = range.value;
+    };
+  };
+
+  /**
+   * @param {string | HTMLElement} target
+   * @returns {HTMLElement}
+   */
+  var getTarget = function getTarget(target) {
+    return typeof target === 'string' ? document.querySelector(target) : target;
+  };
+
+  /**
+   * @param {SweetAlertOptions} params
+   */
+  var setupAccessibility = function setupAccessibility(params) {
+    var popup = getPopup();
+    popup.setAttribute('role', params.toast ? 'alert' : 'dialog');
+    popup.setAttribute('aria-live', params.toast ? 'polite' : 'assertive');
+    if (!params.toast) {
+      popup.setAttribute('aria-modal', 'true');
+    }
+  };
+
+  /**
+   * @param {HTMLElement} targetElement
+   */
+  var setupRTL = function setupRTL(targetElement) {
+    if (window.getComputedStyle(targetElement).direction === 'rtl') {
+      addClass(getContainer(), swalClasses.rtl);
+    }
+  };
+
+  /**
+   * Add modal + backdrop + no-war message for Russians to DOM
+   *
+   * @param {SweetAlertOptions} params
+   */
+  var init = function init(params) {
+    // Clean up the old popup container if it exists
+    var oldContainerExisted = resetOldContainer();
+    if (isNodeEnv()) {
+      error('SweetAlert2 requires document to initialize');
+      return;
+    }
+    var container = document.createElement('div');
+    container.className = swalClasses.container;
+    if (oldContainerExisted) {
+      addClass(container, swalClasses['no-transition']);
+    }
+    setInnerHtml(container, sweetHTML);
+    var targetElement = getTarget(params.target);
+    targetElement.appendChild(container);
+    setupAccessibility(params);
+    setupRTL(targetElement);
+    addInputChangeListeners();
+  };
+
+  /**
+   * @param {HTMLElement | object | string} param
+   * @param {HTMLElement} target
+   */
+  var parseHtmlToContainer = function parseHtmlToContainer(param, target) {
+    // DOM element
+    if (param instanceof HTMLElement) {
+      target.appendChild(param);
+    }
+
+    // Object
+    else if (_typeof(param) === 'object') {
+      handleObject(param, target);
+    }
+
+    // Plain string
+    else if (param) {
+      setInnerHtml(target, param);
+    }
+  };
+
+  /**
+   * @param {any} param
+   * @param {HTMLElement} target
+   */
+  var handleObject = function handleObject(param, target) {
+    // JQuery element(s)
+    if (param.jquery) {
+      handleJqueryElem(target, param);
+    }
+
+    // For other objects use their string representation
+    else {
+      setInnerHtml(target, param.toString());
+    }
+  };
+
+  /**
+   * @param {HTMLElement} target
+   * @param {any} elem
+   */
+  var handleJqueryElem = function handleJqueryElem(target, elem) {
+    target.textContent = '';
+    if (0 in elem) {
+      for (var i = 0; (i in elem); i++) {
+        target.appendChild(elem[i].cloneNode(true));
+      }
+    } else {
+      target.appendChild(elem.cloneNode(true));
+    }
+  };
+
+  /**
+   * @returns {'webkitAnimationEnd' | 'animationend' | false}
+   */
+  var animationEndEvent = function () {
+    // Prevent run in Node env
+    if (isNodeEnv()) {
+      return false;
+    }
+    var testEl = document.createElement('div');
+
+    // Chrome, Safari and Opera
+    if (typeof testEl.style.webkitAnimation !== 'undefined') {
+      return 'webkitAnimationEnd';
+    }
+
+    // Standard syntax
+    if (typeof testEl.style.animation !== 'undefined') {
+      return 'animationend';
+    }
+    return false;
+  }();
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  var renderActions = function renderActions(instance, params) {
+    var actions = getActions();
+    var loader = getLoader();
+    if (!actions || !loader) {
+      return;
+    }
+
+    // Actions (buttons) wrapper
+    if (!params.showConfirmButton && !params.showDenyButton && !params.showCancelButton) {
+      hide(actions);
+    } else {
+      show(actions);
+    }
+
+    // Custom class
+    applyCustomClass(actions, params, 'actions');
+
+    // Render all the buttons
+    renderButtons(actions, loader, params);
+
+    // Loader
+    setInnerHtml(loader, params.loaderHtml || '');
+    applyCustomClass(loader, params, 'loader');
+  };
+
+  /**
+   * @param {HTMLElement} actions
+   * @param {HTMLElement} loader
+   * @param {SweetAlertOptions} params
+   */
+  function renderButtons(actions, loader, params) {
+    var confirmButton = getConfirmButton();
+    var denyButton = getDenyButton();
+    var cancelButton = getCancelButton();
+    if (!confirmButton || !denyButton || !cancelButton) {
+      return;
+    }
+
+    // Render buttons
+    renderButton(confirmButton, 'confirm', params);
+    renderButton(denyButton, 'deny', params);
+    renderButton(cancelButton, 'cancel', params);
+    handleButtonsStyling(confirmButton, denyButton, cancelButton, params);
+    if (params.reverseButtons) {
+      if (params.toast) {
+        actions.insertBefore(cancelButton, confirmButton);
+        actions.insertBefore(denyButton, confirmButton);
+      } else {
+        actions.insertBefore(cancelButton, loader);
+        actions.insertBefore(denyButton, loader);
+        actions.insertBefore(confirmButton, loader);
+      }
+    }
+  }
+
+  /**
+   * @param {HTMLElement} confirmButton
+   * @param {HTMLElement} denyButton
+   * @param {HTMLElement} cancelButton
+   * @param {SweetAlertOptions} params
+   */
+  function handleButtonsStyling(confirmButton, denyButton, cancelButton, params) {
+    if (!params.buttonsStyling) {
+      removeClass([confirmButton, denyButton, cancelButton], swalClasses.styled);
+      return;
+    }
+    addClass([confirmButton, denyButton, cancelButton], swalClasses.styled);
+
+    // Buttons background colors
+    if (params.confirmButtonColor) {
+      confirmButton.style.backgroundColor = params.confirmButtonColor;
+      addClass(confirmButton, swalClasses['default-outline']);
+    }
+    if (params.denyButtonColor) {
+      denyButton.style.backgroundColor = params.denyButtonColor;
+      addClass(denyButton, swalClasses['default-outline']);
+    }
+    if (params.cancelButtonColor) {
+      cancelButton.style.backgroundColor = params.cancelButtonColor;
+      addClass(cancelButton, swalClasses['default-outline']);
+    }
+  }
+
+  /**
+   * @param {HTMLElement} button
+   * @param {'confirm' | 'deny' | 'cancel'} buttonType
+   * @param {SweetAlertOptions} params
+   */
+  function renderButton(button, buttonType, params) {
+    var buttonName = /** @type {'Confirm' | 'Deny' | 'Cancel'} */capitalizeFirstLetter(buttonType);
+    toggle(button, params["show".concat(buttonName, "Button")], 'inline-block');
+    setInnerHtml(button, params["".concat(buttonType, "ButtonText")] || ''); // Set caption text
+    button.setAttribute('aria-label', params["".concat(buttonType, "ButtonAriaLabel")] || ''); // ARIA label
+
+    // Add buttons custom classes
+    button.className = swalClasses[buttonType];
+    applyCustomClass(button, params, "".concat(buttonType, "Button"));
+  }
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  var renderCloseButton = function renderCloseButton(instance, params) {
+    var closeButton = getCloseButton();
+    if (!closeButton) {
+      return;
+    }
+    setInnerHtml(closeButton, params.closeButtonHtml || '');
+
+    // Custom class
+    applyCustomClass(closeButton, params, 'closeButton');
+    toggle(closeButton, params.showCloseButton);
+    closeButton.setAttribute('aria-label', params.closeButtonAriaLabel || '');
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  var renderContainer = function renderContainer(instance, params) {
+    var container = getContainer();
+    if (!container) {
+      return;
+    }
+    handleBackdropParam(container, params.backdrop);
+    handlePositionParam(container, params.position);
+    handleGrowParam(container, params.grow);
+
+    // Custom class
+    applyCustomClass(container, params, 'container');
+  };
+
+  /**
+   * @param {HTMLElement} container
+   * @param {SweetAlertOptions['backdrop']} backdrop
+   */
+  function handleBackdropParam(container, backdrop) {
+    if (typeof backdrop === 'string') {
+      container.style.background = backdrop;
+    } else if (!backdrop) {
+      addClass([document.documentElement, document.body], swalClasses['no-backdrop']);
+    }
+  }
+
+  /**
+   * @param {HTMLElement} container
+   * @param {SweetAlertOptions['position']} position
+   */
+  function handlePositionParam(container, position) {
+    if (!position) {
+      return;
+    }
+    if (position in swalClasses) {
+      addClass(container, swalClasses[position]);
+    } else {
+      warn('The "position" parameter is not valid, defaulting to "center"');
+      addClass(container, swalClasses.center);
+    }
+  }
+
+  /**
+   * @param {HTMLElement} container
+   * @param {SweetAlertOptions['grow']} grow
+   */
+  function handleGrowParam(container, grow) {
+    if (!grow) {
+      return;
+    }
+    addClass(container, swalClasses["grow-".concat(grow)]);
+  }
+
+  /**
+   * This module contains `WeakMap`s for each effectively-"private  property" that a `Swal` has.
+   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
+   * This is the approach that Babel will probably take to implement private methods/fields
+   *   https://github.com/tc39/proposal-private-methods
+   *   https://github.com/babel/babel/pull/7555
+   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
+   *   then we can use that language feature.
+   */
+
+  var privateProps = {
+    innerParams: new WeakMap(),
+    domCache: new WeakMap()
+  };
+
+  /** @type {InputClass[]} */
+  var inputClasses = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea'];
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  var renderInput = function renderInput(instance, params) {
+    var popup = getPopup();
+    if (!popup) {
+      return;
+    }
+    var innerParams = privateProps.innerParams.get(instance);
+    var rerender = !innerParams || params.input !== innerParams.input;
+    inputClasses.forEach(function (inputClass) {
+      var inputContainer = getDirectChildByClass(popup, swalClasses[inputClass]);
+      if (!inputContainer) {
+        return;
+      }
+
+      // set attributes
+      setAttributes(inputClass, params.inputAttributes);
+
+      // set class
+      inputContainer.className = swalClasses[inputClass];
+      if (rerender) {
+        hide(inputContainer);
+      }
+    });
+    if (params.input) {
+      if (rerender) {
+        showInput(params);
+      }
+      // set custom class
+      setCustomClass(params);
+    }
+  };
+
+  /**
+   * @param {SweetAlertOptions} params
+   */
+  var showInput = function showInput(params) {
+    if (!params.input) {
+      return;
+    }
+    if (!renderInputType[params.input]) {
+      error("Unexpected type of input! Expected ".concat(Object.keys(renderInputType).join(' | '), ", got \"").concat(params.input, "\""));
+      return;
+    }
+    var inputContainer = getInputContainer(params.input);
+    var input = renderInputType[params.input](inputContainer, params);
+    show(inputContainer);
+
+    // input autofocus
+    if (params.inputAutoFocus) {
+      setTimeout(function () {
+        focusInput(input);
+      });
+    }
+  };
+
+  /**
+   * @param {HTMLInputElement} input
+   */
+  var removeAttributes = function removeAttributes(input) {
+    for (var i = 0; i < input.attributes.length; i++) {
+      var attrName = input.attributes[i].name;
+      if (!['id', 'type', 'value', 'style'].includes(attrName)) {
+        input.removeAttribute(attrName);
+      }
+    }
+  };
+
+  /**
+   * @param {InputClass} inputClass
+   * @param {SweetAlertOptions['inputAttributes']} inputAttributes
+   */
+  var setAttributes = function setAttributes(inputClass, inputAttributes) {
+    var input = getInput$1(getPopup(), inputClass);
+    if (!input) {
+      return;
+    }
+    removeAttributes(input);
+    for (var attr in inputAttributes) {
+      input.setAttribute(attr, inputAttributes[attr]);
+    }
+  };
+
+  /**
+   * @param {SweetAlertOptions} params
+   */
+  var setCustomClass = function setCustomClass(params) {
+    var inputContainer = getInputContainer(params.input);
+    if (_typeof(params.customClass) === 'object') {
+      addClass(inputContainer, params.customClass.input);
+    }
+  };
+
+  /**
+   * @param {HTMLInputElement | HTMLTextAreaElement} input
+   * @param {SweetAlertOptions} params
+   */
+  var setInputPlaceholder = function setInputPlaceholder(input, params) {
+    if (!input.placeholder || params.inputPlaceholder) {
+      input.placeholder = params.inputPlaceholder;
+    }
+  };
+
+  /**
+   * @param {Input} input
+   * @param {Input} prependTo
+   * @param {SweetAlertOptions} params
+   */
+  var setInputLabel = function setInputLabel(input, prependTo, params) {
+    if (params.inputLabel) {
+      var label = document.createElement('label');
+      var labelClass = swalClasses['input-label'];
+      label.setAttribute('for', input.id);
+      label.className = labelClass;
+      if (_typeof(params.customClass) === 'object') {
+        addClass(label, params.customClass.inputLabel);
+      }
+      label.innerText = params.inputLabel;
+      prependTo.insertAdjacentElement('beforebegin', label);
+    }
+  };
+
+  /**
+   * @param {SweetAlertOptions['input']} inputType
+   * @returns {HTMLElement}
+   */
+  var getInputContainer = function getInputContainer(inputType) {
+    return getDirectChildByClass(getPopup(), swalClasses[inputType] || swalClasses.input);
+  };
+
+  /**
+   * @param {HTMLInputElement | HTMLOutputElement | HTMLTextAreaElement} input
+   * @param {SweetAlertOptions['inputValue']} inputValue
+   */
+  var checkAndSetInputValue = function checkAndSetInputValue(input, inputValue) {
+    if (['string', 'number'].includes(_typeof(inputValue))) {
+      input.value = "".concat(inputValue);
+    } else if (!isPromise(inputValue)) {
+      warn("Unexpected type of inputValue! Expected \"string\", \"number\" or \"Promise\", got \"".concat(_typeof(inputValue), "\""));
+    }
+  };
+
+  /** @type {Record<SweetAlertInput, (input: Input | HTMLElement, params: SweetAlertOptions) => Input>} */
+  var renderInputType = {};
+
+  /**
+   * @param {HTMLInputElement} input
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLInputElement}
+   */
+  renderInputType.text = renderInputType.email = renderInputType.password = renderInputType.number = renderInputType.tel = renderInputType.url = renderInputType.search = renderInputType.date = renderInputType['datetime-local'] = renderInputType.time = renderInputType.week = renderInputType.month = function (input, params) {
+    checkAndSetInputValue(input, params.inputValue);
+    setInputLabel(input, input, params);
+    setInputPlaceholder(input, params);
+    input.type = params.input;
+    return input;
+  };
+
+  /**
+   * @param {HTMLInputElement} input
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLInputElement}
+   */
+  renderInputType.file = function (input, params) {
+    setInputLabel(input, input, params);
+    setInputPlaceholder(input, params);
+    return input;
+  };
+
+  /**
+   * @param {HTMLInputElement} range
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLInputElement}
+   */
+  renderInputType.range = function (range, params) {
+    var rangeInput = range.querySelector('input');
+    var rangeOutput = range.querySelector('output');
+    checkAndSetInputValue(rangeInput, params.inputValue);
+    rangeInput.type = params.input;
+    checkAndSetInputValue(rangeOutput, params.inputValue);
+    setInputLabel(rangeInput, range, params);
+    return range;
+  };
+
+  /**
+   * @param {HTMLSelectElement} select
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLSelectElement}
+   */
+  renderInputType.select = function (select, params) {
+    select.textContent = '';
+    if (params.inputPlaceholder) {
+      var placeholder = document.createElement('option');
+      setInnerHtml(placeholder, params.inputPlaceholder);
+      placeholder.value = '';
+      placeholder.disabled = true;
+      placeholder.selected = true;
+      select.appendChild(placeholder);
+    }
+    setInputLabel(select, select, params);
+    return select;
+  };
+
+  /**
+   * @param {HTMLInputElement} radio
+   * @returns {HTMLInputElement}
+   */
+  renderInputType.radio = function (radio) {
+    radio.textContent = '';
+    return radio;
+  };
+
+  /**
+   * @param {HTMLLabelElement} checkboxContainer
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLInputElement}
+   */
+  renderInputType.checkbox = function (checkboxContainer, params) {
+    var checkbox = getInput$1(getPopup(), 'checkbox');
+    checkbox.value = '1';
+    checkbox.checked = Boolean(params.inputValue);
+    var label = checkboxContainer.querySelector('span');
+    setInnerHtml(label, params.inputPlaceholder);
+    return checkbox;
+  };
+
+  /**
+   * @param {HTMLTextAreaElement} textarea
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLTextAreaElement}
+   */
+  renderInputType.textarea = function (textarea, params) {
+    checkAndSetInputValue(textarea, params.inputValue);
+    setInputPlaceholder(textarea, params);
+    setInputLabel(textarea, textarea, params);
+
+    /**
+     * @param {HTMLElement} el
+     * @returns {number}
+     */
+    var getMargin = function getMargin(el) {
+      return parseInt(window.getComputedStyle(el).marginLeft) + parseInt(window.getComputedStyle(el).marginRight);
+    };
+
+    // https://github.com/sweetalert2/sweetalert2/issues/2291
+    setTimeout(function () {
+      // https://github.com/sweetalert2/sweetalert2/issues/1699
+      if ('MutationObserver' in window) {
+        var initialPopupWidth = parseInt(window.getComputedStyle(getPopup()).width);
+        var textareaResizeHandler = function textareaResizeHandler() {
+          // check if texarea is still in document (i.e. popup wasn't closed in the meantime)
+          if (!document.body.contains(textarea)) {
+            return;
+          }
+          var textareaWidth = textarea.offsetWidth + getMargin(textarea);
+          if (textareaWidth > initialPopupWidth) {
+            getPopup().style.width = "".concat(textareaWidth, "px");
+          } else {
+            applyNumericalStyle(getPopup(), 'width', params.width);
+          }
+        };
+        new MutationObserver(textareaResizeHandler).observe(textarea, {
+          attributes: true,
+          attributeFilter: ['style']
+        });
+      }
+    });
+    return textarea;
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  var renderContent = function renderContent(instance, params) {
+    var htmlContainer = getHtmlContainer();
+    if (!htmlContainer) {
+      return;
+    }
+    showWhenInnerHtmlPresent(htmlContainer);
+    applyCustomClass(htmlContainer, params, 'htmlContainer');
+
+    // Content as HTML
+    if (params.html) {
+      parseHtmlToContainer(params.html, htmlContainer);
+      show(htmlContainer, 'block');
+    }
+
+    // Content as plain text
+    else if (params.text) {
+      htmlContainer.textContent = params.text;
+      show(htmlContainer, 'block');
+    }
+
+    // No content
+    else {
+      hide(htmlContainer);
+    }
+    renderInput(instance, params);
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  var renderFooter = function renderFooter(instance, params) {
+    var footer = getFooter();
+    if (!footer) {
+      return;
+    }
+    showWhenInnerHtmlPresent(footer);
+    toggle(footer, params.footer, 'block');
+    if (params.footer) {
+      parseHtmlToContainer(params.footer, footer);
+    }
+
+    // Custom class
+    applyCustomClass(footer, params, 'footer');
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  var renderIcon = function renderIcon(instance, params) {
+    var innerParams = privateProps.innerParams.get(instance);
+    var icon = getIcon();
+    if (!icon) {
+      return;
+    }
+
+    // if the given icon already rendered, apply the styling without re-rendering the icon
+    if (innerParams && params.icon === innerParams.icon) {
+      // Custom or default content
+      setContent(icon, params);
+      applyStyles(icon, params);
+      return;
+    }
+    if (!params.icon && !params.iconHtml) {
+      hide(icon);
+      return;
+    }
+    if (params.icon && Object.keys(iconTypes).indexOf(params.icon) === -1) {
+      error("Unknown icon! Expected \"success\", \"error\", \"warning\", \"info\" or \"question\", got \"".concat(params.icon, "\""));
+      hide(icon);
+      return;
+    }
+    show(icon);
+
+    // Custom or default content
+    setContent(icon, params);
+    applyStyles(icon, params);
+
+    // Animate icon
+    addClass(icon, params.showClass && params.showClass.icon);
+  };
+
+  /**
+   * @param {HTMLElement} icon
+   * @param {SweetAlertOptions} params
+   */
+  var applyStyles = function applyStyles(icon, params) {
+    for (var _i = 0, _Object$entries = Object.entries(iconTypes); _i < _Object$entries.length; _i++) {
+      var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+        iconType = _Object$entries$_i[0],
+        iconClassName = _Object$entries$_i[1];
+      if (params.icon !== iconType) {
+        removeClass(icon, iconClassName);
+      }
+    }
+    addClass(icon, params.icon && iconTypes[params.icon]);
+
+    // Icon color
+    setColor(icon, params);
+
+    // Success icon background color
+    adjustSuccessIconBackgroundColor();
+
+    // Custom class
+    applyCustomClass(icon, params, 'icon');
+  };
+
+  // Adjust success icon background color to match the popup background color
+  var adjustSuccessIconBackgroundColor = function adjustSuccessIconBackgroundColor() {
+    var popup = getPopup();
+    if (!popup) {
+      return;
+    }
+    var popupBackgroundColor = window.getComputedStyle(popup).getPropertyValue('background-color');
+    /** @type {NodeListOf<HTMLElement>} */
+    var successIconParts = popup.querySelectorAll('[class^=swal2-success-circular-line], .swal2-success-fix');
+    for (var i = 0; i < successIconParts.length; i++) {
+      successIconParts[i].style.backgroundColor = popupBackgroundColor;
+    }
+  };
+  var successIconHtml = "\n  <div class=\"swal2-success-circular-line-left\"></div>\n  <span class=\"swal2-success-line-tip\"></span> <span class=\"swal2-success-line-long\"></span>\n  <div class=\"swal2-success-ring\"></div> <div class=\"swal2-success-fix\"></div>\n  <div class=\"swal2-success-circular-line-right\"></div>\n";
+  var errorIconHtml = "\n  <span class=\"swal2-x-mark\">\n    <span class=\"swal2-x-mark-line-left\"></span>\n    <span class=\"swal2-x-mark-line-right\"></span>\n  </span>\n";
+
+  /**
+   * @param {HTMLElement} icon
+   * @param {SweetAlertOptions} params
+   */
+  var setContent = function setContent(icon, params) {
+    if (!params.icon && !params.iconHtml) {
+      return;
+    }
+    var oldContent = icon.innerHTML;
+    var newContent = '';
+    if (params.iconHtml) {
+      newContent = iconContent(params.iconHtml);
+    } else if (params.icon === 'success') {
+      newContent = successIconHtml;
+      oldContent = oldContent.replace(/ style=".*?"/g, ''); // undo adjustSuccessIconBackgroundColor()
+    } else if (params.icon === 'error') {
+      newContent = errorIconHtml;
+    } else if (params.icon) {
+      var defaultIconHtml = {
+        question: '?',
+        warning: '!',
+        info: 'i'
+      };
+      newContent = iconContent(defaultIconHtml[params.icon]);
+    }
+    if (oldContent.trim() !== newContent.trim()) {
+      setInnerHtml(icon, newContent);
+    }
+  };
+
+  /**
+   * @param {HTMLElement} icon
+   * @param {SweetAlertOptions} params
+   */
+  var setColor = function setColor(icon, params) {
+    if (!params.iconColor) {
+      return;
+    }
+    icon.style.color = params.iconColor;
+    icon.style.borderColor = params.iconColor;
+    for (var _i2 = 0, _arr = ['.swal2-success-line-tip', '.swal2-success-line-long', '.swal2-x-mark-line-left', '.swal2-x-mark-line-right']; _i2 < _arr.length; _i2++) {
+      var sel = _arr[_i2];
+      setStyle(icon, sel, 'background-color', params.iconColor);
+    }
+    setStyle(icon, '.swal2-success-ring', 'border-color', params.iconColor);
+  };
+
+  /**
+   * @param {string} content
+   * @returns {string}
+   */
+  var iconContent = function iconContent(content) {
+    return "<div class=\"".concat(swalClasses['icon-content'], "\">").concat(content, "</div>");
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  var renderImage = function renderImage(instance, params) {
+    var image = getImage();
+    if (!image) {
+      return;
+    }
+    if (!params.imageUrl) {
+      hide(image);
+      return;
+    }
+    show(image, '');
+
+    // Src, alt
+    image.setAttribute('src', params.imageUrl);
+    image.setAttribute('alt', params.imageAlt || '');
+
+    // Width, height
+    applyNumericalStyle(image, 'width', params.imageWidth);
+    applyNumericalStyle(image, 'height', params.imageHeight);
+
+    // Class
+    image.className = swalClasses.image;
+    applyCustomClass(image, params, 'image');
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  var renderPopup = function renderPopup(instance, params) {
+    var container = getContainer();
+    var popup = getPopup();
+    if (!container || !popup) {
+      return;
+    }
+
+    // Width
+    // https://github.com/sweetalert2/sweetalert2/issues/2170
+    if (params.toast) {
+      applyNumericalStyle(container, 'width', params.width);
+      popup.style.width = '100%';
+      var loader = getLoader();
+      loader && popup.insertBefore(loader, getIcon());
+    } else {
+      applyNumericalStyle(popup, 'width', params.width);
+    }
+
+    // Padding
+    applyNumericalStyle(popup, 'padding', params.padding);
+
+    // Color
+    if (params.color) {
+      popup.style.color = params.color;
+    }
+
+    // Background
+    if (params.background) {
+      popup.style.background = params.background;
+    }
+    hide(getValidationMessage());
+
+    // Classes
+    addClasses$1(popup, params);
+  };
+
+  /**
+   * @param {HTMLElement} popup
+   * @param {SweetAlertOptions} params
+   */
+  var addClasses$1 = function addClasses(popup, params) {
+    var showClass = params.showClass || {};
+    // Default Class + showClass when updating Swal.update({})
+    popup.className = "".concat(swalClasses.popup, " ").concat(isVisible$1(popup) ? showClass.popup : '');
+    if (params.toast) {
+      addClass([document.documentElement, document.body], swalClasses['toast-shown']);
+      addClass(popup, swalClasses.toast);
+    } else {
+      addClass(popup, swalClasses.modal);
+    }
+
+    // Custom class
+    applyCustomClass(popup, params, 'popup');
+    // TODO: remove in the next major
+    if (typeof params.customClass === 'string') {
+      addClass(popup, params.customClass);
+    }
+
+    // Icon class (#1842)
+    if (params.icon) {
+      addClass(popup, swalClasses["icon-".concat(params.icon)]);
+    }
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  var renderProgressSteps = function renderProgressSteps(instance, params) {
+    var progressStepsContainer = getProgressSteps();
+    if (!progressStepsContainer) {
+      return;
+    }
+    var progressSteps = params.progressSteps,
+      currentProgressStep = params.currentProgressStep;
+    if (!progressSteps || progressSteps.length === 0 || currentProgressStep === undefined) {
+      hide(progressStepsContainer);
+      return;
+    }
+    show(progressStepsContainer);
+    progressStepsContainer.textContent = '';
+    if (currentProgressStep >= progressSteps.length) {
+      warn('Invalid currentProgressStep parameter, it should be less than progressSteps.length ' + '(currentProgressStep like JS arrays starts from 0)');
+    }
+    progressSteps.forEach(function (step, index) {
+      var stepEl = createStepElement(step);
+      progressStepsContainer.appendChild(stepEl);
+      if (index === currentProgressStep) {
+        addClass(stepEl, swalClasses['active-progress-step']);
+      }
+      if (index !== progressSteps.length - 1) {
+        var lineEl = createLineElement(params);
+        progressStepsContainer.appendChild(lineEl);
+      }
+    });
+  };
+
+  /**
+   * @param {string} step
+   * @returns {HTMLLIElement}
+   */
+  var createStepElement = function createStepElement(step) {
+    var stepEl = document.createElement('li');
+    addClass(stepEl, swalClasses['progress-step']);
+    setInnerHtml(stepEl, step);
+    return stepEl;
+  };
+
+  /**
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLLIElement}
+   */
+  var createLineElement = function createLineElement(params) {
+    var lineEl = document.createElement('li');
+    addClass(lineEl, swalClasses['progress-step-line']);
+    if (params.progressStepsDistance) {
+      applyNumericalStyle(lineEl, 'width', params.progressStepsDistance);
+    }
+    return lineEl;
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  var renderTitle = function renderTitle(instance, params) {
+    var title = getTitle();
+    if (!title) {
+      return;
+    }
+    showWhenInnerHtmlPresent(title);
+    toggle(title, params.title || params.titleText, 'block');
+    if (params.title) {
+      parseHtmlToContainer(params.title, title);
+    }
+    if (params.titleText) {
+      title.innerText = params.titleText;
+    }
+
+    // Custom class
+    applyCustomClass(title, params, 'title');
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  var render = function render(instance, params) {
+    renderPopup(instance, params);
+    renderContainer(instance, params);
+    renderProgressSteps(instance, params);
+    renderIcon(instance, params);
+    renderImage(instance, params);
+    renderTitle(instance, params);
+    renderCloseButton(instance, params);
+    renderContent(instance, params);
+    renderActions(instance, params);
+    renderFooter(instance, params);
+    var popup = getPopup();
+    if (typeof params.didRender === 'function' && popup) {
+      params.didRender(popup);
+    }
+  };
+
+  /*
+   * Global function to determine if SweetAlert2 popup is shown
+   */
+  var isVisible = function isVisible() {
+    return isVisible$1(getPopup());
+  };
+
+  /*
+   * Global function to click 'Confirm' button
+   */
+  var clickConfirm = function clickConfirm() {
+    var _dom$getConfirmButton;
+    return (_dom$getConfirmButton = getConfirmButton()) === null || _dom$getConfirmButton === void 0 ? void 0 : _dom$getConfirmButton.click();
+  };
+
+  /*
+   * Global function to click 'Deny' button
+   */
+  var clickDeny = function clickDeny() {
+    var _dom$getDenyButton;
+    return (_dom$getDenyButton = getDenyButton()) === null || _dom$getDenyButton === void 0 ? void 0 : _dom$getDenyButton.click();
+  };
+
+  /*
+   * Global function to click 'Cancel' button
+   */
+  var clickCancel = function clickCancel() {
+    var _dom$getCancelButton;
+    return (_dom$getCancelButton = getCancelButton()) === null || _dom$getCancelButton === void 0 ? void 0 : _dom$getCancelButton.click();
+  };
+
+  /** @typedef {'cancel' | 'backdrop' | 'close' | 'esc' | 'timer'} DismissReason */
+
+  /** @type {Record<DismissReason, DismissReason>} */
+  var DismissReason = Object.freeze({
+    cancel: 'cancel',
+    backdrop: 'backdrop',
+    close: 'close',
+    esc: 'esc',
+    timer: 'timer'
+  });
+
+  /**
+   * @param {GlobalState} globalState
+   */
+  var removeKeydownHandler = function removeKeydownHandler(globalState) {
+    if (globalState.keydownTarget && globalState.keydownHandlerAdded) {
+      globalState.keydownTarget.removeEventListener('keydown', globalState.keydownHandler, {
+        capture: globalState.keydownListenerCapture
+      });
+      globalState.keydownHandlerAdded = false;
+    }
+  };
+
+  /**
+   * @param {GlobalState} globalState
+   * @param {SweetAlertOptions} innerParams
+   * @param {*} dismissWith
+   */
+  var addKeydownHandler = function addKeydownHandler(globalState, innerParams, dismissWith) {
+    removeKeydownHandler(globalState);
+    if (!innerParams.toast) {
+      globalState.keydownHandler = function (e) {
+        return keydownHandler(innerParams, e, dismissWith);
+      };
+      globalState.keydownTarget = innerParams.keydownListenerCapture ? window : getPopup();
+      globalState.keydownListenerCapture = innerParams.keydownListenerCapture;
+      globalState.keydownTarget.addEventListener('keydown', globalState.keydownHandler, {
+        capture: globalState.keydownListenerCapture
+      });
+      globalState.keydownHandlerAdded = true;
+    }
+  };
+
+  /**
+   * @param {number} index
+   * @param {number} increment
+   */
+  var setFocus = function setFocus(index, increment) {
+    var _dom$getPopup;
+    var focusableElements = getFocusableElements();
+    // search for visible elements and select the next possible match
+    if (focusableElements.length) {
+      index = index + increment;
+
+      // rollover to first item
+      if (index === focusableElements.length) {
+        index = 0;
+
+        // go to last item
+      } else if (index === -1) {
+        index = focusableElements.length - 1;
+      }
+      focusableElements[index].focus();
+      return;
+    }
+    // no visible focusable elements, focus the popup
+    (_dom$getPopup = getPopup()) === null || _dom$getPopup === void 0 || _dom$getPopup.focus();
+  };
+  var arrowKeysNextButton = ['ArrowRight', 'ArrowDown'];
+  var arrowKeysPreviousButton = ['ArrowLeft', 'ArrowUp'];
+
+  /**
+   * @param {SweetAlertOptions} innerParams
+   * @param {KeyboardEvent} event
+   * @param {Function} dismissWith
+   */
+  var keydownHandler = function keydownHandler(innerParams, event, dismissWith) {
+    if (!innerParams) {
+      return; // This instance has already been destroyed
+    }
+
+    // Ignore keydown during IME composition
+    // https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event#ignoring_keydown_during_ime_composition
+    // https://github.com/sweetalert2/sweetalert2/issues/720
+    // https://github.com/sweetalert2/sweetalert2/issues/2406
+    if (event.isComposing || event.keyCode === 229) {
+      return;
+    }
+    if (innerParams.stopKeydownPropagation) {
+      event.stopPropagation();
+    }
+
+    // ENTER
+    if (event.key === 'Enter') {
+      handleEnter(event, innerParams);
+    }
+
+    // TAB
+    else if (event.key === 'Tab') {
+      handleTab(event);
+    }
+
+    // ARROWS - switch focus between buttons
+    else if ([].concat(arrowKeysNextButton, arrowKeysPreviousButton).includes(event.key)) {
+      handleArrows(event.key);
+    }
+
+    // ESC
+    else if (event.key === 'Escape') {
+      handleEsc(event, innerParams, dismissWith);
+    }
+  };
+
+  /**
+   * @param {KeyboardEvent} event
+   * @param {SweetAlertOptions} innerParams
+   */
+  var handleEnter = function handleEnter(event, innerParams) {
+    // https://github.com/sweetalert2/sweetalert2/issues/2386
+    if (!callIfFunction(innerParams.allowEnterKey)) {
+      return;
+    }
+    var input = getInput$1(getPopup(), innerParams.input);
+    if (event.target && input && event.target instanceof HTMLElement && event.target.outerHTML === input.outerHTML) {
+      if (['textarea', 'file'].includes(innerParams.input)) {
+        return; // do not submit
+      }
+      clickConfirm();
+      event.preventDefault();
+    }
+  };
+
+  /**
+   * @param {KeyboardEvent} event
+   */
+  var handleTab = function handleTab(event) {
+    var targetElement = event.target;
+    var focusableElements = getFocusableElements();
+    var btnIndex = -1;
+    for (var i = 0; i < focusableElements.length; i++) {
+      if (targetElement === focusableElements[i]) {
+        btnIndex = i;
+        break;
+      }
+    }
+
+    // Cycle to the next button
+    if (!event.shiftKey) {
+      setFocus(btnIndex, 1);
+    }
+
+    // Cycle to the prev button
+    else {
+      setFocus(btnIndex, -1);
+    }
+    event.stopPropagation();
+    event.preventDefault();
+  };
+
+  /**
+   * @param {string} key
+   */
+  var handleArrows = function handleArrows(key) {
+    var actions = getActions();
+    var confirmButton = getConfirmButton();
+    var denyButton = getDenyButton();
+    var cancelButton = getCancelButton();
+    if (!actions || !confirmButton || !denyButton || !cancelButton) {
+      return;
+    }
+    /** @type HTMLElement[] */
+    var buttons = [confirmButton, denyButton, cancelButton];
+    if (document.activeElement instanceof HTMLElement && !buttons.includes(document.activeElement)) {
+      return;
+    }
+    var sibling = arrowKeysNextButton.includes(key) ? 'nextElementSibling' : 'previousElementSibling';
+    var buttonToFocus = document.activeElement;
+    if (!buttonToFocus) {
+      return;
+    }
+    for (var i = 0; i < actions.children.length; i++) {
+      buttonToFocus = buttonToFocus[sibling];
+      if (!buttonToFocus) {
+        return;
+      }
+      if (buttonToFocus instanceof HTMLButtonElement && isVisible$1(buttonToFocus)) {
+        break;
+      }
+    }
+    if (buttonToFocus instanceof HTMLButtonElement) {
+      buttonToFocus.focus();
+    }
+  };
+
+  /**
+   * @param {KeyboardEvent} event
+   * @param {SweetAlertOptions} innerParams
+   * @param {Function} dismissWith
+   */
+  var handleEsc = function handleEsc(event, innerParams, dismissWith) {
+    if (callIfFunction(innerParams.allowEscapeKey)) {
+      event.preventDefault();
+      dismissWith(DismissReason.esc);
+    }
+  };
+
+  /**
+   * This module contains `WeakMap`s for each effectively-"private  property" that a `Swal` has.
+   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
+   * This is the approach that Babel will probably take to implement private methods/fields
+   *   https://github.com/tc39/proposal-private-methods
+   *   https://github.com/babel/babel/pull/7555
+   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
+   *   then we can use that language feature.
+   */
+
+  var privateMethods = {
+    swalPromiseResolve: new WeakMap(),
+    swalPromiseReject: new WeakMap()
+  };
+
+  // From https://developer.paciellogroup.com/blog/2018/06/the-current-state-of-modal-dialog-accessibility/
+  // Adding aria-hidden="true" to elements outside of the active modal dialog ensures that
+  // elements not within the active modal dialog will not be surfaced if a user opens a screen
+  // reader’s list of elements (headings, form controls, landmarks, etc.) in the document.
+
+  var setAriaHidden = function setAriaHidden() {
+    var container = getContainer();
+    var bodyChildren = Array.from(document.body.children);
+    bodyChildren.forEach(function (el) {
+      if (el.contains(container)) {
+        return;
+      }
+      if (el.hasAttribute('aria-hidden')) {
+        el.setAttribute('data-previous-aria-hidden', el.getAttribute('aria-hidden') || '');
+      }
+      el.setAttribute('aria-hidden', 'true');
+    });
+  };
+  var unsetAriaHidden = function unsetAriaHidden() {
+    var bodyChildren = Array.from(document.body.children);
+    bodyChildren.forEach(function (el) {
+      if (el.hasAttribute('data-previous-aria-hidden')) {
+        el.setAttribute('aria-hidden', el.getAttribute('data-previous-aria-hidden') || '');
+        el.removeAttribute('data-previous-aria-hidden');
+      } else {
+        el.removeAttribute('aria-hidden');
+      }
+    });
+  };
+
+  // @ts-ignore
+  var isSafariOrIOS = typeof window !== 'undefined' && !!window.GestureEvent; // true for Safari desktop + all iOS browsers https://stackoverflow.com/a/70585394
+
+  /**
+   * Fix iOS scrolling
+   * http://stackoverflow.com/q/39626302
+   */
+  var iOSfix = function iOSfix() {
+    if (isSafariOrIOS && !hasClass(document.body, swalClasses.iosfix)) {
+      var offset = document.body.scrollTop;
+      document.body.style.top = "".concat(offset * -1, "px");
+      addClass(document.body, swalClasses.iosfix);
+      lockBodyScroll();
+    }
+  };
+
+  /**
+   * https://github.com/sweetalert2/sweetalert2/issues/1246
+   */
+  var lockBodyScroll = function lockBodyScroll() {
+    var container = getContainer();
+    if (!container) {
+      return;
+    }
+    /** @type {boolean} */
+    var preventTouchMove;
+    /**
+     * @param {TouchEvent} event
+     */
+    container.ontouchstart = function (event) {
+      preventTouchMove = shouldPreventTouchMove(event);
+    };
+    /**
+     * @param {TouchEvent} event
+     */
+    container.ontouchmove = function (event) {
+      if (preventTouchMove) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    };
+  };
+
+  /**
+   * @param {TouchEvent} event
+   * @returns {boolean}
+   */
+  var shouldPreventTouchMove = function shouldPreventTouchMove(event) {
+    var target = event.target;
+    var container = getContainer();
+    var htmlContainer = getHtmlContainer();
+    if (!container || !htmlContainer) {
+      return false;
+    }
+    if (isStylus(event) || isZoom(event)) {
+      return false;
+    }
+    if (target === container) {
+      return true;
+    }
+    if (!isScrollable(container) && target instanceof HTMLElement && target.tagName !== 'INPUT' &&
+    // #1603
+    target.tagName !== 'TEXTAREA' &&
+    // #2266
+    !(isScrollable(htmlContainer) &&
+    // #1944
+    htmlContainer.contains(target))) {
+      return true;
+    }
+    return false;
+  };
+
+  /**
+   * https://github.com/sweetalert2/sweetalert2/issues/1786
+   *
+   * @param {*} event
+   * @returns {boolean}
+   */
+  var isStylus = function isStylus(event) {
+    return event.touches && event.touches.length && event.touches[0].touchType === 'stylus';
+  };
+
+  /**
+   * https://github.com/sweetalert2/sweetalert2/issues/1891
+   *
+   * @param {TouchEvent} event
+   * @returns {boolean}
+   */
+  var isZoom = function isZoom(event) {
+    return event.touches && event.touches.length > 1;
+  };
+  var undoIOSfix = function undoIOSfix() {
+    if (hasClass(document.body, swalClasses.iosfix)) {
+      var offset = parseInt(document.body.style.top, 10);
+      removeClass(document.body, swalClasses.iosfix);
+      document.body.style.top = '';
+      document.body.scrollTop = offset * -1;
+    }
+  };
+
+  /**
+   * Measure scrollbar width for padding body during modal show/hide
+   * https://github.com/twbs/bootstrap/blob/master/js/src/modal.js
+   *
+   * @returns {number}
+   */
+  var measureScrollbar = function measureScrollbar() {
+    var scrollDiv = document.createElement('div');
+    scrollDiv.className = swalClasses['scrollbar-measure'];
+    document.body.appendChild(scrollDiv);
+    var scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
+    document.body.removeChild(scrollDiv);
+    return scrollbarWidth;
+  };
+
+  /**
+   * Remember state in cases where opening and handling a modal will fiddle with it.
+   * @type {number | null}
+   */
+  var previousBodyPadding = null;
+
+  /**
+   * @param {string} initialBodyOverflow
+   */
+  var replaceScrollbarWithPadding = function replaceScrollbarWithPadding(initialBodyOverflow) {
+    // for queues, do not do this more than once
+    if (previousBodyPadding !== null) {
+      return;
+    }
+    // if the body has overflow
+    if (document.body.scrollHeight > window.innerHeight || initialBodyOverflow === 'scroll' // https://github.com/sweetalert2/sweetalert2/issues/2663
+    ) {
+      // add padding so the content doesn't shift after removal of scrollbar
+      previousBodyPadding = parseInt(window.getComputedStyle(document.body).getPropertyValue('padding-right'));
+      document.body.style.paddingRight = "".concat(previousBodyPadding + measureScrollbar(), "px");
+    }
+  };
+  var undoReplaceScrollbarWithPadding = function undoReplaceScrollbarWithPadding() {
+    if (previousBodyPadding !== null) {
+      document.body.style.paddingRight = "".concat(previousBodyPadding, "px");
+      previousBodyPadding = null;
+    }
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {HTMLElement} container
+   * @param {boolean} returnFocus
+   * @param {Function} didClose
+   */
+  function removePopupAndResetState(instance, container, returnFocus, didClose) {
+    if (isToast()) {
+      triggerDidCloseAndDispose(instance, didClose);
+    } else {
+      restoreActiveElement(returnFocus).then(function () {
+        return triggerDidCloseAndDispose(instance, didClose);
+      });
+      removeKeydownHandler(globalState);
+    }
+
+    // workaround for https://github.com/sweetalert2/sweetalert2/issues/2088
+    // for some reason removing the container in Safari will scroll the document to bottom
+    if (isSafariOrIOS) {
+      container.setAttribute('style', 'display:none !important');
+      container.removeAttribute('class');
+      container.innerHTML = '';
+    } else {
+      container.remove();
+    }
+    if (isModal()) {
+      undoReplaceScrollbarWithPadding();
+      undoIOSfix();
+      unsetAriaHidden();
+    }
+    removeBodyClasses();
+  }
+
+  /**
+   * Remove SweetAlert2 classes from body
+   */
+  function removeBodyClasses() {
+    removeClass([document.documentElement, document.body], [swalClasses.shown, swalClasses['height-auto'], swalClasses['no-backdrop'], swalClasses['toast-shown']]);
+  }
+
+  /**
+   * Instance method to close sweetAlert
+   *
+   * @param {any} resolveValue
+   */
+  function close(resolveValue) {
+    resolveValue = prepareResolveValue(resolveValue);
+    var swalPromiseResolve = privateMethods.swalPromiseResolve.get(this);
+    var didClose = triggerClosePopup(this);
+    if (this.isAwaitingPromise) {
+      // A swal awaiting for a promise (after a click on Confirm or Deny) cannot be dismissed anymore #2335
+      if (!resolveValue.isDismissed) {
+        handleAwaitingPromise(this);
+        swalPromiseResolve(resolveValue);
+      }
+    } else if (didClose) {
+      // Resolve Swal promise
+      swalPromiseResolve(resolveValue);
+    }
+  }
+  var triggerClosePopup = function triggerClosePopup(instance) {
+    var popup = getPopup();
+    if (!popup) {
+      return false;
+    }
+    var innerParams = privateProps.innerParams.get(instance);
+    if (!innerParams || hasClass(popup, innerParams.hideClass.popup)) {
+      return false;
+    }
+    removeClass(popup, innerParams.showClass.popup);
+    addClass(popup, innerParams.hideClass.popup);
+    var backdrop = getContainer();
+    removeClass(backdrop, innerParams.showClass.backdrop);
+    addClass(backdrop, innerParams.hideClass.backdrop);
+    handlePopupAnimation(instance, popup, innerParams);
+    return true;
+  };
+
+  /**
+   * @param {any} error
+   */
+  function rejectPromise(error) {
+    var rejectPromise = privateMethods.swalPromiseReject.get(this);
+    handleAwaitingPromise(this);
+    if (rejectPromise) {
+      // Reject Swal promise
+      rejectPromise(error);
+    }
+  }
+
+  /**
+   * @param {SweetAlert} instance
+   */
+  var handleAwaitingPromise = function handleAwaitingPromise(instance) {
+    if (instance.isAwaitingPromise) {
+      delete instance.isAwaitingPromise;
+      // The instance might have been previously partly destroyed, we must resume the destroy process in this case #2335
+      if (!privateProps.innerParams.get(instance)) {
+        instance._destroy();
+      }
+    }
+  };
+
+  /**
+   * @param {any} resolveValue
+   * @returns {SweetAlertResult}
+   */
+  var prepareResolveValue = function prepareResolveValue(resolveValue) {
+    // When user calls Swal.close()
+    if (typeof resolveValue === 'undefined') {
+      return {
+        isConfirmed: false,
+        isDenied: false,
+        isDismissed: true
+      };
+    }
+    return Object.assign({
+      isConfirmed: false,
+      isDenied: false,
+      isDismissed: false
+    }, resolveValue);
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {HTMLElement} popup
+   * @param {SweetAlertOptions} innerParams
+   */
+  var handlePopupAnimation = function handlePopupAnimation(instance, popup, innerParams) {
+    var container = getContainer();
+    // If animation is supported, animate
+    var animationIsSupported = animationEndEvent && hasCssAnimation(popup);
+    if (typeof innerParams.willClose === 'function') {
+      innerParams.willClose(popup);
+    }
+    if (animationIsSupported) {
+      animatePopup(instance, popup, container, innerParams.returnFocus, innerParams.didClose);
+    } else {
+      // Otherwise, remove immediately
+      removePopupAndResetState(instance, container, innerParams.returnFocus, innerParams.didClose);
+    }
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {HTMLElement} popup
+   * @param {HTMLElement} container
+   * @param {boolean} returnFocus
+   * @param {Function} didClose
+   */
+  var animatePopup = function animatePopup(instance, popup, container, returnFocus, didClose) {
+    if (!animationEndEvent) {
+      return;
+    }
+    globalState.swalCloseEventFinishedCallback = removePopupAndResetState.bind(null, instance, container, returnFocus, didClose);
+    popup.addEventListener(animationEndEvent, function (e) {
+      if (e.target === popup) {
+        globalState.swalCloseEventFinishedCallback();
+        delete globalState.swalCloseEventFinishedCallback;
+      }
+    });
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {Function} didClose
+   */
+  var triggerDidCloseAndDispose = function triggerDidCloseAndDispose(instance, didClose) {
+    setTimeout(function () {
+      if (typeof didClose === 'function') {
+        didClose.bind(instance.params)();
+      }
+      // instance might have been destroyed already
+      if (instance._destroy) {
+        instance._destroy();
+      }
+    });
+  };
+
+  /**
+   * Shows loader (spinner), this is useful with AJAX requests.
+   * By default the loader be shown instead of the "Confirm" button.
+   *
+   * @param {HTMLButtonElement | null} [buttonToReplace]
+   */
+  var showLoading = function showLoading(buttonToReplace) {
+    var popup = getPopup();
+    if (!popup) {
+      new Swal(); // eslint-disable-line no-new
+    }
+    popup = getPopup();
+    if (!popup) {
+      return;
+    }
+    var loader = getLoader();
+    if (isToast()) {
+      hide(getIcon());
+    } else {
+      replaceButton(popup, buttonToReplace);
+    }
+    show(loader);
+    popup.setAttribute('data-loading', 'true');
+    popup.setAttribute('aria-busy', 'true');
+    popup.focus();
+  };
+
+  /**
+   * @param {HTMLElement} popup
+   * @param {HTMLButtonElement | null} [buttonToReplace]
+   */
+  var replaceButton = function replaceButton(popup, buttonToReplace) {
+    var actions = getActions();
+    var loader = getLoader();
+    if (!actions || !loader) {
+      return;
+    }
+    if (!buttonToReplace && isVisible$1(getConfirmButton())) {
+      buttonToReplace = getConfirmButton();
+    }
+    show(actions);
+    if (buttonToReplace) {
+      hide(buttonToReplace);
+      loader.setAttribute('data-button-to-replace', buttonToReplace.className);
+      actions.insertBefore(loader, buttonToReplace);
+    }
+    addClass([popup, actions], swalClasses.loading);
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  var handleInputOptionsAndValue = function handleInputOptionsAndValue(instance, params) {
+    if (params.input === 'select' || params.input === 'radio') {
+      handleInputOptions(instance, params);
+    } else if (['text', 'email', 'number', 'tel', 'textarea'].some(function (i) {
+      return i === params.input;
+    }) && (hasToPromiseFn(params.inputValue) || isPromise(params.inputValue))) {
+      showLoading(getConfirmButton());
+      handleInputValue(instance, params);
+    }
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} innerParams
+   * @returns {SweetAlertInputValue}
+   */
+  var getInputValue = function getInputValue(instance, innerParams) {
+    var input = instance.getInput();
+    if (!input) {
+      return null;
+    }
+    switch (innerParams.input) {
+      case 'checkbox':
+        return getCheckboxValue(input);
+      case 'radio':
+        return getRadioValue(input);
+      case 'file':
+        return getFileValue(input);
+      default:
+        return innerParams.inputAutoTrim ? input.value.trim() : input.value;
+    }
+  };
+
+  /**
+   * @param {HTMLInputElement} input
+   * @returns {number}
+   */
+  var getCheckboxValue = function getCheckboxValue(input) {
+    return input.checked ? 1 : 0;
+  };
+
+  /**
+   * @param {HTMLInputElement} input
+   * @returns {string | null}
+   */
+  var getRadioValue = function getRadioValue(input) {
+    return input.checked ? input.value : null;
+  };
+
+  /**
+   * @param {HTMLInputElement} input
+   * @returns {FileList | File | null}
+   */
+  var getFileValue = function getFileValue(input) {
+    return input.files && input.files.length ? input.getAttribute('multiple') !== null ? input.files : input.files[0] : null;
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  var handleInputOptions = function handleInputOptions(instance, params) {
+    var popup = getPopup();
+    if (!popup) {
+      return;
+    }
+    /**
+     * @param {Record<string, any>} inputOptions
+     */
+    var processInputOptions = function processInputOptions(inputOptions) {
+      if (params.input === 'select') {
+        populateSelectOptions(popup, formatInputOptions(inputOptions), params);
+      } else if (params.input === 'radio') {
+        populateRadioOptions(popup, formatInputOptions(inputOptions), params);
+      }
+    };
+    if (hasToPromiseFn(params.inputOptions) || isPromise(params.inputOptions)) {
+      showLoading(getConfirmButton());
+      asPromise(params.inputOptions).then(function (inputOptions) {
+        instance.hideLoading();
+        processInputOptions(inputOptions);
+      });
+    } else if (_typeof(params.inputOptions) === 'object') {
+      processInputOptions(params.inputOptions);
+    } else {
+      error("Unexpected type of inputOptions! Expected object, Map or Promise, got ".concat(_typeof(params.inputOptions)));
+    }
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  var handleInputValue = function handleInputValue(instance, params) {
+    var input = instance.getInput();
+    if (!input) {
+      return;
+    }
+    hide(input);
+    asPromise(params.inputValue).then(function (inputValue) {
+      input.value = params.input === 'number' ? "".concat(parseFloat(inputValue) || 0) : "".concat(inputValue);
+      show(input);
+      input.focus();
+      instance.hideLoading();
+    })["catch"](function (err) {
+      error("Error in inputValue promise: ".concat(err));
+      input.value = '';
+      show(input);
+      input.focus();
+      instance.hideLoading();
+    });
+  };
+
+  /**
+   * @param {HTMLElement} popup
+   * @param {InputOptionFlattened[]} inputOptions
+   * @param {SweetAlertOptions} params
+   */
+  function populateSelectOptions(popup, inputOptions, params) {
+    var select = getDirectChildByClass(popup, swalClasses.select);
+    if (!select) {
+      return;
+    }
+    /**
+     * @param {HTMLElement} parent
+     * @param {string} optionLabel
+     * @param {string} optionValue
+     */
+    var renderOption = function renderOption(parent, optionLabel, optionValue) {
+      var option = document.createElement('option');
+      option.value = optionValue;
+      setInnerHtml(option, optionLabel);
+      option.selected = isSelected(optionValue, params.inputValue);
+      parent.appendChild(option);
+    };
+    inputOptions.forEach(function (inputOption) {
+      var optionValue = inputOption[0];
+      var optionLabel = inputOption[1];
+      // <optgroup> spec:
+      // https://www.w3.org/TR/html401/interact/forms.html#h-17.6
+      // "...all OPTGROUP elements must be specified directly within a SELECT element (i.e., groups may not be nested)..."
+      // check whether this is a <optgroup>
+      if (Array.isArray(optionLabel)) {
+        // if it is an array, then it is an <optgroup>
+        var optgroup = document.createElement('optgroup');
+        optgroup.label = optionValue;
+        optgroup.disabled = false; // not configurable for now
+        select.appendChild(optgroup);
+        optionLabel.forEach(function (o) {
+          return renderOption(optgroup, o[1], o[0]);
+        });
+      } else {
+        // case of <option>
+        renderOption(select, optionLabel, optionValue);
+      }
+    });
+    select.focus();
+  }
+
+  /**
+   * @param {HTMLElement} popup
+   * @param {InputOptionFlattened[]} inputOptions
+   * @param {SweetAlertOptions} params
+   */
+  function populateRadioOptions(popup, inputOptions, params) {
+    var radio = getDirectChildByClass(popup, swalClasses.radio);
+    if (!radio) {
+      return;
+    }
+    inputOptions.forEach(function (inputOption) {
+      var radioValue = inputOption[0];
+      var radioLabel = inputOption[1];
+      var radioInput = document.createElement('input');
+      var radioLabelElement = document.createElement('label');
+      radioInput.type = 'radio';
+      radioInput.name = swalClasses.radio;
+      radioInput.value = radioValue;
+      if (isSelected(radioValue, params.inputValue)) {
+        radioInput.checked = true;
+      }
+      var label = document.createElement('span');
+      setInnerHtml(label, radioLabel);
+      label.className = swalClasses.label;
+      radioLabelElement.appendChild(radioInput);
+      radioLabelElement.appendChild(label);
+      radio.appendChild(radioLabelElement);
+    });
+    var radios = radio.querySelectorAll('input');
+    if (radios.length) {
+      radios[0].focus();
+    }
+  }
+
+  /**
+   * Converts `inputOptions` into an array of `[value, label]`s
+   *
+   * @param {Record<string, any>} inputOptions
+   * @typedef {string[]} InputOptionFlattened
+   * @returns {InputOptionFlattened[]}
+   */
+  var formatInputOptions = function formatInputOptions(inputOptions) {
+    /** @type {InputOptionFlattened[]} */
+    var result = [];
+    if (inputOptions instanceof Map) {
+      inputOptions.forEach(function (value, key) {
+        var valueFormatted = value;
+        if (_typeof(valueFormatted) === 'object') {
+          // case of <optgroup>
+          valueFormatted = formatInputOptions(valueFormatted);
+        }
+        result.push([key, valueFormatted]);
+      });
+    } else {
+      Object.keys(inputOptions).forEach(function (key) {
+        var valueFormatted = inputOptions[key];
+        if (_typeof(valueFormatted) === 'object') {
+          // case of <optgroup>
+          valueFormatted = formatInputOptions(valueFormatted);
+        }
+        result.push([key, valueFormatted]);
+      });
+    }
+    return result;
+  };
+
+  /**
+   * @param {string} optionValue
+   * @param {SweetAlertInputValue} inputValue
+   * @returns {boolean}
+   */
+  var isSelected = function isSelected(optionValue, inputValue) {
+    return !!inputValue && inputValue.toString() === optionValue.toString();
+  };
+
+  var _this = undefined;
+
+  /**
+   * @param {SweetAlert} instance
+   */
+  var handleConfirmButtonClick = function handleConfirmButtonClick(instance) {
+    var innerParams = privateProps.innerParams.get(instance);
+    instance.disableButtons();
+    if (innerParams.input) {
+      handleConfirmOrDenyWithInput(instance, 'confirm');
+    } else {
+      confirm(instance, true);
+    }
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   */
+  var handleDenyButtonClick = function handleDenyButtonClick(instance) {
+    var innerParams = privateProps.innerParams.get(instance);
+    instance.disableButtons();
+    if (innerParams.returnInputValueOnDeny) {
+      handleConfirmOrDenyWithInput(instance, 'deny');
+    } else {
+      deny(instance, false);
+    }
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {Function} dismissWith
+   */
+  var handleCancelButtonClick = function handleCancelButtonClick(instance, dismissWith) {
+    instance.disableButtons();
+    dismissWith(DismissReason.cancel);
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {'confirm' | 'deny'} type
+   */
+  var handleConfirmOrDenyWithInput = function handleConfirmOrDenyWithInput(instance, type) {
+    var innerParams = privateProps.innerParams.get(instance);
+    if (!innerParams.input) {
+      error("The \"input\" parameter is needed to be set when using returnInputValueOn".concat(capitalizeFirstLetter(type)));
+      return;
+    }
+    var input = instance.getInput();
+    var inputValue = getInputValue(instance, innerParams);
+    if (innerParams.inputValidator) {
+      handleInputValidator(instance, inputValue, type);
+    } else if (input && !input.checkValidity()) {
+      instance.enableButtons();
+      instance.showValidationMessage(innerParams.validationMessage || input.validationMessage);
+    } else if (type === 'deny') {
+      deny(instance, inputValue);
+    } else {
+      confirm(instance, inputValue);
+    }
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertInputValue} inputValue
+   * @param {'confirm' | 'deny'} type
+   */
+  var handleInputValidator = function handleInputValidator(instance, inputValue, type) {
+    var innerParams = privateProps.innerParams.get(instance);
+    instance.disableInput();
+    var validationPromise = Promise.resolve().then(function () {
+      return asPromise(innerParams.inputValidator(inputValue, innerParams.validationMessage));
+    });
+    validationPromise.then(function (validationMessage) {
+      instance.enableButtons();
+      instance.enableInput();
+      if (validationMessage) {
+        instance.showValidationMessage(validationMessage);
+      } else if (type === 'deny') {
+        deny(instance, inputValue);
+      } else {
+        confirm(instance, inputValue);
+      }
+    });
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {any} value
+   */
+  var deny = function deny(instance, value) {
+    var innerParams = privateProps.innerParams.get(instance || _this);
+    if (innerParams.showLoaderOnDeny) {
+      showLoading(getDenyButton());
+    }
+    if (innerParams.preDeny) {
+      instance.isAwaitingPromise = true; // Flagging the instance as awaiting a promise so it's own promise's reject/resolve methods doesn't get destroyed until the result from this preDeny's promise is received
+      var preDenyPromise = Promise.resolve().then(function () {
+        return asPromise(innerParams.preDeny(value, innerParams.validationMessage));
+      });
+      preDenyPromise.then(function (preDenyValue) {
+        if (preDenyValue === false) {
+          instance.hideLoading();
+          handleAwaitingPromise(instance);
+        } else {
+          instance.close({
+            isDenied: true,
+            value: typeof preDenyValue === 'undefined' ? value : preDenyValue
+          });
+        }
+      })["catch"](function (error) {
+        return rejectWith(instance || _this, error);
+      });
+    } else {
+      instance.close({
+        isDenied: true,
+        value: value
+      });
+    }
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {any} value
+   */
+  var succeedWith = function succeedWith(instance, value) {
+    instance.close({
+      isConfirmed: true,
+      value: value
+    });
+  };
+
+  /**
+   *
+   * @param {SweetAlert} instance
+   * @param {string} error
+   */
+  var rejectWith = function rejectWith(instance, error) {
+    instance.rejectPromise(error);
+  };
+
+  /**
+   *
+   * @param {SweetAlert} instance
+   * @param {any} value
+   */
+  var confirm = function confirm(instance, value) {
+    var innerParams = privateProps.innerParams.get(instance || _this);
+    if (innerParams.showLoaderOnConfirm) {
+      showLoading();
+    }
+    if (innerParams.preConfirm) {
+      instance.resetValidationMessage();
+      instance.isAwaitingPromise = true; // Flagging the instance as awaiting a promise so it's own promise's reject/resolve methods doesn't get destroyed until the result from this preConfirm's promise is received
+      var preConfirmPromise = Promise.resolve().then(function () {
+        return asPromise(innerParams.preConfirm(value, innerParams.validationMessage));
+      });
+      preConfirmPromise.then(function (preConfirmValue) {
+        if (isVisible$1(getValidationMessage()) || preConfirmValue === false) {
+          instance.hideLoading();
+          handleAwaitingPromise(instance);
+        } else {
+          succeedWith(instance, typeof preConfirmValue === 'undefined' ? value : preConfirmValue);
+        }
+      })["catch"](function (error) {
+        return rejectWith(instance || _this, error);
+      });
+    } else {
+      succeedWith(instance, value);
+    }
+  };
+
+  /**
+   * Hides loader and shows back the button which was hidden by .showLoading()
+   */
+  function hideLoading() {
+    // do nothing if popup is closed
+    var innerParams = privateProps.innerParams.get(this);
+    if (!innerParams) {
+      return;
+    }
+    var domCache = privateProps.domCache.get(this);
+    hide(domCache.loader);
+    if (isToast()) {
+      if (innerParams.icon) {
+        show(getIcon());
+      }
+    } else {
+      showRelatedButton(domCache);
+    }
+    removeClass([domCache.popup, domCache.actions], swalClasses.loading);
+    domCache.popup.removeAttribute('aria-busy');
+    domCache.popup.removeAttribute('data-loading');
+    domCache.confirmButton.disabled = false;
+    domCache.denyButton.disabled = false;
+    domCache.cancelButton.disabled = false;
+  }
+  var showRelatedButton = function showRelatedButton(domCache) {
+    var buttonToReplace = domCache.popup.getElementsByClassName(domCache.loader.getAttribute('data-button-to-replace'));
+    if (buttonToReplace.length) {
+      show(buttonToReplace[0], 'inline-block');
+    } else if (allButtonsAreHidden()) {
+      hide(domCache.actions);
+    }
+  };
+
+  /**
+   * Gets the input DOM node, this method works with input parameter.
+   *
+   * @returns {HTMLInputElement | null}
+   */
+  function getInput() {
+    var innerParams = privateProps.innerParams.get(this);
+    var domCache = privateProps.domCache.get(this);
+    if (!domCache) {
+      return null;
+    }
+    return getInput$1(domCache.popup, innerParams.input);
+  }
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {string[]} buttons
+   * @param {boolean} disabled
+   */
+  function setButtonsDisabled(instance, buttons, disabled) {
+    var domCache = privateProps.domCache.get(instance);
+    buttons.forEach(function (button) {
+      domCache[button].disabled = disabled;
+    });
+  }
+
+  /**
+   * @param {HTMLInputElement | null} input
+   * @param {boolean} disabled
+   */
+  function setInputDisabled(input, disabled) {
+    var popup = getPopup();
+    if (!popup || !input) {
+      return;
+    }
+    if (input.type === 'radio') {
+      /** @type {NodeListOf<HTMLInputElement>} */
+      var radios = popup.querySelectorAll("[name=\"".concat(swalClasses.radio, "\"]"));
+      for (var i = 0; i < radios.length; i++) {
+        radios[i].disabled = disabled;
+      }
+    } else {
+      input.disabled = disabled;
+    }
+  }
+
+  /**
+   * Enable all the buttons
+   * @this {SweetAlert}
+   */
+  function enableButtons() {
+    setButtonsDisabled(this, ['confirmButton', 'denyButton', 'cancelButton'], false);
+  }
+
+  /**
+   * Disable all the buttons
+   * @this {SweetAlert}
+   */
+  function disableButtons() {
+    setButtonsDisabled(this, ['confirmButton', 'denyButton', 'cancelButton'], true);
+  }
+
+  /**
+   * Enable the input field
+   * @this {SweetAlert}
+   */
+  function enableInput() {
+    setInputDisabled(this.getInput(), false);
+  }
+
+  /**
+   * Disable the input field
+   * @this {SweetAlert}
+   */
+  function disableInput() {
+    setInputDisabled(this.getInput(), true);
+  }
+
+  /**
+   * Show block with validation message
+   *
+   * @param {string} error
+   * @this {SweetAlert}
+   */
+  function showValidationMessage(error) {
+    var domCache = privateProps.domCache.get(this);
+    var params = privateProps.innerParams.get(this);
+    setInnerHtml(domCache.validationMessage, error);
+    domCache.validationMessage.className = swalClasses['validation-message'];
+    if (params.customClass && params.customClass.validationMessage) {
+      addClass(domCache.validationMessage, params.customClass.validationMessage);
+    }
+    show(domCache.validationMessage);
+    var input = this.getInput();
+    if (input) {
+      input.setAttribute('aria-invalid', 'true');
+      input.setAttribute('aria-describedby', swalClasses['validation-message']);
+      focusInput(input);
+      addClass(input, swalClasses.inputerror);
+    }
+  }
+
+  /**
+   * Hide block with validation message
+   *
+   * @this {SweetAlert}
+   */
+  function resetValidationMessage() {
+    var domCache = privateProps.domCache.get(this);
+    if (domCache.validationMessage) {
+      hide(domCache.validationMessage);
+    }
+    var input = this.getInput();
+    if (input) {
+      input.removeAttribute('aria-invalid');
+      input.removeAttribute('aria-describedby');
+      removeClass(input, swalClasses.inputerror);
+    }
+  }
+
+  var defaultParams = {
+    title: '',
+    titleText: '',
+    text: '',
+    html: '',
+    footer: '',
+    icon: undefined,
+    iconColor: undefined,
+    iconHtml: undefined,
+    template: undefined,
+    toast: false,
+    animation: true,
+    showClass: {
+      popup: 'swal2-show',
+      backdrop: 'swal2-backdrop-show',
+      icon: 'swal2-icon-show'
+    },
+    hideClass: {
+      popup: 'swal2-hide',
+      backdrop: 'swal2-backdrop-hide',
+      icon: 'swal2-icon-hide'
+    },
+    customClass: {},
+    target: 'body',
+    color: undefined,
+    backdrop: true,
+    heightAuto: true,
+    allowOutsideClick: true,
+    allowEscapeKey: true,
+    allowEnterKey: true,
+    stopKeydownPropagation: true,
+    keydownListenerCapture: false,
+    showConfirmButton: true,
+    showDenyButton: false,
+    showCancelButton: false,
+    preConfirm: undefined,
+    preDeny: undefined,
+    confirmButtonText: 'OK',
+    confirmButtonAriaLabel: '',
+    confirmButtonColor: undefined,
+    denyButtonText: 'No',
+    denyButtonAriaLabel: '',
+    denyButtonColor: undefined,
+    cancelButtonText: 'Cancel',
+    cancelButtonAriaLabel: '',
+    cancelButtonColor: undefined,
+    buttonsStyling: true,
+    reverseButtons: false,
+    focusConfirm: true,
+    focusDeny: false,
+    focusCancel: false,
+    returnFocus: true,
+    showCloseButton: false,
+    closeButtonHtml: '&times;',
+    closeButtonAriaLabel: 'Close this dialog',
+    loaderHtml: '',
+    showLoaderOnConfirm: false,
+    showLoaderOnDeny: false,
+    imageUrl: undefined,
+    imageWidth: undefined,
+    imageHeight: undefined,
+    imageAlt: '',
+    timer: undefined,
+    timerProgressBar: false,
+    width: undefined,
+    padding: undefined,
+    background: undefined,
+    input: undefined,
+    inputPlaceholder: '',
+    inputLabel: '',
+    inputValue: '',
+    inputOptions: {},
+    inputAutoFocus: true,
+    inputAutoTrim: true,
+    inputAttributes: {},
+    inputValidator: undefined,
+    returnInputValueOnDeny: false,
+    validationMessage: undefined,
+    grow: false,
+    position: 'center',
+    progressSteps: [],
+    currentProgressStep: undefined,
+    progressStepsDistance: undefined,
+    willOpen: undefined,
+    didOpen: undefined,
+    didRender: undefined,
+    willClose: undefined,
+    didClose: undefined,
+    didDestroy: undefined,
+    scrollbarPadding: true
+  };
+  var updatableParams = ['allowEscapeKey', 'allowOutsideClick', 'background', 'buttonsStyling', 'cancelButtonAriaLabel', 'cancelButtonColor', 'cancelButtonText', 'closeButtonAriaLabel', 'closeButtonHtml', 'color', 'confirmButtonAriaLabel', 'confirmButtonColor', 'confirmButtonText', 'currentProgressStep', 'customClass', 'denyButtonAriaLabel', 'denyButtonColor', 'denyButtonText', 'didClose', 'didDestroy', 'footer', 'hideClass', 'html', 'icon', 'iconColor', 'iconHtml', 'imageAlt', 'imageHeight', 'imageUrl', 'imageWidth', 'preConfirm', 'preDeny', 'progressSteps', 'returnFocus', 'reverseButtons', 'showCancelButton', 'showCloseButton', 'showConfirmButton', 'showDenyButton', 'text', 'title', 'titleText', 'willClose'];
+
+  /** @type {Record<string, string | undefined>} */
+  var deprecatedParams = {
+    allowEnterKey: undefined
+  };
+  var toastIncompatibleParams = ['allowOutsideClick', 'allowEnterKey', 'backdrop', 'focusConfirm', 'focusDeny', 'focusCancel', 'returnFocus', 'heightAuto', 'keydownListenerCapture'];
+
+  /**
+   * Is valid parameter
+   *
+   * @param {string} paramName
+   * @returns {boolean}
+   */
+  var isValidParameter = function isValidParameter(paramName) {
+    return Object.prototype.hasOwnProperty.call(defaultParams, paramName);
+  };
+
+  /**
+   * Is valid parameter for Swal.update() method
+   *
+   * @param {string} paramName
+   * @returns {boolean}
+   */
+  var isUpdatableParameter = function isUpdatableParameter(paramName) {
+    return updatableParams.indexOf(paramName) !== -1;
+  };
+
+  /**
+   * Is deprecated parameter
+   *
+   * @param {string} paramName
+   * @returns {string | undefined}
+   */
+  var isDeprecatedParameter = function isDeprecatedParameter(paramName) {
+    return deprecatedParams[paramName];
+  };
+
+  /**
+   * @param {string} param
+   */
+  var checkIfParamIsValid = function checkIfParamIsValid(param) {
+    if (!isValidParameter(param)) {
+      warn("Unknown parameter \"".concat(param, "\""));
+    }
+  };
+
+  /**
+   * @param {string} param
+   */
+  var checkIfToastParamIsValid = function checkIfToastParamIsValid(param) {
+    if (toastIncompatibleParams.includes(param)) {
+      warn("The parameter \"".concat(param, "\" is incompatible with toasts"));
+    }
+  };
+
+  /**
+   * @param {string} param
+   */
+  var checkIfParamIsDeprecated = function checkIfParamIsDeprecated(param) {
+    var isDeprecated = isDeprecatedParameter(param);
+    if (isDeprecated) {
+      warnAboutDeprecation(param, isDeprecated);
+    }
+  };
+
+  /**
+   * Show relevant warnings for given params
+   *
+   * @param {SweetAlertOptions} params
+   */
+  var showWarningsForParams = function showWarningsForParams(params) {
+    if (params.backdrop === false && params.allowOutsideClick) {
+      warn('"allowOutsideClick" parameter requires `backdrop` parameter to be set to `true`');
+    }
+    for (var param in params) {
+      checkIfParamIsValid(param);
+      if (params.toast) {
+        checkIfToastParamIsValid(param);
+      }
+      checkIfParamIsDeprecated(param);
+    }
+  };
+
+  /**
+   * Updates popup parameters.
+   *
+   * @param {SweetAlertOptions} params
+   */
+  function update(params) {
+    var popup = getPopup();
+    var innerParams = privateProps.innerParams.get(this);
+    if (!popup || hasClass(popup, innerParams.hideClass.popup)) {
+      warn("You're trying to update the closed or closing popup, that won't work. Use the update() method in preConfirm parameter or show a new popup.");
+      return;
+    }
+    var validUpdatableParams = filterValidParams(params);
+    var updatedParams = Object.assign({}, innerParams, validUpdatableParams);
+    render(this, updatedParams);
+    privateProps.innerParams.set(this, updatedParams);
+    Object.defineProperties(this, {
+      params: {
+        value: Object.assign({}, this.params, params),
+        writable: false,
+        enumerable: true
+      }
+    });
+  }
+
+  /**
+   * @param {SweetAlertOptions} params
+   * @returns {SweetAlertOptions}
+   */
+  var filterValidParams = function filterValidParams(params) {
+    var validUpdatableParams = {};
+    Object.keys(params).forEach(function (param) {
+      if (isUpdatableParameter(param)) {
+        validUpdatableParams[param] = params[param];
+      } else {
+        warn("Invalid parameter to update: ".concat(param));
+      }
+    });
+    return validUpdatableParams;
+  };
+
+  /**
+   * Dispose the current SweetAlert2 instance
+   */
+  function _destroy() {
+    var domCache = privateProps.domCache.get(this);
+    var innerParams = privateProps.innerParams.get(this);
+    if (!innerParams) {
+      disposeWeakMaps(this); // The WeakMaps might have been partly destroyed, we must recall it to dispose any remaining WeakMaps #2335
+      return; // This instance has already been destroyed
+    }
+
+    // Check if there is another Swal closing
+    if (domCache.popup && globalState.swalCloseEventFinishedCallback) {
+      globalState.swalCloseEventFinishedCallback();
+      delete globalState.swalCloseEventFinishedCallback;
+    }
+    if (typeof innerParams.didDestroy === 'function') {
+      innerParams.didDestroy();
+    }
+    disposeSwal(this);
+  }
+
+  /**
+   * @param {SweetAlert} instance
+   */
+  var disposeSwal = function disposeSwal(instance) {
+    disposeWeakMaps(instance);
+    // Unset this.params so GC will dispose it (#1569)
+    delete instance.params;
+    // Unset globalState props so GC will dispose globalState (#1569)
+    delete globalState.keydownHandler;
+    delete globalState.keydownTarget;
+    // Unset currentInstance
+    delete globalState.currentInstance;
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   */
+  var disposeWeakMaps = function disposeWeakMaps(instance) {
+    // If the current instance is awaiting a promise result, we keep the privateMethods to call them once the promise result is retrieved #2335
+    if (instance.isAwaitingPromise) {
+      unsetWeakMaps(privateProps, instance);
+      instance.isAwaitingPromise = true;
+    } else {
+      unsetWeakMaps(privateMethods, instance);
+      unsetWeakMaps(privateProps, instance);
+      delete instance.isAwaitingPromise;
+      // Unset instance methods
+      delete instance.disableButtons;
+      delete instance.enableButtons;
+      delete instance.getInput;
+      delete instance.disableInput;
+      delete instance.enableInput;
+      delete instance.hideLoading;
+      delete instance.disableLoading;
+      delete instance.showValidationMessage;
+      delete instance.resetValidationMessage;
+      delete instance.close;
+      delete instance.closePopup;
+      delete instance.closeModal;
+      delete instance.closeToast;
+      delete instance.rejectPromise;
+      delete instance.update;
+      delete instance._destroy;
+    }
+  };
+
+  /**
+   * @param {object} obj
+   * @param {SweetAlert} instance
+   */
+  var unsetWeakMaps = function unsetWeakMaps(obj, instance) {
+    for (var i in obj) {
+      obj[i]["delete"](instance);
+    }
+  };
+
+  var instanceMethods = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    _destroy: _destroy,
+    close: close,
+    closeModal: close,
+    closePopup: close,
+    closeToast: close,
+    disableButtons: disableButtons,
+    disableInput: disableInput,
+    disableLoading: hideLoading,
+    enableButtons: enableButtons,
+    enableInput: enableInput,
+    getInput: getInput,
+    handleAwaitingPromise: handleAwaitingPromise,
+    hideLoading: hideLoading,
+    rejectPromise: rejectPromise,
+    resetValidationMessage: resetValidationMessage,
+    showValidationMessage: showValidationMessage,
+    update: update
+  });
+
+  /**
+   * @param {SweetAlertOptions} innerParams
+   * @param {DomCache} domCache
+   * @param {Function} dismissWith
+   */
+  var handlePopupClick = function handlePopupClick(innerParams, domCache, dismissWith) {
+    if (innerParams.toast) {
+      handleToastClick(innerParams, domCache, dismissWith);
+    } else {
+      // Ignore click events that had mousedown on the popup but mouseup on the container
+      // This can happen when the user drags a slider
+      handleModalMousedown(domCache);
+
+      // Ignore click events that had mousedown on the container but mouseup on the popup
+      handleContainerMousedown(domCache);
+      handleModalClick(innerParams, domCache, dismissWith);
+    }
+  };
+
+  /**
+   * @param {SweetAlertOptions} innerParams
+   * @param {DomCache} domCache
+   * @param {Function} dismissWith
+   */
+  var handleToastClick = function handleToastClick(innerParams, domCache, dismissWith) {
+    // Closing toast by internal click
+    domCache.popup.onclick = function () {
+      if (innerParams && (isAnyButtonShown(innerParams) || innerParams.timer || innerParams.input)) {
+        return;
+      }
+      dismissWith(DismissReason.close);
+    };
+  };
+
+  /**
+   * @param {SweetAlertOptions} innerParams
+   * @returns {boolean}
+   */
+  var isAnyButtonShown = function isAnyButtonShown(innerParams) {
+    return !!(innerParams.showConfirmButton || innerParams.showDenyButton || innerParams.showCancelButton || innerParams.showCloseButton);
+  };
+  var ignoreOutsideClick = false;
+
+  /**
+   * @param {DomCache} domCache
+   */
+  var handleModalMousedown = function handleModalMousedown(domCache) {
+    domCache.popup.onmousedown = function () {
+      domCache.container.onmouseup = function (e) {
+        domCache.container.onmouseup = function () {};
+        // We only check if the mouseup target is the container because usually it doesn't
+        // have any other direct children aside of the popup
+        if (e.target === domCache.container) {
+          ignoreOutsideClick = true;
+        }
+      };
+    };
+  };
+
+  /**
+   * @param {DomCache} domCache
+   */
+  var handleContainerMousedown = function handleContainerMousedown(domCache) {
+    domCache.container.onmousedown = function (e) {
+      // prevent the modal text from being selected on double click on the container (allowOutsideClick: false)
+      if (e.target === domCache.container) {
+        e.preventDefault();
+      }
+      domCache.popup.onmouseup = function (e) {
+        domCache.popup.onmouseup = function () {};
+        // We also need to check if the mouseup target is a child of the popup
+        if (e.target === domCache.popup || e.target instanceof HTMLElement && domCache.popup.contains(e.target)) {
+          ignoreOutsideClick = true;
+        }
+      };
+    };
+  };
+
+  /**
+   * @param {SweetAlertOptions} innerParams
+   * @param {DomCache} domCache
+   * @param {Function} dismissWith
+   */
+  var handleModalClick = function handleModalClick(innerParams, domCache, dismissWith) {
+    domCache.container.onclick = function (e) {
+      if (ignoreOutsideClick) {
+        ignoreOutsideClick = false;
+        return;
+      }
+      if (e.target === domCache.container && callIfFunction(innerParams.allowOutsideClick)) {
+        dismissWith(DismissReason.backdrop);
+      }
+    };
+  };
+
+  var isJqueryElement = function isJqueryElement(elem) {
+    return _typeof(elem) === 'object' && elem.jquery;
+  };
+  var isElement = function isElement(elem) {
+    return elem instanceof Element || isJqueryElement(elem);
+  };
+  var argsToParams = function argsToParams(args) {
+    var params = {};
+    if (_typeof(args[0]) === 'object' && !isElement(args[0])) {
+      Object.assign(params, args[0]);
+    } else {
+      ['title', 'html', 'icon'].forEach(function (name, index) {
+        var arg = args[index];
+        if (typeof arg === 'string' || isElement(arg)) {
+          params[name] = arg;
+        } else if (arg !== undefined) {
+          error("Unexpected type of ".concat(name, "! Expected \"string\" or \"Element\", got ").concat(_typeof(arg)));
+        }
+      });
+    }
+    return params;
+  };
+
+  /**
+   * Main method to create a new SweetAlert2 popup
+   *
+   * @param  {...SweetAlertOptions} args
+   * @returns {Promise<SweetAlertResult>}
+   */
+  function fire() {
+    var Swal = this; // eslint-disable-line @typescript-eslint/no-this-alias
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+    return _construct(Swal, args);
+  }
+
+  /**
+   * Returns an extended version of `Swal` containing `params` as defaults.
+   * Useful for reusing Swal configuration.
+   *
+   * For example:
+   *
+   * Before:
+   * const textPromptOptions = { input: 'text', showCancelButton: true }
+   * const {value: firstName} = await Swal.fire({ ...textPromptOptions, title: 'What is your first name?' })
+   * const {value: lastName} = await Swal.fire({ ...textPromptOptions, title: 'What is your last name?' })
+   *
+   * After:
+   * const TextPrompt = Swal.mixin({ input: 'text', showCancelButton: true })
+   * const {value: firstName} = await TextPrompt('What is your first name?')
+   * const {value: lastName} = await TextPrompt('What is your last name?')
+   *
+   * @param {SweetAlertOptions} mixinParams
+   * @returns {SweetAlert}
+   */
+  function mixin(mixinParams) {
+    var MixinSwal = /*#__PURE__*/function (_this) {
+      function MixinSwal() {
+        _classCallCheck(this, MixinSwal);
+        return _callSuper(this, MixinSwal, arguments);
+      }
+      _inherits(MixinSwal, _this);
+      return _createClass(MixinSwal, [{
+        key: "_main",
+        value: function _main(params, priorityMixinParams) {
+          return _get(_getPrototypeOf(MixinSwal.prototype), "_main", this).call(this, params, Object.assign({}, mixinParams, priorityMixinParams));
+        }
+      }]);
+    }(this); // @ts-ignore
+    return MixinSwal;
+  }
+
+  /**
+   * If `timer` parameter is set, returns number of milliseconds of timer remained.
+   * Otherwise, returns undefined.
+   *
+   * @returns {number | undefined}
+   */
+  var getTimerLeft = function getTimerLeft() {
+    return globalState.timeout && globalState.timeout.getTimerLeft();
+  };
+
+  /**
+   * Stop timer. Returns number of milliseconds of timer remained.
+   * If `timer` parameter isn't set, returns undefined.
+   *
+   * @returns {number | undefined}
+   */
+  var stopTimer = function stopTimer() {
+    if (globalState.timeout) {
+      stopTimerProgressBar();
+      return globalState.timeout.stop();
+    }
+  };
+
+  /**
+   * Resume timer. Returns number of milliseconds of timer remained.
+   * If `timer` parameter isn't set, returns undefined.
+   *
+   * @returns {number | undefined}
+   */
+  var resumeTimer = function resumeTimer() {
+    if (globalState.timeout) {
+      var remaining = globalState.timeout.start();
+      animateTimerProgressBar(remaining);
+      return remaining;
+    }
+  };
+
+  /**
+   * Resume timer. Returns number of milliseconds of timer remained.
+   * If `timer` parameter isn't set, returns undefined.
+   *
+   * @returns {number | undefined}
+   */
+  var toggleTimer = function toggleTimer() {
+    var timer = globalState.timeout;
+    return timer && (timer.running ? stopTimer() : resumeTimer());
+  };
+
+  /**
+   * Increase timer. Returns number of milliseconds of an updated timer.
+   * If `timer` parameter isn't set, returns undefined.
+   *
+   * @param {number} ms
+   * @returns {number | undefined}
+   */
+  var increaseTimer = function increaseTimer(ms) {
+    if (globalState.timeout) {
+      var remaining = globalState.timeout.increase(ms);
+      animateTimerProgressBar(remaining, true);
+      return remaining;
+    }
+  };
+
+  /**
+   * Check if timer is running. Returns true if timer is running
+   * or false if timer is paused or stopped.
+   * If `timer` parameter isn't set, returns undefined
+   *
+   * @returns {boolean}
+   */
+  var isTimerRunning = function isTimerRunning() {
+    return !!(globalState.timeout && globalState.timeout.isRunning());
+  };
+
+  var bodyClickListenerAdded = false;
+  var clickHandlers = {};
+
+  /**
+   * @param {string} attr
+   */
+  function bindClickHandler() {
+    var attr = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'data-swal-template';
+    clickHandlers[attr] = this;
+    if (!bodyClickListenerAdded) {
+      document.body.addEventListener('click', bodyClickListener);
+      bodyClickListenerAdded = true;
+    }
+  }
+  var bodyClickListener = function bodyClickListener(event) {
+    for (var el = event.target; el && el !== document; el = el.parentNode) {
+      for (var attr in clickHandlers) {
+        var template = el.getAttribute(attr);
+        if (template) {
+          clickHandlers[attr].fire({
+            template: template
+          });
+          return;
+        }
+      }
+    }
+  };
+
+  var staticMethods = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    argsToParams: argsToParams,
+    bindClickHandler: bindClickHandler,
+    clickCancel: clickCancel,
+    clickConfirm: clickConfirm,
+    clickDeny: clickDeny,
+    enableLoading: showLoading,
+    fire: fire,
+    getActions: getActions,
+    getCancelButton: getCancelButton,
+    getCloseButton: getCloseButton,
+    getConfirmButton: getConfirmButton,
+    getContainer: getContainer,
+    getDenyButton: getDenyButton,
+    getFocusableElements: getFocusableElements,
+    getFooter: getFooter,
+    getHtmlContainer: getHtmlContainer,
+    getIcon: getIcon,
+    getIconContent: getIconContent,
+    getImage: getImage,
+    getInputLabel: getInputLabel,
+    getLoader: getLoader,
+    getPopup: getPopup,
+    getProgressSteps: getProgressSteps,
+    getTimerLeft: getTimerLeft,
+    getTimerProgressBar: getTimerProgressBar,
+    getTitle: getTitle,
+    getValidationMessage: getValidationMessage,
+    increaseTimer: increaseTimer,
+    isDeprecatedParameter: isDeprecatedParameter,
+    isLoading: isLoading,
+    isTimerRunning: isTimerRunning,
+    isUpdatableParameter: isUpdatableParameter,
+    isValidParameter: isValidParameter,
+    isVisible: isVisible,
+    mixin: mixin,
+    resumeTimer: resumeTimer,
+    showLoading: showLoading,
+    stopTimer: stopTimer,
+    toggleTimer: toggleTimer
+  });
+
+  var Timer = /*#__PURE__*/function () {
+    /**
+     * @param {Function} callback
+     * @param {number} delay
+     */
+    function Timer(callback, delay) {
+      _classCallCheck(this, Timer);
+      this.callback = callback;
+      this.remaining = delay;
+      this.running = false;
+      this.start();
+    }
+
+    /**
+     * @returns {number}
+     */
+    return _createClass(Timer, [{
+      key: "start",
+      value: function start() {
+        if (!this.running) {
+          this.running = true;
+          this.started = new Date();
+          this.id = setTimeout(this.callback, this.remaining);
+        }
+        return this.remaining;
+      }
+
+      /**
+       * @returns {number}
+       */
+    }, {
+      key: "stop",
+      value: function stop() {
+        if (this.started && this.running) {
+          this.running = false;
+          clearTimeout(this.id);
+          this.remaining -= new Date().getTime() - this.started.getTime();
+        }
+        return this.remaining;
+      }
+
+      /**
+       * @param {number} n
+       * @returns {number}
+       */
+    }, {
+      key: "increase",
+      value: function increase(n) {
+        var running = this.running;
+        if (running) {
+          this.stop();
+        }
+        this.remaining += n;
+        if (running) {
+          this.start();
+        }
+        return this.remaining;
+      }
+
+      /**
+       * @returns {number}
+       */
+    }, {
+      key: "getTimerLeft",
+      value: function getTimerLeft() {
+        if (this.running) {
+          this.stop();
+          this.start();
+        }
+        return this.remaining;
+      }
+
+      /**
+       * @returns {boolean}
+       */
+    }, {
+      key: "isRunning",
+      value: function isRunning() {
+        return this.running;
+      }
+    }]);
+  }();
+
+  var swalStringParams = ['swal-title', 'swal-html', 'swal-footer'];
+
+  /**
+   * @param {SweetAlertOptions} params
+   * @returns {SweetAlertOptions}
+   */
+  var getTemplateParams = function getTemplateParams(params) {
+    /** @type {HTMLTemplateElement} */
+    var template = typeof params.template === 'string' ? document.querySelector(params.template) : params.template;
+    if (!template) {
+      return {};
+    }
+    /** @type {DocumentFragment} */
+    var templateContent = template.content;
+    showWarningsForElements(templateContent);
+    var result = Object.assign(getSwalParams(templateContent), getSwalFunctionParams(templateContent), getSwalButtons(templateContent), getSwalImage(templateContent), getSwalIcon(templateContent), getSwalInput(templateContent), getSwalStringParams(templateContent, swalStringParams));
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {SweetAlertOptions}
+   */
+  var getSwalParams = function getSwalParams(templateContent) {
+    var result = {};
+    /** @type {HTMLElement[]} */
+    var swalParams = Array.from(templateContent.querySelectorAll('swal-param'));
+    swalParams.forEach(function (param) {
+      showWarningsForAttributes(param, ['name', 'value']);
+      var paramName = param.getAttribute('name');
+      var value = param.getAttribute('value');
+      if (typeof defaultParams[paramName] === 'boolean') {
+        result[paramName] = value !== 'false';
+      } else if (_typeof(defaultParams[paramName]) === 'object') {
+        result[paramName] = JSON.parse(value);
+      } else {
+        result[paramName] = value;
+      }
+    });
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {SweetAlertOptions}
+   */
+  var getSwalFunctionParams = function getSwalFunctionParams(templateContent) {
+    var result = {};
+    /** @type {HTMLElement[]} */
+    var swalFunctions = Array.from(templateContent.querySelectorAll('swal-function-param'));
+    swalFunctions.forEach(function (param) {
+      var paramName = param.getAttribute('name');
+      var value = param.getAttribute('value');
+      result[paramName] = new Function("return ".concat(value))();
+    });
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {SweetAlertOptions}
+   */
+  var getSwalButtons = function getSwalButtons(templateContent) {
+    var result = {};
+    /** @type {HTMLElement[]} */
+    var swalButtons = Array.from(templateContent.querySelectorAll('swal-button'));
+    swalButtons.forEach(function (button) {
+      showWarningsForAttributes(button, ['type', 'color', 'aria-label']);
+      var type = button.getAttribute('type');
+      result["".concat(type, "ButtonText")] = button.innerHTML;
+      result["show".concat(capitalizeFirstLetter(type), "Button")] = true;
+      if (button.hasAttribute('color')) {
+        result["".concat(type, "ButtonColor")] = button.getAttribute('color');
+      }
+      if (button.hasAttribute('aria-label')) {
+        result["".concat(type, "ButtonAriaLabel")] = button.getAttribute('aria-label');
+      }
+    });
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {Pick<SweetAlertOptions, 'imageUrl' | 'imageWidth' | 'imageHeight' | 'imageAlt'>}
+   */
+  var getSwalImage = function getSwalImage(templateContent) {
+    var result = {};
+    /** @type {HTMLElement | null} */
+    var image = templateContent.querySelector('swal-image');
+    if (image) {
+      showWarningsForAttributes(image, ['src', 'width', 'height', 'alt']);
+      if (image.hasAttribute('src')) {
+        result.imageUrl = image.getAttribute('src') || undefined;
+      }
+      if (image.hasAttribute('width')) {
+        result.imageWidth = image.getAttribute('width') || undefined;
+      }
+      if (image.hasAttribute('height')) {
+        result.imageHeight = image.getAttribute('height') || undefined;
+      }
+      if (image.hasAttribute('alt')) {
+        result.imageAlt = image.getAttribute('alt') || undefined;
+      }
+    }
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {SweetAlertOptions}
+   */
+  var getSwalIcon = function getSwalIcon(templateContent) {
+    var result = {};
+    /** @type {HTMLElement} */
+    var icon = templateContent.querySelector('swal-icon');
+    if (icon) {
+      showWarningsForAttributes(icon, ['type', 'color']);
+      if (icon.hasAttribute('type')) {
+        /** @type {SweetAlertIcon} */
+        // @ts-ignore
+        result.icon = icon.getAttribute('type');
+      }
+      if (icon.hasAttribute('color')) {
+        result.iconColor = icon.getAttribute('color');
+      }
+      result.iconHtml = icon.innerHTML;
+    }
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {SweetAlertOptions}
+   */
+  var getSwalInput = function getSwalInput(templateContent) {
+    var result = {};
+    /** @type {HTMLElement} */
+    var input = templateContent.querySelector('swal-input');
+    if (input) {
+      showWarningsForAttributes(input, ['type', 'label', 'placeholder', 'value']);
+      /** @type {SweetAlertInput} */
+      // @ts-ignore
+      result.input = input.getAttribute('type') || 'text';
+      if (input.hasAttribute('label')) {
+        result.inputLabel = input.getAttribute('label');
+      }
+      if (input.hasAttribute('placeholder')) {
+        result.inputPlaceholder = input.getAttribute('placeholder');
+      }
+      if (input.hasAttribute('value')) {
+        result.inputValue = input.getAttribute('value');
+      }
+    }
+    /** @type {HTMLElement[]} */
+    var inputOptions = Array.from(templateContent.querySelectorAll('swal-input-option'));
+    if (inputOptions.length) {
+      result.inputOptions = {};
+      inputOptions.forEach(function (option) {
+        showWarningsForAttributes(option, ['value']);
+        var optionValue = option.getAttribute('value');
+        var optionName = option.innerHTML;
+        result.inputOptions[optionValue] = optionName;
+      });
+    }
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @param {string[]} paramNames
+   * @returns {SweetAlertOptions}
+   */
+  var getSwalStringParams = function getSwalStringParams(templateContent, paramNames) {
+    var result = {};
+    for (var i in paramNames) {
+      var paramName = paramNames[i];
+      /** @type {HTMLElement} */
+      var tag = templateContent.querySelector(paramName);
+      if (tag) {
+        showWarningsForAttributes(tag, []);
+        result[paramName.replace(/^swal-/, '')] = tag.innerHTML.trim();
+      }
+    }
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   */
+  var showWarningsForElements = function showWarningsForElements(templateContent) {
+    var allowedElements = swalStringParams.concat(['swal-param', 'swal-function-param', 'swal-button', 'swal-image', 'swal-icon', 'swal-input', 'swal-input-option']);
+    Array.from(templateContent.children).forEach(function (el) {
+      var tagName = el.tagName.toLowerCase();
+      if (!allowedElements.includes(tagName)) {
+        warn("Unrecognized element <".concat(tagName, ">"));
+      }
+    });
+  };
+
+  /**
+   * @param {HTMLElement} el
+   * @param {string[]} allowedAttributes
+   */
+  var showWarningsForAttributes = function showWarningsForAttributes(el, allowedAttributes) {
+    Array.from(el.attributes).forEach(function (attribute) {
+      if (allowedAttributes.indexOf(attribute.name) === -1) {
+        warn(["Unrecognized attribute \"".concat(attribute.name, "\" on <").concat(el.tagName.toLowerCase(), ">."), "".concat(allowedAttributes.length ? "Allowed attributes are: ".concat(allowedAttributes.join(', ')) : 'To set the value, use HTML within the element.')]);
+      }
+    });
+  };
+
+  var SHOW_CLASS_TIMEOUT = 10;
+
+  /**
+   * Open popup, add necessary classes and styles, fix scrollbar
+   *
+   * @param {SweetAlertOptions} params
+   */
+  var openPopup = function openPopup(params) {
+    var container = getContainer();
+    var popup = getPopup();
+    if (typeof params.willOpen === 'function') {
+      params.willOpen(popup);
+    }
+    var bodyStyles = window.getComputedStyle(document.body);
+    var initialBodyOverflow = bodyStyles.overflowY;
+    addClasses(container, popup, params);
+
+    // scrolling is 'hidden' until animation is done, after that 'auto'
+    setTimeout(function () {
+      setScrollingVisibility(container, popup);
+    }, SHOW_CLASS_TIMEOUT);
+    if (isModal()) {
+      fixScrollContainer(container, params.scrollbarPadding, initialBodyOverflow);
+      setAriaHidden();
+    }
+    if (!isToast() && !globalState.previousActiveElement) {
+      globalState.previousActiveElement = document.activeElement;
+    }
+    if (typeof params.didOpen === 'function') {
+      setTimeout(function () {
+        return params.didOpen(popup);
+      });
+    }
+    removeClass(container, swalClasses['no-transition']);
+  };
+
+  /**
+   * @param {AnimationEvent} event
+   */
+  var swalOpenAnimationFinished = function swalOpenAnimationFinished(event) {
+    var popup = getPopup();
+    if (event.target !== popup || !animationEndEvent) {
+      return;
+    }
+    var container = getContainer();
+    popup.removeEventListener(animationEndEvent, swalOpenAnimationFinished);
+    container.style.overflowY = 'auto';
+  };
+
+  /**
+   * @param {HTMLElement} container
+   * @param {HTMLElement} popup
+   */
+  var setScrollingVisibility = function setScrollingVisibility(container, popup) {
+    if (animationEndEvent && hasCssAnimation(popup)) {
+      container.style.overflowY = 'hidden';
+      popup.addEventListener(animationEndEvent, swalOpenAnimationFinished);
+    } else {
+      container.style.overflowY = 'auto';
+    }
+  };
+
+  /**
+   * @param {HTMLElement} container
+   * @param {boolean} scrollbarPadding
+   * @param {string} initialBodyOverflow
+   */
+  var fixScrollContainer = function fixScrollContainer(container, scrollbarPadding, initialBodyOverflow) {
+    iOSfix();
+    if (scrollbarPadding && initialBodyOverflow !== 'hidden') {
+      replaceScrollbarWithPadding(initialBodyOverflow);
+    }
+
+    // sweetalert2/issues/1247
+    setTimeout(function () {
+      container.scrollTop = 0;
+    });
+  };
+
+  /**
+   * @param {HTMLElement} container
+   * @param {HTMLElement} popup
+   * @param {SweetAlertOptions} params
+   */
+  var addClasses = function addClasses(container, popup, params) {
+    addClass(container, params.showClass.backdrop);
+    if (params.animation) {
+      // this workaround with opacity is needed for https://github.com/sweetalert2/sweetalert2/issues/2059
+      popup.style.setProperty('opacity', '0', 'important');
+      show(popup, 'grid');
+      setTimeout(function () {
+        // Animate popup right after showing it
+        addClass(popup, params.showClass.popup);
+        // and remove the opacity workaround
+        popup.style.removeProperty('opacity');
+      }, SHOW_CLASS_TIMEOUT); // 10ms in order to fix #2062
+    } else {
+      show(popup, 'grid');
+    }
+    addClass([document.documentElement, document.body], swalClasses.shown);
+    if (params.heightAuto && params.backdrop && !params.toast) {
+      addClass([document.documentElement, document.body], swalClasses['height-auto']);
+    }
+  };
+
+  var defaultInputValidators = {
+    /**
+     * @param {string} string
+     * @param {string} [validationMessage]
+     * @returns {Promise<string | void>}
+     */
+    email: function email(string, validationMessage) {
+      return /^[a-zA-Z0-9.+_'-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]+$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid email address');
+    },
+    /**
+     * @param {string} string
+     * @param {string} [validationMessage]
+     * @returns {Promise<string | void>}
+     */
+    url: function url(string, validationMessage) {
+      // taken from https://stackoverflow.com/a/3809435 with a small change from #1306 and #2013
+      return /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-z]{2,63}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid URL');
+    }
+  };
+
+  /**
+   * @param {SweetAlertOptions} params
+   */
+  function setDefaultInputValidators(params) {
+    // Use default `inputValidator` for supported input types if not provided
+    if (params.inputValidator) {
+      return;
+    }
+    if (params.input === 'email') {
+      params.inputValidator = defaultInputValidators['email'];
+    }
+    if (params.input === 'url') {
+      params.inputValidator = defaultInputValidators['url'];
+    }
+  }
+
+  /**
+   * @param {SweetAlertOptions} params
+   */
+  function validateCustomTargetElement(params) {
+    // Determine if the custom target element is valid
+    if (!params.target || typeof params.target === 'string' && !document.querySelector(params.target) || typeof params.target !== 'string' && !params.target.appendChild) {
+      warn('Target parameter is not valid, defaulting to "body"');
+      params.target = 'body';
+    }
+  }
+
+  /**
+   * Set type, text and actions on popup
+   *
+   * @param {SweetAlertOptions} params
+   */
+  function setParameters(params) {
+    setDefaultInputValidators(params);
+
+    // showLoaderOnConfirm && preConfirm
+    if (params.showLoaderOnConfirm && !params.preConfirm) {
+      warn('showLoaderOnConfirm is set to true, but preConfirm is not defined.\n' + 'showLoaderOnConfirm should be used together with preConfirm, see usage example:\n' + 'https://sweetalert2.github.io/#ajax-request');
+    }
+    validateCustomTargetElement(params);
+
+    // Replace newlines with <br> in title
+    if (typeof params.title === 'string') {
+      params.title = params.title.split('\n').join('<br />');
+    }
+    init(params);
+  }
+
+  /** @type {SweetAlert} */
+  var currentInstance;
+  var _promise = /*#__PURE__*/new WeakMap();
+  var SweetAlert = /*#__PURE__*/function () {
+    /**
+     * @param {...any} args
+     * @this {SweetAlert}
+     */
+    function SweetAlert() {
+      _classCallCheck(this, SweetAlert);
+      /**
+       * @type {Promise<SweetAlertResult>}
+       */
+      _classPrivateFieldInitSpec(this, _promise, void 0);
+      // Prevent run in Node env
+      if (typeof window === 'undefined') {
+        return;
+      }
+      currentInstance = this;
+
+      // @ts-ignore
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+      var outerParams = Object.freeze(this.constructor.argsToParams(args));
+
+      /** @type {Readonly<SweetAlertOptions>} */
+      this.params = outerParams;
+
+      /** @type {boolean} */
+      this.isAwaitingPromise = false;
+      _classPrivateFieldSet2(_promise, this, this._main(currentInstance.params));
+    }
+    return _createClass(SweetAlert, [{
+      key: "_main",
+      value: function _main(userParams) {
+        var mixinParams = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+        showWarningsForParams(Object.assign({}, mixinParams, userParams));
+        if (globalState.currentInstance) {
+          var swalPromiseResolve = privateMethods.swalPromiseResolve.get(globalState.currentInstance);
+          var isAwaitingPromise = globalState.currentInstance.isAwaitingPromise;
+          globalState.currentInstance._destroy();
+          if (!isAwaitingPromise) {
+            swalPromiseResolve({
+              isDismissed: true
+            });
+          }
+          if (isModal()) {
+            unsetAriaHidden();
+          }
+        }
+        globalState.currentInstance = currentInstance;
+        var innerParams = prepareParams(userParams, mixinParams);
+        setParameters(innerParams);
+        Object.freeze(innerParams);
+
+        // clear the previous timer
+        if (globalState.timeout) {
+          globalState.timeout.stop();
+          delete globalState.timeout;
+        }
+
+        // clear the restore focus timeout
+        clearTimeout(globalState.restoreFocusTimeout);
+        var domCache = populateDomCache(currentInstance);
+        render(currentInstance, innerParams);
+        privateProps.innerParams.set(currentInstance, innerParams);
+        return swalPromise(currentInstance, domCache, innerParams);
+      }
+
+      // `catch` cannot be the name of a module export, so we define our thenable methods here instead
+    }, {
+      key: "then",
+      value: function then(onFulfilled) {
+        return _classPrivateFieldGet2(_promise, this).then(onFulfilled);
+      }
+    }, {
+      key: "finally",
+      value: function _finally(onFinally) {
+        return _classPrivateFieldGet2(_promise, this)["finally"](onFinally);
+      }
+    }]);
+  }();
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {DomCache} domCache
+   * @param {SweetAlertOptions} innerParams
+   * @returns {Promise}
+   */
+  var swalPromise = function swalPromise(instance, domCache, innerParams) {
+    return new Promise(function (resolve, reject) {
+      // functions to handle all closings/dismissals
+      /**
+       * @param {DismissReason} dismiss
+       */
+      var dismissWith = function dismissWith(dismiss) {
+        instance.close({
+          isDismissed: true,
+          dismiss: dismiss
+        });
+      };
+      privateMethods.swalPromiseResolve.set(instance, resolve);
+      privateMethods.swalPromiseReject.set(instance, reject);
+      domCache.confirmButton.onclick = function () {
+        handleConfirmButtonClick(instance);
+      };
+      domCache.denyButton.onclick = function () {
+        handleDenyButtonClick(instance);
+      };
+      domCache.cancelButton.onclick = function () {
+        handleCancelButtonClick(instance, dismissWith);
+      };
+      domCache.closeButton.onclick = function () {
+        dismissWith(DismissReason.close);
+      };
+      handlePopupClick(innerParams, domCache, dismissWith);
+      addKeydownHandler(globalState, innerParams, dismissWith);
+      handleInputOptionsAndValue(instance, innerParams);
+      openPopup(innerParams);
+      setupTimer(globalState, innerParams, dismissWith);
+      initFocus(domCache, innerParams);
+
+      // Scroll container to top on open (#1247, #1946)
+      setTimeout(function () {
+        domCache.container.scrollTop = 0;
+      });
+    });
+  };
+
+  /**
+   * @param {SweetAlertOptions} userParams
+   * @param {SweetAlertOptions} mixinParams
+   * @returns {SweetAlertOptions}
+   */
+  var prepareParams = function prepareParams(userParams, mixinParams) {
+    var templateParams = getTemplateParams(userParams);
+    var params = Object.assign({}, defaultParams, mixinParams, templateParams, userParams); // precedence is described in #2131
+    params.showClass = Object.assign({}, defaultParams.showClass, params.showClass);
+    params.hideClass = Object.assign({}, defaultParams.hideClass, params.hideClass);
+    if (params.animation === false) {
+      params.showClass = {
+        backdrop: 'swal2-noanimation'
+      };
+      params.hideClass = {};
+    }
+    return params;
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @returns {DomCache}
+   */
+  var populateDomCache = function populateDomCache(instance) {
+    var domCache = {
+      popup: getPopup(),
+      container: getContainer(),
+      actions: getActions(),
+      confirmButton: getConfirmButton(),
+      denyButton: getDenyButton(),
+      cancelButton: getCancelButton(),
+      loader: getLoader(),
+      closeButton: getCloseButton(),
+      validationMessage: getValidationMessage(),
+      progressSteps: getProgressSteps()
+    };
+    privateProps.domCache.set(instance, domCache);
+    return domCache;
+  };
+
+  /**
+   * @param {GlobalState} globalState
+   * @param {SweetAlertOptions} innerParams
+   * @param {Function} dismissWith
+   */
+  var setupTimer = function setupTimer(globalState, innerParams, dismissWith) {
+    var timerProgressBar = getTimerProgressBar();
+    hide(timerProgressBar);
+    if (innerParams.timer) {
+      globalState.timeout = new Timer(function () {
+        dismissWith('timer');
+        delete globalState.timeout;
+      }, innerParams.timer);
+      if (innerParams.timerProgressBar) {
+        show(timerProgressBar);
+        applyCustomClass(timerProgressBar, innerParams, 'timerProgressBar');
+        setTimeout(function () {
+          if (globalState.timeout && globalState.timeout.running) {
+            // timer can be already stopped or unset at this point
+            animateTimerProgressBar(innerParams.timer);
+          }
+        });
+      }
+    }
+  };
+
+  /**
+   * Initialize focus in the popup:
+   *
+   * 1. If `toast` is `true`, don't steal focus from the document.
+   * 2. Else if there is an [autofocus] element, focus it.
+   * 3. Else if `focusConfirm` is `true` and confirm button is visible, focus it.
+   * 4. Else if `focusDeny` is `true` and deny button is visible, focus it.
+   * 5. Else if `focusCancel` is `true` and cancel button is visible, focus it.
+   * 6. Else focus the first focusable element in a popup (if any).
+   *
+   * @param {DomCache} domCache
+   * @param {SweetAlertOptions} innerParams
+   */
+  var initFocus = function initFocus(domCache, innerParams) {
+    if (innerParams.toast) {
+      return;
+    }
+    // TODO: this is dumb, remove `allowEnterKey` param in the next major version
+    if (!callIfFunction(innerParams.allowEnterKey)) {
+      warnAboutDeprecation('allowEnterKey');
+      blurActiveElement();
+      return;
+    }
+    if (focusAutofocus(domCache)) {
+      return;
+    }
+    if (focusButton(domCache, innerParams)) {
+      return;
+    }
+    setFocus(-1, 1);
+  };
+
+  /**
+   * @param {DomCache} domCache
+   * @returns {boolean}
+   */
+  var focusAutofocus = function focusAutofocus(domCache) {
+    var autofocusElements = domCache.popup.querySelectorAll('[autofocus]');
+    var _iterator = _createForOfIteratorHelper(autofocusElements),
+      _step;
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var autofocusElement = _step.value;
+        if (autofocusElement instanceof HTMLElement && isVisible$1(autofocusElement)) {
+          autofocusElement.focus();
+          return true;
+        }
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+    return false;
+  };
+
+  /**
+   * @param {DomCache} domCache
+   * @param {SweetAlertOptions} innerParams
+   * @returns {boolean}
+   */
+  var focusButton = function focusButton(domCache, innerParams) {
+    if (innerParams.focusDeny && isVisible$1(domCache.denyButton)) {
+      domCache.denyButton.focus();
+      return true;
+    }
+    if (innerParams.focusCancel && isVisible$1(domCache.cancelButton)) {
+      domCache.cancelButton.focus();
+      return true;
+    }
+    if (innerParams.focusConfirm && isVisible$1(domCache.confirmButton)) {
+      domCache.confirmButton.focus();
+      return true;
+    }
+    return false;
+  };
+  var blurActiveElement = function blurActiveElement() {
+    if (document.activeElement instanceof HTMLElement && typeof document.activeElement.blur === 'function') {
+      document.activeElement.blur();
+    }
+  };
+
+  // Dear russian users visiting russian sites. Let's have fun.
+  if (typeof window !== 'undefined' && /^ru\b/.test(navigator.language) && location.host.match(/\.(ru|su|by|xn--p1ai)$/)) {
+    var now = new Date();
+    var initiationDate = localStorage.getItem('swal-initiation');
+    if (!initiationDate) {
+      localStorage.setItem('swal-initiation', "".concat(now));
+    } else if ((now.getTime() - Date.parse(initiationDate)) / (1000 * 60 * 60 * 24) > 3) {
+      setTimeout(function () {
+        document.body.style.pointerEvents = 'none';
+        var ukrainianAnthem = document.createElement('audio');
+        ukrainianAnthem.src = 'https://flag-gimn.ru/wp-content/uploads/2021/09/Ukraina.mp3';
+        ukrainianAnthem.loop = true;
+        document.body.appendChild(ukrainianAnthem);
+        setTimeout(function () {
+          ukrainianAnthem.play()["catch"](function () {
+            // ignore
+          });
+        }, 2500);
+      }, 500);
+    }
+  }
+
+  // Assign instance methods from src/instanceMethods/*.js to prototype
+  SweetAlert.prototype.disableButtons = disableButtons;
+  SweetAlert.prototype.enableButtons = enableButtons;
+  SweetAlert.prototype.getInput = getInput;
+  SweetAlert.prototype.disableInput = disableInput;
+  SweetAlert.prototype.enableInput = enableInput;
+  SweetAlert.prototype.hideLoading = hideLoading;
+  SweetAlert.prototype.disableLoading = hideLoading;
+  SweetAlert.prototype.showValidationMessage = showValidationMessage;
+  SweetAlert.prototype.resetValidationMessage = resetValidationMessage;
+  SweetAlert.prototype.close = close;
+  SweetAlert.prototype.closePopup = close;
+  SweetAlert.prototype.closeModal = close;
+  SweetAlert.prototype.closeToast = close;
+  SweetAlert.prototype.rejectPromise = rejectPromise;
+  SweetAlert.prototype.update = update;
+  SweetAlert.prototype._destroy = _destroy;
+
+  // Assign static methods from src/staticMethods/*.js to constructor
+  Object.assign(SweetAlert, staticMethods);
+
+  // Proxy to instance methods to constructor, for now, for backwards compatibility
+  Object.keys(instanceMethods).forEach(function (key) {
+    /**
+     * @param {...any} args
+     * @returns {any | undefined}
+     */
+    SweetAlert[key] = function () {
+      if (currentInstance && currentInstance[key]) {
+        var _currentInstance;
+        return (_currentInstance = currentInstance)[key].apply(_currentInstance, arguments);
+      }
+      return null;
+    };
+  });
+  SweetAlert.DismissReason = DismissReason;
+  SweetAlert.version = '11.12.2';
+
+  var Swal = SweetAlert;
+  // @ts-ignore
+  Swal["default"] = Swal;
+
+  return Swal;
+
+}));
+if (typeof this !== 'undefined' && this.Sweetalert2){this.swal = this.sweetAlert = this.Swal = this.SweetAlert = this.Sweetalert2}
+"undefined"!=typeof document&&function(e,t){var n=e.createElement("style");if(e.getElementsByTagName("head")[0].appendChild(n),n.styleSheet)n.styleSheet.disabled||(n.styleSheet.cssText=t);else try{n.innerHTML=t}catch(e){n.innerText=t}}(document,".swal2-popup.swal2-toast{box-sizing:border-box;grid-column:1/4 !important;grid-row:1/4 !important;grid-template-columns:min-content auto min-content;padding:1em;overflow-y:hidden;background:#fff;box-shadow:0 0 1px rgba(0,0,0,.075),0 1px 2px rgba(0,0,0,.075),1px 2px 4px rgba(0,0,0,.075),1px 3px 8px rgba(0,0,0,.075),2px 4px 16px rgba(0,0,0,.075);pointer-events:all}.swal2-popup.swal2-toast>*{grid-column:2}.swal2-popup.swal2-toast .swal2-title{margin:.5em 1em;padding:0;font-size:1em;text-align:initial}.swal2-popup.swal2-toast .swal2-loading{justify-content:center}.swal2-popup.swal2-toast .swal2-input{height:2em;margin:.5em;font-size:1em}.swal2-popup.swal2-toast .swal2-validation-message{font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{grid-column:3/3;grid-row:1/99;align-self:center;width:.8em;height:.8em;margin:0;font-size:2em}.swal2-popup.swal2-toast .swal2-html-container{margin:.5em 1em;padding:0;overflow:initial;font-size:1em;text-align:initial}.swal2-popup.swal2-toast .swal2-html-container:empty{padding:0}.swal2-popup.swal2-toast .swal2-loader{grid-column:1;grid-row:1/99;align-self:center;width:2em;height:2em;margin:.25em}.swal2-popup.swal2-toast .swal2-icon{grid-column:1;grid-row:1/99;align-self:center;width:2em;min-width:2em;height:2em;margin:0 .5em 0 0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:bold}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{justify-content:flex-start;height:auto;margin:0;margin-top:.5em;padding:0 .5em}.swal2-popup.swal2-toast .swal2-styled{margin:.25em .5em;padding:.4em .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-0.8em;left:-0.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-0.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{animation:swal2-toast-hide .1s forwards}div:where(.swal2-container){display:grid;position:fixed;z-index:1060;inset:0;box-sizing:border-box;grid-template-areas:\"top-start     top            top-end\" \"center-start  center         center-end\" \"bottom-start  bottom-center  bottom-end\";grid-template-rows:minmax(min-content, auto) minmax(min-content, auto) minmax(min-content, auto);height:100%;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}div:where(.swal2-container).swal2-backdrop-show,div:where(.swal2-container).swal2-noanimation{background:rgba(0,0,0,.4)}div:where(.swal2-container).swal2-backdrop-hide{background:rgba(0,0,0,0) !important}div:where(.swal2-container).swal2-top-start,div:where(.swal2-container).swal2-center-start,div:where(.swal2-container).swal2-bottom-start{grid-template-columns:minmax(0, 1fr) auto auto}div:where(.swal2-container).swal2-top,div:where(.swal2-container).swal2-center,div:where(.swal2-container).swal2-bottom{grid-template-columns:auto minmax(0, 1fr) auto}div:where(.swal2-container).swal2-top-end,div:where(.swal2-container).swal2-center-end,div:where(.swal2-container).swal2-bottom-end{grid-template-columns:auto auto minmax(0, 1fr)}div:where(.swal2-container).swal2-top-start>.swal2-popup{align-self:start}div:where(.swal2-container).swal2-top>.swal2-popup{grid-column:2;place-self:start center}div:where(.swal2-container).swal2-top-end>.swal2-popup,div:where(.swal2-container).swal2-top-right>.swal2-popup{grid-column:3;place-self:start end}div:where(.swal2-container).swal2-center-start>.swal2-popup,div:where(.swal2-container).swal2-center-left>.swal2-popup{grid-row:2;align-self:center}div:where(.swal2-container).swal2-center>.swal2-popup{grid-column:2;grid-row:2;place-self:center center}div:where(.swal2-container).swal2-center-end>.swal2-popup,div:where(.swal2-container).swal2-center-right>.swal2-popup{grid-column:3;grid-row:2;place-self:center end}div:where(.swal2-container).swal2-bottom-start>.swal2-popup,div:where(.swal2-container).swal2-bottom-left>.swal2-popup{grid-column:1;grid-row:3;align-self:end}div:where(.swal2-container).swal2-bottom>.swal2-popup{grid-column:2;grid-row:3;place-self:end center}div:where(.swal2-container).swal2-bottom-end>.swal2-popup,div:where(.swal2-container).swal2-bottom-right>.swal2-popup{grid-column:3;grid-row:3;place-self:end end}div:where(.swal2-container).swal2-grow-row>.swal2-popup,div:where(.swal2-container).swal2-grow-fullscreen>.swal2-popup{grid-column:1/4;width:100%}div:where(.swal2-container).swal2-grow-column>.swal2-popup,div:where(.swal2-container).swal2-grow-fullscreen>.swal2-popup{grid-row:1/4;align-self:stretch}div:where(.swal2-container).swal2-no-transition{transition:none !important}div:where(.swal2-container) div:where(.swal2-popup){display:none;position:relative;box-sizing:border-box;grid-template-columns:minmax(0, 100%);width:32em;max-width:100%;padding:0 0 1.25em;border:none;border-radius:5px;background:#fff;color:#545454;font-family:inherit;font-size:1rem}div:where(.swal2-container) div:where(.swal2-popup):focus{outline:none}div:where(.swal2-container) div:where(.swal2-popup).swal2-loading{overflow-y:hidden}div:where(.swal2-container) h2:where(.swal2-title){position:relative;max-width:100%;margin:0;padding:.8em 1em 0;color:inherit;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}div:where(.swal2-container) div:where(.swal2-actions){display:flex;z-index:1;box-sizing:border-box;flex-wrap:wrap;align-items:center;justify-content:center;width:auto;margin:1.25em auto 0;padding:0}div:where(.swal2-container) div:where(.swal2-actions):not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}div:where(.swal2-container) div:where(.swal2-actions):not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1))}div:where(.swal2-container) div:where(.swal2-actions):not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))}div:where(.swal2-container) div:where(.swal2-loader){display:none;align-items:center;justify-content:center;width:2.2em;height:2.2em;margin:0 1.875em;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border-width:.25em;border-style:solid;border-radius:100%;border-color:#2778c4 rgba(0,0,0,0) #2778c4 rgba(0,0,0,0)}div:where(.swal2-container) button:where(.swal2-styled){margin:.3125em;padding:.625em 1.1em;transition:box-shadow .1s;box-shadow:0 0 0 3px rgba(0,0,0,0);font-weight:500}div:where(.swal2-container) button:where(.swal2-styled):not([disabled]){cursor:pointer}div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm){border:0;border-radius:.25em;background:initial;background-color:#7066e0;color:#fff;font-size:1em}div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm):focus-visible{box-shadow:0 0 0 3px rgba(112,102,224,.5)}div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-deny){border:0;border-radius:.25em;background:initial;background-color:#dc3741;color:#fff;font-size:1em}div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-deny):focus-visible{box-shadow:0 0 0 3px rgba(220,55,65,.5)}div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-cancel){border:0;border-radius:.25em;background:initial;background-color:#6e7881;color:#fff;font-size:1em}div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-cancel):focus-visible{box-shadow:0 0 0 3px rgba(110,120,129,.5)}div:where(.swal2-container) button:where(.swal2-styled).swal2-default-outline:focus-visible{box-shadow:0 0 0 3px rgba(100,150,200,.5)}div:where(.swal2-container) button:where(.swal2-styled):focus-visible{outline:none}div:where(.swal2-container) button:where(.swal2-styled)::-moz-focus-inner{border:0}div:where(.swal2-container) div:where(.swal2-footer){margin:1em 0 0;padding:1em 1em 0;border-top:1px solid #eee;color:inherit;font-size:1em;text-align:center}div:where(.swal2-container) .swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;grid-column:auto !important;overflow:hidden;border-bottom-right-radius:5px;border-bottom-left-radius:5px}div:where(.swal2-container) div:where(.swal2-timer-progress-bar){width:100%;height:.25em;background:rgba(0,0,0,.2)}div:where(.swal2-container) img:where(.swal2-image){max-width:100%;margin:2em auto 1em}div:where(.swal2-container) button:where(.swal2-close){z-index:2;align-items:center;justify-content:center;width:1.2em;height:1.2em;margin-top:0;margin-right:0;margin-bottom:-1.2em;padding:0;overflow:hidden;transition:color .1s,box-shadow .1s;border:none;border-radius:5px;background:rgba(0,0,0,0);color:#ccc;font-family:monospace;font-size:2.5em;cursor:pointer;justify-self:end}div:where(.swal2-container) button:where(.swal2-close):hover{transform:none;background:rgba(0,0,0,0);color:#f27474}div:where(.swal2-container) button:where(.swal2-close):focus-visible{outline:none;box-shadow:inset 0 0 0 3px rgba(100,150,200,.5)}div:where(.swal2-container) button:where(.swal2-close)::-moz-focus-inner{border:0}div:where(.swal2-container) .swal2-html-container{z-index:1;justify-content:center;margin:0;padding:1em 1.6em .3em;overflow:auto;color:inherit;font-size:1.125em;font-weight:normal;line-height:normal;text-align:center;word-wrap:break-word;word-break:break-word}div:where(.swal2-container) input:where(.swal2-input),div:where(.swal2-container) input:where(.swal2-file),div:where(.swal2-container) textarea:where(.swal2-textarea),div:where(.swal2-container) select:where(.swal2-select),div:where(.swal2-container) div:where(.swal2-radio),div:where(.swal2-container) label:where(.swal2-checkbox){margin:1em 2em 3px}div:where(.swal2-container) input:where(.swal2-input),div:where(.swal2-container) input:where(.swal2-file),div:where(.swal2-container) textarea:where(.swal2-textarea){box-sizing:border-box;width:auto;transition:border-color .1s,box-shadow .1s;border:1px solid #d9d9d9;border-radius:.1875em;background:rgba(0,0,0,0);box-shadow:inset 0 1px 1px rgba(0,0,0,.06),0 0 0 3px rgba(0,0,0,0);color:inherit;font-size:1.125em}div:where(.swal2-container) input:where(.swal2-input).swal2-inputerror,div:where(.swal2-container) input:where(.swal2-file).swal2-inputerror,div:where(.swal2-container) textarea:where(.swal2-textarea).swal2-inputerror{border-color:#f27474 !important;box-shadow:0 0 2px #f27474 !important}div:where(.swal2-container) input:where(.swal2-input):focus,div:where(.swal2-container) input:where(.swal2-file):focus,div:where(.swal2-container) textarea:where(.swal2-textarea):focus{border:1px solid #b4dbed;outline:none;box-shadow:inset 0 1px 1px rgba(0,0,0,.06),0 0 0 3px rgba(100,150,200,.5)}div:where(.swal2-container) input:where(.swal2-input)::placeholder,div:where(.swal2-container) input:where(.swal2-file)::placeholder,div:where(.swal2-container) textarea:where(.swal2-textarea)::placeholder{color:#ccc}div:where(.swal2-container) .swal2-range{margin:1em 2em 3px;background:#fff}div:where(.swal2-container) .swal2-range input{width:80%}div:where(.swal2-container) .swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}div:where(.swal2-container) .swal2-range input,div:where(.swal2-container) .swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}div:where(.swal2-container) .swal2-input{height:2.625em;padding:0 .75em}div:where(.swal2-container) .swal2-file{width:75%;margin-right:auto;margin-left:auto;background:rgba(0,0,0,0);font-size:1.125em}div:where(.swal2-container) .swal2-textarea{height:6.75em;padding:.75em}div:where(.swal2-container) .swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:rgba(0,0,0,0);color:inherit;font-size:1.125em}div:where(.swal2-container) .swal2-radio,div:where(.swal2-container) .swal2-checkbox{align-items:center;justify-content:center;background:#fff;color:inherit}div:where(.swal2-container) .swal2-radio label,div:where(.swal2-container) .swal2-checkbox label{margin:0 .6em;font-size:1.125em}div:where(.swal2-container) .swal2-radio input,div:where(.swal2-container) .swal2-checkbox input{flex-shrink:0;margin:0 .4em}div:where(.swal2-container) label:where(.swal2-input-label){display:flex;justify-content:center;margin:1em auto 0}div:where(.swal2-container) div:where(.swal2-validation-message){align-items:center;justify-content:center;margin:1em 0 0;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}div:where(.swal2-container) div:where(.swal2-validation-message)::before{content:\"!\";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}div:where(.swal2-container) .swal2-progress-steps{flex-wrap:wrap;align-items:center;max-width:100%;margin:1.25em auto;padding:0;background:rgba(0,0,0,0);font-weight:600}div:where(.swal2-container) .swal2-progress-steps li{display:inline-block;position:relative}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step{z-index:20;flex-shrink:0;width:2em;height:2em;border-radius:2em;background:#2778c4;color:#fff;line-height:2em;text-align:center}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#2778c4}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step-line{z-index:10;flex-shrink:0;width:2.5em;height:.4em;margin:0 -1px;background:#2778c4}div:where(.swal2-icon){position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:2.5em auto .6em;border:0.25em solid rgba(0,0,0,0);border-radius:50%;border-color:#000;font-family:inherit;line-height:5em;cursor:default;user-select:none}div:where(.swal2-icon) .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}div:where(.swal2-icon).swal2-error{border-color:#f27474;color:#f27474}div:where(.swal2-icon).swal2-error .swal2-x-mark{position:relative;flex-grow:1}div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}div:where(.swal2-icon).swal2-error.swal2-icon-show{animation:swal2-animate-error-icon .5s}div:where(.swal2-icon).swal2-error.swal2-icon-show .swal2-x-mark{animation:swal2-animate-error-x-mark .5s}div:where(.swal2-icon).swal2-warning{border-color:#facea8;color:#f8bb86}div:where(.swal2-icon).swal2-warning.swal2-icon-show{animation:swal2-animate-error-icon .5s}div:where(.swal2-icon).swal2-warning.swal2-icon-show .swal2-icon-content{animation:swal2-animate-i-mark .5s}div:where(.swal2-icon).swal2-info{border-color:#9de0f6;color:#3fc3ee}div:where(.swal2-icon).swal2-info.swal2-icon-show{animation:swal2-animate-error-icon .5s}div:where(.swal2-icon).swal2-info.swal2-icon-show .swal2-icon-content{animation:swal2-animate-i-mark .8s}div:where(.swal2-icon).swal2-question{border-color:#c9dae1;color:#87adbd}div:where(.swal2-icon).swal2-question.swal2-icon-show{animation:swal2-animate-error-icon .5s}div:where(.swal2-icon).swal2-question.swal2-icon-show .swal2-icon-content{animation:swal2-animate-question-mark .8s}div:where(.swal2-icon).swal2-success{border-color:#a5dc86;color:#a5dc86}div:where(.swal2-icon).swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;border-radius:50%}div:where(.swal2-icon).swal2-success [class^=swal2-success-circular-line][class$=left]{top:-0.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}div:where(.swal2-icon).swal2-success [class^=swal2-success-circular-line][class$=right]{top:-0.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}div:where(.swal2-icon).swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-0.25em;left:-0.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}div:where(.swal2-icon).swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}div:where(.swal2-icon).swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}div:where(.swal2-icon).swal2-success.swal2-icon-show .swal2-success-line-tip{animation:swal2-animate-success-line-tip .75s}div:where(.swal2-icon).swal2-success.swal2-icon-show .swal2-success-line-long{animation:swal2-animate-success-line-long .75s}div:where(.swal2-icon).swal2-success.swal2-icon-show .swal2-success-circular-line-right{animation:swal2-rotate-success-circular-line 4.25s ease-in}[class^=swal2]{-webkit-tap-highlight-color:rgba(0,0,0,0)}.swal2-show{animation:swal2-show .3s}.swal2-hide{animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{margin-right:initial;margin-left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@keyframes swal2-toast-show{0%{transform:translateY(-0.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(0.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0deg)}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-0.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-show{0%{transform:scale(0.7)}45%{transform:scale(1.05)}80%{transform:scale(0.95)}100%{transform:scale(1)}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(0.5);opacity:0}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-0.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(0.4);opacity:0}50%{margin-top:1.625em;transform:scale(0.4);opacity:0}80%{margin-top:-0.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0deg);opacity:1}}@keyframes swal2-rotate-loading{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}@keyframes swal2-animate-question-mark{0%{transform:rotateY(-360deg)}100%{transform:rotateY(0)}}@keyframes swal2-animate-i-mark{0%{transform:rotateZ(45deg);opacity:0}25%{transform:rotateZ(-25deg);opacity:.4}50%{transform:rotateZ(15deg);opacity:.8}75%{transform:rotateZ(-5deg);opacity:1}100%{transform:rotateX(0);opacity:1}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto !important}body.swal2-no-backdrop .swal2-container{background-color:rgba(0,0,0,0) !important;pointer-events:none}body.swal2-no-backdrop .swal2-container .swal2-popup{pointer-events:all}body.swal2-no-backdrop .swal2-container .swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll !important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static !important}}body.swal2-toast-shown .swal2-container{box-sizing:border-box;width:360px;max-width:100%;background-color:rgba(0,0,0,0);pointer-events:none}body.swal2-toast-shown .swal2-container.swal2-top{inset:0 auto auto 50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{inset:0 0 auto auto}body.swal2-toast-shown .swal2-container.swal2-top-start,body.swal2-toast-shown .swal2-container.swal2-top-left{inset:0 auto auto 0}body.swal2-toast-shown .swal2-container.swal2-center-start,body.swal2-toast-shown .swal2-container.swal2-center-left{inset:50% auto auto 0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{inset:50% auto auto 50%;transform:translate(-50%, -50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{inset:50% 0 auto auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-start,body.swal2-toast-shown .swal2-container.swal2-bottom-left{inset:auto auto 0 0}body.swal2-toast-shown .swal2-container.swal2-bottom{inset:auto auto 0 50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{inset:auto 0 0 auto}");
+
+/***/ }),
+
 /***/ 6752:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
+"use strict";
 
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var douyu_bc_api_1 = __importDefault(__webpack_require__(3461));
+var douyu_livebc_1 = __importDefault(__webpack_require__(8804));
 var menu_1 = __importDefault(__webpack_require__(791));
 var app = function () {
-    douyu_bc_api_1.default.initScript();
+    douyu_livebc_1.default.initScript();
     new menu_1.default();
 };
 exports["default"] = app;
@@ -1043,6 +5981,7 @@ exports["default"] = app;
 /***/ 3607:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
+"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -1083,6 +6022,7 @@ else {}
 /***/ 2261:
 /***/ ((module) => {
 
+"use strict";
 module.exports = "data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%20%3Cpath%20d%3D%22M13.41%2012l4.3-4.29a1%201%200%201%200-1.42-1.42L12%2010.59l-4.29-4.3a1%201%200%200%200-1.42%201.42l4.3%204.29-4.3%204.29a1%201%200%200%200%200%201.42%201%201%200%200%200%201.42%200l4.29-4.3%204.29%204.3a1%201%200%200%200%201.42%200%201%201%200%200%200%200-1.42z%22%20fill%3D%22%23f72f47%22%20%2F%3E%3C%2Fsvg%3E";
 
 /***/ }),
@@ -1090,6 +6030,7 @@ module.exports = "data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F
 /***/ 509:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var isCallable = __webpack_require__(9985);
 var tryToString = __webpack_require__(3691);
@@ -1105,9 +6046,93 @@ module.exports = function (argument) {
 
 /***/ }),
 
+/***/ 2655:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var isConstructor = __webpack_require__(9429);
+var tryToString = __webpack_require__(3691);
+
+var $TypeError = TypeError;
+
+// `Assert: IsConstructor(argument) is true`
+module.exports = function (argument) {
+  if (isConstructor(argument)) return argument;
+  throw new $TypeError(tryToString(argument) + ' is not a constructor');
+};
+
+
+/***/ }),
+
+/***/ 3550:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var isPossiblePrototype = __webpack_require__(598);
+
+var $String = String;
+var $TypeError = TypeError;
+
+module.exports = function (argument) {
+  if (isPossiblePrototype(argument)) return argument;
+  throw new $TypeError("Can't set " + $String(argument) + ' as a prototype');
+};
+
+
+/***/ }),
+
+/***/ 7370:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var wellKnownSymbol = __webpack_require__(4201);
+var create = __webpack_require__(5391);
+var defineProperty = (__webpack_require__(2560).f);
+
+var UNSCOPABLES = wellKnownSymbol('unscopables');
+var ArrayPrototype = Array.prototype;
+
+// Array.prototype[@@unscopables]
+// https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
+if (ArrayPrototype[UNSCOPABLES] === undefined) {
+  defineProperty(ArrayPrototype, UNSCOPABLES, {
+    configurable: true,
+    value: create(null)
+  });
+}
+
+// add a key to Array.prototype[@@unscopables]
+module.exports = function (key) {
+  ArrayPrototype[UNSCOPABLES][key] = true;
+};
+
+
+/***/ }),
+
+/***/ 767:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var isPrototypeOf = __webpack_require__(3622);
+
+var $TypeError = TypeError;
+
+module.exports = function (it, Prototype) {
+  if (isPrototypeOf(Prototype, it)) return it;
+  throw new $TypeError('Incorrect invocation');
+};
+
+
+/***/ }),
+
 /***/ 5027:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var isObject = __webpack_require__(8999);
 
@@ -1126,6 +6151,7 @@ module.exports = function (argument) {
 /***/ 7612:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var $forEach = (__webpack_require__(2960).forEach);
 var arrayMethodIsStrict = __webpack_require__(6834);
@@ -1142,9 +6168,64 @@ module.exports = !STRICT_METHOD ? function forEach(callbackfn /* , thisArg */) {
 
 /***/ }),
 
+/***/ 1055:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var bind = __webpack_require__(4071);
+var call = __webpack_require__(2615);
+var toObject = __webpack_require__(690);
+var callWithSafeIterationClosing = __webpack_require__(1228);
+var isArrayIteratorMethod = __webpack_require__(3292);
+var isConstructor = __webpack_require__(9429);
+var lengthOfArrayLike = __webpack_require__(6310);
+var createProperty = __webpack_require__(6522);
+var getIterator = __webpack_require__(5185);
+var getIteratorMethod = __webpack_require__(1664);
+
+var $Array = Array;
+
+// `Array.from` method implementation
+// https://tc39.es/ecma262/#sec-array.from
+module.exports = function from(arrayLike /* , mapfn = undefined, thisArg = undefined */) {
+  var O = toObject(arrayLike);
+  var IS_CONSTRUCTOR = isConstructor(this);
+  var argumentsLength = arguments.length;
+  var mapfn = argumentsLength > 1 ? arguments[1] : undefined;
+  var mapping = mapfn !== undefined;
+  if (mapping) mapfn = bind(mapfn, argumentsLength > 2 ? arguments[2] : undefined);
+  var iteratorMethod = getIteratorMethod(O);
+  var index = 0;
+  var length, result, step, iterator, next, value;
+  // if the target is not iterable or it's an array with the default iterator - use a simple case
+  if (iteratorMethod && !(this === $Array && isArrayIteratorMethod(iteratorMethod))) {
+    result = IS_CONSTRUCTOR ? new this() : [];
+    iterator = getIterator(O, iteratorMethod);
+    next = iterator.next;
+    for (;!(step = call(next, iterator)).done; index++) {
+      value = mapping ? callWithSafeIterationClosing(iterator, mapfn, [step.value, index], true) : step.value;
+      createProperty(result, index, value);
+    }
+  } else {
+    length = lengthOfArrayLike(O);
+    result = IS_CONSTRUCTOR ? new this(length) : $Array(length);
+    for (;length > index; index++) {
+      value = mapping ? mapfn(O[index], index) : O[index];
+      createProperty(result, index, value);
+    }
+  }
+  result.length = index;
+  return result;
+};
+
+
+/***/ }),
+
 /***/ 4328:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var toIndexedObject = __webpack_require__(5290);
 var toAbsoluteIndex = __webpack_require__(7578);
@@ -1186,6 +6267,7 @@ module.exports = {
 /***/ 2960:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var bind = __webpack_require__(4071);
 var uncurryThis = __webpack_require__(8844);
@@ -1264,9 +6346,38 @@ module.exports = {
 
 /***/ }),
 
+/***/ 9042:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var fails = __webpack_require__(3689);
+var wellKnownSymbol = __webpack_require__(4201);
+var V8_VERSION = __webpack_require__(3615);
+
+var SPECIES = wellKnownSymbol('species');
+
+module.exports = function (METHOD_NAME) {
+  // We can't use this feature detection in V8 since it causes
+  // deoptimization and serious performance degradation
+  // https://github.com/zloirock/core-js/issues/677
+  return V8_VERSION >= 51 || !fails(function () {
+    var array = [];
+    var constructor = array.constructor = {};
+    constructor[SPECIES] = function () {
+      return { foo: 1 };
+    };
+    return array[METHOD_NAME](Boolean).foo !== 1;
+  });
+};
+
+
+/***/ }),
+
 /***/ 6834:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var fails = __webpack_require__(3689);
 
@@ -1284,6 +6395,7 @@ module.exports = function (METHOD_NAME, argument) {
 /***/ 6004:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var uncurryThis = __webpack_require__(8844);
 
@@ -1295,6 +6407,7 @@ module.exports = uncurryThis([].slice);
 /***/ 382:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var arraySlice = __webpack_require__(6004);
 
@@ -1344,6 +6457,7 @@ module.exports = sort;
 /***/ 5271:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var isArray = __webpack_require__(2297);
 var isConstructor = __webpack_require__(9429);
@@ -1374,6 +6488,7 @@ module.exports = function (originalArray) {
 /***/ 7120:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var arraySpeciesConstructor = __webpack_require__(5271);
 
@@ -1386,9 +6501,79 @@ module.exports = function (originalArray, length) {
 
 /***/ }),
 
+/***/ 1228:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var anObject = __webpack_require__(5027);
+var iteratorClose = __webpack_require__(2125);
+
+// call something on iterator step with safe closing on error
+module.exports = function (iterator, fn, value, ENTRIES) {
+  try {
+    return ENTRIES ? fn(anObject(value)[0], value[1]) : fn(value);
+  } catch (error) {
+    iteratorClose(iterator, 'throw', error);
+  }
+};
+
+
+/***/ }),
+
+/***/ 6431:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var wellKnownSymbol = __webpack_require__(4201);
+
+var ITERATOR = wellKnownSymbol('iterator');
+var SAFE_CLOSING = false;
+
+try {
+  var called = 0;
+  var iteratorWithReturn = {
+    next: function () {
+      return { done: !!called++ };
+    },
+    'return': function () {
+      SAFE_CLOSING = true;
+    }
+  };
+  iteratorWithReturn[ITERATOR] = function () {
+    return this;
+  };
+  // eslint-disable-next-line es/no-array-from, no-throw-literal -- required for testing
+  Array.from(iteratorWithReturn, function () { throw 2; });
+} catch (error) { /* empty */ }
+
+module.exports = function (exec, SKIP_CLOSING) {
+  try {
+    if (!SKIP_CLOSING && !SAFE_CLOSING) return false;
+  } catch (error) { return false; } // workaround of old WebKit + `eval` bug
+  var ITERATION_SUPPORT = false;
+  try {
+    var object = {};
+    object[ITERATOR] = function () {
+      return {
+        next: function () {
+          return { done: ITERATION_SUPPORT = true };
+        }
+      };
+    };
+    exec(object);
+  } catch (error) { /* empty */ }
+  return ITERATION_SUPPORT;
+};
+
+
+/***/ }),
+
 /***/ 6648:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var uncurryThis = __webpack_require__(8844);
 
@@ -1405,6 +6590,7 @@ module.exports = function (it) {
 /***/ 926:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var TO_STRING_TAG_SUPPORT = __webpack_require__(3043);
 var isCallable = __webpack_require__(9985);
@@ -1442,6 +6628,7 @@ module.exports = TO_STRING_TAG_SUPPORT ? classofRaw : function (it) {
 /***/ 8758:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var hasOwn = __webpack_require__(6812);
 var ownKeys = __webpack_require__(9152);
@@ -1463,9 +6650,41 @@ module.exports = function (target, source, exceptions) {
 
 /***/ }),
 
+/***/ 1748:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var fails = __webpack_require__(3689);
+
+module.exports = !fails(function () {
+  function F() { /* empty */ }
+  F.prototype.constructor = null;
+  // eslint-disable-next-line es/no-object-getprototypeof -- required for testing
+  return Object.getPrototypeOf(new F()) !== F.prototype;
+});
+
+
+/***/ }),
+
+/***/ 7807:
+/***/ ((module) => {
+
+"use strict";
+
+// `CreateIterResultObject` abstract operation
+// https://tc39.es/ecma262/#sec-createiterresultobject
+module.exports = function (value, done) {
+  return { value: value, done: done };
+};
+
+
+/***/ }),
+
 /***/ 5773:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var DESCRIPTORS = __webpack_require__(7697);
 var definePropertyModule = __webpack_require__(2560);
@@ -1484,6 +6703,7 @@ module.exports = DESCRIPTORS ? function (object, key, value) {
 /***/ 5684:
 /***/ ((module) => {
 
+"use strict";
 
 module.exports = function (bitmap, value) {
   return {
@@ -1497,9 +6717,44 @@ module.exports = function (bitmap, value) {
 
 /***/ }),
 
+/***/ 6522:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var DESCRIPTORS = __webpack_require__(7697);
+var definePropertyModule = __webpack_require__(2560);
+var createPropertyDescriptor = __webpack_require__(5684);
+
+module.exports = function (object, key, value) {
+  if (DESCRIPTORS) definePropertyModule.f(object, key, createPropertyDescriptor(0, value));
+  else object[key] = value;
+};
+
+
+/***/ }),
+
+/***/ 2148:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var makeBuiltIn = __webpack_require__(8702);
+var defineProperty = __webpack_require__(2560);
+
+module.exports = function (target, name, descriptor) {
+  if (descriptor.get) makeBuiltIn(descriptor.get, name, { getter: true });
+  if (descriptor.set) makeBuiltIn(descriptor.set, name, { setter: true });
+  return defineProperty.f(target, name, descriptor);
+};
+
+
+/***/ }),
+
 /***/ 1880:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var isCallable = __webpack_require__(9985);
 var definePropertyModule = __webpack_require__(2560);
@@ -1535,6 +6790,7 @@ module.exports = function (O, key, value, options) {
 /***/ 5014:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var global = __webpack_require__(9037);
 
@@ -1555,6 +6811,7 @@ module.exports = function (key, value) {
 /***/ 8494:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var tryToString = __webpack_require__(3691);
 
@@ -1570,6 +6827,7 @@ module.exports = function (O, P) {
 /***/ 7697:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var fails = __webpack_require__(3689);
 
@@ -1585,6 +6843,7 @@ module.exports = !fails(function () {
 /***/ 6420:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var global = __webpack_require__(9037);
 var isObject = __webpack_require__(8999);
@@ -1603,6 +6862,7 @@ module.exports = function (it) {
 /***/ 6338:
 /***/ ((module) => {
 
+"use strict";
 
 // iterable DOM collections
 // flag - `iterable` interface - 'entries', 'keys', 'values', 'forEach' methods
@@ -1646,6 +6906,7 @@ module.exports = {
 /***/ 3265:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 // in old WebKit versions, `element.classList` is not an instance of global `DOMTokenList`
 var documentCreateElement = __webpack_require__(6420);
@@ -1661,6 +6922,7 @@ module.exports = DOMTokenListPrototype === Object.prototype ? undefined : DOMTok
 /***/ 7365:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var userAgent = __webpack_require__(71);
 
@@ -1671,9 +6933,25 @@ module.exports = !!firefox && +firefox[1];
 
 /***/ }),
 
+/***/ 2532:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var IS_DENO = __webpack_require__(8563);
+var IS_NODE = __webpack_require__(806);
+
+module.exports = !IS_DENO && !IS_NODE
+  && typeof window == 'object'
+  && typeof document == 'object';
+
+
+/***/ }),
+
 /***/ 3127:
 /***/ ((module) => {
 
+"use strict";
 
 /* global Bun -- Bun case */
 module.exports = typeof Bun == 'function' && Bun && typeof Bun.version == 'string';
@@ -1681,9 +6959,21 @@ module.exports = typeof Bun == 'function' && Bun && typeof Bun.version == 'strin
 
 /***/ }),
 
+/***/ 8563:
+/***/ ((module) => {
+
+"use strict";
+
+/* global Deno -- Deno case */
+module.exports = typeof Deno == 'object' && Deno && typeof Deno.version == 'object';
+
+
+/***/ }),
+
 /***/ 7298:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var UA = __webpack_require__(71);
 
@@ -1692,9 +6982,60 @@ module.exports = /MSIE|Trident/.test(UA);
 
 /***/ }),
 
+/***/ 3221:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var userAgent = __webpack_require__(71);
+
+module.exports = /ipad|iphone|ipod/i.test(userAgent) && typeof Pebble != 'undefined';
+
+
+/***/ }),
+
+/***/ 4764:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var userAgent = __webpack_require__(71);
+
+// eslint-disable-next-line redos/no-vulnerable -- safe
+module.exports = /(?:ipad|iphone|ipod).*applewebkit/i.test(userAgent);
+
+
+/***/ }),
+
+/***/ 806:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var global = __webpack_require__(9037);
+var classof = __webpack_require__(6648);
+
+module.exports = classof(global.process) === 'process';
+
+
+/***/ }),
+
+/***/ 7486:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var userAgent = __webpack_require__(71);
+
+module.exports = /web0s(?!.*chrome)/i.test(userAgent);
+
+
+/***/ }),
+
 /***/ 71:
 /***/ ((module) => {
 
+"use strict";
 
 module.exports = typeof navigator != 'undefined' && String(navigator.userAgent) || '';
 
@@ -1704,6 +7045,7 @@ module.exports = typeof navigator != 'undefined' && String(navigator.userAgent) 
 /***/ 3615:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var global = __webpack_require__(9037);
 var userAgent = __webpack_require__(71);
@@ -1739,6 +7081,7 @@ module.exports = version;
 /***/ 7922:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var userAgent = __webpack_require__(71);
 
@@ -1752,6 +7095,7 @@ module.exports = !!webkit && +webkit[1];
 /***/ 2739:
 /***/ ((module) => {
 
+"use strict";
 
 // IE8- don't enum bug keys
 module.exports = [
@@ -1770,6 +7114,7 @@ module.exports = [
 /***/ 9989:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var global = __webpack_require__(9037);
 var getOwnPropertyDescriptor = (__webpack_require__(2474).f);
@@ -1832,6 +7177,7 @@ module.exports = function (options, source) {
 /***/ 3689:
 /***/ ((module) => {
 
+"use strict";
 
 module.exports = function (exec) {
   try {
@@ -1847,6 +7193,7 @@ module.exports = function (exec) {
 /***/ 1735:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var NATIVE_BIND = __webpack_require__(7215);
 
@@ -1865,6 +7212,7 @@ module.exports = typeof Reflect == 'object' && Reflect.apply || (NATIVE_BIND ? c
 /***/ 4071:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var uncurryThis = __webpack_require__(6576);
 var aCallable = __webpack_require__(509);
@@ -1886,6 +7234,7 @@ module.exports = function (fn, that) {
 /***/ 7215:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var fails = __webpack_require__(3689);
 
@@ -1902,6 +7251,7 @@ module.exports = !fails(function () {
 /***/ 2615:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var NATIVE_BIND = __webpack_require__(7215);
 
@@ -1917,6 +7267,7 @@ module.exports = NATIVE_BIND ? call.bind(call) : function () {
 /***/ 1236:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var DESCRIPTORS = __webpack_require__(7697);
 var hasOwn = __webpack_require__(6812);
@@ -1939,9 +7290,28 @@ module.exports = {
 
 /***/ }),
 
+/***/ 2743:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var uncurryThis = __webpack_require__(8844);
+var aCallable = __webpack_require__(509);
+
+module.exports = function (object, key, method) {
+  try {
+    // eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
+    return uncurryThis(aCallable(Object.getOwnPropertyDescriptor(object, key)[method]));
+  } catch (error) { /* empty */ }
+};
+
+
+/***/ }),
+
 /***/ 6576:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var classofRaw = __webpack_require__(6648);
 var uncurryThis = __webpack_require__(8844);
@@ -1959,6 +7329,7 @@ module.exports = function (fn) {
 /***/ 8844:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var NATIVE_BIND = __webpack_require__(7215);
 
@@ -1978,6 +7349,7 @@ module.exports = NATIVE_BIND ? uncurryThisWithBind : function (fn) {
 /***/ 6058:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var global = __webpack_require__(9037);
 var isCallable = __webpack_require__(9985);
@@ -1993,9 +7365,92 @@ module.exports = function (namespace, method) {
 
 /***/ }),
 
+/***/ 1664:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var classof = __webpack_require__(926);
+var getMethod = __webpack_require__(4849);
+var isNullOrUndefined = __webpack_require__(981);
+var Iterators = __webpack_require__(9478);
+var wellKnownSymbol = __webpack_require__(4201);
+
+var ITERATOR = wellKnownSymbol('iterator');
+
+module.exports = function (it) {
+  if (!isNullOrUndefined(it)) return getMethod(it, ITERATOR)
+    || getMethod(it, '@@iterator')
+    || Iterators[classof(it)];
+};
+
+
+/***/ }),
+
+/***/ 5185:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var call = __webpack_require__(2615);
+var aCallable = __webpack_require__(509);
+var anObject = __webpack_require__(5027);
+var tryToString = __webpack_require__(3691);
+var getIteratorMethod = __webpack_require__(1664);
+
+var $TypeError = TypeError;
+
+module.exports = function (argument, usingIterator) {
+  var iteratorMethod = arguments.length < 2 ? getIteratorMethod(argument) : usingIterator;
+  if (aCallable(iteratorMethod)) return anObject(call(iteratorMethod, argument));
+  throw new $TypeError(tryToString(argument) + ' is not iterable');
+};
+
+
+/***/ }),
+
+/***/ 2643:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var uncurryThis = __webpack_require__(8844);
+var isArray = __webpack_require__(2297);
+var isCallable = __webpack_require__(9985);
+var classof = __webpack_require__(6648);
+var toString = __webpack_require__(4327);
+
+var push = uncurryThis([].push);
+
+module.exports = function (replacer) {
+  if (isCallable(replacer)) return replacer;
+  if (!isArray(replacer)) return;
+  var rawLength = replacer.length;
+  var keys = [];
+  for (var i = 0; i < rawLength; i++) {
+    var element = replacer[i];
+    if (typeof element == 'string') push(keys, element);
+    else if (typeof element == 'number' || classof(element) === 'Number' || classof(element) === 'String') push(keys, toString(element));
+  }
+  var keysLength = keys.length;
+  var root = true;
+  return function (key, value) {
+    if (root) {
+      root = false;
+      return value;
+    }
+    if (isArray(this)) return value;
+    for (var j = 0; j < keysLength; j++) if (keys[j] === key) return value;
+  };
+};
+
+
+/***/ }),
+
 /***/ 4849:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var aCallable = __webpack_require__(509);
 var isNullOrUndefined = __webpack_require__(981);
@@ -2013,6 +7468,7 @@ module.exports = function (V, P) {
 /***/ 9037:
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
+"use strict";
 
 var check = function (it) {
   return it && it.Math === Math && it;
@@ -2036,6 +7492,7 @@ module.exports =
 /***/ 6812:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var uncurryThis = __webpack_require__(8844);
 var toObject = __webpack_require__(690);
@@ -2055,8 +7512,36 @@ module.exports = Object.hasOwn || function hasOwn(it, key) {
 /***/ 7248:
 /***/ ((module) => {
 
+"use strict";
 
 module.exports = {};
+
+
+/***/ }),
+
+/***/ 920:
+/***/ ((module) => {
+
+"use strict";
+
+module.exports = function (a, b) {
+  try {
+    // eslint-disable-next-line no-console -- safe
+    arguments.length === 1 ? console.error(a) : console.error(a, b);
+  } catch (error) { /* empty */ }
+};
+
+
+/***/ }),
+
+/***/ 2688:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var getBuiltIn = __webpack_require__(6058);
+
+module.exports = getBuiltIn('document', 'documentElement');
 
 
 /***/ }),
@@ -2064,6 +7549,7 @@ module.exports = {};
 /***/ 8506:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var DESCRIPTORS = __webpack_require__(7697);
 var fails = __webpack_require__(3689);
@@ -2083,6 +7569,7 @@ module.exports = !DESCRIPTORS && !fails(function () {
 /***/ 4413:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var uncurryThis = __webpack_require__(8844);
 var fails = __webpack_require__(3689);
@@ -2106,6 +7593,7 @@ module.exports = fails(function () {
 /***/ 6738:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var uncurryThis = __webpack_require__(8844);
 var isCallable = __webpack_require__(9985);
@@ -2128,6 +7616,7 @@ module.exports = store.inspectSource;
 /***/ 618:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var NATIVE_WEAK_MAP = __webpack_require__(9834);
 var global = __webpack_require__(9037);
@@ -2203,9 +7692,29 @@ module.exports = {
 
 /***/ }),
 
+/***/ 3292:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var wellKnownSymbol = __webpack_require__(4201);
+var Iterators = __webpack_require__(9478);
+
+var ITERATOR = wellKnownSymbol('iterator');
+var ArrayPrototype = Array.prototype;
+
+// check on default Array iterator
+module.exports = function (it) {
+  return it !== undefined && (Iterators.Array === it || ArrayPrototype[ITERATOR] === it);
+};
+
+
+/***/ }),
+
 /***/ 2297:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var classof = __webpack_require__(6648);
 
@@ -2222,6 +7731,7 @@ module.exports = Array.isArray || function isArray(argument) {
 /***/ 9985:
 /***/ ((module) => {
 
+"use strict";
 
 // https://tc39.es/ecma262/#sec-IsHTMLDDA-internal-slot
 var documentAll = typeof document == 'object' && document.all;
@@ -2241,6 +7751,7 @@ module.exports = typeof documentAll == 'undefined' && documentAll !== undefined 
 /***/ 9429:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var uncurryThis = __webpack_require__(8844);
 var fails = __webpack_require__(3689);
@@ -2300,6 +7811,7 @@ module.exports = !construct || fails(function () {
 /***/ 5266:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var fails = __webpack_require__(3689);
 var isCallable = __webpack_require__(9985);
@@ -2330,6 +7842,7 @@ module.exports = isForced;
 /***/ 981:
 /***/ ((module) => {
 
+"use strict";
 
 // we can't use just `it == null` since of `document.all` special case
 // https://tc39.es/ecma262/#sec-IsHTMLDDA-internal-slot-aec
@@ -2343,6 +7856,7 @@ module.exports = function (it) {
 /***/ 8999:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var isCallable = __webpack_require__(9985);
 
@@ -2353,9 +7867,24 @@ module.exports = function (it) {
 
 /***/ }),
 
+/***/ 598:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var isObject = __webpack_require__(8999);
+
+module.exports = function (argument) {
+  return isObject(argument) || argument === null;
+};
+
+
+/***/ }),
+
 /***/ 3931:
 /***/ ((module) => {
 
+"use strict";
 
 module.exports = false;
 
@@ -2365,6 +7894,7 @@ module.exports = false;
 /***/ 734:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var getBuiltIn = __webpack_require__(6058);
 var isCallable = __webpack_require__(9985);
@@ -2383,9 +7913,320 @@ module.exports = USE_SYMBOL_AS_UID ? function (it) {
 
 /***/ }),
 
+/***/ 8734:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var bind = __webpack_require__(4071);
+var call = __webpack_require__(2615);
+var anObject = __webpack_require__(5027);
+var tryToString = __webpack_require__(3691);
+var isArrayIteratorMethod = __webpack_require__(3292);
+var lengthOfArrayLike = __webpack_require__(6310);
+var isPrototypeOf = __webpack_require__(3622);
+var getIterator = __webpack_require__(5185);
+var getIteratorMethod = __webpack_require__(1664);
+var iteratorClose = __webpack_require__(2125);
+
+var $TypeError = TypeError;
+
+var Result = function (stopped, result) {
+  this.stopped = stopped;
+  this.result = result;
+};
+
+var ResultPrototype = Result.prototype;
+
+module.exports = function (iterable, unboundFunction, options) {
+  var that = options && options.that;
+  var AS_ENTRIES = !!(options && options.AS_ENTRIES);
+  var IS_RECORD = !!(options && options.IS_RECORD);
+  var IS_ITERATOR = !!(options && options.IS_ITERATOR);
+  var INTERRUPTED = !!(options && options.INTERRUPTED);
+  var fn = bind(unboundFunction, that);
+  var iterator, iterFn, index, length, result, next, step;
+
+  var stop = function (condition) {
+    if (iterator) iteratorClose(iterator, 'normal', condition);
+    return new Result(true, condition);
+  };
+
+  var callFn = function (value) {
+    if (AS_ENTRIES) {
+      anObject(value);
+      return INTERRUPTED ? fn(value[0], value[1], stop) : fn(value[0], value[1]);
+    } return INTERRUPTED ? fn(value, stop) : fn(value);
+  };
+
+  if (IS_RECORD) {
+    iterator = iterable.iterator;
+  } else if (IS_ITERATOR) {
+    iterator = iterable;
+  } else {
+    iterFn = getIteratorMethod(iterable);
+    if (!iterFn) throw new $TypeError(tryToString(iterable) + ' is not iterable');
+    // optimisation for array iterators
+    if (isArrayIteratorMethod(iterFn)) {
+      for (index = 0, length = lengthOfArrayLike(iterable); length > index; index++) {
+        result = callFn(iterable[index]);
+        if (result && isPrototypeOf(ResultPrototype, result)) return result;
+      } return new Result(false);
+    }
+    iterator = getIterator(iterable, iterFn);
+  }
+
+  next = IS_RECORD ? iterable.next : iterator.next;
+  while (!(step = call(next, iterator)).done) {
+    try {
+      result = callFn(step.value);
+    } catch (error) {
+      iteratorClose(iterator, 'throw', error);
+    }
+    if (typeof result == 'object' && result && isPrototypeOf(ResultPrototype, result)) return result;
+  } return new Result(false);
+};
+
+
+/***/ }),
+
+/***/ 2125:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var call = __webpack_require__(2615);
+var anObject = __webpack_require__(5027);
+var getMethod = __webpack_require__(4849);
+
+module.exports = function (iterator, kind, value) {
+  var innerResult, innerError;
+  anObject(iterator);
+  try {
+    innerResult = getMethod(iterator, 'return');
+    if (!innerResult) {
+      if (kind === 'throw') throw value;
+      return value;
+    }
+    innerResult = call(innerResult, iterator);
+  } catch (error) {
+    innerError = true;
+    innerResult = error;
+  }
+  if (kind === 'throw') throw value;
+  if (innerError) throw innerResult;
+  anObject(innerResult);
+  return value;
+};
+
+
+/***/ }),
+
+/***/ 974:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var IteratorPrototype = (__webpack_require__(2013).IteratorPrototype);
+var create = __webpack_require__(5391);
+var createPropertyDescriptor = __webpack_require__(5684);
+var setToStringTag = __webpack_require__(5997);
+var Iterators = __webpack_require__(9478);
+
+var returnThis = function () { return this; };
+
+module.exports = function (IteratorConstructor, NAME, next, ENUMERABLE_NEXT) {
+  var TO_STRING_TAG = NAME + ' Iterator';
+  IteratorConstructor.prototype = create(IteratorPrototype, { next: createPropertyDescriptor(+!ENUMERABLE_NEXT, next) });
+  setToStringTag(IteratorConstructor, TO_STRING_TAG, false, true);
+  Iterators[TO_STRING_TAG] = returnThis;
+  return IteratorConstructor;
+};
+
+
+/***/ }),
+
+/***/ 1934:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var call = __webpack_require__(2615);
+var IS_PURE = __webpack_require__(3931);
+var FunctionName = __webpack_require__(1236);
+var isCallable = __webpack_require__(9985);
+var createIteratorConstructor = __webpack_require__(974);
+var getPrototypeOf = __webpack_require__(1868);
+var setPrototypeOf = __webpack_require__(9385);
+var setToStringTag = __webpack_require__(5997);
+var createNonEnumerableProperty = __webpack_require__(5773);
+var defineBuiltIn = __webpack_require__(1880);
+var wellKnownSymbol = __webpack_require__(4201);
+var Iterators = __webpack_require__(9478);
+var IteratorsCore = __webpack_require__(2013);
+
+var PROPER_FUNCTION_NAME = FunctionName.PROPER;
+var CONFIGURABLE_FUNCTION_NAME = FunctionName.CONFIGURABLE;
+var IteratorPrototype = IteratorsCore.IteratorPrototype;
+var BUGGY_SAFARI_ITERATORS = IteratorsCore.BUGGY_SAFARI_ITERATORS;
+var ITERATOR = wellKnownSymbol('iterator');
+var KEYS = 'keys';
+var VALUES = 'values';
+var ENTRIES = 'entries';
+
+var returnThis = function () { return this; };
+
+module.exports = function (Iterable, NAME, IteratorConstructor, next, DEFAULT, IS_SET, FORCED) {
+  createIteratorConstructor(IteratorConstructor, NAME, next);
+
+  var getIterationMethod = function (KIND) {
+    if (KIND === DEFAULT && defaultIterator) return defaultIterator;
+    if (!BUGGY_SAFARI_ITERATORS && KIND && KIND in IterablePrototype) return IterablePrototype[KIND];
+
+    switch (KIND) {
+      case KEYS: return function keys() { return new IteratorConstructor(this, KIND); };
+      case VALUES: return function values() { return new IteratorConstructor(this, KIND); };
+      case ENTRIES: return function entries() { return new IteratorConstructor(this, KIND); };
+    }
+
+    return function () { return new IteratorConstructor(this); };
+  };
+
+  var TO_STRING_TAG = NAME + ' Iterator';
+  var INCORRECT_VALUES_NAME = false;
+  var IterablePrototype = Iterable.prototype;
+  var nativeIterator = IterablePrototype[ITERATOR]
+    || IterablePrototype['@@iterator']
+    || DEFAULT && IterablePrototype[DEFAULT];
+  var defaultIterator = !BUGGY_SAFARI_ITERATORS && nativeIterator || getIterationMethod(DEFAULT);
+  var anyNativeIterator = NAME === 'Array' ? IterablePrototype.entries || nativeIterator : nativeIterator;
+  var CurrentIteratorPrototype, methods, KEY;
+
+  // fix native
+  if (anyNativeIterator) {
+    CurrentIteratorPrototype = getPrototypeOf(anyNativeIterator.call(new Iterable()));
+    if (CurrentIteratorPrototype !== Object.prototype && CurrentIteratorPrototype.next) {
+      if (!IS_PURE && getPrototypeOf(CurrentIteratorPrototype) !== IteratorPrototype) {
+        if (setPrototypeOf) {
+          setPrototypeOf(CurrentIteratorPrototype, IteratorPrototype);
+        } else if (!isCallable(CurrentIteratorPrototype[ITERATOR])) {
+          defineBuiltIn(CurrentIteratorPrototype, ITERATOR, returnThis);
+        }
+      }
+      // Set @@toStringTag to native iterators
+      setToStringTag(CurrentIteratorPrototype, TO_STRING_TAG, true, true);
+      if (IS_PURE) Iterators[TO_STRING_TAG] = returnThis;
+    }
+  }
+
+  // fix Array.prototype.{ values, @@iterator }.name in V8 / FF
+  if (PROPER_FUNCTION_NAME && DEFAULT === VALUES && nativeIterator && nativeIterator.name !== VALUES) {
+    if (!IS_PURE && CONFIGURABLE_FUNCTION_NAME) {
+      createNonEnumerableProperty(IterablePrototype, 'name', VALUES);
+    } else {
+      INCORRECT_VALUES_NAME = true;
+      defaultIterator = function values() { return call(nativeIterator, this); };
+    }
+  }
+
+  // export additional methods
+  if (DEFAULT) {
+    methods = {
+      values: getIterationMethod(VALUES),
+      keys: IS_SET ? defaultIterator : getIterationMethod(KEYS),
+      entries: getIterationMethod(ENTRIES)
+    };
+    if (FORCED) for (KEY in methods) {
+      if (BUGGY_SAFARI_ITERATORS || INCORRECT_VALUES_NAME || !(KEY in IterablePrototype)) {
+        defineBuiltIn(IterablePrototype, KEY, methods[KEY]);
+      }
+    } else $({ target: NAME, proto: true, forced: BUGGY_SAFARI_ITERATORS || INCORRECT_VALUES_NAME }, methods);
+  }
+
+  // define iterator
+  if ((!IS_PURE || FORCED) && IterablePrototype[ITERATOR] !== defaultIterator) {
+    defineBuiltIn(IterablePrototype, ITERATOR, defaultIterator, { name: DEFAULT });
+  }
+  Iterators[NAME] = defaultIterator;
+
+  return methods;
+};
+
+
+/***/ }),
+
+/***/ 2013:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var fails = __webpack_require__(3689);
+var isCallable = __webpack_require__(9985);
+var isObject = __webpack_require__(8999);
+var create = __webpack_require__(5391);
+var getPrototypeOf = __webpack_require__(1868);
+var defineBuiltIn = __webpack_require__(1880);
+var wellKnownSymbol = __webpack_require__(4201);
+var IS_PURE = __webpack_require__(3931);
+
+var ITERATOR = wellKnownSymbol('iterator');
+var BUGGY_SAFARI_ITERATORS = false;
+
+// `%IteratorPrototype%` object
+// https://tc39.es/ecma262/#sec-%iteratorprototype%-object
+var IteratorPrototype, PrototypeOfArrayIteratorPrototype, arrayIterator;
+
+/* eslint-disable es/no-array-prototype-keys -- safe */
+if ([].keys) {
+  arrayIterator = [].keys();
+  // Safari 8 has buggy iterators w/o `next`
+  if (!('next' in arrayIterator)) BUGGY_SAFARI_ITERATORS = true;
+  else {
+    PrototypeOfArrayIteratorPrototype = getPrototypeOf(getPrototypeOf(arrayIterator));
+    if (PrototypeOfArrayIteratorPrototype !== Object.prototype) IteratorPrototype = PrototypeOfArrayIteratorPrototype;
+  }
+}
+
+var NEW_ITERATOR_PROTOTYPE = !isObject(IteratorPrototype) || fails(function () {
+  var test = {};
+  // FF44- legacy iterators case
+  return IteratorPrototype[ITERATOR].call(test) !== test;
+});
+
+if (NEW_ITERATOR_PROTOTYPE) IteratorPrototype = {};
+else if (IS_PURE) IteratorPrototype = create(IteratorPrototype);
+
+// `%IteratorPrototype%[@@iterator]()` method
+// https://tc39.es/ecma262/#sec-%iteratorprototype%-@@iterator
+if (!isCallable(IteratorPrototype[ITERATOR])) {
+  defineBuiltIn(IteratorPrototype, ITERATOR, function () {
+    return this;
+  });
+}
+
+module.exports = {
+  IteratorPrototype: IteratorPrototype,
+  BUGGY_SAFARI_ITERATORS: BUGGY_SAFARI_ITERATORS
+};
+
+
+/***/ }),
+
+/***/ 9478:
+/***/ ((module) => {
+
+"use strict";
+
+module.exports = {};
+
+
+/***/ }),
+
 /***/ 6310:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var toLength = __webpack_require__(3126);
 
@@ -2401,6 +8242,7 @@ module.exports = function (obj) {
 /***/ 8702:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var uncurryThis = __webpack_require__(8844);
 var fails = __webpack_require__(3689);
@@ -2463,6 +8305,7 @@ Function.prototype.toString = makeBuiltIn(function toString() {
 /***/ 8828:
 /***/ ((module) => {
 
+"use strict";
 
 var ceil = Math.ceil;
 var floor = Math.floor;
@@ -2478,9 +8321,247 @@ module.exports = Math.trunc || function trunc(x) {
 
 /***/ }),
 
+/***/ 231:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var global = __webpack_require__(9037);
+var safeGetBuiltIn = __webpack_require__(517);
+var bind = __webpack_require__(4071);
+var macrotask = (__webpack_require__(9886).set);
+var Queue = __webpack_require__(4410);
+var IS_IOS = __webpack_require__(4764);
+var IS_IOS_PEBBLE = __webpack_require__(3221);
+var IS_WEBOS_WEBKIT = __webpack_require__(7486);
+var IS_NODE = __webpack_require__(806);
+
+var MutationObserver = global.MutationObserver || global.WebKitMutationObserver;
+var document = global.document;
+var process = global.process;
+var Promise = global.Promise;
+var microtask = safeGetBuiltIn('queueMicrotask');
+var notify, toggle, node, promise, then;
+
+// modern engines have queueMicrotask method
+if (!microtask) {
+  var queue = new Queue();
+
+  var flush = function () {
+    var parent, fn;
+    if (IS_NODE && (parent = process.domain)) parent.exit();
+    while (fn = queue.get()) try {
+      fn();
+    } catch (error) {
+      if (queue.head) notify();
+      throw error;
+    }
+    if (parent) parent.enter();
+  };
+
+  // browsers with MutationObserver, except iOS - https://github.com/zloirock/core-js/issues/339
+  // also except WebOS Webkit https://github.com/zloirock/core-js/issues/898
+  if (!IS_IOS && !IS_NODE && !IS_WEBOS_WEBKIT && MutationObserver && document) {
+    toggle = true;
+    node = document.createTextNode('');
+    new MutationObserver(flush).observe(node, { characterData: true });
+    notify = function () {
+      node.data = toggle = !toggle;
+    };
+  // environments with maybe non-completely correct, but existent Promise
+  } else if (!IS_IOS_PEBBLE && Promise && Promise.resolve) {
+    // Promise.resolve without an argument throws an error in LG WebOS 2
+    promise = Promise.resolve(undefined);
+    // workaround of WebKit ~ iOS Safari 10.1 bug
+    promise.constructor = Promise;
+    then = bind(promise.then, promise);
+    notify = function () {
+      then(flush);
+    };
+  // Node.js without promises
+  } else if (IS_NODE) {
+    notify = function () {
+      process.nextTick(flush);
+    };
+  // for other environments - macrotask based on:
+  // - setImmediate
+  // - MessageChannel
+  // - window.postMessage
+  // - onreadystatechange
+  // - setTimeout
+  } else {
+    // `webpack` dev server bug on IE global methods - use bind(fn, global)
+    macrotask = bind(macrotask, global);
+    notify = function () {
+      macrotask(flush);
+    };
+  }
+
+  microtask = function (fn) {
+    if (!queue.head) notify();
+    queue.add(fn);
+  };
+}
+
+module.exports = microtask;
+
+
+/***/ }),
+
+/***/ 8742:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var aCallable = __webpack_require__(509);
+
+var $TypeError = TypeError;
+
+var PromiseCapability = function (C) {
+  var resolve, reject;
+  this.promise = new C(function ($$resolve, $$reject) {
+    if (resolve !== undefined || reject !== undefined) throw new $TypeError('Bad Promise constructor');
+    resolve = $$resolve;
+    reject = $$reject;
+  });
+  this.resolve = aCallable(resolve);
+  this.reject = aCallable(reject);
+};
+
+// `NewPromiseCapability` abstract operation
+// https://tc39.es/ecma262/#sec-newpromisecapability
+module.exports.f = function (C) {
+  return new PromiseCapability(C);
+};
+
+
+/***/ }),
+
+/***/ 5391:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+/* global ActiveXObject -- old IE, WSH */
+var anObject = __webpack_require__(5027);
+var definePropertiesModule = __webpack_require__(8920);
+var enumBugKeys = __webpack_require__(2739);
+var hiddenKeys = __webpack_require__(7248);
+var html = __webpack_require__(2688);
+var documentCreateElement = __webpack_require__(6420);
+var sharedKey = __webpack_require__(2713);
+
+var GT = '>';
+var LT = '<';
+var PROTOTYPE = 'prototype';
+var SCRIPT = 'script';
+var IE_PROTO = sharedKey('IE_PROTO');
+
+var EmptyConstructor = function () { /* empty */ };
+
+var scriptTag = function (content) {
+  return LT + SCRIPT + GT + content + LT + '/' + SCRIPT + GT;
+};
+
+// Create object with fake `null` prototype: use ActiveX Object with cleared prototype
+var NullProtoObjectViaActiveX = function (activeXDocument) {
+  activeXDocument.write(scriptTag(''));
+  activeXDocument.close();
+  var temp = activeXDocument.parentWindow.Object;
+  activeXDocument = null; // avoid memory leak
+  return temp;
+};
+
+// Create object with fake `null` prototype: use iframe Object with cleared prototype
+var NullProtoObjectViaIFrame = function () {
+  // Thrash, waste and sodomy: IE GC bug
+  var iframe = documentCreateElement('iframe');
+  var JS = 'java' + SCRIPT + ':';
+  var iframeDocument;
+  iframe.style.display = 'none';
+  html.appendChild(iframe);
+  // https://github.com/zloirock/core-js/issues/475
+  iframe.src = String(JS);
+  iframeDocument = iframe.contentWindow.document;
+  iframeDocument.open();
+  iframeDocument.write(scriptTag('document.F=Object'));
+  iframeDocument.close();
+  return iframeDocument.F;
+};
+
+// Check for document.domain and active x support
+// No need to use active x approach when document.domain is not set
+// see https://github.com/es-shims/es5-shim/issues/150
+// variation of https://github.com/kitcambridge/es5-shim/commit/4f738ac066346
+// avoid IE GC bug
+var activeXDocument;
+var NullProtoObject = function () {
+  try {
+    activeXDocument = new ActiveXObject('htmlfile');
+  } catch (error) { /* ignore */ }
+  NullProtoObject = typeof document != 'undefined'
+    ? document.domain && activeXDocument
+      ? NullProtoObjectViaActiveX(activeXDocument) // old IE
+      : NullProtoObjectViaIFrame()
+    : NullProtoObjectViaActiveX(activeXDocument); // WSH
+  var length = enumBugKeys.length;
+  while (length--) delete NullProtoObject[PROTOTYPE][enumBugKeys[length]];
+  return NullProtoObject();
+};
+
+hiddenKeys[IE_PROTO] = true;
+
+// `Object.create` method
+// https://tc39.es/ecma262/#sec-object.create
+// eslint-disable-next-line es/no-object-create -- safe
+module.exports = Object.create || function create(O, Properties) {
+  var result;
+  if (O !== null) {
+    EmptyConstructor[PROTOTYPE] = anObject(O);
+    result = new EmptyConstructor();
+    EmptyConstructor[PROTOTYPE] = null;
+    // add "__proto__" for Object.getPrototypeOf polyfill
+    result[IE_PROTO] = O;
+  } else result = NullProtoObject();
+  return Properties === undefined ? result : definePropertiesModule.f(result, Properties);
+};
+
+
+/***/ }),
+
+/***/ 8920:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+var DESCRIPTORS = __webpack_require__(7697);
+var V8_PROTOTYPE_DEFINE_BUG = __webpack_require__(5648);
+var definePropertyModule = __webpack_require__(2560);
+var anObject = __webpack_require__(5027);
+var toIndexedObject = __webpack_require__(5290);
+var objectKeys = __webpack_require__(300);
+
+// `Object.defineProperties` method
+// https://tc39.es/ecma262/#sec-object.defineproperties
+// eslint-disable-next-line es/no-object-defineproperties -- safe
+exports.f = DESCRIPTORS && !V8_PROTOTYPE_DEFINE_BUG ? Object.defineProperties : function defineProperties(O, Properties) {
+  anObject(O);
+  var props = toIndexedObject(Properties);
+  var keys = objectKeys(Properties);
+  var length = keys.length;
+  var index = 0;
+  var key;
+  while (length > index) definePropertyModule.f(O, key = keys[index++], props[key]);
+  return O;
+};
+
+
+/***/ }),
+
 /***/ 2560:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 
 var DESCRIPTORS = __webpack_require__(7697);
 var IE8_DOM_DEFINE = __webpack_require__(8506);
@@ -2532,6 +8613,7 @@ exports.f = DESCRIPTORS ? V8_PROTOTYPE_DEFINE_BUG ? function defineProperty(O, P
 /***/ 2474:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 
 var DESCRIPTORS = __webpack_require__(7697);
 var call = __webpack_require__(2615);
@@ -2559,9 +8641,42 @@ exports.f = DESCRIPTORS ? $getOwnPropertyDescriptor : function getOwnPropertyDes
 
 /***/ }),
 
+/***/ 6062:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+/* eslint-disable es/no-object-getownpropertynames -- safe */
+var classof = __webpack_require__(6648);
+var toIndexedObject = __webpack_require__(5290);
+var $getOwnPropertyNames = (__webpack_require__(2741).f);
+var arraySlice = __webpack_require__(6004);
+
+var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
+  ? Object.getOwnPropertyNames(window) : [];
+
+var getWindowNames = function (it) {
+  try {
+    return $getOwnPropertyNames(it);
+  } catch (error) {
+    return arraySlice(windowNames);
+  }
+};
+
+// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
+module.exports.f = function getOwnPropertyNames(it) {
+  return windowNames && classof(it) === 'Window'
+    ? getWindowNames(it)
+    : $getOwnPropertyNames(toIndexedObject(it));
+};
+
+
+/***/ }),
+
 /***/ 2741:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 
 var internalObjectKeys = __webpack_require__(4948);
 var enumBugKeys = __webpack_require__(2739);
@@ -2581,6 +8696,7 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 /***/ 7518:
 /***/ ((__unused_webpack_module, exports) => {
 
+"use strict";
 
 // eslint-disable-next-line es/no-object-getownpropertysymbols -- safe
 exports.f = Object.getOwnPropertySymbols;
@@ -2588,9 +8704,40 @@ exports.f = Object.getOwnPropertySymbols;
 
 /***/ }),
 
+/***/ 1868:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var hasOwn = __webpack_require__(6812);
+var isCallable = __webpack_require__(9985);
+var toObject = __webpack_require__(690);
+var sharedKey = __webpack_require__(2713);
+var CORRECT_PROTOTYPE_GETTER = __webpack_require__(1748);
+
+var IE_PROTO = sharedKey('IE_PROTO');
+var $Object = Object;
+var ObjectPrototype = $Object.prototype;
+
+// `Object.getPrototypeOf` method
+// https://tc39.es/ecma262/#sec-object.getprototypeof
+// eslint-disable-next-line es/no-object-getprototypeof -- safe
+module.exports = CORRECT_PROTOTYPE_GETTER ? $Object.getPrototypeOf : function (O) {
+  var object = toObject(O);
+  if (hasOwn(object, IE_PROTO)) return object[IE_PROTO];
+  var constructor = object.constructor;
+  if (isCallable(constructor) && object instanceof constructor) {
+    return constructor.prototype;
+  } return object instanceof $Object ? ObjectPrototype : null;
+};
+
+
+/***/ }),
+
 /***/ 3622:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var uncurryThis = __webpack_require__(8844);
 
@@ -2602,6 +8749,7 @@ module.exports = uncurryThis({}.isPrototypeOf);
 /***/ 4948:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var uncurryThis = __webpack_require__(8844);
 var hasOwn = __webpack_require__(6812);
@@ -2630,6 +8778,7 @@ module.exports = function (object, names) {
 /***/ 300:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var internalObjectKeys = __webpack_require__(4948);
 var enumBugKeys = __webpack_require__(2739);
@@ -2647,6 +8796,7 @@ module.exports = Object.keys || function keys(O) {
 /***/ 9556:
 /***/ ((__unused_webpack_module, exports) => {
 
+"use strict";
 
 var $propertyIsEnumerable = {}.propertyIsEnumerable;
 // eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
@@ -2665,9 +8815,47 @@ exports.f = NASHORN_BUG ? function propertyIsEnumerable(V) {
 
 /***/ }),
 
+/***/ 9385:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+/* eslint-disable no-proto -- safe */
+var uncurryThisAccessor = __webpack_require__(2743);
+var isObject = __webpack_require__(8999);
+var requireObjectCoercible = __webpack_require__(4684);
+var aPossiblePrototype = __webpack_require__(3550);
+
+// `Object.setPrototypeOf` method
+// https://tc39.es/ecma262/#sec-object.setprototypeof
+// Works with __proto__ only. Old v8 can't work with null proto objects.
+// eslint-disable-next-line es/no-object-setprototypeof -- safe
+module.exports = Object.setPrototypeOf || ('__proto__' in {} ? function () {
+  var CORRECT_SETTER = false;
+  var test = {};
+  var setter;
+  try {
+    setter = uncurryThisAccessor(Object.prototype, '__proto__', 'set');
+    setter(test, []);
+    CORRECT_SETTER = test instanceof Array;
+  } catch (error) { /* empty */ }
+  return function setPrototypeOf(O, proto) {
+    requireObjectCoercible(O);
+    aPossiblePrototype(proto);
+    if (!isObject(O)) return O;
+    if (CORRECT_SETTER) setter(O, proto);
+    else O.__proto__ = proto;
+    return O;
+  };
+}() : undefined);
+
+
+/***/ }),
+
 /***/ 5073:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var TO_STRING_TAG_SUPPORT = __webpack_require__(3043);
 var classof = __webpack_require__(926);
@@ -2684,6 +8872,7 @@ module.exports = TO_STRING_TAG_SUPPORT ? {}.toString : function toString() {
 /***/ 5899:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var call = __webpack_require__(2615);
 var isCallable = __webpack_require__(9985);
@@ -2707,6 +8896,7 @@ module.exports = function (input, pref) {
 /***/ 9152:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var getBuiltIn = __webpack_require__(6058);
 var uncurryThis = __webpack_require__(8844);
@@ -2726,9 +8916,176 @@ module.exports = getBuiltIn('Reflect', 'ownKeys') || function ownKeys(it) {
 
 /***/ }),
 
+/***/ 496:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var global = __webpack_require__(9037);
+
+module.exports = global;
+
+
+/***/ }),
+
+/***/ 9302:
+/***/ ((module) => {
+
+"use strict";
+
+module.exports = function (exec) {
+  try {
+    return { error: false, value: exec() };
+  } catch (error) {
+    return { error: true, value: error };
+  }
+};
+
+
+/***/ }),
+
+/***/ 7073:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var global = __webpack_require__(9037);
+var NativePromiseConstructor = __webpack_require__(7919);
+var isCallable = __webpack_require__(9985);
+var isForced = __webpack_require__(5266);
+var inspectSource = __webpack_require__(6738);
+var wellKnownSymbol = __webpack_require__(4201);
+var IS_BROWSER = __webpack_require__(2532);
+var IS_DENO = __webpack_require__(8563);
+var IS_PURE = __webpack_require__(3931);
+var V8_VERSION = __webpack_require__(3615);
+
+var NativePromisePrototype = NativePromiseConstructor && NativePromiseConstructor.prototype;
+var SPECIES = wellKnownSymbol('species');
+var SUBCLASSING = false;
+var NATIVE_PROMISE_REJECTION_EVENT = isCallable(global.PromiseRejectionEvent);
+
+var FORCED_PROMISE_CONSTRUCTOR = isForced('Promise', function () {
+  var PROMISE_CONSTRUCTOR_SOURCE = inspectSource(NativePromiseConstructor);
+  var GLOBAL_CORE_JS_PROMISE = PROMISE_CONSTRUCTOR_SOURCE !== String(NativePromiseConstructor);
+  // V8 6.6 (Node 10 and Chrome 66) have a bug with resolving custom thenables
+  // https://bugs.chromium.org/p/chromium/issues/detail?id=830565
+  // We can't detect it synchronously, so just check versions
+  if (!GLOBAL_CORE_JS_PROMISE && V8_VERSION === 66) return true;
+  // We need Promise#{ catch, finally } in the pure version for preventing prototype pollution
+  if (IS_PURE && !(NativePromisePrototype['catch'] && NativePromisePrototype['finally'])) return true;
+  // We can't use @@species feature detection in V8 since it causes
+  // deoptimization and performance degradation
+  // https://github.com/zloirock/core-js/issues/679
+  if (!V8_VERSION || V8_VERSION < 51 || !/native code/.test(PROMISE_CONSTRUCTOR_SOURCE)) {
+    // Detect correctness of subclassing with @@species support
+    var promise = new NativePromiseConstructor(function (resolve) { resolve(1); });
+    var FakePromise = function (exec) {
+      exec(function () { /* empty */ }, function () { /* empty */ });
+    };
+    var constructor = promise.constructor = {};
+    constructor[SPECIES] = FakePromise;
+    SUBCLASSING = promise.then(function () { /* empty */ }) instanceof FakePromise;
+    if (!SUBCLASSING) return true;
+  // Unhandled rejections tracking support, NodeJS Promise without it fails @@species test
+  } return !GLOBAL_CORE_JS_PROMISE && (IS_BROWSER || IS_DENO) && !NATIVE_PROMISE_REJECTION_EVENT;
+});
+
+module.exports = {
+  CONSTRUCTOR: FORCED_PROMISE_CONSTRUCTOR,
+  REJECTION_EVENT: NATIVE_PROMISE_REJECTION_EVENT,
+  SUBCLASSING: SUBCLASSING
+};
+
+
+/***/ }),
+
+/***/ 7919:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var global = __webpack_require__(9037);
+
+module.exports = global.Promise;
+
+
+/***/ }),
+
+/***/ 2945:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var anObject = __webpack_require__(5027);
+var isObject = __webpack_require__(8999);
+var newPromiseCapability = __webpack_require__(8742);
+
+module.exports = function (C, x) {
+  anObject(C);
+  if (isObject(x) && x.constructor === C) return x;
+  var promiseCapability = newPromiseCapability.f(C);
+  var resolve = promiseCapability.resolve;
+  resolve(x);
+  return promiseCapability.promise;
+};
+
+
+/***/ }),
+
+/***/ 562:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var NativePromiseConstructor = __webpack_require__(7919);
+var checkCorrectnessOfIteration = __webpack_require__(6431);
+var FORCED_PROMISE_CONSTRUCTOR = (__webpack_require__(7073).CONSTRUCTOR);
+
+module.exports = FORCED_PROMISE_CONSTRUCTOR || !checkCorrectnessOfIteration(function (iterable) {
+  NativePromiseConstructor.all(iterable).then(undefined, function () { /* empty */ });
+});
+
+
+/***/ }),
+
+/***/ 4410:
+/***/ ((module) => {
+
+"use strict";
+
+var Queue = function () {
+  this.head = null;
+  this.tail = null;
+};
+
+Queue.prototype = {
+  add: function (item) {
+    var entry = { item: item, next: null };
+    var tail = this.tail;
+    if (tail) tail.next = entry;
+    else this.head = entry;
+    this.tail = entry;
+  },
+  get: function () {
+    var entry = this.head;
+    if (entry) {
+      var next = this.head = entry.next;
+      if (next === null) this.tail = null;
+      return entry.item;
+    }
+  }
+};
+
+module.exports = Queue;
+
+
+/***/ }),
+
 /***/ 4684:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var isNullOrUndefined = __webpack_require__(981);
 
@@ -2744,9 +9101,31 @@ module.exports = function (it) {
 
 /***/ }),
 
+/***/ 517:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var global = __webpack_require__(9037);
+var DESCRIPTORS = __webpack_require__(7697);
+
+// eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
+var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+
+// Avoid NodeJS experimental warning
+module.exports = function (name) {
+  if (!DESCRIPTORS) return global[name];
+  var descriptor = getOwnPropertyDescriptor(global, name);
+  return descriptor && descriptor.value;
+};
+
+
+/***/ }),
+
 /***/ 8552:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var global = __webpack_require__(9037);
 var apply = __webpack_require__(1735);
@@ -2782,9 +9161,57 @@ module.exports = function (scheduler, hasTimeArg) {
 
 /***/ }),
 
+/***/ 4241:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var getBuiltIn = __webpack_require__(6058);
+var defineBuiltInAccessor = __webpack_require__(2148);
+var wellKnownSymbol = __webpack_require__(4201);
+var DESCRIPTORS = __webpack_require__(7697);
+
+var SPECIES = wellKnownSymbol('species');
+
+module.exports = function (CONSTRUCTOR_NAME) {
+  var Constructor = getBuiltIn(CONSTRUCTOR_NAME);
+
+  if (DESCRIPTORS && Constructor && !Constructor[SPECIES]) {
+    defineBuiltInAccessor(Constructor, SPECIES, {
+      configurable: true,
+      get: function () { return this; }
+    });
+  }
+};
+
+
+/***/ }),
+
+/***/ 5997:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var defineProperty = (__webpack_require__(2560).f);
+var hasOwn = __webpack_require__(6812);
+var wellKnownSymbol = __webpack_require__(4201);
+
+var TO_STRING_TAG = wellKnownSymbol('toStringTag');
+
+module.exports = function (target, TAG, STATIC) {
+  if (target && !STATIC) target = target.prototype;
+  if (target && !hasOwn(target, TO_STRING_TAG)) {
+    defineProperty(target, TO_STRING_TAG, { configurable: true, value: TAG });
+  }
+};
+
+
+/***/ }),
+
 /***/ 2713:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var shared = __webpack_require__(3430);
 var uid = __webpack_require__(4630);
@@ -2801,6 +9228,7 @@ module.exports = function (key) {
 /***/ 4091:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var IS_PURE = __webpack_require__(3931);
 var globalThis = __webpack_require__(9037);
@@ -2823,6 +9251,7 @@ var store = module.exports = globalThis[SHARED] || defineGlobalProperty(SHARED, 
 /***/ 3430:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var store = __webpack_require__(4091);
 
@@ -2833,9 +9262,78 @@ module.exports = function (key, value) {
 
 /***/ }),
 
+/***/ 6373:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var anObject = __webpack_require__(5027);
+var aConstructor = __webpack_require__(2655);
+var isNullOrUndefined = __webpack_require__(981);
+var wellKnownSymbol = __webpack_require__(4201);
+
+var SPECIES = wellKnownSymbol('species');
+
+// `SpeciesConstructor` abstract operation
+// https://tc39.es/ecma262/#sec-speciesconstructor
+module.exports = function (O, defaultConstructor) {
+  var C = anObject(O).constructor;
+  var S;
+  return C === undefined || isNullOrUndefined(S = anObject(C)[SPECIES]) ? defaultConstructor : aConstructor(S);
+};
+
+
+/***/ }),
+
+/***/ 730:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var uncurryThis = __webpack_require__(8844);
+var toIntegerOrInfinity = __webpack_require__(8700);
+var toString = __webpack_require__(4327);
+var requireObjectCoercible = __webpack_require__(4684);
+
+var charAt = uncurryThis(''.charAt);
+var charCodeAt = uncurryThis(''.charCodeAt);
+var stringSlice = uncurryThis(''.slice);
+
+var createMethod = function (CONVERT_TO_STRING) {
+  return function ($this, pos) {
+    var S = toString(requireObjectCoercible($this));
+    var position = toIntegerOrInfinity(pos);
+    var size = S.length;
+    var first, second;
+    if (position < 0 || position >= size) return CONVERT_TO_STRING ? '' : undefined;
+    first = charCodeAt(S, position);
+    return first < 0xD800 || first > 0xDBFF || position + 1 === size
+      || (second = charCodeAt(S, position + 1)) < 0xDC00 || second > 0xDFFF
+        ? CONVERT_TO_STRING
+          ? charAt(S, position)
+          : first
+        : CONVERT_TO_STRING
+          ? stringSlice(S, position, position + 2)
+          : (first - 0xD800 << 10) + (second - 0xDC00) + 0x10000;
+  };
+};
+
+module.exports = {
+  // `String.prototype.codePointAt` method
+  // https://tc39.es/ecma262/#sec-string.prototype.codepointat
+  codeAt: createMethod(false),
+  // `String.prototype.at` method
+  // https://github.com/mathiasbynens/String.prototype.at
+  charAt: createMethod(true)
+};
+
+
+/***/ }),
+
 /***/ 146:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 /* eslint-disable es/no-symbol -- required for testing */
 var V8_VERSION = __webpack_require__(3615);
@@ -2859,9 +9357,177 @@ module.exports = !!Object.getOwnPropertySymbols && !fails(function () {
 
 /***/ }),
 
+/***/ 3032:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var call = __webpack_require__(2615);
+var getBuiltIn = __webpack_require__(6058);
+var wellKnownSymbol = __webpack_require__(4201);
+var defineBuiltIn = __webpack_require__(1880);
+
+module.exports = function () {
+  var Symbol = getBuiltIn('Symbol');
+  var SymbolPrototype = Symbol && Symbol.prototype;
+  var valueOf = SymbolPrototype && SymbolPrototype.valueOf;
+  var TO_PRIMITIVE = wellKnownSymbol('toPrimitive');
+
+  if (SymbolPrototype && !SymbolPrototype[TO_PRIMITIVE]) {
+    // `Symbol.prototype[@@toPrimitive]` method
+    // https://tc39.es/ecma262/#sec-symbol.prototype-@@toprimitive
+    // eslint-disable-next-line no-unused-vars -- required for .length
+    defineBuiltIn(SymbolPrototype, TO_PRIMITIVE, function (hint) {
+      return call(valueOf, this);
+    }, { arity: 1 });
+  }
+};
+
+
+/***/ }),
+
+/***/ 6549:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var NATIVE_SYMBOL = __webpack_require__(146);
+
+/* eslint-disable es/no-symbol -- safe */
+module.exports = NATIVE_SYMBOL && !!Symbol['for'] && !!Symbol.keyFor;
+
+
+/***/ }),
+
+/***/ 9886:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var global = __webpack_require__(9037);
+var apply = __webpack_require__(1735);
+var bind = __webpack_require__(4071);
+var isCallable = __webpack_require__(9985);
+var hasOwn = __webpack_require__(6812);
+var fails = __webpack_require__(3689);
+var html = __webpack_require__(2688);
+var arraySlice = __webpack_require__(6004);
+var createElement = __webpack_require__(6420);
+var validateArgumentsLength = __webpack_require__(1500);
+var IS_IOS = __webpack_require__(4764);
+var IS_NODE = __webpack_require__(806);
+
+var set = global.setImmediate;
+var clear = global.clearImmediate;
+var process = global.process;
+var Dispatch = global.Dispatch;
+var Function = global.Function;
+var MessageChannel = global.MessageChannel;
+var String = global.String;
+var counter = 0;
+var queue = {};
+var ONREADYSTATECHANGE = 'onreadystatechange';
+var $location, defer, channel, port;
+
+fails(function () {
+  // Deno throws a ReferenceError on `location` access without `--location` flag
+  $location = global.location;
+});
+
+var run = function (id) {
+  if (hasOwn(queue, id)) {
+    var fn = queue[id];
+    delete queue[id];
+    fn();
+  }
+};
+
+var runner = function (id) {
+  return function () {
+    run(id);
+  };
+};
+
+var eventListener = function (event) {
+  run(event.data);
+};
+
+var globalPostMessageDefer = function (id) {
+  // old engines have not location.origin
+  global.postMessage(String(id), $location.protocol + '//' + $location.host);
+};
+
+// Node.js 0.9+ & IE10+ has setImmediate, otherwise:
+if (!set || !clear) {
+  set = function setImmediate(handler) {
+    validateArgumentsLength(arguments.length, 1);
+    var fn = isCallable(handler) ? handler : Function(handler);
+    var args = arraySlice(arguments, 1);
+    queue[++counter] = function () {
+      apply(fn, undefined, args);
+    };
+    defer(counter);
+    return counter;
+  };
+  clear = function clearImmediate(id) {
+    delete queue[id];
+  };
+  // Node.js 0.8-
+  if (IS_NODE) {
+    defer = function (id) {
+      process.nextTick(runner(id));
+    };
+  // Sphere (JS game engine) Dispatch API
+  } else if (Dispatch && Dispatch.now) {
+    defer = function (id) {
+      Dispatch.now(runner(id));
+    };
+  // Browsers with MessageChannel, includes WebWorkers
+  // except iOS - https://github.com/zloirock/core-js/issues/624
+  } else if (MessageChannel && !IS_IOS) {
+    channel = new MessageChannel();
+    port = channel.port2;
+    channel.port1.onmessage = eventListener;
+    defer = bind(port.postMessage, port);
+  // Browsers with postMessage, skip WebWorkers
+  // IE8 has postMessage, but it's sync & typeof its postMessage is 'object'
+  } else if (
+    global.addEventListener &&
+    isCallable(global.postMessage) &&
+    !global.importScripts &&
+    $location && $location.protocol !== 'file:' &&
+    !fails(globalPostMessageDefer)
+  ) {
+    defer = globalPostMessageDefer;
+    global.addEventListener('message', eventListener, false);
+  // IE8-
+  } else if (ONREADYSTATECHANGE in createElement('script')) {
+    defer = function (id) {
+      html.appendChild(createElement('script'))[ONREADYSTATECHANGE] = function () {
+        html.removeChild(this);
+        run(id);
+      };
+    };
+  // Rest old browsers
+  } else {
+    defer = function (id) {
+      setTimeout(runner(id), 0);
+    };
+  }
+}
+
+module.exports = {
+  set: set,
+  clear: clear
+};
+
+
+/***/ }),
+
 /***/ 7578:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var toIntegerOrInfinity = __webpack_require__(8700);
 
@@ -2882,6 +9548,7 @@ module.exports = function (index, length) {
 /***/ 5290:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 // toObject with fallback for non-array-like ES3 strings
 var IndexedObject = __webpack_require__(4413);
@@ -2897,6 +9564,7 @@ module.exports = function (it) {
 /***/ 8700:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var trunc = __webpack_require__(8828);
 
@@ -2914,6 +9582,7 @@ module.exports = function (argument) {
 /***/ 3126:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var toIntegerOrInfinity = __webpack_require__(8700);
 
@@ -2932,6 +9601,7 @@ module.exports = function (argument) {
 /***/ 690:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var requireObjectCoercible = __webpack_require__(4684);
 
@@ -2949,6 +9619,7 @@ module.exports = function (argument) {
 /***/ 8732:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var call = __webpack_require__(2615);
 var isObject = __webpack_require__(8999);
@@ -2982,6 +9653,7 @@ module.exports = function (input, pref) {
 /***/ 8360:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var toPrimitive = __webpack_require__(8732);
 var isSymbol = __webpack_require__(734);
@@ -2999,6 +9671,7 @@ module.exports = function (argument) {
 /***/ 3043:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var wellKnownSymbol = __webpack_require__(4201);
 
@@ -3015,6 +9688,7 @@ module.exports = String(test) === '[object z]';
 /***/ 4327:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var classof = __webpack_require__(926);
 
@@ -3031,6 +9705,7 @@ module.exports = function (argument) {
 /***/ 3691:
 /***/ ((module) => {
 
+"use strict";
 
 var $String = String;
 
@@ -3048,6 +9723,7 @@ module.exports = function (argument) {
 /***/ 4630:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var uncurryThis = __webpack_require__(8844);
 
@@ -3065,6 +9741,7 @@ module.exports = function (key) {
 /***/ 9525:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 /* eslint-disable es/no-symbol -- required for testing */
 var NATIVE_SYMBOL = __webpack_require__(146);
@@ -3079,6 +9756,7 @@ module.exports = NATIVE_SYMBOL
 /***/ 5648:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var DESCRIPTORS = __webpack_require__(7697);
 var fails = __webpack_require__(3689);
@@ -3099,6 +9777,7 @@ module.exports = DESCRIPTORS && fails(function () {
 /***/ 1500:
 /***/ ((module) => {
 
+"use strict";
 
 var $TypeError = TypeError;
 
@@ -3113,6 +9792,7 @@ module.exports = function (passed, required) {
 /***/ 9834:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var global = __webpack_require__(9037);
 var isCallable = __webpack_require__(9985);
@@ -3124,9 +9804,42 @@ module.exports = isCallable(WeakMap) && /native code/.test(String(WeakMap));
 
 /***/ }),
 
+/***/ 5405:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var path = __webpack_require__(496);
+var hasOwn = __webpack_require__(6812);
+var wrappedWellKnownSymbolModule = __webpack_require__(6145);
+var defineProperty = (__webpack_require__(2560).f);
+
+module.exports = function (NAME) {
+  var Symbol = path.Symbol || (path.Symbol = {});
+  if (!hasOwn(Symbol, NAME)) defineProperty(Symbol, NAME, {
+    value: wrappedWellKnownSymbolModule.f(NAME)
+  });
+};
+
+
+/***/ }),
+
+/***/ 6145:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+var wellKnownSymbol = __webpack_require__(4201);
+
+exports.f = wellKnownSymbol;
+
+
+/***/ }),
+
 /***/ 4201:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var global = __webpack_require__(9037);
 var shared = __webpack_require__(3430);
@@ -3153,6 +9866,7 @@ module.exports = function (name) {
 /***/ 9693:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var $ = __webpack_require__(9989);
 var forEach = __webpack_require__(7612);
@@ -3167,9 +9881,187 @@ $({ target: 'Array', proto: true, forced: [].forEach !== forEach }, {
 
 /***/ }),
 
+/***/ 7049:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var from = __webpack_require__(1055);
+var checkCorrectnessOfIteration = __webpack_require__(6431);
+
+var INCORRECT_ITERATION = !checkCorrectnessOfIteration(function (iterable) {
+  // eslint-disable-next-line es/no-array-from -- required for testing
+  Array.from(iterable);
+});
+
+// `Array.from` method
+// https://tc39.es/ecma262/#sec-array.from
+$({ target: 'Array', stat: true, forced: INCORRECT_ITERATION }, {
+  from: from
+});
+
+
+/***/ }),
+
+/***/ 752:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var toIndexedObject = __webpack_require__(5290);
+var addToUnscopables = __webpack_require__(7370);
+var Iterators = __webpack_require__(9478);
+var InternalStateModule = __webpack_require__(618);
+var defineProperty = (__webpack_require__(2560).f);
+var defineIterator = __webpack_require__(1934);
+var createIterResultObject = __webpack_require__(7807);
+var IS_PURE = __webpack_require__(3931);
+var DESCRIPTORS = __webpack_require__(7697);
+
+var ARRAY_ITERATOR = 'Array Iterator';
+var setInternalState = InternalStateModule.set;
+var getInternalState = InternalStateModule.getterFor(ARRAY_ITERATOR);
+
+// `Array.prototype.entries` method
+// https://tc39.es/ecma262/#sec-array.prototype.entries
+// `Array.prototype.keys` method
+// https://tc39.es/ecma262/#sec-array.prototype.keys
+// `Array.prototype.values` method
+// https://tc39.es/ecma262/#sec-array.prototype.values
+// `Array.prototype[@@iterator]` method
+// https://tc39.es/ecma262/#sec-array.prototype-@@iterator
+// `CreateArrayIterator` internal method
+// https://tc39.es/ecma262/#sec-createarrayiterator
+module.exports = defineIterator(Array, 'Array', function (iterated, kind) {
+  setInternalState(this, {
+    type: ARRAY_ITERATOR,
+    target: toIndexedObject(iterated), // target
+    index: 0,                          // next index
+    kind: kind                         // kind
+  });
+// `%ArrayIteratorPrototype%.next` method
+// https://tc39.es/ecma262/#sec-%arrayiteratorprototype%.next
+}, function () {
+  var state = getInternalState(this);
+  var target = state.target;
+  var index = state.index++;
+  if (!target || index >= target.length) {
+    state.target = undefined;
+    return createIterResultObject(undefined, true);
+  }
+  switch (state.kind) {
+    case 'keys': return createIterResultObject(index, false);
+    case 'values': return createIterResultObject(target[index], false);
+  } return createIterResultObject([index, target[index]], false);
+}, 'values');
+
+// argumentsList[@@iterator] is %ArrayProto_values%
+// https://tc39.es/ecma262/#sec-createunmappedargumentsobject
+// https://tc39.es/ecma262/#sec-createmappedargumentsobject
+var values = Iterators.Arguments = Iterators.Array;
+
+// https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
+addToUnscopables('keys');
+addToUnscopables('values');
+addToUnscopables('entries');
+
+// V8 ~ Chrome 45- bug
+if (!IS_PURE && DESCRIPTORS && values.name !== 'values') try {
+  defineProperty(values, 'name', { value: 'values' });
+} catch (error) { /* empty */ }
+
+
+/***/ }),
+
+/***/ 3374:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var uncurryThis = __webpack_require__(8844);
+var isArray = __webpack_require__(2297);
+
+var nativeReverse = uncurryThis([].reverse);
+var test = [1, 2];
+
+// `Array.prototype.reverse` method
+// https://tc39.es/ecma262/#sec-array.prototype.reverse
+// fix for Safari 12.0 bug
+// https://bugs.webkit.org/show_bug.cgi?id=188794
+$({ target: 'Array', proto: true, forced: String(test) === String(test.reverse()) }, {
+  reverse: function reverse() {
+    // eslint-disable-next-line no-self-assign -- dirty hack
+    if (isArray(this)) this.length = this.length;
+    return nativeReverse(this);
+  }
+});
+
+
+/***/ }),
+
+/***/ 9730:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var isArray = __webpack_require__(2297);
+var isConstructor = __webpack_require__(9429);
+var isObject = __webpack_require__(8999);
+var toAbsoluteIndex = __webpack_require__(7578);
+var lengthOfArrayLike = __webpack_require__(6310);
+var toIndexedObject = __webpack_require__(5290);
+var createProperty = __webpack_require__(6522);
+var wellKnownSymbol = __webpack_require__(4201);
+var arrayMethodHasSpeciesSupport = __webpack_require__(9042);
+var nativeSlice = __webpack_require__(6004);
+
+var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('slice');
+
+var SPECIES = wellKnownSymbol('species');
+var $Array = Array;
+var max = Math.max;
+
+// `Array.prototype.slice` method
+// https://tc39.es/ecma262/#sec-array.prototype.slice
+// fallback for not array-like ES3 strings and DOM objects
+$({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
+  slice: function slice(start, end) {
+    var O = toIndexedObject(this);
+    var length = lengthOfArrayLike(O);
+    var k = toAbsoluteIndex(start, length);
+    var fin = toAbsoluteIndex(end === undefined ? length : end, length);
+    // inline `ArraySpeciesCreate` for usage native `Array#slice` where it's possible
+    var Constructor, result, n;
+    if (isArray(O)) {
+      Constructor = O.constructor;
+      // cross-realm fallback
+      if (isConstructor(Constructor) && (Constructor === $Array || isArray(Constructor.prototype))) {
+        Constructor = undefined;
+      } else if (isObject(Constructor)) {
+        Constructor = Constructor[SPECIES];
+        if (Constructor === null) Constructor = undefined;
+      }
+      if (Constructor === $Array || Constructor === undefined) {
+        return nativeSlice(O, k, fin);
+      }
+    }
+    result = new (Constructor === undefined ? $Array : Constructor)(max(fin - k, 0));
+    for (n = 0; k < fin; k++, n++) if (k in O) createProperty(result, n, O[k]);
+    result.length = n;
+    return result;
+  }
+});
+
+
+/***/ }),
+
 /***/ 5137:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var $ = __webpack_require__(9989);
 var uncurryThis = __webpack_require__(8844);
@@ -3280,9 +10172,173 @@ $({ target: 'Array', proto: true, forced: FORCED }, {
 
 /***/ }),
 
+/***/ 4284:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var DESCRIPTORS = __webpack_require__(7697);
+var FUNCTION_NAME_EXISTS = (__webpack_require__(1236).EXISTS);
+var uncurryThis = __webpack_require__(8844);
+var defineBuiltInAccessor = __webpack_require__(2148);
+
+var FunctionPrototype = Function.prototype;
+var functionToString = uncurryThis(FunctionPrototype.toString);
+var nameRE = /function\b(?:\s|\/\*[\S\s]*?\*\/|\/\/[^\n\r]*[\n\r]+)*([^\s(/]*)/;
+var regExpExec = uncurryThis(nameRE.exec);
+var NAME = 'name';
+
+// Function instances `.name` property
+// https://tc39.es/ecma262/#sec-function-instances-name
+if (DESCRIPTORS && !FUNCTION_NAME_EXISTS) {
+  defineBuiltInAccessor(FunctionPrototype, NAME, {
+    configurable: true,
+    get: function () {
+      try {
+        return regExpExec(nameRE, functionToString(this))[1];
+      } catch (error) {
+        return '';
+      }
+    }
+  });
+}
+
+
+/***/ }),
+
+/***/ 8324:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var getBuiltIn = __webpack_require__(6058);
+var apply = __webpack_require__(1735);
+var call = __webpack_require__(2615);
+var uncurryThis = __webpack_require__(8844);
+var fails = __webpack_require__(3689);
+var isCallable = __webpack_require__(9985);
+var isSymbol = __webpack_require__(734);
+var arraySlice = __webpack_require__(6004);
+var getReplacerFunction = __webpack_require__(2643);
+var NATIVE_SYMBOL = __webpack_require__(146);
+
+var $String = String;
+var $stringify = getBuiltIn('JSON', 'stringify');
+var exec = uncurryThis(/./.exec);
+var charAt = uncurryThis(''.charAt);
+var charCodeAt = uncurryThis(''.charCodeAt);
+var replace = uncurryThis(''.replace);
+var numberToString = uncurryThis(1.0.toString);
+
+var tester = /[\uD800-\uDFFF]/g;
+var low = /^[\uD800-\uDBFF]$/;
+var hi = /^[\uDC00-\uDFFF]$/;
+
+var WRONG_SYMBOLS_CONVERSION = !NATIVE_SYMBOL || fails(function () {
+  var symbol = getBuiltIn('Symbol')('stringify detection');
+  // MS Edge converts symbol values to JSON as {}
+  return $stringify([symbol]) !== '[null]'
+    // WebKit converts symbol values to JSON as null
+    || $stringify({ a: symbol }) !== '{}'
+    // V8 throws on boxed symbols
+    || $stringify(Object(symbol)) !== '{}';
+});
+
+// https://github.com/tc39/proposal-well-formed-stringify
+var ILL_FORMED_UNICODE = fails(function () {
+  return $stringify('\uDF06\uD834') !== '"\\udf06\\ud834"'
+    || $stringify('\uDEAD') !== '"\\udead"';
+});
+
+var stringifyWithSymbolsFix = function (it, replacer) {
+  var args = arraySlice(arguments);
+  var $replacer = getReplacerFunction(replacer);
+  if (!isCallable($replacer) && (it === undefined || isSymbol(it))) return; // IE8 returns string on undefined
+  args[1] = function (key, value) {
+    // some old implementations (like WebKit) could pass numbers as keys
+    if (isCallable($replacer)) value = call($replacer, this, $String(key), value);
+    if (!isSymbol(value)) return value;
+  };
+  return apply($stringify, null, args);
+};
+
+var fixIllFormed = function (match, offset, string) {
+  var prev = charAt(string, offset - 1);
+  var next = charAt(string, offset + 1);
+  if ((exec(low, match) && !exec(hi, next)) || (exec(hi, match) && !exec(low, prev))) {
+    return '\\u' + numberToString(charCodeAt(match, 0), 16);
+  } return match;
+};
+
+if ($stringify) {
+  // `JSON.stringify` method
+  // https://tc39.es/ecma262/#sec-json.stringify
+  $({ target: 'JSON', stat: true, arity: 3, forced: WRONG_SYMBOLS_CONVERSION || ILL_FORMED_UNICODE }, {
+    // eslint-disable-next-line no-unused-vars -- required for `.length`
+    stringify: function stringify(it, replacer, space) {
+      var args = arraySlice(arguments);
+      var result = apply(WRONG_SYMBOLS_CONVERSION ? stringifyWithSymbolsFix : $stringify, null, args);
+      return ILL_FORMED_UNICODE && typeof result == 'string' ? replace(result, tester, fixIllFormed) : result;
+    }
+  });
+}
+
+
+/***/ }),
+
+/***/ 7629:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var global = __webpack_require__(9037);
+var setToStringTag = __webpack_require__(5997);
+
+// JSON[@@toStringTag] property
+// https://tc39.es/ecma262/#sec-json-@@tostringtag
+setToStringTag(global.JSON, 'JSON', true);
+
+
+/***/ }),
+
+/***/ 7509:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var setToStringTag = __webpack_require__(5997);
+
+// Math[@@toStringTag] property
+// https://tc39.es/ecma262/#sec-math-@@tostringtag
+setToStringTag(Math, 'Math', true);
+
+
+/***/ }),
+
+/***/ 1013:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+// TODO: Remove from `core-js@4`
+var $ = __webpack_require__(9989);
+var DESCRIPTORS = __webpack_require__(7697);
+var create = __webpack_require__(5391);
+
+// `Object.create` method
+// https://tc39.es/ecma262/#sec-object.create
+$({ target: 'Object', stat: true, sham: !DESCRIPTORS }, {
+  create: create
+});
+
+
+/***/ }),
+
 /***/ 739:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var $ = __webpack_require__(9989);
 var DESCRIPTORS = __webpack_require__(7697);
@@ -3298,9 +10354,62 @@ $({ target: 'Object', stat: true, forced: Object.defineProperty !== defineProper
 
 /***/ }),
 
+/***/ 9434:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var NATIVE_SYMBOL = __webpack_require__(146);
+var fails = __webpack_require__(3689);
+var getOwnPropertySymbolsModule = __webpack_require__(7518);
+var toObject = __webpack_require__(690);
+
+// V8 ~ Chrome 38 and 39 `Object.getOwnPropertySymbols` fails on primitives
+// https://bugs.chromium.org/p/v8/issues/detail?id=3443
+var FORCED = !NATIVE_SYMBOL || fails(function () { getOwnPropertySymbolsModule.f(1); });
+
+// `Object.getOwnPropertySymbols` method
+// https://tc39.es/ecma262/#sec-object.getownpropertysymbols
+$({ target: 'Object', stat: true, forced: FORCED }, {
+  getOwnPropertySymbols: function getOwnPropertySymbols(it) {
+    var $getOwnPropertySymbols = getOwnPropertySymbolsModule.f;
+    return $getOwnPropertySymbols ? $getOwnPropertySymbols(toObject(it)) : [];
+  }
+});
+
+
+/***/ }),
+
+/***/ 8052:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var fails = __webpack_require__(3689);
+var toObject = __webpack_require__(690);
+var nativeGetPrototypeOf = __webpack_require__(1868);
+var CORRECT_PROTOTYPE_GETTER = __webpack_require__(1748);
+
+var FAILS_ON_PRIMITIVES = fails(function () { nativeGetPrototypeOf(1); });
+
+// `Object.getPrototypeOf` method
+// https://tc39.es/ecma262/#sec-object.getprototypeof
+$({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES, sham: !CORRECT_PROTOTYPE_GETTER }, {
+  getPrototypeOf: function getPrototypeOf(it) {
+    return nativeGetPrototypeOf(toObject(it));
+  }
+});
+
+
+
+/***/ }),
+
 /***/ 9358:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var $ = __webpack_require__(9989);
 var toObject = __webpack_require__(690);
@@ -3320,9 +10429,27 @@ $({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES }, {
 
 /***/ }),
 
+/***/ 5399:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var setPrototypeOf = __webpack_require__(9385);
+
+// `Object.setPrototypeOf` method
+// https://tc39.es/ecma262/#sec-object.setprototypeof
+$({ target: 'Object', stat: true }, {
+  setPrototypeOf: setPrototypeOf
+});
+
+
+/***/ }),
+
 /***/ 228:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var TO_STRING_TAG_SUPPORT = __webpack_require__(3043);
 var defineBuiltIn = __webpack_require__(1880);
@@ -3337,9 +10464,983 @@ if (!TO_STRING_TAG_SUPPORT) {
 
 /***/ }),
 
+/***/ 1692:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var call = __webpack_require__(2615);
+var aCallable = __webpack_require__(509);
+var newPromiseCapabilityModule = __webpack_require__(8742);
+var perform = __webpack_require__(9302);
+var iterate = __webpack_require__(8734);
+var PROMISE_STATICS_INCORRECT_ITERATION = __webpack_require__(562);
+
+// `Promise.all` method
+// https://tc39.es/ecma262/#sec-promise.all
+$({ target: 'Promise', stat: true, forced: PROMISE_STATICS_INCORRECT_ITERATION }, {
+  all: function all(iterable) {
+    var C = this;
+    var capability = newPromiseCapabilityModule.f(C);
+    var resolve = capability.resolve;
+    var reject = capability.reject;
+    var result = perform(function () {
+      var $promiseResolve = aCallable(C.resolve);
+      var values = [];
+      var counter = 0;
+      var remaining = 1;
+      iterate(iterable, function (promise) {
+        var index = counter++;
+        var alreadyCalled = false;
+        remaining++;
+        call($promiseResolve, C, promise).then(function (value) {
+          if (alreadyCalled) return;
+          alreadyCalled = true;
+          values[index] = value;
+          --remaining || resolve(values);
+        }, reject);
+      });
+      --remaining || resolve(values);
+    });
+    if (result.error) reject(result.value);
+    return capability.promise;
+  }
+});
+
+
+/***/ }),
+
+/***/ 5089:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var IS_PURE = __webpack_require__(3931);
+var FORCED_PROMISE_CONSTRUCTOR = (__webpack_require__(7073).CONSTRUCTOR);
+var NativePromiseConstructor = __webpack_require__(7919);
+var getBuiltIn = __webpack_require__(6058);
+var isCallable = __webpack_require__(9985);
+var defineBuiltIn = __webpack_require__(1880);
+
+var NativePromisePrototype = NativePromiseConstructor && NativePromiseConstructor.prototype;
+
+// `Promise.prototype.catch` method
+// https://tc39.es/ecma262/#sec-promise.prototype.catch
+$({ target: 'Promise', proto: true, forced: FORCED_PROMISE_CONSTRUCTOR, real: true }, {
+  'catch': function (onRejected) {
+    return this.then(undefined, onRejected);
+  }
+});
+
+// makes sure that native promise-based APIs `Promise#catch` properly works with patched `Promise#then`
+if (!IS_PURE && isCallable(NativePromiseConstructor)) {
+  var method = getBuiltIn('Promise').prototype['catch'];
+  if (NativePromisePrototype['catch'] !== method) {
+    defineBuiltIn(NativePromisePrototype, 'catch', method, { unsafe: true });
+  }
+}
+
+
+/***/ }),
+
+/***/ 6697:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var IS_PURE = __webpack_require__(3931);
+var IS_NODE = __webpack_require__(806);
+var global = __webpack_require__(9037);
+var call = __webpack_require__(2615);
+var defineBuiltIn = __webpack_require__(1880);
+var setPrototypeOf = __webpack_require__(9385);
+var setToStringTag = __webpack_require__(5997);
+var setSpecies = __webpack_require__(4241);
+var aCallable = __webpack_require__(509);
+var isCallable = __webpack_require__(9985);
+var isObject = __webpack_require__(8999);
+var anInstance = __webpack_require__(767);
+var speciesConstructor = __webpack_require__(6373);
+var task = (__webpack_require__(9886).set);
+var microtask = __webpack_require__(231);
+var hostReportErrors = __webpack_require__(920);
+var perform = __webpack_require__(9302);
+var Queue = __webpack_require__(4410);
+var InternalStateModule = __webpack_require__(618);
+var NativePromiseConstructor = __webpack_require__(7919);
+var PromiseConstructorDetection = __webpack_require__(7073);
+var newPromiseCapabilityModule = __webpack_require__(8742);
+
+var PROMISE = 'Promise';
+var FORCED_PROMISE_CONSTRUCTOR = PromiseConstructorDetection.CONSTRUCTOR;
+var NATIVE_PROMISE_REJECTION_EVENT = PromiseConstructorDetection.REJECTION_EVENT;
+var NATIVE_PROMISE_SUBCLASSING = PromiseConstructorDetection.SUBCLASSING;
+var getInternalPromiseState = InternalStateModule.getterFor(PROMISE);
+var setInternalState = InternalStateModule.set;
+var NativePromisePrototype = NativePromiseConstructor && NativePromiseConstructor.prototype;
+var PromiseConstructor = NativePromiseConstructor;
+var PromisePrototype = NativePromisePrototype;
+var TypeError = global.TypeError;
+var document = global.document;
+var process = global.process;
+var newPromiseCapability = newPromiseCapabilityModule.f;
+var newGenericPromiseCapability = newPromiseCapability;
+
+var DISPATCH_EVENT = !!(document && document.createEvent && global.dispatchEvent);
+var UNHANDLED_REJECTION = 'unhandledrejection';
+var REJECTION_HANDLED = 'rejectionhandled';
+var PENDING = 0;
+var FULFILLED = 1;
+var REJECTED = 2;
+var HANDLED = 1;
+var UNHANDLED = 2;
+
+var Internal, OwnPromiseCapability, PromiseWrapper, nativeThen;
+
+// helpers
+var isThenable = function (it) {
+  var then;
+  return isObject(it) && isCallable(then = it.then) ? then : false;
+};
+
+var callReaction = function (reaction, state) {
+  var value = state.value;
+  var ok = state.state === FULFILLED;
+  var handler = ok ? reaction.ok : reaction.fail;
+  var resolve = reaction.resolve;
+  var reject = reaction.reject;
+  var domain = reaction.domain;
+  var result, then, exited;
+  try {
+    if (handler) {
+      if (!ok) {
+        if (state.rejection === UNHANDLED) onHandleUnhandled(state);
+        state.rejection = HANDLED;
+      }
+      if (handler === true) result = value;
+      else {
+        if (domain) domain.enter();
+        result = handler(value); // can throw
+        if (domain) {
+          domain.exit();
+          exited = true;
+        }
+      }
+      if (result === reaction.promise) {
+        reject(new TypeError('Promise-chain cycle'));
+      } else if (then = isThenable(result)) {
+        call(then, result, resolve, reject);
+      } else resolve(result);
+    } else reject(value);
+  } catch (error) {
+    if (domain && !exited) domain.exit();
+    reject(error);
+  }
+};
+
+var notify = function (state, isReject) {
+  if (state.notified) return;
+  state.notified = true;
+  microtask(function () {
+    var reactions = state.reactions;
+    var reaction;
+    while (reaction = reactions.get()) {
+      callReaction(reaction, state);
+    }
+    state.notified = false;
+    if (isReject && !state.rejection) onUnhandled(state);
+  });
+};
+
+var dispatchEvent = function (name, promise, reason) {
+  var event, handler;
+  if (DISPATCH_EVENT) {
+    event = document.createEvent('Event');
+    event.promise = promise;
+    event.reason = reason;
+    event.initEvent(name, false, true);
+    global.dispatchEvent(event);
+  } else event = { promise: promise, reason: reason };
+  if (!NATIVE_PROMISE_REJECTION_EVENT && (handler = global['on' + name])) handler(event);
+  else if (name === UNHANDLED_REJECTION) hostReportErrors('Unhandled promise rejection', reason);
+};
+
+var onUnhandled = function (state) {
+  call(task, global, function () {
+    var promise = state.facade;
+    var value = state.value;
+    var IS_UNHANDLED = isUnhandled(state);
+    var result;
+    if (IS_UNHANDLED) {
+      result = perform(function () {
+        if (IS_NODE) {
+          process.emit('unhandledRejection', value, promise);
+        } else dispatchEvent(UNHANDLED_REJECTION, promise, value);
+      });
+      // Browsers should not trigger `rejectionHandled` event if it was handled here, NodeJS - should
+      state.rejection = IS_NODE || isUnhandled(state) ? UNHANDLED : HANDLED;
+      if (result.error) throw result.value;
+    }
+  });
+};
+
+var isUnhandled = function (state) {
+  return state.rejection !== HANDLED && !state.parent;
+};
+
+var onHandleUnhandled = function (state) {
+  call(task, global, function () {
+    var promise = state.facade;
+    if (IS_NODE) {
+      process.emit('rejectionHandled', promise);
+    } else dispatchEvent(REJECTION_HANDLED, promise, state.value);
+  });
+};
+
+var bind = function (fn, state, unwrap) {
+  return function (value) {
+    fn(state, value, unwrap);
+  };
+};
+
+var internalReject = function (state, value, unwrap) {
+  if (state.done) return;
+  state.done = true;
+  if (unwrap) state = unwrap;
+  state.value = value;
+  state.state = REJECTED;
+  notify(state, true);
+};
+
+var internalResolve = function (state, value, unwrap) {
+  if (state.done) return;
+  state.done = true;
+  if (unwrap) state = unwrap;
+  try {
+    if (state.facade === value) throw new TypeError("Promise can't be resolved itself");
+    var then = isThenable(value);
+    if (then) {
+      microtask(function () {
+        var wrapper = { done: false };
+        try {
+          call(then, value,
+            bind(internalResolve, wrapper, state),
+            bind(internalReject, wrapper, state)
+          );
+        } catch (error) {
+          internalReject(wrapper, error, state);
+        }
+      });
+    } else {
+      state.value = value;
+      state.state = FULFILLED;
+      notify(state, false);
+    }
+  } catch (error) {
+    internalReject({ done: false }, error, state);
+  }
+};
+
+// constructor polyfill
+if (FORCED_PROMISE_CONSTRUCTOR) {
+  // 25.4.3.1 Promise(executor)
+  PromiseConstructor = function Promise(executor) {
+    anInstance(this, PromisePrototype);
+    aCallable(executor);
+    call(Internal, this);
+    var state = getInternalPromiseState(this);
+    try {
+      executor(bind(internalResolve, state), bind(internalReject, state));
+    } catch (error) {
+      internalReject(state, error);
+    }
+  };
+
+  PromisePrototype = PromiseConstructor.prototype;
+
+  // eslint-disable-next-line no-unused-vars -- required for `.length`
+  Internal = function Promise(executor) {
+    setInternalState(this, {
+      type: PROMISE,
+      done: false,
+      notified: false,
+      parent: false,
+      reactions: new Queue(),
+      rejection: false,
+      state: PENDING,
+      value: undefined
+    });
+  };
+
+  // `Promise.prototype.then` method
+  // https://tc39.es/ecma262/#sec-promise.prototype.then
+  Internal.prototype = defineBuiltIn(PromisePrototype, 'then', function then(onFulfilled, onRejected) {
+    var state = getInternalPromiseState(this);
+    var reaction = newPromiseCapability(speciesConstructor(this, PromiseConstructor));
+    state.parent = true;
+    reaction.ok = isCallable(onFulfilled) ? onFulfilled : true;
+    reaction.fail = isCallable(onRejected) && onRejected;
+    reaction.domain = IS_NODE ? process.domain : undefined;
+    if (state.state === PENDING) state.reactions.add(reaction);
+    else microtask(function () {
+      callReaction(reaction, state);
+    });
+    return reaction.promise;
+  });
+
+  OwnPromiseCapability = function () {
+    var promise = new Internal();
+    var state = getInternalPromiseState(promise);
+    this.promise = promise;
+    this.resolve = bind(internalResolve, state);
+    this.reject = bind(internalReject, state);
+  };
+
+  newPromiseCapabilityModule.f = newPromiseCapability = function (C) {
+    return C === PromiseConstructor || C === PromiseWrapper
+      ? new OwnPromiseCapability(C)
+      : newGenericPromiseCapability(C);
+  };
+
+  if (!IS_PURE && isCallable(NativePromiseConstructor) && NativePromisePrototype !== Object.prototype) {
+    nativeThen = NativePromisePrototype.then;
+
+    if (!NATIVE_PROMISE_SUBCLASSING) {
+      // make `Promise#then` return a polyfilled `Promise` for native promise-based APIs
+      defineBuiltIn(NativePromisePrototype, 'then', function then(onFulfilled, onRejected) {
+        var that = this;
+        return new PromiseConstructor(function (resolve, reject) {
+          call(nativeThen, that, resolve, reject);
+        }).then(onFulfilled, onRejected);
+      // https://github.com/zloirock/core-js/issues/640
+      }, { unsafe: true });
+    }
+
+    // make `.constructor === Promise` work for native promise-based APIs
+    try {
+      delete NativePromisePrototype.constructor;
+    } catch (error) { /* empty */ }
+
+    // make `instanceof Promise` work for native promise-based APIs
+    if (setPrototypeOf) {
+      setPrototypeOf(NativePromisePrototype, PromisePrototype);
+    }
+  }
+}
+
+$({ global: true, constructor: true, wrap: true, forced: FORCED_PROMISE_CONSTRUCTOR }, {
+  Promise: PromiseConstructor
+});
+
+setToStringTag(PromiseConstructor, PROMISE, false, true);
+setSpecies(PROMISE);
+
+
+/***/ }),
+
+/***/ 3964:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+// TODO: Remove this module from `core-js@4` since it's split to modules listed below
+__webpack_require__(6697);
+__webpack_require__(1692);
+__webpack_require__(5089);
+__webpack_require__(8829);
+__webpack_require__(2092);
+__webpack_require__(7905);
+
+
+/***/ }),
+
+/***/ 8829:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var call = __webpack_require__(2615);
+var aCallable = __webpack_require__(509);
+var newPromiseCapabilityModule = __webpack_require__(8742);
+var perform = __webpack_require__(9302);
+var iterate = __webpack_require__(8734);
+var PROMISE_STATICS_INCORRECT_ITERATION = __webpack_require__(562);
+
+// `Promise.race` method
+// https://tc39.es/ecma262/#sec-promise.race
+$({ target: 'Promise', stat: true, forced: PROMISE_STATICS_INCORRECT_ITERATION }, {
+  race: function race(iterable) {
+    var C = this;
+    var capability = newPromiseCapabilityModule.f(C);
+    var reject = capability.reject;
+    var result = perform(function () {
+      var $promiseResolve = aCallable(C.resolve);
+      iterate(iterable, function (promise) {
+        call($promiseResolve, C, promise).then(capability.resolve, reject);
+      });
+    });
+    if (result.error) reject(result.value);
+    return capability.promise;
+  }
+});
+
+
+/***/ }),
+
+/***/ 2092:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var newPromiseCapabilityModule = __webpack_require__(8742);
+var FORCED_PROMISE_CONSTRUCTOR = (__webpack_require__(7073).CONSTRUCTOR);
+
+// `Promise.reject` method
+// https://tc39.es/ecma262/#sec-promise.reject
+$({ target: 'Promise', stat: true, forced: FORCED_PROMISE_CONSTRUCTOR }, {
+  reject: function reject(r) {
+    var capability = newPromiseCapabilityModule.f(this);
+    var capabilityReject = capability.reject;
+    capabilityReject(r);
+    return capability.promise;
+  }
+});
+
+
+/***/ }),
+
+/***/ 7905:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var getBuiltIn = __webpack_require__(6058);
+var IS_PURE = __webpack_require__(3931);
+var NativePromiseConstructor = __webpack_require__(7919);
+var FORCED_PROMISE_CONSTRUCTOR = (__webpack_require__(7073).CONSTRUCTOR);
+var promiseResolve = __webpack_require__(2945);
+
+var PromiseConstructorWrapper = getBuiltIn('Promise');
+var CHECK_WRAPPER = IS_PURE && !FORCED_PROMISE_CONSTRUCTOR;
+
+// `Promise.resolve` method
+// https://tc39.es/ecma262/#sec-promise.resolve
+$({ target: 'Promise', stat: true, forced: IS_PURE || FORCED_PROMISE_CONSTRUCTOR }, {
+  resolve: function resolve(x) {
+    return promiseResolve(CHECK_WRAPPER && this === PromiseConstructorWrapper ? NativePromiseConstructor : this, x);
+  }
+});
+
+
+/***/ }),
+
+/***/ 1694:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var charAt = (__webpack_require__(730).charAt);
+var toString = __webpack_require__(4327);
+var InternalStateModule = __webpack_require__(618);
+var defineIterator = __webpack_require__(1934);
+var createIterResultObject = __webpack_require__(7807);
+
+var STRING_ITERATOR = 'String Iterator';
+var setInternalState = InternalStateModule.set;
+var getInternalState = InternalStateModule.getterFor(STRING_ITERATOR);
+
+// `String.prototype[@@iterator]` method
+// https://tc39.es/ecma262/#sec-string.prototype-@@iterator
+defineIterator(String, 'String', function (iterated) {
+  setInternalState(this, {
+    type: STRING_ITERATOR,
+    string: toString(iterated),
+    index: 0
+  });
+// `%StringIteratorPrototype%.next` method
+// https://tc39.es/ecma262/#sec-%stringiteratorprototype%.next
+}, function next() {
+  var state = getInternalState(this);
+  var string = state.string;
+  var index = state.index;
+  var point;
+  if (index >= string.length) return createIterResultObject(undefined, true);
+  point = charAt(string, index);
+  state.index += point.length;
+  return createIterResultObject(point, false);
+});
+
+
+/***/ }),
+
+/***/ 8373:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var defineWellKnownSymbol = __webpack_require__(5405);
+
+// `Symbol.asyncIterator` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.asynciterator
+defineWellKnownSymbol('asyncIterator');
+
+
+/***/ }),
+
+/***/ 7855:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var global = __webpack_require__(9037);
+var call = __webpack_require__(2615);
+var uncurryThis = __webpack_require__(8844);
+var IS_PURE = __webpack_require__(3931);
+var DESCRIPTORS = __webpack_require__(7697);
+var NATIVE_SYMBOL = __webpack_require__(146);
+var fails = __webpack_require__(3689);
+var hasOwn = __webpack_require__(6812);
+var isPrototypeOf = __webpack_require__(3622);
+var anObject = __webpack_require__(5027);
+var toIndexedObject = __webpack_require__(5290);
+var toPropertyKey = __webpack_require__(8360);
+var $toString = __webpack_require__(4327);
+var createPropertyDescriptor = __webpack_require__(5684);
+var nativeObjectCreate = __webpack_require__(5391);
+var objectKeys = __webpack_require__(300);
+var getOwnPropertyNamesModule = __webpack_require__(2741);
+var getOwnPropertyNamesExternal = __webpack_require__(6062);
+var getOwnPropertySymbolsModule = __webpack_require__(7518);
+var getOwnPropertyDescriptorModule = __webpack_require__(2474);
+var definePropertyModule = __webpack_require__(2560);
+var definePropertiesModule = __webpack_require__(8920);
+var propertyIsEnumerableModule = __webpack_require__(9556);
+var defineBuiltIn = __webpack_require__(1880);
+var defineBuiltInAccessor = __webpack_require__(2148);
+var shared = __webpack_require__(3430);
+var sharedKey = __webpack_require__(2713);
+var hiddenKeys = __webpack_require__(7248);
+var uid = __webpack_require__(4630);
+var wellKnownSymbol = __webpack_require__(4201);
+var wrappedWellKnownSymbolModule = __webpack_require__(6145);
+var defineWellKnownSymbol = __webpack_require__(5405);
+var defineSymbolToPrimitive = __webpack_require__(3032);
+var setToStringTag = __webpack_require__(5997);
+var InternalStateModule = __webpack_require__(618);
+var $forEach = (__webpack_require__(2960).forEach);
+
+var HIDDEN = sharedKey('hidden');
+var SYMBOL = 'Symbol';
+var PROTOTYPE = 'prototype';
+
+var setInternalState = InternalStateModule.set;
+var getInternalState = InternalStateModule.getterFor(SYMBOL);
+
+var ObjectPrototype = Object[PROTOTYPE];
+var $Symbol = global.Symbol;
+var SymbolPrototype = $Symbol && $Symbol[PROTOTYPE];
+var RangeError = global.RangeError;
+var TypeError = global.TypeError;
+var QObject = global.QObject;
+var nativeGetOwnPropertyDescriptor = getOwnPropertyDescriptorModule.f;
+var nativeDefineProperty = definePropertyModule.f;
+var nativeGetOwnPropertyNames = getOwnPropertyNamesExternal.f;
+var nativePropertyIsEnumerable = propertyIsEnumerableModule.f;
+var push = uncurryThis([].push);
+
+var AllSymbols = shared('symbols');
+var ObjectPrototypeSymbols = shared('op-symbols');
+var WellKnownSymbolsStore = shared('wks');
+
+// Don't use setters in Qt Script, https://github.com/zloirock/core-js/issues/173
+var USE_SETTER = !QObject || !QObject[PROTOTYPE] || !QObject[PROTOTYPE].findChild;
+
+// fallback for old Android, https://code.google.com/p/v8/issues/detail?id=687
+var fallbackDefineProperty = function (O, P, Attributes) {
+  var ObjectPrototypeDescriptor = nativeGetOwnPropertyDescriptor(ObjectPrototype, P);
+  if (ObjectPrototypeDescriptor) delete ObjectPrototype[P];
+  nativeDefineProperty(O, P, Attributes);
+  if (ObjectPrototypeDescriptor && O !== ObjectPrototype) {
+    nativeDefineProperty(ObjectPrototype, P, ObjectPrototypeDescriptor);
+  }
+};
+
+var setSymbolDescriptor = DESCRIPTORS && fails(function () {
+  return nativeObjectCreate(nativeDefineProperty({}, 'a', {
+    get: function () { return nativeDefineProperty(this, 'a', { value: 7 }).a; }
+  })).a !== 7;
+}) ? fallbackDefineProperty : nativeDefineProperty;
+
+var wrap = function (tag, description) {
+  var symbol = AllSymbols[tag] = nativeObjectCreate(SymbolPrototype);
+  setInternalState(symbol, {
+    type: SYMBOL,
+    tag: tag,
+    description: description
+  });
+  if (!DESCRIPTORS) symbol.description = description;
+  return symbol;
+};
+
+var $defineProperty = function defineProperty(O, P, Attributes) {
+  if (O === ObjectPrototype) $defineProperty(ObjectPrototypeSymbols, P, Attributes);
+  anObject(O);
+  var key = toPropertyKey(P);
+  anObject(Attributes);
+  if (hasOwn(AllSymbols, key)) {
+    if (!Attributes.enumerable) {
+      if (!hasOwn(O, HIDDEN)) nativeDefineProperty(O, HIDDEN, createPropertyDescriptor(1, nativeObjectCreate(null)));
+      O[HIDDEN][key] = true;
+    } else {
+      if (hasOwn(O, HIDDEN) && O[HIDDEN][key]) O[HIDDEN][key] = false;
+      Attributes = nativeObjectCreate(Attributes, { enumerable: createPropertyDescriptor(0, false) });
+    } return setSymbolDescriptor(O, key, Attributes);
+  } return nativeDefineProperty(O, key, Attributes);
+};
+
+var $defineProperties = function defineProperties(O, Properties) {
+  anObject(O);
+  var properties = toIndexedObject(Properties);
+  var keys = objectKeys(properties).concat($getOwnPropertySymbols(properties));
+  $forEach(keys, function (key) {
+    if (!DESCRIPTORS || call($propertyIsEnumerable, properties, key)) $defineProperty(O, key, properties[key]);
+  });
+  return O;
+};
+
+var $create = function create(O, Properties) {
+  return Properties === undefined ? nativeObjectCreate(O) : $defineProperties(nativeObjectCreate(O), Properties);
+};
+
+var $propertyIsEnumerable = function propertyIsEnumerable(V) {
+  var P = toPropertyKey(V);
+  var enumerable = call(nativePropertyIsEnumerable, this, P);
+  if (this === ObjectPrototype && hasOwn(AllSymbols, P) && !hasOwn(ObjectPrototypeSymbols, P)) return false;
+  return enumerable || !hasOwn(this, P) || !hasOwn(AllSymbols, P) || hasOwn(this, HIDDEN) && this[HIDDEN][P]
+    ? enumerable : true;
+};
+
+var $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(O, P) {
+  var it = toIndexedObject(O);
+  var key = toPropertyKey(P);
+  if (it === ObjectPrototype && hasOwn(AllSymbols, key) && !hasOwn(ObjectPrototypeSymbols, key)) return;
+  var descriptor = nativeGetOwnPropertyDescriptor(it, key);
+  if (descriptor && hasOwn(AllSymbols, key) && !(hasOwn(it, HIDDEN) && it[HIDDEN][key])) {
+    descriptor.enumerable = true;
+  }
+  return descriptor;
+};
+
+var $getOwnPropertyNames = function getOwnPropertyNames(O) {
+  var names = nativeGetOwnPropertyNames(toIndexedObject(O));
+  var result = [];
+  $forEach(names, function (key) {
+    if (!hasOwn(AllSymbols, key) && !hasOwn(hiddenKeys, key)) push(result, key);
+  });
+  return result;
+};
+
+var $getOwnPropertySymbols = function (O) {
+  var IS_OBJECT_PROTOTYPE = O === ObjectPrototype;
+  var names = nativeGetOwnPropertyNames(IS_OBJECT_PROTOTYPE ? ObjectPrototypeSymbols : toIndexedObject(O));
+  var result = [];
+  $forEach(names, function (key) {
+    if (hasOwn(AllSymbols, key) && (!IS_OBJECT_PROTOTYPE || hasOwn(ObjectPrototype, key))) {
+      push(result, AllSymbols[key]);
+    }
+  });
+  return result;
+};
+
+// `Symbol` constructor
+// https://tc39.es/ecma262/#sec-symbol-constructor
+if (!NATIVE_SYMBOL) {
+  $Symbol = function Symbol() {
+    if (isPrototypeOf(SymbolPrototype, this)) throw new TypeError('Symbol is not a constructor');
+    var description = !arguments.length || arguments[0] === undefined ? undefined : $toString(arguments[0]);
+    var tag = uid(description);
+    var setter = function (value) {
+      var $this = this === undefined ? global : this;
+      if ($this === ObjectPrototype) call(setter, ObjectPrototypeSymbols, value);
+      if (hasOwn($this, HIDDEN) && hasOwn($this[HIDDEN], tag)) $this[HIDDEN][tag] = false;
+      var descriptor = createPropertyDescriptor(1, value);
+      try {
+        setSymbolDescriptor($this, tag, descriptor);
+      } catch (error) {
+        if (!(error instanceof RangeError)) throw error;
+        fallbackDefineProperty($this, tag, descriptor);
+      }
+    };
+    if (DESCRIPTORS && USE_SETTER) setSymbolDescriptor(ObjectPrototype, tag, { configurable: true, set: setter });
+    return wrap(tag, description);
+  };
+
+  SymbolPrototype = $Symbol[PROTOTYPE];
+
+  defineBuiltIn(SymbolPrototype, 'toString', function toString() {
+    return getInternalState(this).tag;
+  });
+
+  defineBuiltIn($Symbol, 'withoutSetter', function (description) {
+    return wrap(uid(description), description);
+  });
+
+  propertyIsEnumerableModule.f = $propertyIsEnumerable;
+  definePropertyModule.f = $defineProperty;
+  definePropertiesModule.f = $defineProperties;
+  getOwnPropertyDescriptorModule.f = $getOwnPropertyDescriptor;
+  getOwnPropertyNamesModule.f = getOwnPropertyNamesExternal.f = $getOwnPropertyNames;
+  getOwnPropertySymbolsModule.f = $getOwnPropertySymbols;
+
+  wrappedWellKnownSymbolModule.f = function (name) {
+    return wrap(wellKnownSymbol(name), name);
+  };
+
+  if (DESCRIPTORS) {
+    // https://github.com/tc39/proposal-Symbol-description
+    defineBuiltInAccessor(SymbolPrototype, 'description', {
+      configurable: true,
+      get: function description() {
+        return getInternalState(this).description;
+      }
+    });
+    if (!IS_PURE) {
+      defineBuiltIn(ObjectPrototype, 'propertyIsEnumerable', $propertyIsEnumerable, { unsafe: true });
+    }
+  }
+}
+
+$({ global: true, constructor: true, wrap: true, forced: !NATIVE_SYMBOL, sham: !NATIVE_SYMBOL }, {
+  Symbol: $Symbol
+});
+
+$forEach(objectKeys(WellKnownSymbolsStore), function (name) {
+  defineWellKnownSymbol(name);
+});
+
+$({ target: SYMBOL, stat: true, forced: !NATIVE_SYMBOL }, {
+  useSetter: function () { USE_SETTER = true; },
+  useSimple: function () { USE_SETTER = false; }
+});
+
+$({ target: 'Object', stat: true, forced: !NATIVE_SYMBOL, sham: !DESCRIPTORS }, {
+  // `Object.create` method
+  // https://tc39.es/ecma262/#sec-object.create
+  create: $create,
+  // `Object.defineProperty` method
+  // https://tc39.es/ecma262/#sec-object.defineproperty
+  defineProperty: $defineProperty,
+  // `Object.defineProperties` method
+  // https://tc39.es/ecma262/#sec-object.defineproperties
+  defineProperties: $defineProperties,
+  // `Object.getOwnPropertyDescriptor` method
+  // https://tc39.es/ecma262/#sec-object.getownpropertydescriptors
+  getOwnPropertyDescriptor: $getOwnPropertyDescriptor
+});
+
+$({ target: 'Object', stat: true, forced: !NATIVE_SYMBOL }, {
+  // `Object.getOwnPropertyNames` method
+  // https://tc39.es/ecma262/#sec-object.getownpropertynames
+  getOwnPropertyNames: $getOwnPropertyNames
+});
+
+// `Symbol.prototype[@@toPrimitive]` method
+// https://tc39.es/ecma262/#sec-symbol.prototype-@@toprimitive
+defineSymbolToPrimitive();
+
+// `Symbol.prototype[@@toStringTag]` property
+// https://tc39.es/ecma262/#sec-symbol.prototype-@@tostringtag
+setToStringTag($Symbol, SYMBOL);
+
+hiddenKeys[HIDDEN] = true;
+
+
+/***/ }),
+
+/***/ 6544:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+// `Symbol.prototype.description` getter
+// https://tc39.es/ecma262/#sec-symbol.prototype.description
+
+var $ = __webpack_require__(9989);
+var DESCRIPTORS = __webpack_require__(7697);
+var global = __webpack_require__(9037);
+var uncurryThis = __webpack_require__(8844);
+var hasOwn = __webpack_require__(6812);
+var isCallable = __webpack_require__(9985);
+var isPrototypeOf = __webpack_require__(3622);
+var toString = __webpack_require__(4327);
+var defineBuiltInAccessor = __webpack_require__(2148);
+var copyConstructorProperties = __webpack_require__(8758);
+
+var NativeSymbol = global.Symbol;
+var SymbolPrototype = NativeSymbol && NativeSymbol.prototype;
+
+if (DESCRIPTORS && isCallable(NativeSymbol) && (!('description' in SymbolPrototype) ||
+  // Safari 12 bug
+  NativeSymbol().description !== undefined
+)) {
+  var EmptyStringDescriptionStore = {};
+  // wrap Symbol constructor for correct work with undefined description
+  var SymbolWrapper = function Symbol() {
+    var description = arguments.length < 1 || arguments[0] === undefined ? undefined : toString(arguments[0]);
+    var result = isPrototypeOf(SymbolPrototype, this)
+      ? new NativeSymbol(description)
+      // in Edge 13, String(Symbol(undefined)) === 'Symbol(undefined)'
+      : description === undefined ? NativeSymbol() : NativeSymbol(description);
+    if (description === '') EmptyStringDescriptionStore[result] = true;
+    return result;
+  };
+
+  copyConstructorProperties(SymbolWrapper, NativeSymbol);
+  SymbolWrapper.prototype = SymbolPrototype;
+  SymbolPrototype.constructor = SymbolWrapper;
+
+  var NATIVE_SYMBOL = String(NativeSymbol('description detection')) === 'Symbol(description detection)';
+  var thisSymbolValue = uncurryThis(SymbolPrototype.valueOf);
+  var symbolDescriptiveString = uncurryThis(SymbolPrototype.toString);
+  var regexp = /^Symbol\((.*)\)[^)]+$/;
+  var replace = uncurryThis(''.replace);
+  var stringSlice = uncurryThis(''.slice);
+
+  defineBuiltInAccessor(SymbolPrototype, 'description', {
+    configurable: true,
+    get: function description() {
+      var symbol = thisSymbolValue(this);
+      if (hasOwn(EmptyStringDescriptionStore, symbol)) return '';
+      var string = symbolDescriptiveString(symbol);
+      var desc = NATIVE_SYMBOL ? stringSlice(string, 7, -1) : replace(string, regexp, '$1');
+      return desc === '' ? undefined : desc;
+    }
+  });
+
+  $({ global: true, constructor: true, forced: true }, {
+    Symbol: SymbolWrapper
+  });
+}
+
+
+/***/ }),
+
+/***/ 3975:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var getBuiltIn = __webpack_require__(6058);
+var hasOwn = __webpack_require__(6812);
+var toString = __webpack_require__(4327);
+var shared = __webpack_require__(3430);
+var NATIVE_SYMBOL_REGISTRY = __webpack_require__(6549);
+
+var StringToSymbolRegistry = shared('string-to-symbol-registry');
+var SymbolToStringRegistry = shared('symbol-to-string-registry');
+
+// `Symbol.for` method
+// https://tc39.es/ecma262/#sec-symbol.for
+$({ target: 'Symbol', stat: true, forced: !NATIVE_SYMBOL_REGISTRY }, {
+  'for': function (key) {
+    var string = toString(key);
+    if (hasOwn(StringToSymbolRegistry, string)) return StringToSymbolRegistry[string];
+    var symbol = getBuiltIn('Symbol')(string);
+    StringToSymbolRegistry[string] = symbol;
+    SymbolToStringRegistry[symbol] = string;
+    return symbol;
+  }
+});
+
+
+/***/ }),
+
+/***/ 4254:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var defineWellKnownSymbol = __webpack_require__(5405);
+
+// `Symbol.iterator` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.iterator
+defineWellKnownSymbol('iterator');
+
+
+/***/ }),
+
+/***/ 9749:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+// TODO: Remove this module from `core-js@4` since it's split to modules listed below
+__webpack_require__(7855);
+__webpack_require__(3975);
+__webpack_require__(1445);
+__webpack_require__(8324);
+__webpack_require__(9434);
+
+
+/***/ }),
+
+/***/ 1445:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var hasOwn = __webpack_require__(6812);
+var isSymbol = __webpack_require__(734);
+var tryToString = __webpack_require__(3691);
+var shared = __webpack_require__(3430);
+var NATIVE_SYMBOL_REGISTRY = __webpack_require__(6549);
+
+var SymbolToStringRegistry = shared('symbol-to-string-registry');
+
+// `Symbol.keyFor` method
+// https://tc39.es/ecma262/#sec-symbol.keyfor
+$({ target: 'Symbol', stat: true, forced: !NATIVE_SYMBOL_REGISTRY }, {
+  keyFor: function keyFor(sym) {
+    if (!isSymbol(sym)) throw new TypeError(tryToString(sym) + ' is not a symbol');
+    if (hasOwn(SymbolToStringRegistry, sym)) return SymbolToStringRegistry[sym];
+  }
+});
+
+
+/***/ }),
+
+/***/ 6793:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var getBuiltIn = __webpack_require__(6058);
+var defineWellKnownSymbol = __webpack_require__(5405);
+var setToStringTag = __webpack_require__(5997);
+
+// `Symbol.toStringTag` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.tostringtag
+defineWellKnownSymbol('toStringTag');
+
+// `Symbol.prototype[@@toStringTag]` property
+// https://tc39.es/ecma262/#sec-symbol.prototype-@@tostringtag
+setToStringTag(getBuiltIn('Symbol'), 'Symbol');
+
+
+/***/ }),
+
 /***/ 7522:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var global = __webpack_require__(9037);
 var DOMIterables = __webpack_require__(6338);
@@ -3367,9 +11468,55 @@ handlePrototype(DOMTokenListPrototype);
 
 /***/ }),
 
+/***/ 6265:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var global = __webpack_require__(9037);
+var DOMIterables = __webpack_require__(6338);
+var DOMTokenListPrototype = __webpack_require__(3265);
+var ArrayIteratorMethods = __webpack_require__(752);
+var createNonEnumerableProperty = __webpack_require__(5773);
+var setToStringTag = __webpack_require__(5997);
+var wellKnownSymbol = __webpack_require__(4201);
+
+var ITERATOR = wellKnownSymbol('iterator');
+var ArrayValues = ArrayIteratorMethods.values;
+
+var handlePrototype = function (CollectionPrototype, COLLECTION_NAME) {
+  if (CollectionPrototype) {
+    // some Chrome versions have non-configurable methods on DOMTokenList
+    if (CollectionPrototype[ITERATOR] !== ArrayValues) try {
+      createNonEnumerableProperty(CollectionPrototype, ITERATOR, ArrayValues);
+    } catch (error) {
+      CollectionPrototype[ITERATOR] = ArrayValues;
+    }
+    setToStringTag(CollectionPrototype, COLLECTION_NAME, true);
+    if (DOMIterables[COLLECTION_NAME]) for (var METHOD_NAME in ArrayIteratorMethods) {
+      // some Chrome versions have non-configurable methods on DOMTokenList
+      if (CollectionPrototype[METHOD_NAME] !== ArrayIteratorMethods[METHOD_NAME]) try {
+        createNonEnumerableProperty(CollectionPrototype, METHOD_NAME, ArrayIteratorMethods[METHOD_NAME]);
+      } catch (error) {
+        CollectionPrototype[METHOD_NAME] = ArrayIteratorMethods[METHOD_NAME];
+      }
+    }
+  }
+};
+
+for (var COLLECTION_NAME in DOMIterables) {
+  handlePrototype(global[COLLECTION_NAME] && global[COLLECTION_NAME].prototype, COLLECTION_NAME);
+}
+
+handlePrototype(DOMTokenListPrototype, 'DOMTokenList');
+
+
+/***/ }),
+
 /***/ 209:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var $ = __webpack_require__(9989);
 var global = __webpack_require__(9037);
@@ -3389,6 +11536,7 @@ $({ global: true, bind: true, forced: global.setInterval !== setInterval }, {
 /***/ 3509:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 var $ = __webpack_require__(9989);
 var global = __webpack_require__(9037);
@@ -3408,6 +11556,7 @@ $({ global: true, bind: true, forced: global.setTimeout !== setTimeout }, {
 /***/ 6869:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 // TODO: Remove this module from `core-js@4` since it's split to modules listed below
 __webpack_require__(209);

@@ -1,7 +1,7 @@
 {
   "name": "Douyu斗鱼 主播开播下播提醒 + 粤语/国语语音播报通知 dev",
   "namespace": "https://github.com/Zirpon/douyu-helper.git",
-  "match": ["https://www.douyu.com/directory/myFollow", "*://*.localhost/*"],
+  "match": ["*://*.localhost/*"],
   "grant": [
     "GM_xmlhttpRequest",
     "GM_openInTab",
@@ -11,5 +11,5 @@
     "GM_registerMenuCommand",
     "GM_addValueChangeListener"
   ],
-  "require": ["file://D://MyDocs//git-repos//github//douyu-helper//dist//douyu.dev.user.js"]
+  "require": ["file://D://MyDocs//git-repos//github//Zirpon//douyu-helper//dist//douyu.dev.user.js"]
 }

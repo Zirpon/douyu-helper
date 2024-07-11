@@ -1,3 +1,5 @@
+import AlertQueue from './AlertQueue';
+
 var baseURL = 'https://douyu.com';
 var save = {};
 var save_name = {};
@@ -105,10 +107,8 @@ function shim_GM_notification() {
   };
 }
 
-function reloadPage() {
-  var refreshInterval = 5 * 1000; //* 3600 * 24; // 设置刷新间隔时间（单位：秒）
-  //test();
-  //location.reload();
+function reloadPage(sec = 5) {
+  var refreshInterval = sec * 1000; //* 3600 * 24; // 设置刷新间隔时间（单位：秒）
   var timeFun = window.setInterval(function () {
     location.reload();
     window.clearInterval(timeFun);
@@ -124,9 +124,10 @@ function append_notify(res) {
     var isLive = !res.data.list[each].videoLoop;
     status = isLive && res.data.list[each].show_status == 1;
     if (!isLive) {
+      /*
       console.log(
         res.data.list[each].nickname + '-' + res.data.list[each].room_id + '-' + isLive + '-' + status + '-视频轮播ing'
-      );
+      );*/
     }
     if (!(res.data.list[each].room_id in save)) {
       save[res.data.list[each].room_id] = status;
@@ -201,15 +202,16 @@ function append_notify(res) {
       changed = 1;
     }
   }
-  if (init_flag != 0 && changed == 1) {
+  if (init_flag != 0 && changed == 1 && GM_getValue('GM_notice', true) == true) {
     reloadPage();
   }
+
   init_flag = 1;
-  console.log('Following rooms checked');
+  //console.log('Following rooms checked');
 }
 
 function check() {
-  console.log('Following rooms checking');
+  //console.log('Following rooms checking');
   GM_xmlhttpRequest({
     method: 'GET',
     url: `https://www.douyu.com/wgapi/livenc/liveweb/follow/list?sort=0&cid1=0`,
@@ -220,12 +222,14 @@ function check() {
   });
 }
 
+let G_ALERT_QUEUE = new AlertQueue(reloadPage);
 function wrap_GM_notification(param) {
   let bGMnotice = GM_getValue('GM_notice', true);
   if (bGMnotice) {
     GM_notification(param);
   } else {
-    console.log('GM_notification disabled');
+    G_ALERT_QUEUE.add(param.title);
+    //console.log('GM_notification disabled');
   }
 }
 

@@ -1,4 +1,4 @@
-import api from './douyu_bc_api';
+import api from './douyu_livebc';
 import BaseClass from './menu';
 
 const app = () => {
