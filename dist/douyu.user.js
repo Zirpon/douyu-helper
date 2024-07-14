@@ -164,6 +164,8 @@ var AlertQueue = /*#__PURE__*/function () {
         if (this.showFlag) {
           return;
         } else {
+          GM_setValue('show_alert', true);
+
           if (this.altert_arr.length > 0) {
             this.dps();
           } else {
@@ -179,7 +181,12 @@ var AlertQueue = /*#__PURE__*/function () {
 
       if (this.altert_arr.length > 1) {
         // 关掉之前的 alertQueue
-        this.closeAlert();
+        //console.log('show alert:', GM_getValue('show_alert'));
+        if (GM_getValue('show_alert')) {
+          this.closeAlert();
+        } else {
+          this.term_func(1);
+        }
       } else {
         //未初始化 首次运行
         this.dps();
@@ -210,16 +217,19 @@ var AlertQueue = /*#__PURE__*/function () {
     value: function dps(self) {
       var _this = this;
 
-      var terminate = false;
+      if (!GM_getValue('show_alert')) {
+        return;
+      }
 
       _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var _loop, index;
+        var terminate, _loop, index;
 
         return _regeneratorRuntime().wrap(function _callee$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _this.showFlag = true;
+                terminate = false;
                 _loop = /*#__PURE__*/_regeneratorRuntime().mark(function _loop(index) {
                   var curstep;
                   return _regeneratorRuntime().wrap(function _loop$(_context) {
@@ -244,6 +254,7 @@ var AlertQueue = /*#__PURE__*/function () {
 
                                 _this.dps();
                               } else {
+                                GM_setValue('show_alert', false);
                                 var swalWithBootstrapButtons = sweetalert2_all_default().mixin({
                                   customClass: {
                                     confirmButton: 'btn btn-success',
@@ -305,17 +316,17 @@ var AlertQueue = /*#__PURE__*/function () {
                             //console.log('params ' + curstep, index, params);
                             if (params.isConfirmed) {
                               if (curstep >= _this.altert_arr.length - 1) {
+                                //读完所有消息 关闭弹窗 通知仍然保存在队列中
                                 terminate = true;
                               } //console.log('params.isConfirmed' + curstep, index, this.altert_arr.length, params, terminate);
 
-                            }
-
-                            if (params.isDismissed == true && params.dismiss == (sweetalert2_all_default()).DismissReason.close) {
-                              // 收起通知弹窗 通知仍然保存在队列中
+                            } else if (params.isDismissed == true && params.dismiss == (sweetalert2_all_default()).DismissReason.close) {
+                              // 关闭按钮 收起通知弹窗 通知仍然保存在队列中
                               terminate = true; //不刷新
 
                               _this.closeAlert();
                             } else {
+                              //新弹窗显示 程序自动关闭 之前弹窗
                               _this.closeAlert();
                             }
                           });
@@ -329,20 +340,20 @@ var AlertQueue = /*#__PURE__*/function () {
                 });
                 index = 0;
 
-              case 3:
+              case 4:
                 if (!(index < _this.altert_arr.length)) {
-                  _context2.next = 8;
+                  _context2.next = 9;
                   break;
                 }
 
-                return _context2.delegateYield(_loop(index), "t0", 5);
+                return _context2.delegateYield(_loop(index), "t0", 6);
 
-              case 5:
+              case 6:
                 index++;
-                _context2.next = 3;
+                _context2.next = 4;
                 break;
 
-              case 8:
+              case 9:
               case "end":
                 return _context2.stop();
             }
@@ -753,6 +764,7 @@ var BaseClass = /*#__PURE__*/function () {
     GM_registerMenuCommand('设置', function () {
       return _this.menuFun();
     });
+    GM_getValue('show_alert', true);
     GM_registerMenuCommand('显示通知历史', function () {
       return douyu_livebc["default"].G_ALERT_QUEUE.add('showAlert');
     });
