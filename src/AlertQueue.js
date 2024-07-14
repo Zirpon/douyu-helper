@@ -26,6 +26,7 @@ export default class AlertQueue {
       if (this.showFlag) {
         return;
       } else {
+        GM_setValue('show_alert', true);
         if (this.altert_arr.length > 0) {
           this.dps();
         } else {
@@ -39,7 +40,12 @@ export default class AlertQueue {
     //console.log(this.altert_arr, this.step_arr, this.altert_arr.length);
     if (this.altert_arr.length > 1) {
       // 关掉之前的 alertQueue
-      this.closeAlert();
+      //console.log('show alert:', GM_getValue('show_alert'));
+      if (GM_getValue('show_alert')) {
+        this.closeAlert();
+      } else {
+        this.term_func(1);
+      }
     } else {
       //未初始化 首次运行
       this.dps();
@@ -63,9 +69,12 @@ export default class AlertQueue {
   // 然后再 重新生成新的 alert queue
   // 因为 目前 Swal2 项目作者并没有进队出队的 api
   dps(self) {
-    let terminate = false;
+    if (!GM_getValue('show_alert')) {
+      return;
+    }
     (async () => {
       this.showFlag = true;
+      let terminate = false;
 
       for (let index = 0; index < this.altert_arr.length; index++) {
         let curstep = index + 1;
@@ -85,6 +94,7 @@ export default class AlertQueue {
                 this.alertQueue.update({ progressSteps: this.step_arr });
                 this.dps();
               } else {
+                GM_setValue('show_alert', false);
                 const swalWithBootstrapButtons = Swal2.mixin({
                   customClass: {
                     confirmButton: 'btn btn-success',
@@ -153,16 +163,17 @@ export default class AlertQueue {
             //console.log('params ' + curstep, index, params);
             if (params.isConfirmed) {
               if (curstep >= this.altert_arr.length - 1) {
+                //读完所有消息 关闭弹窗 通知仍然保存在队列中
                 terminate = true;
               }
               //console.log('params.isConfirmed' + curstep, index, this.altert_arr.length, params, terminate);
-            }
-            if (params.isDismissed == true && params.dismiss == Swal2.DismissReason.close) {
-              // 收起通知弹窗 通知仍然保存在队列中
+            } else if (params.isDismissed == true && params.dismiss == Swal2.DismissReason.close) {
+              // 关闭按钮 收起通知弹窗 通知仍然保存在队列中
               terminate = true;
               //不刷新
               this.closeAlert();
             } else {
+              //新弹窗显示 程序自动关闭 之前弹窗
               this.closeAlert();
             }
           });
