@@ -174,8 +174,7 @@ var AlertQueue = /*#__PURE__*/function () {
   }, {
     key: "add",
     value: function add(alertContent) {
-      console.log('add alert:', alertContent);
-
+      //console.log('add alert:', alertContent);
       if (alertContent === 'showAlert') {
         if (this.showFlag) {
           return;
@@ -224,8 +223,7 @@ var AlertQueue = /*#__PURE__*/function () {
       var alert = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
       if (alert != '') {
-        this.altert_arr.push(alert);
-        console.log('updateQ ', this.altert_arr, this.step_arr, this.altert_arr.length);
+        this.altert_arr.push(alert); //console.log('updateQ ', this.altert_arr, this.step_arr, this.altert_arr.length);
 
         if (this.altert_arr.length >= 20) {
           this.altert_arr = this.altert_arr.slice(-20);
@@ -688,10 +686,9 @@ function initScript() {
 
   if (bGMnotice) {
     notifyTitle('斗鱼开播提醒启动了');
-  }
-
-  window.setInterval(notifyTitle('斗鱼开播提醒启动了'), 10000); //window.onbeforeunload = function(event){notifyTitle('开播提醒已退出')}
+  } //window.onbeforeunload = function(event){notifyTitle('开播提醒已退出')}
   //window.onunload = function(event) {notifyTitle('斗鱼开播提醒已退出')}
+
 
   window.setInterval(check, 10000);
 }
