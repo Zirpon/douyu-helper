@@ -115,7 +115,8 @@ export default class AlertQueue {
             imageAlt: '直播间头像',
             // 下标从0开始
             currentProgressStep: index,
-            //progressSteps: this.step_arr,
+            //每次fire更新step arr
+            progressSteps: this.step_arr,
 
             willClose: (params) => {
               //console.log('param willClose' , curstep, params);

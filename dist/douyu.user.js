@@ -231,10 +231,9 @@ var AlertQueue = /*#__PURE__*/function () {
         length: this.altert_arr.length
       }, function (_, i) {
         return 1 + i;
-      });
-      this.alert_queue.update({
-        progressSteps: this.step_arr
-      });
+      }); //update 函数没用 更新step在fire更新
+      //this.alert_queue.update({ progressSteps: this.step_arr });
+
       GM_setValue('alert_arr', this.altert_arr);
     }
   }, {
@@ -288,6 +287,7 @@ var AlertQueue = /*#__PURE__*/function () {
                             imageAlt: '直播间头像',
                             // 下标从0开始
                             currentProgressStep: index,
+                            //progressSteps: this.step_arr,
                             willClose: function willClose(params) {//console.log('param willClose' , curstep, params);
                             },
                             didClose: function didClose() {
@@ -295,7 +295,7 @@ var AlertQueue = /*#__PURE__*/function () {
                               console.log('param didClose ', curstep, terminate);
 
                               if (!terminate) {
-                                //this.alert_queue.update({ progressSteps: this.step_arr });
+                                //this.alert_queue.update({ 'progressSteps': this.step_arr });
                                 _this2.dps();
                               } else {
                                 GM_setValue('show_alert', false);
