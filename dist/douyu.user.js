@@ -41,6 +41,8 @@ var web_timers = __webpack_require__(6869);
 var es_array_from = __webpack_require__(7049);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.iterator.js
 var es_string_iterator = __webpack_require__(1694);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.slice.js
+var es_array_slice = __webpack_require__(9730);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.date.to-string.js
 var es_date_to_string = __webpack_require__(24);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.iterator.js
@@ -83,8 +85,6 @@ var es_function_name = __webpack_require__(4284);
 var es_object_set_prototype_of = __webpack_require__(5399);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.reverse.js
 var es_array_reverse = __webpack_require__(3374);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.slice.js
-var es_array_slice = __webpack_require__(9730);
 // EXTERNAL MODULE: ./node_modules/sweetalert2/dist/sweetalert2.all.js
 var sweetalert2_all = __webpack_require__(6455);
 var sweetalert2_all_default = /*#__PURE__*/__webpack_require__.n(sweetalert2_all);
@@ -174,6 +174,8 @@ var AlertQueue = /*#__PURE__*/function () {
   }, {
     key: "add",
     value: function add(alertContent) {
+      console.log('add alert:', alertContent);
+
       if (alertContent === 'showAlert') {
         if (this.showFlag) {
           return;
@@ -223,6 +225,11 @@ var AlertQueue = /*#__PURE__*/function () {
 
       if (alert != '') {
         this.altert_arr.push(alert);
+        console.log('updateQ ', this.altert_arr, this.step_arr, this.altert_arr.length);
+
+        if (this.altert_arr.length >= 20) {
+          this.altert_arr = this.altert_arr.slice(-20);
+        }
       } else {
         this.altert_arr = [];
       }
@@ -681,9 +688,10 @@ function initScript() {
 
   if (bGMnotice) {
     notifyTitle('斗鱼开播提醒启动了');
-  } //window.onbeforeunload = function(event){notifyTitle('开播提醒已退出')}
-  //window.onunload = function(event) {notifyTitle('斗鱼开播提醒已退出')}
+  }
 
+  window.setInterval(notifyTitle('斗鱼开播提醒启动了'), 10000); //window.onbeforeunload = function(event){notifyTitle('开播提醒已退出')}
+  //window.onunload = function(event) {notifyTitle('斗鱼开播提醒已退出')}
 
   window.setInterval(check, 10000);
 }

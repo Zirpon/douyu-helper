@@ -27,6 +27,8 @@ export default class AlertQueue {
     });
   }
   add(alertContent) {
+    //console.log('add alert:', alertContent);
+
     if (alertContent === 'showAlert') {
       if (this.showFlag) {
         return;
@@ -67,6 +69,10 @@ export default class AlertQueue {
   updateQueue(alert = '') {
     if (alert != '') {
       this.altert_arr.push(alert);
+      //console.log('updateQ ', this.altert_arr, this.step_arr, this.altert_arr.length);
+      if (this.altert_arr.length >= 20) {
+        this.altert_arr = this.altert_arr.slice(-20);
+      }
     } else {
       this.altert_arr = [];
     }
