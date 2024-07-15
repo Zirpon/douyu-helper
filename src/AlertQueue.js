@@ -8,8 +8,13 @@ export default class AlertQueue {
     this.term_func = term_func;
     // 显示标记
     this.showFlag = false;
+  }
 
-    this.alertQueue = Swal2.mixin({
+  inheritAttrs(gmAlertArray) {
+    this.altert_arr = gmAlertArray;
+    // 显示 step 从1开始
+    this.step_arr = Array.from({ length: this.altert_arr.length }, (_, i) => 1 + i);
+    this.alert_queue = Swal2.mixin({
       // alert 模板 可自定义
       progressSteps: this.step_arr,
       confirmButtonText: 'Next >',
@@ -35,33 +40,51 @@ export default class AlertQueue {
       }
       return;
     }
-    this.altert_arr.push(alertContent);
-    this.step_arr = Array.from(new Array(this.altert_arr.length).keys());
-    //console.log(this.altert_arr, this.step_arr, this.altert_arr.length);
-    if (this.altert_arr.length > 1) {
-      // 关掉之前的 alertQueue
+
+    this.DailyClearAlert();
+    this.updateQueue(alertContent);
+
+    console.log(this.altert_arr, this.step_arr, this.altert_arr.length);
+    if (GM_getValue('show_alert')) {
+      // 关掉之前的 alert_queue
       //console.log('show alert:', GM_getValue('show_alert'));
-      if (GM_getValue('show_alert')) {
-        this.closeAlert();
-      } else {
-        this.term_func(1);
-      }
+      this.closeAlert();
     } else {
-      //未初始化 首次运行
-      this.dps();
+      this.term_func(1);
     }
   }
 
   closeAlert(self) {
-    var refreshInterval = 0;
-    var timeFun = window.setInterval(function () {
-      // 构造函数后 alert_queue 没有元素 close 函数 是 undefined 所以判断一下
-      // 后面插入元素 就能用了
-      if (this.AlertQueue?.close) {
-        this.alertQueue.close();
-      }
+    var refreshInterval = 1;
+    //console.log('closeAlert outside', this.alert_queue.close);
+    var timeFun = window.setInterval(() => {
+      //console.log('closeAlert inside', this.alert_queue.close);
+      this.alert_queue.close();
       window.clearInterval(timeFun);
     }, refreshInterval);
+  }
+
+  updateQueue(alert = '') {
+    if (alert != '') {
+      this.altert_arr.push(alert);
+    } else {
+      this.altert_arr = [];
+    }
+
+    this.step_arr = Array.from({ length: this.altert_arr.length }, (_, i) => 1 + i);
+    this.alert_queue.update({ progressSteps: this.step_arr });
+    GM_setValue('alert_arr', this.altert_arr);
+  }
+
+  DailyClearAlert() {
+    const day = new Date();
+    const hour = day.getHours();
+    const min = day.getMinutes();
+
+    // 因为 this.altert_arr 没有remove的逻辑 利用这个特性 可以这么写
+    if (hour == 10 && min >= 0 && this.altert_arr.length > 0) {
+      this.updateQueue('');
+    }
   }
 
   // 生成 alert queue 收到关闭 当前alert queue 异步消息的时候
@@ -69,6 +92,8 @@ export default class AlertQueue {
   // 然后再 重新生成新的 alert queue
   // 因为 目前 Swal2 项目作者并没有进队出队的 api
   dps(self) {
+    console.log(this.altert_arr, this.altert_arr.length, this.step_arr);
+
     if (!GM_getValue('show_alert')) {
       return;
     }
@@ -79,19 +104,23 @@ export default class AlertQueue {
       for (let index = 0; index < this.altert_arr.length; index++) {
         let curstep = index + 1;
 
-        await this.alertQueue
+        await this.alert_queue
           .fire({
-            title: this.altert_arr[index],
-            // 从0开始
+            title: this.altert_arr[index].title,
+            text: this.altert_arr[index].text,
+            imageUrl: this.altert_arr[index].image,
+            imageWidth: 100,
+            imageAlt: '直播间头像',
+            // 下标从0开始
             currentProgressStep: index,
             willClose: (params) => {
-              //console.log('param willClose' + curstep, params);
+              //console.log('param willClose' , curstep, params);
             },
             didClose: () => {
               this.showFlag = false;
-              //console.log('param didClose ' + curstep, terminate);
+              console.log('param didClose ', curstep, terminate);
               if (!terminate) {
-                this.alertQueue.update({ progressSteps: this.step_arr });
+                //this.alert_queue.update({ progressSteps: this.step_arr });
                 this.dps();
               } else {
                 GM_setValue('show_alert', false);
@@ -160,20 +189,22 @@ export default class AlertQueue {
             },
           })
           .then((params) => {
-            //console.log('params ' + curstep, index, params);
+            console.log('params ', curstep, index, params, Swal2.DismissReason.close);
             if (params.isConfirmed) {
-              if (curstep >= this.altert_arr.length - 1) {
+              if (curstep >= this.altert_arr.length) {
                 //读完所有消息 关闭弹窗 通知仍然保存在队列中
                 terminate = true;
               }
-              //console.log('params.isConfirmed' + curstep, index, this.altert_arr.length, params, terminate);
+              //console.log('params.isConfirmed' , curstep, index, this.altert_arr.length, params, terminate);
             } else if (params.isDismissed == true && params.dismiss == Swal2.DismissReason.close) {
+              console.log('params.isDismissed ', curstep, index, this.altert_arr.length, params, terminate);
               // 关闭按钮 收起通知弹窗 通知仍然保存在队列中
               terminate = true;
               //不刷新
               this.closeAlert();
             } else {
               //新弹窗显示 程序自动关闭 之前弹窗
+              console.log('params.isDismissed ', curstep, index, this.altert_arr.length, params, terminate);
               this.closeAlert();
             }
           });

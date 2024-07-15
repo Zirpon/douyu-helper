@@ -13,6 +13,9 @@ export default class BaseClass {
     GM_registerMenuCommand('设置', () => this.menuFun());
 
     GM_getValue('show_alert', true);
+    //GM_setValue('alert_arr', []);
+    api.G_ALERT_QUEUE.inheritAttrs(GM_getValue('alert_arr', []));
+
     GM_registerMenuCommand('显示通知历史', () => api.G_ALERT_QUEUE.add('showAlert'));
   }
 

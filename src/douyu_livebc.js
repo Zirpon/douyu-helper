@@ -1,4 +1,5 @@
 import AlertQueue from './AlertQueue';
+import menu from './menu';
 
 var baseURL = 'https://douyu.com';
 var save = {};
@@ -9,9 +10,17 @@ function initScript() {
   /*--- Cross-browser Shim code follows:
   Source: https://stackoverflow.com/questions/36779883/userscript-notifications-work-on-chrome-but-not-firefox
   */
+
+  // 初始化所有GM value
+  new menu();
+
   check();
 
-  notifyTitle('斗鱼开播提醒启动了');
+  // 这里需要判断一下 否则会导致 alertQueue的add函数一直刷新网页
+  let bGMnotice = GM_getValue('GM_notice', true);
+  if (bGMnotice) {
+    notifyTitle('斗鱼开播提醒启动了');
+  }
   //window.onbeforeunload = function(event){notifyTitle('开播提醒已退出')}
   //window.onunload = function(event) {notifyTitle('斗鱼开播提醒已退出')}
   window.setInterval(check, 10000);
@@ -228,7 +237,7 @@ function wrap_GM_notification(param) {
   if (bGMnotice) {
     GM_notification(param);
   } else {
-    G_ALERT_QUEUE.add(param.title);
+    G_ALERT_QUEUE.add(param);
     //console.log('GM_notification disabled');
   }
 }
