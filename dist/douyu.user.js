@@ -23,7 +23,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 8804:
+/***/ 4378:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -41,16 +41,18 @@ var web_timers = __webpack_require__(6869);
 var es_array_from = __webpack_require__(7049);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.iterator.js
 var es_string_iterator = __webpack_require__(1694);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.date.to-string.js
+var es_date_to_string = __webpack_require__(24);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.iterator.js
 var es_array_iterator = __webpack_require__(752);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
-var es_object_to_string = __webpack_require__(228);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
 var web_dom_collections_iterator = __webpack_require__(6265);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.parse-int.js
 var es_parse_int = __webpack_require__(2320);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.define-property.js
 var es_object_define_property = __webpack_require__(739);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
+var es_object_to_string = __webpack_require__(228);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.promise.js
 var es_promise = __webpack_require__(3964);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.js
@@ -120,6 +122,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -140,24 +143,35 @@ var AlertQueue = /*#__PURE__*/function () {
     this.term_func = term_func; // 显示标记
 
     this.showFlag = false;
-    this.alertQueue = sweetalert2_all_default().mixin({
-      // alert 模板 可自定义
-      progressSteps: this.step_arr,
-      confirmButtonText: 'Next >',
-      showCloseButton: true,
-      // 改为true 后 鼠标 点 非confirm button 的地方 会关闭alert 触发 dps()函数 执行
-      allowOutsideClick: false,
-      // optional classes to avoid backdrop blinking between steps
-      showClass: {
-        backdrop: 'swal2-noanimation'
-      },
-      hideClass: {
-        backdrop: 'swal2-noanimation'
-      }
-    });
   }
 
   _createClass(AlertQueue, [{
+    key: "inheritAttrs",
+    value: function inheritAttrs(gmAlertArray) {
+      this.altert_arr = gmAlertArray; // 显示 step 从1开始
+
+      this.step_arr = Array.from({
+        length: this.altert_arr.length
+      }, function (_, i) {
+        return 1 + i;
+      });
+      this.alert_queue = sweetalert2_all_default().mixin({
+        // alert 模板 可自定义
+        progressSteps: this.step_arr,
+        confirmButtonText: 'Next >',
+        showCloseButton: true,
+        // 改为true 后 鼠标 点 非confirm button 的地方 会关闭alert 触发 dps()函数 执行
+        allowOutsideClick: false,
+        // optional classes to avoid backdrop blinking between steps
+        showClass: {
+          backdrop: 'swal2-noanimation'
+        },
+        hideClass: {
+          backdrop: 'swal2-noanimation'
+        }
+      });
+    }
+  }, {
     key: "add",
     value: function add(alertContent) {
       if (alertContent === 'showAlert') {
@@ -176,37 +190,63 @@ var AlertQueue = /*#__PURE__*/function () {
         return;
       }
 
-      this.altert_arr.push(alertContent);
-      this.step_arr = Array.from(new Array(this.altert_arr.length).keys()); //console.log(this.altert_arr, this.step_arr, this.altert_arr.length);
+      this.DailyClearAlert();
+      this.updateQueue(alertContent);
+      console.log(this.altert_arr, this.step_arr, this.altert_arr.length);
 
-      if (this.altert_arr.length > 1) {
-        // 关掉之前的 alertQueue
+      if (GM_getValue('show_alert')) {
+        // 关掉之前的 alert_queue
         //console.log('show alert:', GM_getValue('show_alert'));
-        if (GM_getValue('show_alert')) {
-          this.closeAlert();
-        } else {
-          this.term_func(1);
-        }
+        this.closeAlert();
       } else {
-        //未初始化 首次运行
-        this.dps();
+        this.term_func(1);
       }
     }
   }, {
     key: "closeAlert",
     value: function closeAlert(self) {
-      var refreshInterval = 0;
-      var timeFun = window.setInterval(function () {
-        var _this$AlertQueue;
+      var _this = this;
 
-        // 构造函数后 alert_queue 没有元素 close 函数 是 undefined 所以判断一下
-        // 后面插入元素 就能用了
-        if ((_this$AlertQueue = this.AlertQueue) !== null && _this$AlertQueue !== void 0 && _this$AlertQueue.close) {
-          this.alertQueue.close();
-        }
+      var refreshInterval = 1; //console.log('closeAlert outside', this.alert_queue.close);
+
+      var timeFun = window.setInterval(function () {
+        //console.log('closeAlert inside', this.alert_queue.close);
+        _this.alert_queue.close();
 
         window.clearInterval(timeFun);
       }, refreshInterval);
+    }
+  }, {
+    key: "updateQueue",
+    value: function updateQueue() {
+      var alert = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+      if (alert != '') {
+        this.altert_arr.push(alert);
+      } else {
+        this.altert_arr = [];
+      }
+
+      this.step_arr = Array.from({
+        length: this.altert_arr.length
+      }, function (_, i) {
+        return 1 + i;
+      });
+      this.alert_queue.update({
+        progressSteps: this.step_arr
+      });
+      GM_setValue('alert_arr', this.altert_arr);
+    }
+  }, {
+    key: "DailyClearAlert",
+    value: function DailyClearAlert() {
+      var day = new Date();
+      var hour = day.getHours();
+      var min = day.getMinutes(); // 因为 this.altert_arr 没有remove的逻辑 利用这个特性 可以这么写
+
+      if (hour == 10 && min >= 0 && this.altert_arr.length > 0) {
+        this.updateQueue('');
+      }
     } // 生成 alert queue 收到关闭 当前alert queue 异步消息的时候
     // 顺序关掉 queue 内 所有alert
     // 然后再 重新生成新的 alert queue
@@ -215,7 +255,9 @@ var AlertQueue = /*#__PURE__*/function () {
   }, {
     key: "dps",
     value: function dps(self) {
-      var _this = this;
+      var _this2 = this;
+
+      console.log(this.altert_arr, this.altert_arr.length, this.step_arr);
 
       if (!GM_getValue('show_alert')) {
         return;
@@ -228,7 +270,7 @@ var AlertQueue = /*#__PURE__*/function () {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _this.showFlag = true;
+                _this2.showFlag = true;
                 terminate = false;
                 _loop = /*#__PURE__*/_regeneratorRuntime().mark(function _loop(index) {
                   var curstep;
@@ -238,21 +280,23 @@ var AlertQueue = /*#__PURE__*/function () {
                         case 0:
                           curstep = index + 1;
                           _context.next = 3;
-                          return _this.alertQueue.fire({
-                            title: _this.altert_arr[index],
-                            // 从0开始
+                          return _this2.alert_queue.fire({
+                            title: _this2.altert_arr[index].title,
+                            text: _this2.altert_arr[index].text,
+                            imageUrl: _this2.altert_arr[index].image,
+                            imageWidth: 100,
+                            imageAlt: '直播间头像',
+                            // 下标从0开始
                             currentProgressStep: index,
-                            willClose: function willClose(params) {//console.log('param willClose' + curstep, params);
+                            willClose: function willClose(params) {//console.log('param willClose' , curstep, params);
                             },
                             didClose: function didClose() {
-                              _this.showFlag = false; //console.log('param didClose ' + curstep, terminate);
+                              _this2.showFlag = false;
+                              console.log('param didClose ', curstep, terminate);
 
                               if (!terminate) {
-                                _this.alertQueue.update({
-                                  progressSteps: _this.step_arr
-                                });
-
-                                _this.dps();
+                                //this.alert_queue.update({ progressSteps: this.step_arr });
+                                _this2.dps();
                               } else {
                                 GM_setValue('show_alert', false);
                                 var swalWithBootstrapButtons = sweetalert2_all_default().mixin({
@@ -293,8 +337,8 @@ var AlertQueue = /*#__PURE__*/function () {
                                       timer: 800,
                                       showConfirmButton: false
                                     }).then(function (result) {
-                                      if (result.isDismissed && result.dismiss == (sweetalert2_all_default()).DismissReason.timer && _this.term_func) {
-                                        _this.term_func(1);
+                                      if (result.isDismissed && result.dismiss == (sweetalert2_all_default()).DismissReason.timer && _this2.term_func) {
+                                        _this2.term_func(1);
                                       }
                                     });
                                   } else if (result.isDismissed
@@ -313,21 +357,25 @@ var AlertQueue = /*#__PURE__*/function () {
                               }
                             }
                           }).then(function (params) {
-                            //console.log('params ' + curstep, index, params);
+                            console.log('params ', curstep, index, params, (sweetalert2_all_default()).DismissReason.close);
+
                             if (params.isConfirmed) {
-                              if (curstep >= _this.altert_arr.length - 1) {
+                              if (curstep >= _this2.altert_arr.length) {
                                 //读完所有消息 关闭弹窗 通知仍然保存在队列中
                                 terminate = true;
-                              } //console.log('params.isConfirmed' + curstep, index, this.altert_arr.length, params, terminate);
+                              } //console.log('params.isConfirmed' , curstep, index, this.altert_arr.length, params, terminate);
 
                             } else if (params.isDismissed == true && params.dismiss == (sweetalert2_all_default()).DismissReason.close) {
-                              // 关闭按钮 收起通知弹窗 通知仍然保存在队列中
+                              console.log('params.isDismissed ', curstep, index, _this2.altert_arr.length, params, terminate); // 关闭按钮 收起通知弹窗 通知仍然保存在队列中
+
                               terminate = true; //不刷新
 
-                              _this.closeAlert();
+                              _this2.closeAlert();
                             } else {
                               //新弹窗显示 程序自动关闭 之前弹窗
-                              _this.closeAlert();
+                              console.log('params.isDismissed ', curstep, index, _this2.altert_arr.length, params, terminate);
+
+                              _this2.closeAlert();
                             }
                           });
 
@@ -341,7 +389,7 @@ var AlertQueue = /*#__PURE__*/function () {
                 index = 0;
 
               case 4:
-                if (!(index < _this.altert_arr.length)) {
+                if (!(index < _this2.altert_arr.length)) {
                   _context2.next = 9;
                   break;
                 }
@@ -367,7 +415,251 @@ var AlertQueue = /*#__PURE__*/function () {
 }();
 
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.keys.js
+var es_object_keys = __webpack_require__(9358);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.sort.js
+var es_array_sort = __webpack_require__(5137);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
+var injectStylesIntoStyleTag = __webpack_require__(3379);
+var injectStylesIntoStyleTag_default = /*#__PURE__*/__webpack_require__.n(injectStylesIntoStyleTag);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleDomAPI.js
+var styleDomAPI = __webpack_require__(7795);
+var styleDomAPI_default = /*#__PURE__*/__webpack_require__.n(styleDomAPI);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertBySelector.js
+var insertBySelector = __webpack_require__(569);
+var insertBySelector_default = /*#__PURE__*/__webpack_require__.n(insertBySelector);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js
+var setAttributesWithoutAttributes = __webpack_require__(3565);
+var setAttributesWithoutAttributes_default = /*#__PURE__*/__webpack_require__.n(setAttributesWithoutAttributes);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertStyleElement.js
+var insertStyleElement = __webpack_require__(9216);
+var insertStyleElement_default = /*#__PURE__*/__webpack_require__.n(insertStyleElement);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleTagTransform.js
+var styleTagTransform = __webpack_require__(4589);
+var styleTagTransform_default = /*#__PURE__*/__webpack_require__.n(styleTagTransform);
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/assets/styles.css
+var styles = __webpack_require__(3152);
+;// CONCATENATED MODULE: ./src/assets/styles.css
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (styleTagTransform_default());
+options.setAttributes = (setAttributesWithoutAttributes_default());
+
+      options.insert = insertBySelector_default().bind(null, "head");
+    
+options.domAPI = (styleDomAPI_default());
+options.insertStyleElement = (insertStyleElement_default());
+
+var update = injectStylesIntoStyleTag_default()(styles/* default */.Z, options);
+
+
+
+
+       /* harmony default export */ const assets_styles = (styles/* default */.Z && styles/* default.locals */.Z.locals ? styles/* default.locals */.Z.locals : undefined);
+
+;// CONCATENATED MODULE: ./src/menuinner.html
+// Module
+var code = "<div class=\"zhmMask\"></div> <div class=\"wrap-box\" id=\"setWrap\"> <ul class=\"iconSetUlHead\"> <li class=\"iconSetPageHead\"><span></span><span> 语音播报设置 </span><span class=\"iconSetSave\">×</span></li> </ul> <ul class=\"setWrapLi\"> <br/> <div class=\"setWrapLiContent\"> <p>语音开关：</p> <div> <label class=\"switch\"> <input type=\"checkbox\" id=\"togBtn\"/> <div class=\"slider round\"></div> </label> </div> </div> <br/> <br/> <div class=\"setWrapLiContent\"> <p>语种：</p> <div><input type=\"radio\" name=\"lang\" value=\"zh-CN\" id=\"ch_sim\"/><label for=\"ch_sim\">国语</label></div> <div><input type=\"radio\" name=\"lang\" value=\"zh-HK\" id=\"ch_sim\"/><label for=\"ch_sim\">粤语</label></div> </div> <br/> <div class=\"setWrapLiContent\"> <p>语速：</p> <select id=\"framework\"></select> <button id=\"btn2\">Submit</button> </div> <br/> <div class=\"setWrapLiContent\"> <p>通知弹窗开关：</p> <div> <label class=\"switch\"> <input type=\"checkbox\" id=\"gmTogBtn\"/> <div class=\"slider round\"></div> </label> </div> </div> <br/> </ul> <div style=\"height:40px\"></div> <div class=\"iconSetFoot\"> <ul class=\"iconSetFootLi\"></ul> </div> </div> ";
+// Exports
+/* harmony default export */ const menuinner = (code);
+;// CONCATENATED MODULE: ./src/menu.js
+
+
+
+
+
+
+
+
+function menu_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function menu_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function menu_createClass(Constructor, protoProps, staticProps) { if (protoProps) menu_defineProperties(Constructor.prototype, protoProps); if (staticProps) menu_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+/*--create style--*/
+
+
+
+
+var BaseClass = /*#__PURE__*/function () {
+  function BaseClass() {
+    var _this = this;
+
+    menu_classCallCheck(this, BaseClass);
+
+    GM_getValue('LANG', 'zh-CN');
+    GM_getValue('RATE', 1);
+    GM_getValue('switchVoice', true);
+    GM_getValue('GM_notice', true);
+    GM_registerMenuCommand('设置', function () {
+      return _this.menuFun();
+    });
+    GM_getValue('show_alert', true); //GM_setValue('alert_arr', []);
+
+    douyu_livebc.G_ALERT_QUEUE.inheritAttrs(GM_getValue('alert_arr', []));
+    GM_registerMenuCommand('显示通知历史', function () {
+      return douyu_livebc.G_ALERT_QUEUE.add('showAlert');
+    });
+  }
+
+  menu_createClass(BaseClass, [{
+    key: "menuFun",
+    value: function menuFun() {
+      this.createElement('div', 'zhmMenu');
+      var zhmMenu = document.getElementById('zhmMenu');
+      zhmMenu.innerHTML = menuinner;
+      var timerZhmIcon = setInterval(function () {
+        if (document.querySelector('#zhmMenu')) {
+          clearInterval(timerZhmIcon); // 取消定时器
+          ///////////////语速下拉框
+
+          var rates = {
+            0.5: 0.5,
+            0.8: 0.8,
+            1: 1,
+            1.2: 1.2,
+            1.5: 1.5,
+            1.8: 1.8,
+            2: 2,
+            3: 3,
+            4: 4,
+            5: 5,
+            6: 6,
+            7: 7,
+            8: 8,
+            9: 9,
+            10: 10
+          };
+          var selectBox = document.getElementById('framework'); //var selectBox = document.querySelector('#framework');
+          //默认值 上次值
+
+          var option = document.createElement('option');
+          var setrate = GM_getValue('RATE', 1); //console.log('setrate', setrate);
+
+          option.text = setrate;
+          option.value = setrate;
+          selectBox.appendChild(option); // 获取对象所有的键
+
+          var keys = Object.keys(rates); // 遍历对象
+
+          keys.sort().forEach(function (key) {
+            var option = document.createElement('option');
+            option.text = key;
+            option.value = rates[key];
+            selectBox.appendChild(option);
+          }); // 获取之前的开关状态
+
+          var previousState = GM_getValue('switchVoice', true); // 如果之前的状态存在，设置开关的状态
+
+          if (previousState) {
+            document.getElementById('togBtn').checked = previousState == true;
+          } // 当开关被点击时，切换状态并保存到本地存储
+
+
+          document.getElementById('togBtn').addEventListener('change', function () {
+            previousState = this.checked;
+            console.log('语音开关：', this.checked);
+          }); // 获取之前的开关状态
+
+          var gmState = GM_getValue('GM_notice', true); // 如果之前的状态存在，设置开关的状态
+
+          if (gmState) {
+            document.getElementById('gmTogBtn').checked = gmState == true;
+          } // 当开关被点击时，切换状态并保存到本地存储
+
+
+          document.getElementById('gmTogBtn').addEventListener('change', function () {
+            gmState = this.checked;
+            console.log('通知弹窗开关：', this.checked);
+          });
+          var btn = document.querySelector('#btn');
+          var radioButtons = document.querySelectorAll('input[name="lang"]');
+          var selectedLang = GM_getValue('LANG', 'zh-HK');
+          radioButtons.forEach(function (checkbox) {
+            checkbox.addEventListener('click', function (event) {
+              if (checkbox.checked) {
+                selectedLang = checkbox.value;
+                GM_setValue('LANG', selectedLang);
+                console.log('选中了选项:', checkbox.value);
+              } else {
+                console.log('取消选中选项:', checkbox.value);
+              }
+            });
+          });
+          var btn2 = document.querySelector('#btn2');
+          var sb = document.querySelector('#framework');
+
+          btn2.onclick = function (event) {
+            event.preventDefault(); // show the selected index
+            //alert(sb.selectedIndex);
+
+            GM_setValue('RATE', sb.value);
+          };
+
+          sb.onchange = function (event) {
+            event.preventDefault(); // show the selected index
+            //alert(sb.selectedIndex);
+
+            GM_setValue('RATE', sb.value);
+            console.log('语速选择:', sb.value);
+          };
+
+          document.querySelector('.iconSetSave').addEventListener('click', function () {
+            //location.href = location.href;
+            var elem = document.getElementById('zhmMenu'); // 按 id 获取要删除的元素
+
+            elem.parentNode.removeChild(elem); // 让 “要删除的元素” 的 “父元素” 删除 “要删除的元素”
+
+            GM_setValue('switchVoice', true);
+            var bSwitch = previousState == true ? '语音播报已开启' : '语音播报已关闭';
+            var strGMSwitch = gmState == true ? '通知弹窗已开启' : '通知弹窗已关闭';
+            GM_setValue('GM_notice', gmState);
+            var numRate = GM_getValue('RATE', 1);
+            var strLang = GM_getValue('LANG', 'zh-HK') === 'zh-CN' ? '国语' : '粤语';
+            var sTxt = bSwitch + '，' + strGMSwitch + '，播报语言设置为' + strLang + '，语速设置为' + numRate;
+            console.log(sTxt);
+            douyu_livebc.speak({
+              text: sTxt
+            }, function () {
+              console.log('语音播放结束：' + sTxt);
+            }, function () {
+              console.log('语音开始播放');
+            });
+            GM_setValue('switchVoice', previousState);
+          });
+        }
+      });
+    }
+  }, {
+    key: "createElement",
+    value: function createElement(dom, domId) {
+      var newElement = document.createElement(dom);
+      newElement.id = domId;
+      var newElementHtmlContent = document.createTextNode('');
+      newElement.appendChild(newElementHtmlContent);
+      var rootElement = document.body;
+      rootElement.appendChild(newElement);
+    }
+  }]);
+
+  return BaseClass;
+}();
+
+
 ;// CONCATENATED MODULE: ./src/douyu_livebc.js
+
 
 
 var baseURL = 'https://douyu.com';
@@ -379,10 +671,18 @@ function initScript() {
   /*--- Cross-browser Shim code follows:
   Source: https://stackoverflow.com/questions/36779883/userscript-notifications-work-on-chrome-but-not-firefox
   */
+  // 初始化所有GM value
 
-  check();
-  notifyTitle('斗鱼开播提醒启动了'); //window.onbeforeunload = function(event){notifyTitle('开播提醒已退出')}
+  new BaseClass();
+  check(); // 这里需要判断一下 否则会导致 alertQueue的add函数一直刷新网页
+
+  var bGMnotice = GM_getValue('GM_notice', true);
+
+  if (bGMnotice) {
+    notifyTitle('斗鱼开播提醒启动了');
+  } //window.onbeforeunload = function(event){notifyTitle('开播提醒已退出')}
   //window.onunload = function(event) {notifyTitle('斗鱼开播提醒已退出')}
+
 
   window.setInterval(check, 10000);
 }
@@ -624,7 +924,7 @@ function wrap_GM_notification(param) {
   if (bGMnotice) {
     GM_notification(param);
   } else {
-    G_ALERT_QUEUE.add(param.title); //console.log('GM_notification disabled');
+    G_ALERT_QUEUE.add(param); //console.log('GM_notification disabled');
   }
 }
 
@@ -646,274 +946,6 @@ function notifyTitle(s) {
   speak: speak,
   G_ALERT_QUEUE: G_ALERT_QUEUE
 });
-
-/***/ }),
-
-/***/ 791:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ BaseClass)
-});
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/web.timers.js
-var web_timers = __webpack_require__(6869);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.keys.js
-var es_object_keys = __webpack_require__(9358);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.for-each.js
-var es_array_for_each = __webpack_require__(9693);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
-var es_object_to_string = __webpack_require__(228);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.for-each.js
-var web_dom_collections_for_each = __webpack_require__(7522);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.sort.js
-var es_array_sort = __webpack_require__(5137);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.define-property.js
-var es_object_define_property = __webpack_require__(739);
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
-var injectStylesIntoStyleTag = __webpack_require__(3379);
-var injectStylesIntoStyleTag_default = /*#__PURE__*/__webpack_require__.n(injectStylesIntoStyleTag);
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleDomAPI.js
-var styleDomAPI = __webpack_require__(7795);
-var styleDomAPI_default = /*#__PURE__*/__webpack_require__.n(styleDomAPI);
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertBySelector.js
-var insertBySelector = __webpack_require__(569);
-var insertBySelector_default = /*#__PURE__*/__webpack_require__.n(insertBySelector);
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js
-var setAttributesWithoutAttributes = __webpack_require__(3565);
-var setAttributesWithoutAttributes_default = /*#__PURE__*/__webpack_require__.n(setAttributesWithoutAttributes);
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertStyleElement.js
-var insertStyleElement = __webpack_require__(9216);
-var insertStyleElement_default = /*#__PURE__*/__webpack_require__.n(insertStyleElement);
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleTagTransform.js
-var styleTagTransform = __webpack_require__(4589);
-var styleTagTransform_default = /*#__PURE__*/__webpack_require__.n(styleTagTransform);
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/assets/styles.css
-var styles = __webpack_require__(3152);
-;// CONCATENATED MODULE: ./src/assets/styles.css
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var options = {};
-
-options.styleTagTransform = (styleTagTransform_default());
-options.setAttributes = (setAttributesWithoutAttributes_default());
-
-      options.insert = insertBySelector_default().bind(null, "head");
-    
-options.domAPI = (styleDomAPI_default());
-options.insertStyleElement = (insertStyleElement_default());
-
-var update = injectStylesIntoStyleTag_default()(styles/* default */.Z, options);
-
-
-
-
-       /* harmony default export */ const assets_styles = (styles/* default */.Z && styles/* default.locals */.Z.locals ? styles/* default.locals */.Z.locals : undefined);
-
-// EXTERNAL MODULE: ./src/douyu_livebc.js + 1 modules
-var douyu_livebc = __webpack_require__(8804);
-;// CONCATENATED MODULE: ./src/menuinner.html
-// Module
-var code = "<div class=\"zhmMask\"></div> <div class=\"wrap-box\" id=\"setWrap\"> <ul class=\"iconSetUlHead\"> <li class=\"iconSetPageHead\"><span></span><span> 语音播报设置 </span><span class=\"iconSetSave\">×</span></li> </ul> <ul class=\"setWrapLi\"> <br/> <div class=\"setWrapLiContent\"> <p>语音开关：</p> <div> <label class=\"switch\"> <input type=\"checkbox\" id=\"togBtn\"/> <div class=\"slider round\"></div> </label> </div> </div> <br/> <br/> <div class=\"setWrapLiContent\"> <p>语种：</p> <div><input type=\"radio\" name=\"lang\" value=\"zh-CN\" id=\"ch_sim\"/><label for=\"ch_sim\">国语</label></div> <div><input type=\"radio\" name=\"lang\" value=\"zh-HK\" id=\"ch_sim\"/><label for=\"ch_sim\">粤语</label></div> </div> <br/> <div class=\"setWrapLiContent\"> <p>语速：</p> <select id=\"framework\"></select> <button id=\"btn2\">Submit</button> </div> <br/> <div class=\"setWrapLiContent\"> <p>通知弹窗开关：</p> <div> <label class=\"switch\"> <input type=\"checkbox\" id=\"gmTogBtn\"/> <div class=\"slider round\"></div> </label> </div> </div> <br/> </ul> <div style=\"height:40px\"></div> <div class=\"iconSetFoot\"> <ul class=\"iconSetFootLi\"></ul> </div> </div> ";
-// Exports
-/* harmony default export */ const menuinner = (code);
-;// CONCATENATED MODULE: ./src/menu.js
-
-
-
-
-
-
-
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-/*--create style--*/
-
-
-
-
-var BaseClass = /*#__PURE__*/function () {
-  function BaseClass() {
-    var _this = this;
-
-    _classCallCheck(this, BaseClass);
-
-    GM_getValue('LANG', 'zh-CN');
-    GM_getValue('RATE', 1);
-    GM_getValue('switchVoice', true);
-    GM_getValue('GM_notice', true);
-    GM_registerMenuCommand('设置', function () {
-      return _this.menuFun();
-    });
-    GM_getValue('show_alert', true);
-    GM_registerMenuCommand('显示通知历史', function () {
-      return douyu_livebc["default"].G_ALERT_QUEUE.add('showAlert');
-    });
-  }
-
-  _createClass(BaseClass, [{
-    key: "menuFun",
-    value: function menuFun() {
-      this.createElement('div', 'zhmMenu');
-      var zhmMenu = document.getElementById('zhmMenu');
-      zhmMenu.innerHTML = menuinner;
-      var timerZhmIcon = setInterval(function () {
-        if (document.querySelector('#zhmMenu')) {
-          clearInterval(timerZhmIcon); // 取消定时器
-          ///////////////语速下拉框
-
-          var rates = {
-            0.5: 0.5,
-            0.8: 0.8,
-            1: 1,
-            1.2: 1.2,
-            1.5: 1.5,
-            1.8: 1.8,
-            2: 2,
-            3: 3,
-            4: 4,
-            5: 5,
-            6: 6,
-            7: 7,
-            8: 8,
-            9: 9,
-            10: 10
-          };
-          var selectBox = document.getElementById('framework'); //var selectBox = document.querySelector('#framework');
-          //默认值 上次值
-
-          var option = document.createElement('option');
-          var setrate = GM_getValue('RATE', 1); //console.log('setrate', setrate);
-
-          option.text = setrate;
-          option.value = setrate;
-          selectBox.appendChild(option); // 获取对象所有的键
-
-          var keys = Object.keys(rates); // 遍历对象
-
-          keys.sort().forEach(function (key) {
-            var option = document.createElement('option');
-            option.text = key;
-            option.value = rates[key];
-            selectBox.appendChild(option);
-          }); // 获取之前的开关状态
-
-          var previousState = GM_getValue('switchVoice', true); // 如果之前的状态存在，设置开关的状态
-
-          if (previousState) {
-            document.getElementById('togBtn').checked = previousState == true;
-          } // 当开关被点击时，切换状态并保存到本地存储
-
-
-          document.getElementById('togBtn').addEventListener('change', function () {
-            previousState = this.checked;
-            console.log('语音开关：', this.checked);
-          }); // 获取之前的开关状态
-
-          var gmState = GM_getValue('GM_notice', true); // 如果之前的状态存在，设置开关的状态
-
-          if (gmState) {
-            document.getElementById('gmTogBtn').checked = gmState == true;
-          } // 当开关被点击时，切换状态并保存到本地存储
-
-
-          document.getElementById('gmTogBtn').addEventListener('change', function () {
-            gmState = this.checked;
-            console.log('通知弹窗开关：', this.checked);
-          });
-          var btn = document.querySelector('#btn');
-          var radioButtons = document.querySelectorAll('input[name="lang"]');
-          var selectedLang = GM_getValue('LANG', 'zh-HK');
-          radioButtons.forEach(function (checkbox) {
-            checkbox.addEventListener('click', function (event) {
-              if (checkbox.checked) {
-                selectedLang = checkbox.value;
-                GM_setValue('LANG', selectedLang);
-                console.log('选中了选项:', checkbox.value);
-              } else {
-                console.log('取消选中选项:', checkbox.value);
-              }
-            });
-          });
-          var btn2 = document.querySelector('#btn2');
-          var sb = document.querySelector('#framework');
-
-          btn2.onclick = function (event) {
-            event.preventDefault(); // show the selected index
-            //alert(sb.selectedIndex);
-
-            GM_setValue('RATE', sb.value);
-          };
-
-          sb.onchange = function (event) {
-            event.preventDefault(); // show the selected index
-            //alert(sb.selectedIndex);
-
-            GM_setValue('RATE', sb.value);
-            console.log('语速选择:', sb.value);
-          };
-
-          document.querySelector('.iconSetSave').addEventListener('click', function () {
-            //location.href = location.href;
-            var elem = document.getElementById('zhmMenu'); // 按 id 获取要删除的元素
-
-            elem.parentNode.removeChild(elem); // 让 “要删除的元素” 的 “父元素” 删除 “要删除的元素”
-
-            GM_setValue('switchVoice', true);
-            var bSwitch = previousState == true ? '语音播报已开启' : '语音播报已关闭';
-            var strGMSwitch = gmState == true ? '通知弹窗已开启' : '通知弹窗已关闭';
-            GM_setValue('GM_notice', gmState);
-            var numRate = GM_getValue('RATE', 1);
-            var strLang = GM_getValue('LANG', 'zh-HK') === 'zh-CN' ? '国语' : '粤语';
-            var sTxt = bSwitch + '，' + strGMSwitch + '，播报语言设置为' + strLang + '，语速设置为' + numRate;
-            console.log(sTxt);
-            douyu_livebc["default"].speak({
-              text: sTxt
-            }, function () {
-              console.log('语音播放结束：' + sTxt);
-            }, function () {
-              console.log('语音开始播放');
-            });
-            GM_setValue('switchVoice', previousState);
-          });
-        }
-      });
-    }
-  }, {
-    key: "createElement",
-    value: function createElement(dom, domId) {
-      var newElement = document.createElement(dom);
-      newElement.id = domId;
-      var newElementHtmlContent = document.createTextNode('');
-      newElement.appendChild(newElementHtmlContent);
-      var rootElement = document.body;
-      rootElement.appendChild(newElement);
-    }
-  }]);
-
-  return BaseClass;
-}();
-
-
 
 /***/ }),
 
@@ -6061,11 +6093,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var douyu_livebc_1 = __importDefault(__webpack_require__(8804));
-var menu_1 = __importDefault(__webpack_require__(791));
+var douyu_livebc_1 = __importDefault(__webpack_require__(4378));
 var app = function () {
     douyu_livebc_1.default.initScript();
-    new menu_1.default();
 };
 exports["default"] = app;
 
@@ -10344,6 +10374,34 @@ $({ target: 'Array', proto: true, forced: FORCED }, {
     return array;
   }
 });
+
+
+/***/ }),
+
+/***/ 24:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+// TODO: Remove from `core-js@4`
+var uncurryThis = __webpack_require__(8844);
+var defineBuiltIn = __webpack_require__(1880);
+
+var DatePrototype = Date.prototype;
+var INVALID_DATE = 'Invalid Date';
+var TO_STRING = 'toString';
+var nativeDateToString = uncurryThis(DatePrototype[TO_STRING]);
+var thisTimeValue = uncurryThis(DatePrototype.getTime);
+
+// `Date.prototype.toString` method
+// https://tc39.es/ecma262/#sec-date.prototype.tostring
+if (String(new Date(NaN)) !== INVALID_DATE) {
+  defineBuiltIn(DatePrototype, TO_STRING, function toString() {
+    var value = thisTimeValue(this);
+    // eslint-disable-next-line no-self-compare -- NaN check
+    return value === value ? nativeDateToString(this) : INVALID_DATE;
+  });
+}
 
 
 /***/ }),
