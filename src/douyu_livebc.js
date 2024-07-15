@@ -21,6 +21,7 @@ function initScript() {
   if (bGMnotice) {
     notifyTitle('斗鱼开播提醒启动了');
   }
+
   //window.onbeforeunload = function(event){notifyTitle('开播提醒已退出')}
   //window.onunload = function(event) {notifyTitle('斗鱼开播提醒已退出')}
   window.setInterval(check, 10000);

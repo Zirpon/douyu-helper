@@ -72,7 +72,9 @@ export default class AlertQueue {
     }
 
     this.step_arr = Array.from({ length: this.altert_arr.length }, (_, i) => 1 + i);
-    this.alert_queue.update({ progressSteps: this.step_arr });
+    //update 函数没用 更新step在fire更新
+    //this.alert_queue.update({ progressSteps: this.step_arr });
+
     GM_setValue('alert_arr', this.altert_arr);
   }
 
@@ -113,6 +115,8 @@ export default class AlertQueue {
             imageAlt: '直播间头像',
             // 下标从0开始
             currentProgressStep: index,
+            //progressSteps: this.step_arr,
+
             willClose: (params) => {
               //console.log('param willClose' , curstep, params);
             },
@@ -120,7 +124,7 @@ export default class AlertQueue {
               this.showFlag = false;
               console.log('param didClose ', curstep, terminate);
               if (!terminate) {
-                //this.alert_queue.update({ progressSteps: this.step_arr });
+                //this.alert_queue.update({ 'progressSteps': this.step_arr });
                 this.dps();
               } else {
                 GM_setValue('show_alert', false);
