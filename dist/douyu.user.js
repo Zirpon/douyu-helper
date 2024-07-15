@@ -287,7 +287,8 @@ var AlertQueue = /*#__PURE__*/function () {
                             imageAlt: '直播间头像',
                             // 下标从0开始
                             currentProgressStep: index,
-                            //progressSteps: this.step_arr,
+                            //每次fire更新step arr
+                            progressSteps: _this2.step_arr,
                             willClose: function willClose(params) {//console.log('param willClose' , curstep, params);
                             },
                             didClose: function didClose() {
