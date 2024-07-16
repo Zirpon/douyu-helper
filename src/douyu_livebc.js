@@ -234,11 +234,11 @@ function check() {
 
 let G_ALERT_QUEUE = new AlertQueue(reloadPage);
 function wrap_GM_notification(param) {
+  G_ALERT_QUEUE.add(param);
   let bGMnotice = GM_getValue('GM_notice', true);
   if (bGMnotice) {
     GM_notification(param);
   } else {
-    G_ALERT_QUEUE.add(param);
     //console.log('GM_notification disabled');
   }
 }

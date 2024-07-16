@@ -70,8 +70,8 @@ export default class AlertQueue {
     if (alert != '') {
       this.altert_arr.push(alert);
       //console.log('updateQ ', this.altert_arr, this.step_arr, this.altert_arr.length);
-      if (this.altert_arr.length >= 20) {
-        this.altert_arr = this.altert_arr.slice(-20);
+      if (this.altert_arr.length >= 10) {
+        this.altert_arr = this.altert_arr.slice(-10);
       }
     } else {
       this.altert_arr = [];
@@ -99,6 +99,17 @@ export default class AlertQueue {
   // 顺序关掉 queue 内 所有alert
   // 然后再 重新生成新的 alert queue
   // 因为 目前 Swal2 项目作者并没有进队出队的 api
+  /**
+   * 执行主要的处理逻辑，包括显示一系列的通知，并根据用户的交互决定是否刷新页面
+   *
+   * 这个函数在页面加载完成后立即执行。它首先检查一个名为 `show_alert` 的标志，如果未设置或设置为 `false`，则函数将提前终止。
+   * 通过 `alert_queue` 对象的 `fire` 方法，并将 `altert_arr` 中的每个元素作为参数传递给它，从而显示通知。在每次循环迭代中，
+   * 更新 `step_arr` 以显示当前进度。同时，函数内部使用了 `Swal2` 库，用于显示自定义的警告框，如询问用户是否刷新网页。
+   * 若用户点击弹窗的关闭按钮，会根据关闭方式执行不同的操作，如终止循环并关闭所有弹窗。最终，依据流程分别关闭或刷新页面。
+   *
+   * @param {Object} self - 上下文对象，包含 `altert_arr`、`step_arr` 和 `alert_queue` 属性
+   * @since 1.0.0
+   */
   dps(self) {
     console.log(this.altert_arr, this.altert_arr.length, this.step_arr);
 
@@ -108,15 +119,16 @@ export default class AlertQueue {
     (async () => {
       this.showFlag = true;
       let terminate = false;
+      let showAlertArr = this.altert_arr;
 
-      for (let index = 0; index < this.altert_arr.length; index++) {
+      for (let index = 0; index < showAlertArr.length; index++) {
         let curstep = index + 1;
 
         await this.alert_queue
           .fire({
-            title: this.altert_arr[index].title,
-            text: this.altert_arr[index].text,
-            imageUrl: this.altert_arr[index].image,
+            title: showAlertArr[index].title,
+            text: showAlertArr[index].text,
+            imageUrl: showAlertArr[index].image,
             imageWidth: 100,
             imageAlt: '直播间头像',
             // 下标从0开始
@@ -202,20 +214,20 @@ export default class AlertQueue {
           .then((params) => {
             console.log('params ', curstep, index, params, Swal2.DismissReason.close);
             if (params.isConfirmed) {
-              if (curstep >= this.altert_arr.length) {
+              if (curstep >= showAlertArr.length) {
                 //读完所有消息 关闭弹窗 通知仍然保存在队列中
                 terminate = true;
               }
-              //console.log('params.isConfirmed' , curstep, index, this.altert_arr.length, params, terminate);
+              //console.log('params.isConfirmed' , curstep, index, showAlertArr.length, params, terminate);
             } else if (params.isDismissed == true && params.dismiss == Swal2.DismissReason.close) {
-              console.log('params.isDismissed ', curstep, index, this.altert_arr.length, params, terminate);
+              console.log('params.isDismissed ', curstep, index, showAlertArr.length, params, terminate);
               // 关闭按钮 收起通知弹窗 通知仍然保存在队列中
               terminate = true;
               //不刷新
               this.closeAlert();
             } else {
               //新弹窗显示 程序自动关闭 之前弹窗
-              console.log('params.isDismissed ', curstep, index, this.altert_arr.length, params, terminate);
+              console.log('params.isDismissed ', curstep, index, showAlertArr.length, params, terminate);
               this.closeAlert();
             }
           });
