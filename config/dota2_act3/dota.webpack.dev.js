@@ -24,10 +24,10 @@ module.exports = (env) => {
   baseOptions.devServer = {
     static: [
       {
-        directory: path.join(__dirname, '../public'),
+        directory: path.join(__dirname, '../../public'),
       },
       {
-        directory: path.join(__dirname, '../dist'),
+        directory: path.join(__dirname, '../../dist'),
       },
     ],
     compress: true,

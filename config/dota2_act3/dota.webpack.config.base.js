@@ -22,7 +22,7 @@ const src = relativePath('src');
 const baseOptions = {
   entry: './src/index.ts',
   output: {
-    path: resolve(__dirname, '../dist'),
+    path: resolve(__dirname, '../../dist'),
   },
   externals: {},
   module: {

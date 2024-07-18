@@ -4,10 +4,10 @@
   "description": "dota2 倾天之战第三幕 冰川残骸 格罗德图书馆 代币筛选英雄",
   "main": "/dist/dota2_act3.user.js",
   "scripts": {
-    "start": "webpack serve --config ./config/dota.webpack.dev.js --env filename=dota2_act3.dev.user.js",
-    "dev": "webpack --watch --config ./config/dota.webpack.dev.js --env filename=dota2_act3.dev.user.js",
-    "build": "yarn lint:fix && webpack --config ./config/dota.webpack.prod.js --env filename=dota2_act3.user.js --stats-error-details",
-    "builddev": "yarn lint:fix && webpack --config ./config/dota.webpack.dev.js --env filename=dota2_act3.dev.user.js --stats-error-details",
+    "start": "webpack serve --config ./config/dota2_act3/dota.webpack.dev.js --env filename=dota2_act3.dev.user.js",
+    "dev": "webpack --watch --config ./config/dota2_act3/dota.webpack.dev.js --env filename=dota2_act3.dev.user.js",
+    "build": "yarn lint:fix && webpack --config ./config/dota2_act3/dota.webpack.prod.js --env filename=dota2_act3.user.js --stats-error-details",
+    "builddev": "yarn lint:fix && webpack --config ./config/dota2_act3/dota.webpack.dev.js --env filename=dota2_act3.dev.user.js --stats-error-details",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "lint:fix": "yarn lint --fix"
   },
