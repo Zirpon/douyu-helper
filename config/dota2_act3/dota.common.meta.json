@@ -8,8 +8,8 @@
   "license": "MIT",
   "match": ["https://wiki.dota2.com.cn/"],
   "run-at": "document-idle",
-  "supportURL": "",
-  "homepage": "",
+  "supportURL": "https://github.com/Zirpon/douyu-helper",
+  "homepage": "https://github.com/Zirpon/douyu-helper",
   "grant": [
     "GM_xmlhttpRequest",
     "GM_openInTab",
