@@ -1,13 +1,13 @@
 {
-  "name": "douyu-livebroadcast",
-  "version": "3.3.4",
-  "description": "Douyu斗鱼 主播开播下播提醒 + 粤语/国语语音播报通知",
-  "main": "/dist/douyu.user.js",
+  "name": "dota2_act3",
+  "version": "1.0.0",
+  "description": "dota2 倾天之战第三幕 冰川残骸 格罗德图书馆 代币筛选英雄",
+  "main": "/dist/dota2_act3.user.js",
   "scripts": {
-    "start": "webpack serve --config ./config/webpack.dev.js --env filename=douyu.dev.user.js",
-    "dev": "webpack --watch --config ./config/webpack.dev.js --env filename=douyu.dev.user.js",
-    "build": "yarn lint:fix && webpack --config ./config/webpack.prod.js --env filename=douyu.user.js --stats-error-details",
-    "builddev": "yarn lint:fix && webpack --config ./config/webpack.dev.js --env filename=douyu.dev.user.js --stats-error-details",
+    "start": "webpack serve --config ./config/dota.webpack.dev.js --env filename=dota2_act3.dev.user.js",
+    "dev": "webpack --watch --config ./config/dota.webpack.dev.js --env filename=dota2_act3.dev.user.js",
+    "build": "yarn lint:fix && webpack --config ./config/dota.webpack.prod.js --env filename=dota2_act3.user.js --stats-error-details",
+    "builddev": "yarn lint:fix && webpack --config ./config/dota.webpack.dev.js --env filename=dota2_act3.dev.user.js --stats-error-details",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "lint:fix": "yarn lint --fix"
   },
@@ -16,11 +16,11 @@
     "url": "git+https://github.com/Zirpon/douyu-helper.git"
   },
   "keywords": [
-    "douyu",
+    "dota2_act3",
     "TamperMonkey",
     "typescript"
   ],
-  "author": "Eished",
+  "author": "zepung",
   "license": "MIT",
   "bugs": {
     "url": "https://greasyfork.org/zh-CN/scripts/498616-douyu%E6%96%97%E9%B1%BC-%E4%B8%BB%E6%92%AD%E5%BC%80%E6%92%AD%E4%B8%8B%E6%92%AD%E6%8F%90%E9%86%92-%E7%B2%A4%E8%AF%AD-%E5%9B%BD%E8%AF%AD%E8%AF%AD%E9%9F%B3%E6%92%AD%E6%8A%A5%E9%80%9A%E7%9F%A5/feedback"
@@ -50,6 +50,7 @@
     "to-string-loader": "^1.2.0",
     "ts-loader": "^9.2.8",
     "typescript": "^4.6.3",
+    "url-loader": "^4.1.1",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.0"

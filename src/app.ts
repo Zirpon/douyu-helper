@@ -1,7 +1,7 @@
-import api from './douyu_livebc';
-
+//import api from './douyu_livebc';
+import initScript from './dota2_act3/main';
 const app = () => {
-  api.initScript();
+  initScript();
 };
 
 export default app;
