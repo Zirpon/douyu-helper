@@ -1,0 +1,15 @@
+{
+  "name": "dota2 倾天之战第三幕 冰川残骸 格罗德图书馆 代币筛选英雄 dev",
+  "namespace": "https://github.com/Zirpon/douyu-helper.git",
+  "match": ["https://wiki.dota2.com.cn/", "*://*.localhost/*"],
+  "grant": [
+    "GM_xmlhttpRequest",
+    "GM_openInTab",
+    "GM_notification",
+    "GM_getValue",
+    "GM_setValue",
+    "GM_registerMenuCommand",
+    "GM_addValueChangeListener"
+  ],
+  "require": ["file://D://MyDocs//git-repos//github//Zirpon//douyu-helper//dist//dota2_act3.dev.user.js"]
+}
