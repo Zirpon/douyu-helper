@@ -25,6 +25,7 @@
 node_modules/
 dist/*
 !/dist/douyu.user.js 
+!/dist/dota2_act3.user.js 
 npm-debug.log
 yarn-error.log
 
