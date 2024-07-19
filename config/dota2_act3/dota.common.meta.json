@@ -1,7 +1,7 @@
 {
   "name": "dota2 倾天之战第三幕 冰川残骸 格罗德图书馆 代币筛选英雄",
   "namespace": "https://github.com/Zirpon/douyu-helper.git",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "手动打开 完美DOTA2维基官网页面(https://wiki.dota2.com.cn/) 即可食用",
   "author": "zepung",
   "copyright": "zepung",
