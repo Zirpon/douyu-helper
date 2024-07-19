@@ -162,9 +162,11 @@ class BaseClass {
       } else {
         ibox[0].style.opacity = 0.1; // 透明度を50%に指定
         var tokendiv = document.getElementById('tokendiv_' + name);
-        //console.log(tokendiv);
-        tokendiv.style.opacity = 0.1; // 透明度を50%に指定
-        //ibox[0].setAttribute('style', "background-image: url('" + grayimg + "');");
+        if (tokendiv) {
+          tokendiv.style.opacity = 0.1; // 透明度を50%に指定
+        } else {
+          console.log(name, ibox[0]);
+        }
       }
     }
   }
