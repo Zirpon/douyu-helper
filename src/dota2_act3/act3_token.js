@@ -206,7 +206,7 @@ const act3 = {
       'lich',
       'lina',
       'necrolyte',
-      'rike',
+      'riki',
       'storm_spirit',
       'templar_assassin',
       'vengefulspirit',

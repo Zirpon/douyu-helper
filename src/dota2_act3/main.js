@@ -1,20 +1,66 @@
 import Swal2 from 'sweetalert2';
 import act3_token from './act3_token';
 import alertContent from './alertContent.html';
-import styles from './assets/styles.css';
+import './assets/styles.css';
 import dota2_heros from './dota2_heros';
 
 export default function initScript() {
   console.log(act3_token);
-  console.log(dota2_heros);
+  //console.log(dota2_heros);
   let dd = new BaseClass();
   dd.init();
+}
+
+let heroimgList = {};
+for (let index = 0; index < dota2_heros.length; index++) {
+  heroimgList[dota2_heros[index].name] = dota2_heros[index];
+}
+// 等待网页完成加载
+window.addEventListener(
+  'load',
+  function () {
+    initHeroToken();
+  },
+  false
+);
+
+function initHeroToken() {
+  let heroElements2 = document.evaluate(
+    '//*[@class="hl-wrapper"]/a[@class="HeroIcon"]',
+    document,
+    null,
+    XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+    null
+  );
+
+  for (let i = 0; i < heroElements2.snapshotLength; i++) {
+    let node = heroElements2.snapshotItem(i);
+    const href = node.getAttribute('href');
+    const name = href.split('/')[2].split('.')[0];
+
+    node.setAttribute('style', 'position:relative;z-index:1;');
+    //console.log(node.getAttribute('style'));
+
+    const tokendiv = document.createElement('div');
+    tokendiv.setAttribute('style', 'right:0px;position:absolute;top:10px; z-index:2;');
+    const tokenList = heroimgList[name].act3_tag;
+    for (let index = 0; index < tokenList.length; index++) {
+      const tokenstr = tokenList[index];
+      const token_img = document.createElement('img');
+      token_img.setAttribute(
+        'src',
+        'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/' + tokenstr + '.png'
+      );
+      token_img.setAttribute('style', 'width:35px;height:35px;');
+      tokendiv.appendChild(token_img);
+    }
+    node.appendChild(tokendiv);
+  }
 }
 
 class BaseClass {
   constructor() {
     this.firstRendor = true;
-
     GM_registerMenuCommand('格罗德图书馆', () => this.menu());
     GM_registerMenuCommand('reset', () => this.setHeroImg());
   }
@@ -22,9 +68,11 @@ class BaseClass {
     this.alert = Swal2.mixin({
       // alert 模板 可自定义
       html: alertContent,
+      /* 因为 css里有图片 直接import 让他预加载 而不是打开menu 再加载
       customClass: {
         htmlContainer: styles,
       },
+      */
       showCloseButton: true,
       // 改为true 后 鼠标 点 非confirm button 的地方 会关闭alert 触发 dps()函数 执行
       allowOutsideClick: false,
@@ -63,7 +111,9 @@ class BaseClass {
 
   initHeroImgList() {
     // 初始化时先保存所有英雄图标
-    this.heroimgList = {};
+    /*
+    heroimgList = {};
+    
     let heroElements = document.evaluate(
       '//*[@class="hl-wrapper"]/a[@class="HeroIcon"]',
       document,
@@ -79,10 +129,11 @@ class BaseClass {
 
       var ibox = heroELem.getElementsByClassName('i-box');
       const url = ibox[0].getAttribute('style').split('"')[1].split('"')[0];
-      this.heroimgList[name] = url;
+      heroimgList[name] = url;
       heroELem = heroElements.iterateNext();
-    }
-    console.log(this.heroimgList);
+    }*/
+
+    console.log(heroimgList);
   }
 
   setHeroImg(herolist) {
@@ -117,21 +168,25 @@ class BaseClass {
       if (this.firstRendor) {
         url = ibox[0].getAttribute('style').split('"')[1].split('"')[0];
       } else {
-        url = this.heroimgList[name];
+        url = heroimgList[name].img;
       }
       //console.log(ibox[0]);
       const height = ibox[0].clientHeight;
       const width = ibox[0].clientWidth;
       //console.log(height, width);
+
+      /*
       if (grayimg == '') {
         grayimg = this.gray(url, height, width);
       }
+        */
 
       if (herolist == undefined || herolist.indexOf(name) >= 0) {
         //console.log(name);
-        ibox[0].setAttribute('style', "background-image: url('" + this.heroimgList[name] + "');");
+        ibox[0].style.opacity = 1; // 透明度を50%に指定
       } else {
-        ibox[0].setAttribute('style', "background-image: url('" + grayimg + "');");
+        ibox[0].style.opacity = 0.1; // 透明度を50%に指定
+        //ibox[0].setAttribute('style', "background-image: url('" + grayimg + "');");
       }
     }
   }
@@ -202,15 +257,22 @@ class BaseClass {
         if (PRODUCTION) {
           this.vendorHeros(target_heros);
         } else {
-          let heroslist_chi = [];
-          for (let index = 0; index < dota2_heros.length; index++) {
-            //console.log(dota2_heros[index]);
+          let rid = new URLSearchParams(window.location.search).get('rid');
+          //console.log(rid);
 
-            if (target_heros.indexOf(dota2_heros[index].name) >= 0) {
-              heroslist_chi.push(dota2_heros[index].chi_name);
+          if (!rid) {
+            this.vendorHeros(target_heros);
+          } else {
+            let heroslist_chi = [];
+            for (let index = 0; index < dota2_heros.length; index++) {
+              //console.log(dota2_heros[index]);
+
+              if (target_heros.indexOf(dota2_heros[index].name) >= 0) {
+                heroslist_chi.push(dota2_heros[index].chi_name);
+              }
             }
+            Swal2.fire(JSON.stringify(heroslist_chi));
           }
-          Swal2.fire(JSON.stringify(heroslist_chi));
         }
       }
     })();

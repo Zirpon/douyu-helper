@@ -214,7 +214,7 @@ export default [
     img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_riki.png',
     chi_name: '力丸',
     name: 'riki',
-    act3_tag: ['blood', 'fur'],
+    act3_tag: ['blood', 'fur', 'robe'],
   },
   {
     url: 'wiki.dota2.com.cn/hero/enigma',
