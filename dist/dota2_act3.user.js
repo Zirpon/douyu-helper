@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name                dota2 倾天之战第三幕 冰川残骸 格罗德图书馆 代币筛选英雄
 // @namespace           https://github.com/Zirpon/douyu-helper.git
-// @version             1.2.0
+// @version             1.2.2
 // @description         手动打开 完美DOTA2维基官网页面(https://wiki.dota2.com.cn/) 即可食用
 // @author              zepung
 // @copyright           zepung
@@ -35,12 +35,14 @@ __webpack_require__.d(__webpack_exports__, {
   "default": () => (/* binding */ initScript)
 });
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.date.to-string.js
-var es_date_to_string = __webpack_require__(24);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
+var es_function_name = __webpack_require__(4284);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.regexp.exec.js
 var es_regexp_exec = __webpack_require__(4043);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.split.js
 var es_string_split = __webpack_require__(9873);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.date.to-string.js
+var es_date_to_string = __webpack_require__(24);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.map.js
 var es_array_map = __webpack_require__(886);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.parse-float.js
@@ -73,8 +75,10 @@ var es_array_iterator = __webpack_require__(752);
 var es_set = __webpack_require__(9649);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
 var web_dom_collections_iterator = __webpack_require__(6265);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
-var es_function_name = __webpack_require__(4284);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.url-search-params.js
+var web_url_search_params = __webpack_require__(9307);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.search.js
+var es_string_search = __webpack_require__(7872);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.define-property.js
 var es_object_define_property = __webpack_require__(739);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.promise.js
@@ -166,7 +170,7 @@ var act3 = {
   robe: {
     3: [],
     2: ['oracle'],
-    1: ['antimage', 'crystal_maiden', 'dark_seer', 'dazzle', 'death_prophet', 'grimstroke', 'invoker', 'kunkka', 'lich', 'lina', 'necrolyte', 'rike', 'storm_spirit', 'templar_assassin', 'vengefulspirit', 'void_spirit', 'warlock', 'windrunner', 'zuus']
+    1: ['antimage', 'crystal_maiden', 'dark_seer', 'dazzle', 'death_prophet', 'grimstroke', 'invoker', 'kunkka', 'lich', 'lina', 'necrolyte', 'riki', 'storm_spirit', 'templar_assassin', 'vengefulspirit', 'void_spirit', 'warlock', 'windrunner', 'zuus']
   },
   cape: {
     3: [],
@@ -450,7 +454,7 @@ var update = injectStylesIntoStyleTag_default()(styles/* default */.Z, options);
   img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_riki.png',
   chi_name: '力丸',
   name: 'riki',
-  act3_tag: ['blood', 'fur']
+  act3_tag: ['blood', 'fur', 'robe']
 }, {
   url: 'wiki.dota2.com.cn/hero/enigma',
   img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_enigma.png',
@@ -1025,41 +1029,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1071,11 +1040,82 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function initScript() {
-  console.log(act3_token);
-  console.log(dota2_heros);
+  console.log(act3_token); //console.log(dota2_heros);
+
   var dd = new BaseClass();
   dd.init();
+}
+var heroimgList = {};
+
+for (var index = 0; index < dota2_heros.length; index++) {
+  heroimgList[dota2_heros[index].name] = dota2_heros[index];
+} // 等待网页完成加载
+
+
+window.addEventListener('load', function () {
+  initHeroToken();
+}, false);
+
+function initHeroToken() {
+  var heroElements2 = document.evaluate('//*[@class="hl-wrapper"]/a[@class="HeroIcon"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+
+  for (var i = 0; i < heroElements2.snapshotLength; i++) {
+    var node = heroElements2.snapshotItem(i);
+    var href = node.getAttribute('href');
+    var name = href.split('/')[2].split('.')[0];
+    node.setAttribute('style', 'position:relative;z-index:1;'); //console.log(node.getAttribute('style'));
+
+    var tokendiv = document.createElement('div');
+    tokendiv.setAttribute('style', 'right:0px;position:absolute;top:10px; z-index:2;');
+    var tokenList = heroimgList[name].act3_tag;
+
+    for (var _index = 0; _index < tokenList.length; _index++) {
+      var tokenstr = tokenList[_index];
+      var token_img = document.createElement('img');
+      token_img.setAttribute('src', 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/' + tokenstr + '.png');
+      token_img.setAttribute('style', 'width:35px;height:35px;');
+      tokendiv.appendChild(token_img);
+    }
+
+    node.appendChild(tokendiv);
+  }
 }
 
 var BaseClass = /*#__PURE__*/function () {
@@ -1099,9 +1139,12 @@ var BaseClass = /*#__PURE__*/function () {
       this.alert = sweetalert2_all_default().mixin({
         // alert 模板 可自定义
         html: alertContent,
+
+        /* 因为 css里有图片 直接import 让他预加载 而不是打开menu 再加载
         customClass: {
-          htmlContainer: assets_styles
+          htmlContainer: styles,
         },
+        */
         showCloseButton: true,
         // 改为true 后 鼠标 点 非confirm button 的地方 会关闭alert 触发 dps()函数 执行
         allowOutsideClick: false,
@@ -1147,21 +1190,28 @@ var BaseClass = /*#__PURE__*/function () {
     key: "initHeroImgList",
     value: function initHeroImgList() {
       // 初始化时先保存所有英雄图标
-      this.heroimgList = {};
-      var heroElements = document.evaluate('//*[@class="hl-wrapper"]/a[@class="HeroIcon"]', document, null, XPathResult.ANY_TYPE, null);
-      var heroELem = heroElements.iterateNext();
 
+      /*
+      heroimgList = {};
+      
+      let heroElements = document.evaluate(
+        '//*[@class="hl-wrapper"]/a[@class="HeroIcon"]',
+        document,
+        null,
+        XPathResult.ANY_TYPE,
+        null
+      );
+      let heroELem = heroElements.iterateNext();
       while (heroELem) {
         ///console.log(heroELem);
-        var href = heroELem.getAttribute('href');
-        var name = href.split('/')[2].split('.')[0];
-        var ibox = heroELem.getElementsByClassName('i-box');
-        var url = ibox[0].getAttribute('style').split('"')[1].split('"')[0];
-        this.heroimgList[name] = url;
+        const href = heroELem.getAttribute('href');
+        const name = href.split('/')[2].split('.')[0];
+          var ibox = heroELem.getElementsByClassName('i-box');
+        const url = ibox[0].getAttribute('style').split('"')[1].split('"')[0];
+        heroimgList[name] = url;
         heroELem = heroElements.iterateNext();
-      }
-
-      console.log(this.heroimgList);
+      }*/
+      console.log(heroimgList);
     }
   }, {
     key: "setHeroImg",
@@ -1189,22 +1239,25 @@ var BaseClass = /*#__PURE__*/function () {
         if (this.firstRendor) {
           url = ibox[0].getAttribute('style').split('"')[1].split('"')[0];
         } else {
-          url = this.heroimgList[name];
+          url = heroimgList[name].img;
         } //console.log(ibox[0]);
 
 
         var height = ibox[0].clientHeight;
         var width = ibox[0].clientWidth; //console.log(height, width);
 
+        /*
         if (grayimg == '') {
           grayimg = this.gray(url, height, width);
         }
+          */
 
         if (herolist == undefined || herolist.indexOf(name) >= 0) {
           //console.log(name);
-          ibox[0].setAttribute('style', "background-image: url('" + this.heroimgList[name] + "');");
+          ibox[0].style.opacity = 1; // 透明度を50%に指定
         } else {
-          ibox[0].setAttribute('style', "background-image: url('" + grayimg + "');");
+          ibox[0].style.opacity = 0.1; // 透明度を50%に指定
+          //ibox[0].setAttribute('style', "background-image: url('" + grayimg + "');");
         }
       }
     }
@@ -1219,7 +1272,7 @@ var BaseClass = /*#__PURE__*/function () {
       var _this2 = this;
 
       _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var _yield$_this2$alert$f, searchKeys, intersection, terminate, target_heros, heroslist_chi, index;
+        var _yield$_this2$alert$f, searchKeys, intersection, terminate, target_heros, rid, heroslist_chi, _index2;
 
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) {
@@ -6876,6 +6929,56 @@ module.exports = uncurryThis([].slice);
 
 /***/ }),
 
+/***/ 382:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var arraySlice = __webpack_require__(6004);
+
+var floor = Math.floor;
+
+var sort = function (array, comparefn) {
+  var length = array.length;
+
+  if (length < 8) {
+    // insertion sort
+    var i = 1;
+    var element, j;
+
+    while (i < length) {
+      j = i;
+      element = array[i];
+      while (j && comparefn(array[j - 1], element) > 0) {
+        array[j] = array[--j];
+      }
+      if (j !== i++) array[j] = element;
+    }
+  } else {
+    // merge sort
+    var middle = floor(length / 2);
+    var left = sort(arraySlice(array, 0, middle), comparefn);
+    var right = sort(arraySlice(array, middle), comparefn);
+    var llength = left.length;
+    var rlength = right.length;
+    var lindex = 0;
+    var rindex = 0;
+
+    while (lindex < llength || rindex < rlength) {
+      array[lindex + rindex] = (lindex < llength && rindex < rlength)
+        ? comparefn(left[lindex], right[rindex]) <= 0 ? left[lindex++] : right[rindex++]
+        : lindex < llength ? left[lindex++] : right[rindex++];
+    }
+  }
+
+  return array;
+};
+
+module.exports = sort;
+
+
+/***/ }),
+
 /***/ 5271:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -10437,6 +10540,22 @@ module.exports = function (name) {
 
 /***/ }),
 
+/***/ 953:
+/***/ ((module) => {
+
+"use strict";
+
+// `SameValue` abstract operation
+// https://tc39.es/ecma262/#sec-samevalue
+// eslint-disable-next-line es/no-object-is -- safe
+module.exports = Object.is || function is(x, y) {
+  // eslint-disable-next-line no-self-compare -- NaN check
+  return x === y ? x !== 0 || 1 / x === 1 / y : x !== x && y !== y;
+};
+
+
+/***/ }),
+
 /***/ 4241:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -11049,6 +11168,56 @@ var toString = uncurryThis(1.0.toString);
 module.exports = function (key) {
   return 'Symbol(' + (key === undefined ? '' : key) + ')_' + toString(++id + postfix, 36);
 };
+
+
+/***/ }),
+
+/***/ 6837:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var fails = __webpack_require__(3689);
+var wellKnownSymbol = __webpack_require__(4201);
+var DESCRIPTORS = __webpack_require__(7697);
+var IS_PURE = __webpack_require__(3931);
+
+var ITERATOR = wellKnownSymbol('iterator');
+
+module.exports = !fails(function () {
+  // eslint-disable-next-line unicorn/relative-url-style -- required for testing
+  var url = new URL('b?a=1&b=2&c=3', 'http://a');
+  var params = url.searchParams;
+  var params2 = new URLSearchParams('a=1&a=2&b=3');
+  var result = '';
+  url.pathname = 'c%20d';
+  params.forEach(function (value, key) {
+    params['delete']('b');
+    result += key + value;
+  });
+  params2['delete']('a', 2);
+  // `undefined` case is a Chromium 117 bug
+  // https://bugs.chromium.org/p/v8/issues/detail?id=14222
+  params2['delete']('b', undefined);
+  return (IS_PURE && (!url.toJSON || !params2.has('a', 1) || params2.has('a', 2) || !params2.has('a', undefined) || params2.has('b')))
+    || (!params.size && (IS_PURE || !DESCRIPTORS))
+    || !params.sort
+    || url.href !== 'http://a/c%20d?a=1&c=3'
+    || params.get('c') !== '3'
+    || String(new URLSearchParams('?a=1')) !== 'a=1'
+    || !params[ITERATOR]
+    // throws in Edge
+    || new URL('https://a@b').username !== 'a'
+    || new URLSearchParams(new URLSearchParams('a=b')).get('a') !== 'b'
+    // not punycoded in Edge
+    || new URL('http://тест').host !== 'xn--e1aybc'
+    // not escaped in Chrome 62-
+    || new URL('http://a#б').hash !== '#%D0%B1'
+    // fails in Chrome 66-
+    || result !== 'a1c3'
+    // throws in Safari
+    || new URL('http://x', undefined).host !== 'x';
+});
 
 
 /***/ }),
@@ -12484,6 +12653,52 @@ defineIterator(String, 'String', function (iterated) {
 
 /***/ }),
 
+/***/ 7872:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var call = __webpack_require__(2615);
+var fixRegExpWellKnownSymbolLogic = __webpack_require__(8678);
+var anObject = __webpack_require__(5027);
+var isNullOrUndefined = __webpack_require__(981);
+var requireObjectCoercible = __webpack_require__(4684);
+var sameValue = __webpack_require__(953);
+var toString = __webpack_require__(4327);
+var getMethod = __webpack_require__(4849);
+var regExpExec = __webpack_require__(6100);
+
+// @@search logic
+fixRegExpWellKnownSymbolLogic('search', function (SEARCH, nativeSearch, maybeCallNative) {
+  return [
+    // `String.prototype.search` method
+    // https://tc39.es/ecma262/#sec-string.prototype.search
+    function search(regexp) {
+      var O = requireObjectCoercible(this);
+      var searcher = isNullOrUndefined(regexp) ? undefined : getMethod(regexp, SEARCH);
+      return searcher ? call(searcher, regexp, O) : new RegExp(regexp)[SEARCH](toString(O));
+    },
+    // `RegExp.prototype[@@search]` method
+    // https://tc39.es/ecma262/#sec-regexp.prototype-@@search
+    function (string) {
+      var rx = anObject(this);
+      var S = toString(string);
+      var res = maybeCallNative(nativeSearch, rx, S);
+
+      if (res.done) return res.value;
+
+      var previousLastIndex = rx.lastIndex;
+      if (!sameValue(previousLastIndex, 0)) rx.lastIndex = 0;
+      var result = regExpExec(rx, S);
+      if (!sameValue(rx.lastIndex, previousLastIndex)) rx.lastIndex = previousLastIndex;
+      return result === null ? -1 : result.index;
+    }
+  ];
+});
+
+
+/***/ }),
+
 /***/ 9873:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -13133,6 +13348,441 @@ for (var COLLECTION_NAME in DOMIterables) {
 }
 
 handlePrototype(DOMTokenListPrototype, 'DOMTokenList');
+
+
+/***/ }),
+
+/***/ 2625:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+// TODO: in core-js@4, move /modules/ dependencies to public entries for better optimization by tools like `preset-env`
+__webpack_require__(752);
+var $ = __webpack_require__(9989);
+var global = __webpack_require__(9037);
+var safeGetBuiltIn = __webpack_require__(517);
+var call = __webpack_require__(2615);
+var uncurryThis = __webpack_require__(8844);
+var DESCRIPTORS = __webpack_require__(7697);
+var USE_NATIVE_URL = __webpack_require__(6837);
+var defineBuiltIn = __webpack_require__(1880);
+var defineBuiltInAccessor = __webpack_require__(2148);
+var defineBuiltIns = __webpack_require__(6045);
+var setToStringTag = __webpack_require__(5997);
+var createIteratorConstructor = __webpack_require__(974);
+var InternalStateModule = __webpack_require__(618);
+var anInstance = __webpack_require__(767);
+var isCallable = __webpack_require__(9985);
+var hasOwn = __webpack_require__(6812);
+var bind = __webpack_require__(4071);
+var classof = __webpack_require__(926);
+var anObject = __webpack_require__(5027);
+var isObject = __webpack_require__(8999);
+var $toString = __webpack_require__(4327);
+var create = __webpack_require__(5391);
+var createPropertyDescriptor = __webpack_require__(5684);
+var getIterator = __webpack_require__(5185);
+var getIteratorMethod = __webpack_require__(1664);
+var createIterResultObject = __webpack_require__(7807);
+var validateArgumentsLength = __webpack_require__(1500);
+var wellKnownSymbol = __webpack_require__(4201);
+var arraySort = __webpack_require__(382);
+
+var ITERATOR = wellKnownSymbol('iterator');
+var URL_SEARCH_PARAMS = 'URLSearchParams';
+var URL_SEARCH_PARAMS_ITERATOR = URL_SEARCH_PARAMS + 'Iterator';
+var setInternalState = InternalStateModule.set;
+var getInternalParamsState = InternalStateModule.getterFor(URL_SEARCH_PARAMS);
+var getInternalIteratorState = InternalStateModule.getterFor(URL_SEARCH_PARAMS_ITERATOR);
+
+var nativeFetch = safeGetBuiltIn('fetch');
+var NativeRequest = safeGetBuiltIn('Request');
+var Headers = safeGetBuiltIn('Headers');
+var RequestPrototype = NativeRequest && NativeRequest.prototype;
+var HeadersPrototype = Headers && Headers.prototype;
+var RegExp = global.RegExp;
+var TypeError = global.TypeError;
+var decodeURIComponent = global.decodeURIComponent;
+var encodeURIComponent = global.encodeURIComponent;
+var charAt = uncurryThis(''.charAt);
+var join = uncurryThis([].join);
+var push = uncurryThis([].push);
+var replace = uncurryThis(''.replace);
+var shift = uncurryThis([].shift);
+var splice = uncurryThis([].splice);
+var split = uncurryThis(''.split);
+var stringSlice = uncurryThis(''.slice);
+
+var plus = /\+/g;
+var sequences = Array(4);
+
+var percentSequence = function (bytes) {
+  return sequences[bytes - 1] || (sequences[bytes - 1] = RegExp('((?:%[\\da-f]{2}){' + bytes + '})', 'gi'));
+};
+
+var percentDecode = function (sequence) {
+  try {
+    return decodeURIComponent(sequence);
+  } catch (error) {
+    return sequence;
+  }
+};
+
+var deserialize = function (it) {
+  var result = replace(it, plus, ' ');
+  var bytes = 4;
+  try {
+    return decodeURIComponent(result);
+  } catch (error) {
+    while (bytes) {
+      result = replace(result, percentSequence(bytes--), percentDecode);
+    }
+    return result;
+  }
+};
+
+var find = /[!'()~]|%20/g;
+
+var replacements = {
+  '!': '%21',
+  "'": '%27',
+  '(': '%28',
+  ')': '%29',
+  '~': '%7E',
+  '%20': '+'
+};
+
+var replacer = function (match) {
+  return replacements[match];
+};
+
+var serialize = function (it) {
+  return replace(encodeURIComponent(it), find, replacer);
+};
+
+var URLSearchParamsIterator = createIteratorConstructor(function Iterator(params, kind) {
+  setInternalState(this, {
+    type: URL_SEARCH_PARAMS_ITERATOR,
+    target: getInternalParamsState(params).entries,
+    index: 0,
+    kind: kind
+  });
+}, URL_SEARCH_PARAMS, function next() {
+  var state = getInternalIteratorState(this);
+  var target = state.target;
+  var index = state.index++;
+  if (!target || index >= target.length) {
+    state.target = undefined;
+    return createIterResultObject(undefined, true);
+  }
+  var entry = target[index];
+  switch (state.kind) {
+    case 'keys': return createIterResultObject(entry.key, false);
+    case 'values': return createIterResultObject(entry.value, false);
+  } return createIterResultObject([entry.key, entry.value], false);
+}, true);
+
+var URLSearchParamsState = function (init) {
+  this.entries = [];
+  this.url = null;
+
+  if (init !== undefined) {
+    if (isObject(init)) this.parseObject(init);
+    else this.parseQuery(typeof init == 'string' ? charAt(init, 0) === '?' ? stringSlice(init, 1) : init : $toString(init));
+  }
+};
+
+URLSearchParamsState.prototype = {
+  type: URL_SEARCH_PARAMS,
+  bindURL: function (url) {
+    this.url = url;
+    this.update();
+  },
+  parseObject: function (object) {
+    var entries = this.entries;
+    var iteratorMethod = getIteratorMethod(object);
+    var iterator, next, step, entryIterator, entryNext, first, second;
+
+    if (iteratorMethod) {
+      iterator = getIterator(object, iteratorMethod);
+      next = iterator.next;
+      while (!(step = call(next, iterator)).done) {
+        entryIterator = getIterator(anObject(step.value));
+        entryNext = entryIterator.next;
+        if (
+          (first = call(entryNext, entryIterator)).done ||
+          (second = call(entryNext, entryIterator)).done ||
+          !call(entryNext, entryIterator).done
+        ) throw new TypeError('Expected sequence with length 2');
+        push(entries, { key: $toString(first.value), value: $toString(second.value) });
+      }
+    } else for (var key in object) if (hasOwn(object, key)) {
+      push(entries, { key: key, value: $toString(object[key]) });
+    }
+  },
+  parseQuery: function (query) {
+    if (query) {
+      var entries = this.entries;
+      var attributes = split(query, '&');
+      var index = 0;
+      var attribute, entry;
+      while (index < attributes.length) {
+        attribute = attributes[index++];
+        if (attribute.length) {
+          entry = split(attribute, '=');
+          push(entries, {
+            key: deserialize(shift(entry)),
+            value: deserialize(join(entry, '='))
+          });
+        }
+      }
+    }
+  },
+  serialize: function () {
+    var entries = this.entries;
+    var result = [];
+    var index = 0;
+    var entry;
+    while (index < entries.length) {
+      entry = entries[index++];
+      push(result, serialize(entry.key) + '=' + serialize(entry.value));
+    } return join(result, '&');
+  },
+  update: function () {
+    this.entries.length = 0;
+    this.parseQuery(this.url.query);
+  },
+  updateURL: function () {
+    if (this.url) this.url.update();
+  }
+};
+
+// `URLSearchParams` constructor
+// https://url.spec.whatwg.org/#interface-urlsearchparams
+var URLSearchParamsConstructor = function URLSearchParams(/* init */) {
+  anInstance(this, URLSearchParamsPrototype);
+  var init = arguments.length > 0 ? arguments[0] : undefined;
+  var state = setInternalState(this, new URLSearchParamsState(init));
+  if (!DESCRIPTORS) this.size = state.entries.length;
+};
+
+var URLSearchParamsPrototype = URLSearchParamsConstructor.prototype;
+
+defineBuiltIns(URLSearchParamsPrototype, {
+  // `URLSearchParams.prototype.append` method
+  // https://url.spec.whatwg.org/#dom-urlsearchparams-append
+  append: function append(name, value) {
+    var state = getInternalParamsState(this);
+    validateArgumentsLength(arguments.length, 2);
+    push(state.entries, { key: $toString(name), value: $toString(value) });
+    if (!DESCRIPTORS) this.length++;
+    state.updateURL();
+  },
+  // `URLSearchParams.prototype.delete` method
+  // https://url.spec.whatwg.org/#dom-urlsearchparams-delete
+  'delete': function (name /* , value */) {
+    var state = getInternalParamsState(this);
+    var length = validateArgumentsLength(arguments.length, 1);
+    var entries = state.entries;
+    var key = $toString(name);
+    var $value = length < 2 ? undefined : arguments[1];
+    var value = $value === undefined ? $value : $toString($value);
+    var index = 0;
+    while (index < entries.length) {
+      var entry = entries[index];
+      if (entry.key === key && (value === undefined || entry.value === value)) {
+        splice(entries, index, 1);
+        if (value !== undefined) break;
+      } else index++;
+    }
+    if (!DESCRIPTORS) this.size = entries.length;
+    state.updateURL();
+  },
+  // `URLSearchParams.prototype.get` method
+  // https://url.spec.whatwg.org/#dom-urlsearchparams-get
+  get: function get(name) {
+    var entries = getInternalParamsState(this).entries;
+    validateArgumentsLength(arguments.length, 1);
+    var key = $toString(name);
+    var index = 0;
+    for (; index < entries.length; index++) {
+      if (entries[index].key === key) return entries[index].value;
+    }
+    return null;
+  },
+  // `URLSearchParams.prototype.getAll` method
+  // https://url.spec.whatwg.org/#dom-urlsearchparams-getall
+  getAll: function getAll(name) {
+    var entries = getInternalParamsState(this).entries;
+    validateArgumentsLength(arguments.length, 1);
+    var key = $toString(name);
+    var result = [];
+    var index = 0;
+    for (; index < entries.length; index++) {
+      if (entries[index].key === key) push(result, entries[index].value);
+    }
+    return result;
+  },
+  // `URLSearchParams.prototype.has` method
+  // https://url.spec.whatwg.org/#dom-urlsearchparams-has
+  has: function has(name /* , value */) {
+    var entries = getInternalParamsState(this).entries;
+    var length = validateArgumentsLength(arguments.length, 1);
+    var key = $toString(name);
+    var $value = length < 2 ? undefined : arguments[1];
+    var value = $value === undefined ? $value : $toString($value);
+    var index = 0;
+    while (index < entries.length) {
+      var entry = entries[index++];
+      if (entry.key === key && (value === undefined || entry.value === value)) return true;
+    }
+    return false;
+  },
+  // `URLSearchParams.prototype.set` method
+  // https://url.spec.whatwg.org/#dom-urlsearchparams-set
+  set: function set(name, value) {
+    var state = getInternalParamsState(this);
+    validateArgumentsLength(arguments.length, 1);
+    var entries = state.entries;
+    var found = false;
+    var key = $toString(name);
+    var val = $toString(value);
+    var index = 0;
+    var entry;
+    for (; index < entries.length; index++) {
+      entry = entries[index];
+      if (entry.key === key) {
+        if (found) splice(entries, index--, 1);
+        else {
+          found = true;
+          entry.value = val;
+        }
+      }
+    }
+    if (!found) push(entries, { key: key, value: val });
+    if (!DESCRIPTORS) this.size = entries.length;
+    state.updateURL();
+  },
+  // `URLSearchParams.prototype.sort` method
+  // https://url.spec.whatwg.org/#dom-urlsearchparams-sort
+  sort: function sort() {
+    var state = getInternalParamsState(this);
+    arraySort(state.entries, function (a, b) {
+      return a.key > b.key ? 1 : -1;
+    });
+    state.updateURL();
+  },
+  // `URLSearchParams.prototype.forEach` method
+  forEach: function forEach(callback /* , thisArg */) {
+    var entries = getInternalParamsState(this).entries;
+    var boundFunction = bind(callback, arguments.length > 1 ? arguments[1] : undefined);
+    var index = 0;
+    var entry;
+    while (index < entries.length) {
+      entry = entries[index++];
+      boundFunction(entry.value, entry.key, this);
+    }
+  },
+  // `URLSearchParams.prototype.keys` method
+  keys: function keys() {
+    return new URLSearchParamsIterator(this, 'keys');
+  },
+  // `URLSearchParams.prototype.values` method
+  values: function values() {
+    return new URLSearchParamsIterator(this, 'values');
+  },
+  // `URLSearchParams.prototype.entries` method
+  entries: function entries() {
+    return new URLSearchParamsIterator(this, 'entries');
+  }
+}, { enumerable: true });
+
+// `URLSearchParams.prototype[@@iterator]` method
+defineBuiltIn(URLSearchParamsPrototype, ITERATOR, URLSearchParamsPrototype.entries, { name: 'entries' });
+
+// `URLSearchParams.prototype.toString` method
+// https://url.spec.whatwg.org/#urlsearchparams-stringification-behavior
+defineBuiltIn(URLSearchParamsPrototype, 'toString', function toString() {
+  return getInternalParamsState(this).serialize();
+}, { enumerable: true });
+
+// `URLSearchParams.prototype.size` getter
+// https://github.com/whatwg/url/pull/734
+if (DESCRIPTORS) defineBuiltInAccessor(URLSearchParamsPrototype, 'size', {
+  get: function size() {
+    return getInternalParamsState(this).entries.length;
+  },
+  configurable: true,
+  enumerable: true
+});
+
+setToStringTag(URLSearchParamsConstructor, URL_SEARCH_PARAMS);
+
+$({ global: true, constructor: true, forced: !USE_NATIVE_URL }, {
+  URLSearchParams: URLSearchParamsConstructor
+});
+
+// Wrap `fetch` and `Request` for correct work with polyfilled `URLSearchParams`
+if (!USE_NATIVE_URL && isCallable(Headers)) {
+  var headersHas = uncurryThis(HeadersPrototype.has);
+  var headersSet = uncurryThis(HeadersPrototype.set);
+
+  var wrapRequestOptions = function (init) {
+    if (isObject(init)) {
+      var body = init.body;
+      var headers;
+      if (classof(body) === URL_SEARCH_PARAMS) {
+        headers = init.headers ? new Headers(init.headers) : new Headers();
+        if (!headersHas(headers, 'content-type')) {
+          headersSet(headers, 'content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+        }
+        return create(init, {
+          body: createPropertyDescriptor(0, $toString(body)),
+          headers: createPropertyDescriptor(0, headers)
+        });
+      }
+    } return init;
+  };
+
+  if (isCallable(nativeFetch)) {
+    $({ global: true, enumerable: true, dontCallGetSet: true, forced: true }, {
+      fetch: function fetch(input /* , init */) {
+        return nativeFetch(input, arguments.length > 1 ? wrapRequestOptions(arguments[1]) : {});
+      }
+    });
+  }
+
+  if (isCallable(NativeRequest)) {
+    var RequestConstructor = function Request(input /* , init */) {
+      anInstance(this, RequestPrototype);
+      return new NativeRequest(input, arguments.length > 1 ? wrapRequestOptions(arguments[1]) : {});
+    };
+
+    RequestPrototype.constructor = RequestConstructor;
+    RequestConstructor.prototype = RequestPrototype;
+
+    $({ global: true, constructor: true, dontCallGetSet: true, forced: true }, {
+      Request: RequestConstructor
+    });
+  }
+}
+
+module.exports = {
+  URLSearchParams: URLSearchParamsConstructor,
+  getState: getInternalParamsState
+};
+
+
+/***/ }),
+
+/***/ 9307:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+// TODO: Remove this module from `core-js@4` since it's replaced to module below
+__webpack_require__(2625);
 
 
 /***/ })
