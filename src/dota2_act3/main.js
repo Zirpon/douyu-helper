@@ -2,9 +2,11 @@ import Swal2 from 'sweetalert2';
 import act3_token from './act3_token';
 import alertContent from './alertContent.html';
 import styles from './assets/styles.css';
+import dota2_heros from './dota2_heros';
 
 export default function initScript() {
   console.log(act3_token);
+  console.log(dota2_heros);
   let dd = new BaseClass();
   dd.init();
 }
@@ -197,7 +199,19 @@ class BaseClass {
         console.log(intersection);
 
         let target_heros = Array.from(new Set(intersection));
-        this.vendorHeros(target_heros);
+        if (PRODUCTION) {
+          this.vendorHeros(target_heros);
+        } else {
+          let heroslist_chi = [];
+          for (let index = 0; index < dota2_heros.length; index++) {
+            //console.log(dota2_heros[index]);
+
+            if (target_heros.indexOf(dota2_heros[index].name) >= 0) {
+              heroslist_chi.push(dota2_heros[index].chi_name);
+            }
+          }
+          Swal2.fire(JSON.stringify(heroslist_chi));
+        }
       }
     })();
   }

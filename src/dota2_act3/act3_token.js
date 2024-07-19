@@ -1,4 +1,4 @@
-let act3 = {
+const act3 = {
   flame: {
     3: ['phoenix'],
     2: ['clinkz', 'lina'],

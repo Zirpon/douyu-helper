@@ -60,3 +60,143 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+input {
+  /*取消默认样式*/
+  appearance: none;
+
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+
+  border: 6px solid #999;
+  transition: 0.2s all linear;
+  margin-right: 5px;
+
+  position: relative;
+  top: 10px;
+}
+
+input:checked {
+  border: 6px solid red;
+}
+
+#act3_scale {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/scale.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_fur {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/fur.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_cape {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/cape.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_robe {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/robe.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_helmet {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/helmet.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_tide {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/tide.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_flame {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/flame.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_partner {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/partner.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_ward {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/ward.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_illusion {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/illusion.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_minion {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/minion.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_mask {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/mask.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_shield {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/shield.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_armor {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/armor.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_mystic {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/mystic.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_blood {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/blood.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_void {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/void.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_nature {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/nature.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_storm {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/storm.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#act3_frost {
+  background-image: url('https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/frost.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
