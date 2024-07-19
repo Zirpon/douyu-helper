@@ -1,20 +1,29 @@
 import Swal2 from 'sweetalert2';
 import act3_token from './act3_token';
+import act3token_url from './act3token_url';
 import alertContent from './alertContent.html';
 import './assets/styles.css';
 import dota2_heros from './dota2_heros';
 
 export default function initScript() {
-  console.log(act3_token);
+  //console.log(act3_token);
   //console.log(dota2_heros);
+  //console.log(act3token_url);
   let dd = new BaseClass();
   dd.init();
 }
 
-let heroimgList = {};
-for (let index = 0; index < dota2_heros.length; index++) {
-  heroimgList[dota2_heros[index].name] = dota2_heros[index];
-}
+Object.keys(act3token_url).forEach(function (key) {
+  // 触发网络请求 让浏览器缓存图片
+  // https://juejin.cn/post/7340167256267391012
+  const img = new Image();
+  img.src = act3token_url[key];
+  //img.setAttribute('style', 'display:none;');
+  //document.body.appendChild(img);
+  //console.log('img', img);
+  //console.log(key, act3token_url[key]);
+});
+
 // 等待网页完成加载
 window.addEventListener(
   'load',
@@ -42,15 +51,13 @@ function initHeroToken() {
     //console.log(node.getAttribute('style'));
 
     const tokendiv = document.createElement('div');
-    tokendiv.setAttribute('style', 'right:0px;position:absolute;top:10px; z-index:2;');
-    const tokenList = heroimgList[name].act3_tag;
+    tokendiv.id = 'tokendiv_' + name;
+    tokendiv.setAttribute('style', 'right:0px;position:absolute;top:10px; z-index:2;opacity:1;');
+    const tokenList = dota2_heros[name].act3_tag;
     for (let index = 0; index < tokenList.length; index++) {
       const tokenstr = tokenList[index];
       const token_img = document.createElement('img');
-      token_img.setAttribute(
-        'src',
-        'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/' + tokenstr + '.png'
-      );
+      token_img.src = act3token_url[tokenstr];
       token_img.setAttribute('style', 'width:35px;height:35px;');
       tokendiv.appendChild(token_img);
     }
@@ -109,39 +116,7 @@ class BaseClass {
     return canvas.toDataURL();
   }
 
-  initHeroImgList() {
-    // 初始化时先保存所有英雄图标
-    /*
-    heroimgList = {};
-    
-    let heroElements = document.evaluate(
-      '//*[@class="hl-wrapper"]/a[@class="HeroIcon"]',
-      document,
-      null,
-      XPathResult.ANY_TYPE,
-      null
-    );
-    let heroELem = heroElements.iterateNext();
-    while (heroELem) {
-      ///console.log(heroELem);
-      const href = heroELem.getAttribute('href');
-      const name = href.split('/')[2].split('.')[0];
-
-      var ibox = heroELem.getElementsByClassName('i-box');
-      const url = ibox[0].getAttribute('style').split('"')[1].split('"')[0];
-      heroimgList[name] = url;
-      heroELem = heroElements.iterateNext();
-    }*/
-
-    console.log(heroimgList);
-  }
-
   setHeroImg(herolist) {
-    if (this.firstRendor) {
-      this.initHeroImgList();
-      this.firstRendor = false;
-    }
-
     let heroElements2 = document.evaluate(
       '//*[@class="hl-wrapper"]/a[@class="HeroIcon"]',
       document,
@@ -150,7 +125,7 @@ class BaseClass {
       null
     );
 
-    let grayimg = '';
+    //let grayimg = '';
     for (let i = 0; i < heroElements2.snapshotLength; i++) {
       let node = heroElements2.snapshotItem(i);
       const href = node.getAttribute('href');
@@ -163,13 +138,7 @@ class BaseClass {
       //console.log(dddviewbox);
 
       var ibox = node.getElementsByClassName('i-box');
-      let url = '';
 
-      if (this.firstRendor) {
-        url = ibox[0].getAttribute('style').split('"')[1].split('"')[0];
-      } else {
-        url = heroimgList[name].img;
-      }
       //console.log(ibox[0]);
       const height = ibox[0].clientHeight;
       const width = ibox[0].clientWidth;
@@ -181,11 +150,20 @@ class BaseClass {
       }
         */
 
-      if (herolist == undefined || herolist.indexOf(name) >= 0) {
+      if (herolist == undefined) {
+        ibox[0].style.opacity = 1; // 透明度を50%に指定
+        var tokendiv = document.getElementById('tokendiv_' + name);
+        tokendiv.style.opacity = 1; // 透明度を50%に指定
+      } else if (herolist.indexOf(name) >= 0) {
         //console.log(name);
         ibox[0].style.opacity = 1; // 透明度を50%に指定
+        var tokendiv = document.getElementById('tokendiv_' + name);
+        tokendiv.style.opacity = 0.1; // 透明度を50%に指定
       } else {
         ibox[0].style.opacity = 0.1; // 透明度を50%に指定
+        var tokendiv = document.getElementById('tokendiv_' + name);
+        //console.log(tokendiv);
+        tokendiv.style.opacity = 0.1; // 透明度を50%に指定
         //ibox[0].setAttribute('style', "background-image: url('" + grayimg + "');");
       }
     }
@@ -264,13 +242,13 @@ class BaseClass {
             this.vendorHeros(target_heros);
           } else {
             let heroslist_chi = [];
-            for (let index = 0; index < dota2_heros.length; index++) {
-              //console.log(dota2_heros[index]);
 
-              if (target_heros.indexOf(dota2_heros[index].name) >= 0) {
-                heroslist_chi.push(dota2_heros[index].chi_name);
+            Object.entries(dota2_heros).forEach(([key, value]) => {
+              if (target_heros.indexOf(key) >= 0) {
+                heroslist_chi.push(value.chi_name);
               }
-            }
+            });
+
             Swal2.fire(JSON.stringify(heroslist_chi));
           }
         }
