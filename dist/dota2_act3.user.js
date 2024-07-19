@@ -23,7 +23,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 2705:
+/***/ 5811:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -35,8 +35,14 @@ __webpack_require__.d(__webpack_exports__, {
   "default": () => (/* binding */ initScript)
 });
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
-var es_function_name = __webpack_require__(4284);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.for-each.js
+var es_array_for_each = __webpack_require__(9693);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
+var es_object_to_string = __webpack_require__(228);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.for-each.js
+var web_dom_collections_for_each = __webpack_require__(7522);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.keys.js
+var es_object_keys = __webpack_require__(9358);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.regexp.exec.js
 var es_regexp_exec = __webpack_require__(4043);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.split.js
@@ -49,14 +55,6 @@ var es_array_map = __webpack_require__(886);
 var es_parse_float = __webpack_require__(939);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.index-of.js
 var es_array_index_of = __webpack_require__(7195);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.for-each.js
-var es_array_for_each = __webpack_require__(9693);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
-var es_object_to_string = __webpack_require__(228);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.for-each.js
-var web_dom_collections_for_each = __webpack_require__(7522);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.keys.js
-var es_object_keys = __webpack_require__(9358);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.concat.js
 var es_array_concat = __webpack_require__(4338);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.filter.js
@@ -79,16 +77,24 @@ var web_dom_collections_iterator = __webpack_require__(6265);
 var web_url_search_params = __webpack_require__(9307);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.search.js
 var es_string_search = __webpack_require__(7872);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.entries.js
+var es_object_entries = __webpack_require__(6585);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.define-property.js
 var es_object_define_property = __webpack_require__(739);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.promise.js
 var es_promise = __webpack_require__(3964);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.is-array.js
+var es_array_is_array = __webpack_require__(3975);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.js
 var es_symbol = __webpack_require__(9749);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.description.js
 var es_symbol_description = __webpack_require__(6544);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.iterator.js
 var es_symbol_iterator = __webpack_require__(4254);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.slice.js
+var es_array_slice = __webpack_require__(9730);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
+var es_function_name = __webpack_require__(4284);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.async-iterator.js
 var es_symbol_async_iterator = __webpack_require__(8373);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.to-string-tag.js
@@ -105,8 +111,6 @@ var es_object_get_prototype_of = __webpack_require__(8052);
 var es_object_set_prototype_of = __webpack_require__(5399);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.reverse.js
 var es_array_reverse = __webpack_require__(3374);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.slice.js
-var es_array_slice = __webpack_require__(9730);
 // EXTERNAL MODULE: ./node_modules/sweetalert2/dist/sweetalert2.all.js
 var sweetalert2_all = __webpack_require__(6455);
 var sweetalert2_all_default = /*#__PURE__*/__webpack_require__.n(sweetalert2_all);
@@ -214,6 +218,30 @@ var act3 = {
   }
 };
 /* harmony default export */ const act3_token = (act3);
+;// CONCATENATED MODULE: ./src/dota2_act3/act3token_url.js
+var act3token_url = {
+  flame: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/flame.png',
+  frost: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/frost.png',
+  storm: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/storm.png',
+  tide: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/tide.png',
+  nature: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/nature.png',
+  "void": 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/void.png',
+  blood: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/blood.png',
+  mystic: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/mystic.png',
+  armor: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/armor.png',
+  helmet: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/helmet.png',
+  shield: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/shield.png',
+  robe: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/robe.png',
+  cape: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/cape.png',
+  mask: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/mask.png',
+  fur: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/fur.png',
+  scale: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/scale.png',
+  minion: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/minion.png',
+  illusion: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/illusion.png',
+  ward: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/ward.png',
+  partner: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/partner.png'
+};
+/* harmony default export */ const dota2_act3_act3token_url = (act3token_url);
 ;// CONCATENATED MODULE: ./src/dota2_act3/alertContent.html
 // Module
 var code = "<div> <div style=\"width:100%;height:50%;text-align:center;padding:0 0;justify-content:space-between;align-items:center;display:flex;flex-direction:row-reverse\"> <div> <div><input type=\"checkbox\" id=\"act3_flame\"/></div> <div>火焰</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_frost\"/></div> <div>冰霜</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_storm\"/></div> <div>风暴</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_tide\"/></div> <div>潮汐</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_nature\"/></div> <div>自然</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_void\"/></div> <div>虚空</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_blood\"/></div> <div>鲜血</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_mystic\"/></div> <div>玄奥</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_armor\"/></div> <div>战甲</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_helmet\"/></div> <div>战盔</div> </div> </div> <div style=\"width:100%;height:50%;text-align:center;padding:0 0;justify-content:space-between;align-items:center;display:flex;flex-direction:row-reverse\"> <div> <div><input type=\"checkbox\" id=\"act3_shield\"/></div> <div>战盾</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_robe\"/></div> <div>长袍</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_cape\"/></div> <div>披风</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_mask\"/></div> <div>面具</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_fur\"/></div> <div>毛皮</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_scale\"/></div> <div>鳞甲</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_minion\"/></div> <div>爪牙</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_illusion\"/></div> <div>幻象</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_ward\"/></div> <div>守卫</div> </div> <div> <div><input type=\"checkbox\" id=\"act3_partner\"/></div> <div>伙伴</div> </div> </div> </div> ";
@@ -269,761 +297,900 @@ var update = injectStylesIntoStyleTag_default()(styles/* default */.Z, options);
        /* harmony default export */ const assets_styles = (styles/* default */.Z && styles/* default.locals */.Z.locals ? styles/* default.locals */.Z.locals : undefined);
 
 ;// CONCATENATED MODULE: ./src/dota2_act3/dota2_heros.js
-/* harmony default export */ const dota2_heros = ([{
-  url: 'wiki.dota2.com.cn/hero/antimage',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_antimage.png',
-  chi_name: '敌法师',
-  name: 'antimage',
-  act3_tag: ['mystic', 'mystic', 'robe']
-}, {
-  url: 'wiki.dota2.com.cn/hero/axe',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_axe.png',
-  chi_name: '斧王',
-  name: 'axe',
-  act3_tag: ['blood', 'armor', 'armor']
-}, {
-  url: 'wiki.dota2.com.cn/hero/bane',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_bane.png',
-  chi_name: '祸乱之源',
-  name: 'bane',
-  act3_tag: ['void', 'void', 'void']
-}, {
-  url: 'wiki.dota2.com.cn/hero/bloodseeker',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_bloodseeker.png',
-  chi_name: '血魔',
-  name: 'bloodseeker',
-  act3_tag: ['blood', 'blood', 'mask']
-}, {
-  url: 'wiki.dota2.com.cn/hero/crystal_maiden',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_crystal_maiden.png',
-  chi_name: '水晶室女',
-  name: 'crystal_maiden',
-  act3_tag: ['frost', 'robe', 'cape']
-}, {
-  url: 'wiki.dota2.com.cn/hero/drow_ranger',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_drow_ranger.png',
-  chi_name: '卓尔游侠',
-  name: 'drow_ranger',
-  act3_tag: ['frost', 'armor', 'cape']
-}, {
-  url: 'wiki.dota2.com.cn/hero/earthshaker',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_earthshaker.png',
-  chi_name: '撼地者',
-  name: 'earthshaker',
-  act3_tag: ['nature', 'fur', 'fur']
-}, {
-  url: 'wiki.dota2.com.cn/hero/juggernaut',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_juggernaut.png',
-  chi_name: '主宰',
-  name: 'juggernaut',
-  act3_tag: ['blood', 'mask', 'ward']
-}, {
-  url: 'wiki.dota2.com.cn/hero/mirana',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_mirana.png',
-  chi_name: '米拉娜',
-  name: 'mirana',
-  act3_tag: ['armor', 'fur', 'partner']
-}, {
-  url: 'wiki.dota2.com.cn/hero/morphling',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_morphling.png',
-  chi_name: '变体精灵',
-  name: 'morphling',
-  act3_tag: ['tide', 'tide', 'illusion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/nevermore',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_nevermore.png',
-  chi_name: '影魔',
-  name: 'nevermore',
-  act3_tag: ['flame', 'void', 'void']
-}, {
-  url: 'wiki.dota2.com.cn/hero/phantom_lancer',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_phantom_lancer.png',
-  chi_name: '幻影长矛手',
-  name: 'phantom_lancer',
-  act3_tag: ['armor', 'illusion', 'illusion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/puck',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_puck.png',
-  chi_name: '帕克',
-  name: 'puck',
-  act3_tag: ['nature', 'mystic', 'scale']
-}, {
-  url: 'wiki.dota2.com.cn/hero/pudge',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_pudge.png',
-  chi_name: '帕吉',
-  name: 'pudge',
-  act3_tag: ['blood', 'blood', 'blood']
-}, {
-  url: 'wiki.dota2.com.cn/hero/razor',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_razor.png',
-  chi_name: '雷泽',
-  name: 'razor',
-  act3_tag: ['storm', 'storm', 'mask']
-}, {
-  url: 'wiki.dota2.com.cn/hero/sand_king',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_sand_king.png',
-  chi_name: '沙王',
-  name: 'sand_king',
-  act3_tag: ['nature', 'nature', 'blood']
-}, {
-  url: 'wiki.dota2.com.cn/hero/storm_spirit',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_storm_spirit.png',
-  chi_name: '风暴之灵',
-  name: 'storm_spirit',
-  act3_tag: ['storm', 'armor', 'robe']
-}, {
-  url: 'wiki.dota2.com.cn/hero/sven',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_sven.png',
-  chi_name: '斯温',
-  name: 'sven',
-  act3_tag: ['storm', 'armor', 'helmet']
-}, {
-  url: 'wiki.dota2.com.cn/hero/tiny',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_tiny.png',
-  chi_name: '小小',
-  name: 'tiny',
-  act3_tag: ['nature', 'nature', 'blood']
-}, {
-  url: 'wiki.dota2.com.cn/hero/vengefulspirit',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_vengefulspirit.png',
-  chi_name: '复仇之魂',
-  name: 'vengefulspirit',
-  act3_tag: ['mystic', 'robe', 'illusion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/windrunner',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_windrunner.png',
-  chi_name: '风行者',
-  name: 'windrunner',
-  act3_tag: ['nature', 'robe', 'cape']
-}, {
-  url: 'wiki.dota2.com.cn/hero/zuus',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_zuus.png',
-  chi_name: '宙斯',
-  name: 'zuus',
-  act3_tag: ['storm', 'storm', 'robe']
-}, {
-  url: 'wiki.dota2.com.cn/hero/kunkka',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_kunkka.png',
-  chi_name: '昆卡',
-  name: 'kunkka',
-  act3_tag: ['tide', 'tide', 'robe']
-}, {
-  url: 'wiki.dota2.com.cn/hero/lina',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_lina.png',
-  chi_name: '莉娜',
-  name: 'lina',
-  act3_tag: ['flame', 'flame', 'robe']
-}, {
-  url: 'wiki.dota2.com.cn/hero/lion',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_lion.png',
-  chi_name: '莱恩',
-  name: 'lion',
-  act3_tag: ['mystic', 'mystic', 'cape']
-}, {
-  url: 'wiki.dota2.com.cn/hero/shadow_shaman',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_shadow_shaman.png',
-  chi_name: '暗影萨满',
-  name: 'shadow_shaman',
-  act3_tag: ['mask', 'ward', 'ward']
-}, {
-  url: 'wiki.dota2.com.cn/hero/slardar',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_slardar.png',
-  chi_name: '斯拉达',
-  name: 'slardar',
-  act3_tag: ['tide', 'scale', 'scale']
-}, {
-  url: 'wiki.dota2.com.cn/hero/tidehunter',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_tidehunter.png',
-  chi_name: '潮汐猎人',
-  name: 'tidehunter',
-  act3_tag: ['tide', 'tide', 'scale']
-}, {
-  url: 'wiki.dota2.com.cn/hero/witch_doctor',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_witch_doctor.png',
-  chi_name: '巫医',
-  name: 'witch_doctor',
-  act3_tag: ['mystic', 'ward', 'ward']
-}, {
-  url: 'wiki.dota2.com.cn/hero/lich',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_lich.png',
-  chi_name: '巫妖',
-  name: 'lich',
-  act3_tag: ['frost', 'frost', 'robe']
-}, {
-  url: 'wiki.dota2.com.cn/hero/riki',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_riki.png',
-  chi_name: '力丸',
-  name: 'riki',
-  act3_tag: ['blood', 'fur', 'robe']
-}, {
-  url: 'wiki.dota2.com.cn/hero/enigma',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_enigma.png',
-  chi_name: '谜团',
-  name: 'enigma',
-  act3_tag: ['void', 'minion', 'minion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/tinker',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_tinker.png',
-  chi_name: '修补匠',
-  name: 'tinker',
-  act3_tag: ['helmet', 'shield', 'shield']
-}, {
-  url: 'wiki.dota2.com.cn/hero/sniper',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_sniper.png',
-  chi_name: '狙击手',
-  name: 'sniper',
-  act3_tag: ['blood', 'cape', 'mask']
-}, {
-  url: 'wiki.dota2.com.cn/hero/necrolyte',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_necrolyte.png',
-  chi_name: '瘟疫法师',
-  name: 'necrolyte',
-  act3_tag: ['blood', 'blood', 'robe']
-}, {
-  url: 'wiki.dota2.com.cn/hero/warlock',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_warlock.png',
-  chi_name: '术士',
-  name: 'warlock',
-  act3_tag: ['robe', 'minion', 'minion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/beastmaster',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_beastmaster.png',
-  chi_name: '兽王',
-  name: 'beastmaster',
-  act3_tag: ['blood', 'fur', 'minion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/queenofpain',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_queenofpain.png',
-  chi_name: '痛苦女王',
-  name: 'queenofpain',
-  act3_tag: ['blood', 'blood', 'armor']
-}, {
-  url: 'wiki.dota2.com.cn/hero/venomancer',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_venomancer.png',
-  chi_name: '剧毒术士',
-  name: 'venomancer',
-  act3_tag: ['scale', 'ward', 'ward']
-}, {
-  url: 'wiki.dota2.com.cn/hero/faceless_void',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_faceless_void.png',
-  chi_name: '虚空假面',
-  name: 'faceless_void',
-  act3_tag: ['void', 'void', 'armor']
-}, {
-  url: 'wiki.dota2.com.cn/hero/skeleton_king',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_skeleton_king.png',
-  chi_name: '冥魂大帝',
-  name: 'skeleton_king',
-  act3_tag: ['blood', 'armor', 'cape']
-}, {
-  url: 'wiki.dota2.com.cn/hero/death_prophet',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_death_prophet.png',
-  chi_name: '死亡先知',
-  name: 'death_prophet',
-  act3_tag: ['mystic', 'robe', 'minion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/phantom_assassin',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_phantom_assassin.png',
-  chi_name: '幻影刺客',
-  name: 'phantom_assassin',
-  act3_tag: ['blood', 'helmet', 'cape']
-}, {
-  url: 'wiki.dota2.com.cn/hero/pugna',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_pugna.png',
-  chi_name: '帕格纳',
-  name: 'pugna',
-  act3_tag: ['mystic', 'cape', 'ward']
-}, {
-  url: 'wiki.dota2.com.cn/hero/templar_assassin',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_templar_assassin.png',
-  chi_name: '圣堂刺客',
-  name: 'templar_assassin',
-  act3_tag: ['void', 'robe', 'mask']
-}, {
-  url: 'wiki.dota2.com.cn/hero/viper',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_viper.png',
-  chi_name: '冥界亚龙',
-  name: 'viper',
-  act3_tag: ['nature', 'scale', 'scale']
-}, {
-  url: 'wiki.dota2.com.cn/hero/luna',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_luna.png',
-  chi_name: '露娜',
-  name: 'luna',
-  act3_tag: ['armor', 'helmet', 'shield']
-}, {
-  url: 'wiki.dota2.com.cn/hero/dragon_knight',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_dragon_knight.png',
-  chi_name: '龙骑士',
-  name: 'dragon_knight',
-  act3_tag: ['armor', 'shield', 'scale']
-}, {
-  url: 'wiki.dota2.com.cn/hero/dazzle',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_dazzle.png',
-  chi_name: '戴泽',
-  name: 'dazzle',
-  act3_tag: ['blood', 'mystic', 'robe']
-}, {
-  url: 'wiki.dota2.com.cn/hero/rattletrap',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_rattletrap.png',
-  chi_name: '发条技师',
-  name: 'rattletrap',
-  act3_tag: ['armor', 'helmet', 'ward']
-}, {
-  url: 'wiki.dota2.com.cn/hero/leshrac',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_leshrac.png',
-  chi_name: '拉席克',
-  name: 'leshrac',
-  act3_tag: ['storm', 'nature', 'fur']
-}, {
-  url: 'wiki.dota2.com.cn/hero/furion',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_furion.png',
-  chi_name: '先知',
-  name: 'furion',
-  act3_tag: ['nature', 'cape', 'minion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/life_stealer',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_life_stealer.png',
-  chi_name: '噬魂鬼',
-  name: 'life_stealer',
-  act3_tag: ['void', 'blood', 'blood']
-}, {
-  url: 'wiki.dota2.com.cn/hero/dark_seer',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_dark_seer.png',
-  chi_name: '黑暗贤者',
-  name: 'dark_seer',
-  act3_tag: ['void', 'robe', 'illusion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/clinkz',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_clinkz.png',
-  chi_name: '克林克兹',
-  name: 'clinkz',
-  act3_tag: ['flame', 'flame', 'minion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/omniknight',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_omniknight.png',
-  chi_name: '全能骑士',
-  name: 'omniknight',
-  act3_tag: ['armor', 'armor', 'cape']
-}, {
-  url: 'wiki.dota2.com.cn/hero/enchantress',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_enchantress.png',
-  chi_name: '魅惑魔女',
-  name: 'enchantress',
-  act3_tag: ['nature', 'fur', 'minion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/huskar',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_huskar.png',
-  chi_name: '哈斯卡',
-  name: 'huskar',
-  act3_tag: ['flame', 'blood', 'helmet']
-}, {
-  url: 'wiki.dota2.com.cn/hero/night_stalker',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_night_stalker.png',
-  chi_name: '暗夜魔王',
-  name: 'night_stalker',
-  act3_tag: ['nature', 'void', 'mystic']
-}, {
-  url: 'wiki.dota2.com.cn/hero/broodmother',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_broodmother.png',
-  chi_name: '育母蜘蛛',
-  name: 'broodmother',
-  act3_tag: ['blood', 'minion', 'minion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/bounty_hunter',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_bounty_hunter.png',
-  chi_name: '赏金猎人',
-  name: 'bounty_hunter',
-  act3_tag: ['blood', 'mystic', 'mask']
-}, {
-  url: 'wiki.dota2.com.cn/hero/weaver',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_weaver.png',
-  chi_name: '编织者',
-  name: 'weaver',
-  act3_tag: ['void', 'blood', 'minion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/jakiro',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_jakiro.png',
-  chi_name: '杰奇洛',
-  name: 'jakiro',
-  act3_tag: ['flame', 'frost', 'scale']
-}, {
-  url: 'wiki.dota2.com.cn/hero/batrider',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_batrider.png',
-  chi_name: '蝙蝠骑士',
-  name: 'batrider',
-  act3_tag: ['flame', 'mask', 'partner']
-}, {
-  url: 'wiki.dota2.com.cn/hero/chen',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_chen.png',
-  chi_name: '陈',
-  name: 'chen',
-  act3_tag: ['mystic', 'armor', 'minion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/spectre',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_spectre.png',
-  chi_name: '幽鬼',
-  name: 'spectre',
-  act3_tag: ['void', 'void', 'illusion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/ancient_apparition',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_ancient_apparition.png',
-  chi_name: '远古冰魄',
-  name: 'ancient_apparition',
-  act3_tag: ['frost', 'frost', 'frost']
-}, {
-  url: 'wiki.dota2.com.cn/hero/doom_bringer',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_doom_bringer.png',
-  chi_name: '末日使者',
-  name: 'doom_bringer',
-  act3_tag: ['flame', 'armor', 'armor']
-}, {
-  url: 'wiki.dota2.com.cn/hero/ursa',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_ursa.png',
-  chi_name: '熊战士',
-  name: 'ursa',
-  act3_tag: ['nature', 'blood', 'fur']
-}, {
-  url: 'wiki.dota2.com.cn/hero/spirit_breaker',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_spirit_breaker.png',
-  chi_name: '裂魂人',
-  name: 'spirit_breaker',
-  act3_tag: ['void', 'armor', 'fur']
-}, {
-  url: 'wiki.dota2.com.cn/hero/gyrocopter',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_gyrocopter.png',
-  chi_name: '矮人直升机',
-  name: 'gyrocopter',
-  act3_tag: ['flame', 'armor', 'mask']
-}, {
-  url: 'wiki.dota2.com.cn/hero/alchemist',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_alchemist.png',
-  chi_name: '炼金术士',
-  name: 'alchemist',
-  act3_tag: ['mystic', 'mystic', 'partner']
-}, {
-  url: 'wiki.dota2.com.cn/hero/invoker',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_invoker.png',
-  chi_name: '祈求者',
-  name: 'invoker',
-  act3_tag: ['mystic', 'robe', 'cape']
-}, {
-  url: 'wiki.dota2.com.cn/hero/silencer',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_silencer.png',
-  chi_name: '沉默术士',
-  name: 'silencer',
-  act3_tag: ['mystic', 'helmet', 'shield']
-}, {
-  url: 'wiki.dota2.com.cn/hero/obsidian_destroyer',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_obsidian_destroyer.png',
-  chi_name: '殁境神蚀者',
-  name: 'obsidian_destroyer',
-  act3_tag: ['nature', 'void', 'void']
-}, {
-  url: 'wiki.dota2.com.cn/hero/lycan',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_lycan.png',
-  chi_name: '狼人',
-  name: 'lycan',
-  act3_tag: ['armor', 'fur', 'minion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/brewmaster',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_brewmaster.png',
-  chi_name: '酒仙',
-  name: 'brewmaster',
-  act3_tag: ['flame', 'storm', 'nature']
-}, {
-  url: 'wiki.dota2.com.cn/hero/shadow_demon',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_shadow_demon.png',
-  chi_name: '暗影恶魔',
-  name: 'shadow_demon',
-  act3_tag: ['blood', 'mystic', 'cape']
-}, {
-  url: 'wiki.dota2.com.cn/hero/lone_druid',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_lone_druid.png',
-  chi_name: '德鲁伊',
-  name: 'lone_druid',
-  act3_tag: ['nature', 'fur', 'partner']
-}, {
-  url: 'wiki.dota2.com.cn/hero/chaos_knight',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_chaos_knight.png',
-  chi_name: '混沌骑士',
-  name: 'chaos_knight',
-  act3_tag: ['void', 'armor', 'illusion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/meepo',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_meepo.png',
-  chi_name: '米波',
-  name: 'meepo',
-  act3_tag: ['nature', 'partner', 'partner']
-}, {
-  url: 'wiki.dota2.com.cn/hero/treant',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_treant.png',
-  chi_name: '树精卫士',
-  name: 'treant',
-  act3_tag: ['nature', 'nature', 'armor']
-}, {
-  url: 'wiki.dota2.com.cn/hero/ogre_magi',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_ogre_magi.png',
-  chi_name: '食人魔魔法师',
-  name: 'ogre_magi',
-  act3_tag: ['flame', 'mystic', 'partner']
-}, {
-  url: 'wiki.dota2.com.cn/hero/undying',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_undying.png',
-  chi_name: '不朽尸王',
-  name: 'undying',
-  act3_tag: ['armor', 'helmet', 'minion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/rubick',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_rubick.png',
-  chi_name: '拉比克',
-  name: 'rubick',
-  act3_tag: ['mystic', 'cape', 'mask']
-}, {
-  url: 'wiki.dota2.com.cn/hero/disruptor',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_disruptor.png',
-  chi_name: '干扰者',
-  name: 'disruptor',
-  act3_tag: ['storm', 'storm', 'mystic']
-}, {
-  url: 'wiki.dota2.com.cn/hero/nyx_assassin',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_nyx_assassin.png',
-  chi_name: '司夜刺客',
-  name: 'nyx_assassin',
-  act3_tag: ['nature', 'armor', 'shield']
-}, {
-  url: 'wiki.dota2.com.cn/hero/naga_siren',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_naga_siren.png',
-  chi_name: '娜迦海妖',
-  name: 'naga_siren',
-  act3_tag: ['tide', 'illusion', 'illusion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/keeper_of_the_light',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_keeper_of_the_light.png',
-  chi_name: '光之守卫',
-  name: 'keeper_of_the_light',
-  act3_tag: ['mystic', 'mystic', 'illusion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/wisp',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_wisp.png',
-  chi_name: '艾欧',
-  name: 'wisp',
-  act3_tag: ['mystic', 'minion', 'partner']
-}, {
-  url: 'wiki.dota2.com.cn/hero/visage',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_visage.png',
-  chi_name: '维萨吉',
-  name: 'visage',
-  act3_tag: ['armor', 'minion', 'minion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/slark',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_slark.png',
-  chi_name: '斯拉克',
-  name: 'slark',
-  act3_tag: ['tide', 'void', 'scale']
-}, {
-  url: 'wiki.dota2.com.cn/hero/medusa',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_medusa.png',
-  chi_name: '美杜莎',
-  name: 'medusa',
-  act3_tag: ['mystic', 'shield', 'scale']
-}, {
-  url: 'wiki.dota2.com.cn/hero/troll_warlord',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_troll_warlord.png',
-  chi_name: '巨魔战将',
-  name: 'troll_warlord',
-  act3_tag: ['blood', 'blood', 'helmet']
-}, {
-  url: 'wiki.dota2.com.cn/hero/centaur',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_centaur.png',
-  chi_name: '半人马战行者',
-  name: 'centaur',
-  act3_tag: ['blood', 'armor', 'fur']
-}, {
-  url: 'wiki.dota2.com.cn/hero/magnataur',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_magnataur.png',
-  chi_name: '马格纳斯',
-  name: 'magnataur',
-  act3_tag: ['mystic', 'fur', 'fur']
-}, {
-  url: 'wiki.dota2.com.cn/hero/shredder',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_shredder.png',
-  chi_name: '伐木机',
-  name: 'shredder',
-  act3_tag: ['nature', 'armor', 'helmet']
-}, {
-  url: 'wiki.dota2.com.cn/hero/bristleback',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_bristleback.png',
-  chi_name: '钢背兽',
-  name: 'bristleback',
-  act3_tag: ['blood', 'armor', 'mask']
-}, {
-  url: 'wiki.dota2.com.cn/hero/tusk',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_tusk.png',
-  chi_name: '巨牙海民',
-  name: 'tusk',
-  act3_tag: ['frost', 'frost', 'fur']
-}, {
-  url: 'wiki.dota2.com.cn/hero/skywrath_mage',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_skywrath_mage.png',
-  chi_name: '天怒法师',
-  name: 'skywrath_mage',
-  act3_tag: ['mystic', 'armor', 'helmet']
-}, {
-  url: 'wiki.dota2.com.cn/hero/abaddon',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_abaddon.png',
-  chi_name: '亚巴顿',
-  name: 'abaddon',
-  act3_tag: ['mystic', 'armor', 'shield']
-}, {
-  url: 'wiki.dota2.com.cn/hero/elder_titan',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_elder_titan.png',
-  chi_name: '上古巨神',
-  name: 'elder_titan',
-  act3_tag: ['void', 'illusion', 'partner']
-}, {
-  url: 'wiki.dota2.com.cn/hero/legion_commander',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_legion_commander.png',
-  chi_name: '军团指挥官',
-  name: 'legion_commander',
-  act3_tag: ['armor', 'helmet', 'cape']
-}, {
-  url: 'wiki.dota2.com.cn/hero/techies',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_techies.png',
-  chi_name: '工程师',
-  name: 'techies',
-  act3_tag: ['helmet', 'ward', 'partner']
-}, {
-  url: 'wiki.dota2.com.cn/hero/ember_spirit',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_ember_spirit.png',
-  chi_name: '灰烬之灵',
-  name: 'ember_spirit',
-  act3_tag: ['flame', 'armor', 'illusion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/earth_spirit',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_earth_spirit.png',
-  chi_name: '大地之灵',
-  name: 'earth_spirit',
-  act3_tag: ['nature', 'nature', 'ward']
-}, {
-  url: 'wiki.dota2.com.cn/hero/abyssal_underlord',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_abyssal_underlord.png',
-  chi_name: '孽主',
-  name: 'abyssal_underlord',
-  act3_tag: ['flame', 'void', 'scale']
-}, {
-  url: 'wiki.dota2.com.cn/hero/terrorblade',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_terrorblade.png',
-  chi_name: '恐怖利刃',
-  name: 'terrorblade',
-  act3_tag: ['scale', 'illusion', 'illusion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/phoenix',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_phoenix.png',
-  chi_name: '凤凰',
-  name: 'phoenix',
-  act3_tag: ['flame', 'flame', 'flame']
-}, {
-  url: 'wiki.dota2.com.cn/hero/oracle',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_oracle.png',
-  chi_name: '神谕者',
-  name: 'oracle',
-  act3_tag: ['mystic', 'robe', 'robe']
-}, {
-  url: 'wiki.dota2.com.cn/hero/winter_wyvern',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_winter_wyvern.png',
-  chi_name: '寒冬飞龙',
-  name: 'winter_wyvern',
-  act3_tag: ['frost', 'mystic', 'scale']
-}, {
-  url: 'wiki.dota2.com.cn/hero/arc_warden',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_arc_warden.png',
-  chi_name: '天穹守望者',
-  name: 'arc_warden',
-  act3_tag: ['storm', 'helmet', 'partner']
-}, {
-  url: 'wiki.dota2.com.cn/hero/monkey_king',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_monkey_king.png',
-  chi_name: '齐天大圣',
-  name: 'monkey_king',
-  act3_tag: ['fur', 'fur', 'minion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/dark_willow',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_dark_willow.png',
-  chi_name: '邪影芳灵',
-  name: 'dark_willow',
-  act3_tag: ['nature', 'mystic', 'partner']
-}, {
-  url: 'wiki.dota2.com.cn/hero/pangolier',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_pangolier.png',
-  chi_name: '石鳞剑士',
-  name: 'pangolier',
-  act3_tag: ['shield', 'shield', 'scale']
-}, {
-  url: 'wiki.dota2.com.cn/hero/grimstroke',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_grimstroke.png',
-  chi_name: '天涯墨客',
-  name: 'grimstroke',
-  act3_tag: ['robe', 'mask', 'illusion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/hoodwink',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_hoodwink.png',
-  chi_name: '森海飞霞',
-  name: 'hoodwink',
-  act3_tag: ['nature', 'fur', 'illusion']
-}, {
-  url: 'wiki.dota2.com.cn/hero/void_spirit',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_void_spirit.png',
-  chi_name: '虚无之灵',
-  name: 'void_spirit',
-  act3_tag: ['void', 'void', 'robe']
-}, {
-  url: 'wiki.dota2.com.cn/hero/target_dummy',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_target_dummy.png',
-  chi_name: '傀儡目标',
-  name: 'target_dummy',
-  act3_tag: []
-}, {
-  url: 'wiki.dota2.com.cn/hero/snapfire',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_snapfire.png',
-  chi_name: '电炎绝手',
-  name: 'snapfire',
-  act3_tag: ['flame', 'scale', 'partner']
-}, {
-  url: 'wiki.dota2.com.cn/hero/mars',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_mars.png',
-  chi_name: '玛尔斯',
-  name: 'mars',
-  act3_tag: ['blood', 'helmet', 'shield']
-}, {
-  url: 'wiki.dota2.com.cn/hero/dawnbreaker',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_dawnbreaker.png',
-  chi_name: '破晓辰星',
-  name: 'dawnbreaker',
-  act3_tag: ['flame', 'mystic', 'armor']
-}, {
-  url: 'wiki.dota2.com.cn/hero/marci',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_marci.png',
-  chi_name: '玛西',
-  name: 'marci',
-  act3_tag: ['blood', 'cape', 'partner']
-}, {
-  url: 'wiki.dota2.com.cn/hero/primal_beast',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_primal_beast.png',
-  chi_name: '獸',
-  name: 'primal_beast',
-  act3_tag: ['blood', 'scale', 'scale']
-}, {
-  url: 'wiki.dota2.com.cn/hero/muerta',
-  img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_muerta.png',
-  chi_name: '琼英碧灵',
-  name: 'muerta',
-  act3_tag: ['void', 'mystic', 'minion']
-}]);
+var dota2_heros = {
+  antimage: {
+    url: 'wiki.dota2.com.cn/hero/antimage',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_antimage.png',
+    chi_name: '敌法师',
+    name: 'antimage',
+    act3_tag: ['mystic', 'mystic', 'robe']
+  },
+  axe: {
+    url: 'wiki.dota2.com.cn/hero/axe',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_axe.png',
+    chi_name: '斧王',
+    name: 'axe',
+    act3_tag: ['blood', 'armor', 'armor']
+  },
+  bane: {
+    url: 'wiki.dota2.com.cn/hero/bane',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_bane.png',
+    chi_name: '祸乱之源',
+    name: 'bane',
+    act3_tag: ['void', 'void', 'void']
+  },
+  bloodseeker: {
+    url: 'wiki.dota2.com.cn/hero/bloodseeker',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_bloodseeker.png',
+    chi_name: '血魔',
+    name: 'bloodseeker',
+    act3_tag: ['blood', 'blood', 'mask']
+  },
+  crystal_maiden: {
+    url: 'wiki.dota2.com.cn/hero/crystal_maiden',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_crystal_maiden.png',
+    chi_name: '水晶室女',
+    name: 'crystal_maiden',
+    act3_tag: ['frost', 'robe', 'cape']
+  },
+  drow_ranger: {
+    url: 'wiki.dota2.com.cn/hero/drow_ranger',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_drow_ranger.png',
+    chi_name: '卓尔游侠',
+    name: 'drow_ranger',
+    act3_tag: ['frost', 'armor', 'cape']
+  },
+  earthshaker: {
+    url: 'wiki.dota2.com.cn/hero/earthshaker',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_earthshaker.png',
+    chi_name: '撼地者',
+    name: 'earthshaker',
+    act3_tag: ['nature', 'fur', 'fur']
+  },
+  juggernaut: {
+    url: 'wiki.dota2.com.cn/hero/juggernaut',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_juggernaut.png',
+    chi_name: '主宰',
+    name: 'juggernaut',
+    act3_tag: ['blood', 'mask', 'ward']
+  },
+  mirana: {
+    url: 'wiki.dota2.com.cn/hero/mirana',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_mirana.png',
+    chi_name: '米拉娜',
+    name: 'mirana',
+    act3_tag: ['armor', 'fur', 'partner']
+  },
+  morphling: {
+    url: 'wiki.dota2.com.cn/hero/morphling',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_morphling.png',
+    chi_name: '变体精灵',
+    name: 'morphling',
+    act3_tag: ['tide', 'tide', 'illusion']
+  },
+  nevermore: {
+    url: 'wiki.dota2.com.cn/hero/nevermore',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_nevermore.png',
+    chi_name: '影魔',
+    name: 'nevermore',
+    act3_tag: ['flame', 'void', 'void']
+  },
+  phantom_lancer: {
+    url: 'wiki.dota2.com.cn/hero/phantom_lancer',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_phantom_lancer.png',
+    chi_name: '幻影长矛手',
+    name: 'phantom_lancer',
+    act3_tag: ['armor', 'illusion', 'illusion']
+  },
+  puck: {
+    url: 'wiki.dota2.com.cn/hero/puck',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_puck.png',
+    chi_name: '帕克',
+    name: 'puck',
+    act3_tag: ['nature', 'mystic', 'scale']
+  },
+  pudge: {
+    url: 'wiki.dota2.com.cn/hero/pudge',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_pudge.png',
+    chi_name: '帕吉',
+    name: 'pudge',
+    act3_tag: ['blood', 'blood', 'blood']
+  },
+  razor: {
+    url: 'wiki.dota2.com.cn/hero/razor',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_razor.png',
+    chi_name: '雷泽',
+    name: 'razor',
+    act3_tag: ['storm', 'storm', 'mask']
+  },
+  sand_king: {
+    url: 'wiki.dota2.com.cn/hero/sand_king',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_sand_king.png',
+    chi_name: '沙王',
+    name: 'sand_king',
+    act3_tag: ['nature', 'nature', 'blood']
+  },
+  storm_spirit: {
+    url: 'wiki.dota2.com.cn/hero/storm_spirit',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_storm_spirit.png',
+    chi_name: '风暴之灵',
+    name: 'storm_spirit',
+    act3_tag: ['storm', 'armor', 'robe']
+  },
+  sven: {
+    url: 'wiki.dota2.com.cn/hero/sven',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_sven.png',
+    chi_name: '斯温',
+    name: 'sven',
+    act3_tag: ['storm', 'armor', 'helmet']
+  },
+  tiny: {
+    url: 'wiki.dota2.com.cn/hero/tiny',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_tiny.png',
+    chi_name: '小小',
+    name: 'tiny',
+    act3_tag: ['nature', 'nature', 'blood']
+  },
+  vengefulspirit: {
+    url: 'wiki.dota2.com.cn/hero/vengefulspirit',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_vengefulspirit.png',
+    chi_name: '复仇之魂',
+    name: 'vengefulspirit',
+    act3_tag: ['mystic', 'robe', 'illusion']
+  },
+  windrunner: {
+    url: 'wiki.dota2.com.cn/hero/windrunner',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_windrunner.png',
+    chi_name: '风行者',
+    name: 'windrunner',
+    act3_tag: ['nature', 'robe', 'cape']
+  },
+  zuus: {
+    url: 'wiki.dota2.com.cn/hero/zuus',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_zuus.png',
+    chi_name: '宙斯',
+    name: 'zuus',
+    act3_tag: ['storm', 'storm', 'robe']
+  },
+  kunkka: {
+    url: 'wiki.dota2.com.cn/hero/kunkka',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_kunkka.png',
+    chi_name: '昆卡',
+    name: 'kunkka',
+    act3_tag: ['tide', 'tide', 'robe']
+  },
+  lina: {
+    url: 'wiki.dota2.com.cn/hero/lina',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_lina.png',
+    chi_name: '莉娜',
+    name: 'lina',
+    act3_tag: ['flame', 'flame', 'robe']
+  },
+  lion: {
+    url: 'wiki.dota2.com.cn/hero/lion',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_lion.png',
+    chi_name: '莱恩',
+    name: 'lion',
+    act3_tag: ['mystic', 'mystic', 'cape']
+  },
+  shadow_shaman: {
+    url: 'wiki.dota2.com.cn/hero/shadow_shaman',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_shadow_shaman.png',
+    chi_name: '暗影萨满',
+    name: 'shadow_shaman',
+    act3_tag: ['mask', 'ward', 'ward']
+  },
+  slardar: {
+    url: 'wiki.dota2.com.cn/hero/slardar',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_slardar.png',
+    chi_name: '斯拉达',
+    name: 'slardar',
+    act3_tag: ['tide', 'scale', 'scale']
+  },
+  tidehunter: {
+    url: 'wiki.dota2.com.cn/hero/tidehunter',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_tidehunter.png',
+    chi_name: '潮汐猎人',
+    name: 'tidehunter',
+    act3_tag: ['tide', 'tide', 'scale']
+  },
+  witch_doctor: {
+    url: 'wiki.dota2.com.cn/hero/witch_doctor',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_witch_doctor.png',
+    chi_name: '巫医',
+    name: 'witch_doctor',
+    act3_tag: ['mystic', 'ward', 'ward']
+  },
+  lich: {
+    url: 'wiki.dota2.com.cn/hero/lich',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_lich.png',
+    chi_name: '巫妖',
+    name: 'lich',
+    act3_tag: ['frost', 'frost', 'robe']
+  },
+  riki: {
+    url: 'wiki.dota2.com.cn/hero/riki',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_riki.png',
+    chi_name: '力丸',
+    name: 'riki',
+    act3_tag: ['blood', 'fur', 'robe']
+  },
+  enigma: {
+    url: 'wiki.dota2.com.cn/hero/enigma',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_enigma.png',
+    chi_name: '谜团',
+    name: 'enigma',
+    act3_tag: ['void', 'minion', 'minion']
+  },
+  tinker: {
+    url: 'wiki.dota2.com.cn/hero/tinker',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_tinker.png',
+    chi_name: '修补匠',
+    name: 'tinker',
+    act3_tag: ['helmet', 'shield', 'shield']
+  },
+  sniper: {
+    url: 'wiki.dota2.com.cn/hero/sniper',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_sniper.png',
+    chi_name: '狙击手',
+    name: 'sniper',
+    act3_tag: ['blood', 'cape', 'mask']
+  },
+  necrolyte: {
+    url: 'wiki.dota2.com.cn/hero/necrolyte',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_necrolyte.png',
+    chi_name: '瘟疫法师',
+    name: 'necrolyte',
+    act3_tag: ['blood', 'blood', 'robe']
+  },
+  warlock: {
+    url: 'wiki.dota2.com.cn/hero/warlock',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_warlock.png',
+    chi_name: '术士',
+    name: 'warlock',
+    act3_tag: ['robe', 'minion', 'minion']
+  },
+  beastmaster: {
+    url: 'wiki.dota2.com.cn/hero/beastmaster',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_beastmaster.png',
+    chi_name: '兽王',
+    name: 'beastmaster',
+    act3_tag: ['blood', 'fur', 'minion']
+  },
+  queenofpain: {
+    url: 'wiki.dota2.com.cn/hero/queenofpain',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_queenofpain.png',
+    chi_name: '痛苦女王',
+    name: 'queenofpain',
+    act3_tag: ['blood', 'blood', 'armor']
+  },
+  venomancer: {
+    url: 'wiki.dota2.com.cn/hero/venomancer',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_venomancer.png',
+    chi_name: '剧毒术士',
+    name: 'venomancer',
+    act3_tag: ['scale', 'ward', 'ward']
+  },
+  faceless_void: {
+    url: 'wiki.dota2.com.cn/hero/faceless_void',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_faceless_void.png',
+    chi_name: '虚空假面',
+    name: 'faceless_void',
+    act3_tag: ['void', 'void', 'armor']
+  },
+  skeleton_king: {
+    url: 'wiki.dota2.com.cn/hero/skeleton_king',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_skeleton_king.png',
+    chi_name: '冥魂大帝',
+    name: 'skeleton_king',
+    act3_tag: ['blood', 'armor', 'cape']
+  },
+  death_prophet: {
+    url: 'wiki.dota2.com.cn/hero/death_prophet',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_death_prophet.png',
+    chi_name: '死亡先知',
+    name: 'death_prophet',
+    act3_tag: ['mystic', 'robe', 'minion']
+  },
+  phantom_assassin: {
+    url: 'wiki.dota2.com.cn/hero/phantom_assassin',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_phantom_assassin.png',
+    chi_name: '幻影刺客',
+    name: 'phantom_assassin',
+    act3_tag: ['blood', 'helmet', 'cape']
+  },
+  pugna: {
+    url: 'wiki.dota2.com.cn/hero/pugna',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_pugna.png',
+    chi_name: '帕格纳',
+    name: 'pugna',
+    act3_tag: ['mystic', 'cape', 'ward']
+  },
+  templar_assassin: {
+    url: 'wiki.dota2.com.cn/hero/templar_assassin',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_templar_assassin.png',
+    chi_name: '圣堂刺客',
+    name: 'templar_assassin',
+    act3_tag: ['void', 'robe', 'mask']
+  },
+  viper: {
+    url: 'wiki.dota2.com.cn/hero/viper',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_viper.png',
+    chi_name: '冥界亚龙',
+    name: 'viper',
+    act3_tag: ['nature', 'scale', 'scale']
+  },
+  luna: {
+    url: 'wiki.dota2.com.cn/hero/luna',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_luna.png',
+    chi_name: '露娜',
+    name: 'luna',
+    act3_tag: ['armor', 'helmet', 'shield']
+  },
+  dragon_knight: {
+    url: 'wiki.dota2.com.cn/hero/dragon_knight',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_dragon_knight.png',
+    chi_name: '龙骑士',
+    name: 'dragon_knight',
+    act3_tag: ['armor', 'shield', 'scale']
+  },
+  dazzle: {
+    url: 'wiki.dota2.com.cn/hero/dazzle',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_dazzle.png',
+    chi_name: '戴泽',
+    name: 'dazzle',
+    act3_tag: ['blood', 'mystic', 'robe']
+  },
+  rattletrap: {
+    url: 'wiki.dota2.com.cn/hero/rattletrap',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_rattletrap.png',
+    chi_name: '发条技师',
+    name: 'rattletrap',
+    act3_tag: ['armor', 'helmet', 'ward']
+  },
+  leshrac: {
+    url: 'wiki.dota2.com.cn/hero/leshrac',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_leshrac.png',
+    chi_name: '拉席克',
+    name: 'leshrac',
+    act3_tag: ['storm', 'nature', 'fur']
+  },
+  furion: {
+    url: 'wiki.dota2.com.cn/hero/furion',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_furion.png',
+    chi_name: '先知',
+    name: 'furion',
+    act3_tag: ['nature', 'cape', 'minion']
+  },
+  life_stealer: {
+    url: 'wiki.dota2.com.cn/hero/life_stealer',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_life_stealer.png',
+    chi_name: '噬魂鬼',
+    name: 'life_stealer',
+    act3_tag: ['void', 'blood', 'blood']
+  },
+  dark_seer: {
+    url: 'wiki.dota2.com.cn/hero/dark_seer',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_dark_seer.png',
+    chi_name: '黑暗贤者',
+    name: 'dark_seer',
+    act3_tag: ['void', 'robe', 'illusion']
+  },
+  clinkz: {
+    url: 'wiki.dota2.com.cn/hero/clinkz',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_clinkz.png',
+    chi_name: '克林克兹',
+    name: 'clinkz',
+    act3_tag: ['flame', 'flame', 'minion']
+  },
+  omniknight: {
+    url: 'wiki.dota2.com.cn/hero/omniknight',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_omniknight.png',
+    chi_name: '全能骑士',
+    name: 'omniknight',
+    act3_tag: ['armor', 'armor', 'cape']
+  },
+  enchantress: {
+    url: 'wiki.dota2.com.cn/hero/enchantress',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_enchantress.png',
+    chi_name: '魅惑魔女',
+    name: 'enchantress',
+    act3_tag: ['nature', 'fur', 'minion']
+  },
+  huskar: {
+    url: 'wiki.dota2.com.cn/hero/huskar',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_huskar.png',
+    chi_name: '哈斯卡',
+    name: 'huskar',
+    act3_tag: ['flame', 'blood', 'helmet']
+  },
+  night_stalker: {
+    url: 'wiki.dota2.com.cn/hero/night_stalker',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_night_stalker.png',
+    chi_name: '暗夜魔王',
+    name: 'night_stalker',
+    act3_tag: ['nature', 'void', 'mystic']
+  },
+  broodmother: {
+    url: 'wiki.dota2.com.cn/hero/broodmother',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_broodmother.png',
+    chi_name: '育母蜘蛛',
+    name: 'broodmother',
+    act3_tag: ['blood', 'minion', 'minion']
+  },
+  bounty_hunter: {
+    url: 'wiki.dota2.com.cn/hero/bounty_hunter',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_bounty_hunter.png',
+    chi_name: '赏金猎人',
+    name: 'bounty_hunter',
+    act3_tag: ['blood', 'mystic', 'mask']
+  },
+  weaver: {
+    url: 'wiki.dota2.com.cn/hero/weaver',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_weaver.png',
+    chi_name: '编织者',
+    name: 'weaver',
+    act3_tag: ['void', 'blood', 'minion']
+  },
+  jakiro: {
+    url: 'wiki.dota2.com.cn/hero/jakiro',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_jakiro.png',
+    chi_name: '杰奇洛',
+    name: 'jakiro',
+    act3_tag: ['flame', 'frost', 'scale']
+  },
+  batrider: {
+    url: 'wiki.dota2.com.cn/hero/batrider',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_batrider.png',
+    chi_name: '蝙蝠骑士',
+    name: 'batrider',
+    act3_tag: ['flame', 'mask', 'partner']
+  },
+  chen: {
+    url: 'wiki.dota2.com.cn/hero/chen',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_chen.png',
+    chi_name: '陈',
+    name: 'chen',
+    act3_tag: ['mystic', 'armor', 'minion']
+  },
+  spectre: {
+    url: 'wiki.dota2.com.cn/hero/spectre',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_spectre.png',
+    chi_name: '幽鬼',
+    name: 'spectre',
+    act3_tag: ['void', 'void', 'illusion']
+  },
+  ancient_apparition: {
+    url: 'wiki.dota2.com.cn/hero/ancient_apparition',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_ancient_apparition.png',
+    chi_name: '远古冰魄',
+    name: 'ancient_apparition',
+    act3_tag: ['frost', 'frost', 'frost']
+  },
+  doom_bringer: {
+    url: 'wiki.dota2.com.cn/hero/doom_bringer',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_doom_bringer.png',
+    chi_name: '末日使者',
+    name: 'doom_bringer',
+    act3_tag: ['flame', 'armor', 'armor']
+  },
+  ursa: {
+    url: 'wiki.dota2.com.cn/hero/ursa',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_ursa.png',
+    chi_name: '熊战士',
+    name: 'ursa',
+    act3_tag: ['nature', 'blood', 'fur']
+  },
+  spirit_breaker: {
+    url: 'wiki.dota2.com.cn/hero/spirit_breaker',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_spirit_breaker.png',
+    chi_name: '裂魂人',
+    name: 'spirit_breaker',
+    act3_tag: ['void', 'armor', 'fur']
+  },
+  gyrocopter: {
+    url: 'wiki.dota2.com.cn/hero/gyrocopter',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_gyrocopter.png',
+    chi_name: '矮人直升机',
+    name: 'gyrocopter',
+    act3_tag: ['flame', 'armor', 'mask']
+  },
+  alchemist: {
+    url: 'wiki.dota2.com.cn/hero/alchemist',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_alchemist.png',
+    chi_name: '炼金术士',
+    name: 'alchemist',
+    act3_tag: ['mystic', 'mystic', 'partner']
+  },
+  invoker: {
+    url: 'wiki.dota2.com.cn/hero/invoker',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_invoker.png',
+    chi_name: '祈求者',
+    name: 'invoker',
+    act3_tag: ['mystic', 'robe', 'cape']
+  },
+  silencer: {
+    url: 'wiki.dota2.com.cn/hero/silencer',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_silencer.png',
+    chi_name: '沉默术士',
+    name: 'silencer',
+    act3_tag: ['mystic', 'helmet', 'shield']
+  },
+  obsidian_destroyer: {
+    url: 'wiki.dota2.com.cn/hero/obsidian_destroyer',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_obsidian_destroyer.png',
+    chi_name: '殁境神蚀者',
+    name: 'obsidian_destroyer',
+    act3_tag: ['nature', 'void', 'void']
+  },
+  lycan: {
+    url: 'wiki.dota2.com.cn/hero/lycan',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_lycan.png',
+    chi_name: '狼人',
+    name: 'lycan',
+    act3_tag: ['armor', 'fur', 'minion']
+  },
+  brewmaster: {
+    url: 'wiki.dota2.com.cn/hero/brewmaster',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_brewmaster.png',
+    chi_name: '酒仙',
+    name: 'brewmaster',
+    act3_tag: ['flame', 'storm', 'nature']
+  },
+  shadow_demon: {
+    url: 'wiki.dota2.com.cn/hero/shadow_demon',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_shadow_demon.png',
+    chi_name: '暗影恶魔',
+    name: 'shadow_demon',
+    act3_tag: ['blood', 'mystic', 'cape']
+  },
+  lone_druid: {
+    url: 'wiki.dota2.com.cn/hero/lone_druid',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_lone_druid.png',
+    chi_name: '德鲁伊',
+    name: 'lone_druid',
+    act3_tag: ['nature', 'fur', 'partner']
+  },
+  chaos_knight: {
+    url: 'wiki.dota2.com.cn/hero/chaos_knight',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_chaos_knight.png',
+    chi_name: '混沌骑士',
+    name: 'chaos_knight',
+    act3_tag: ['void', 'armor', 'illusion']
+  },
+  meepo: {
+    url: 'wiki.dota2.com.cn/hero/meepo',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_meepo.png',
+    chi_name: '米波',
+    name: 'meepo',
+    act3_tag: ['nature', 'partner', 'partner']
+  },
+  treant: {
+    url: 'wiki.dota2.com.cn/hero/treant',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_treant.png',
+    chi_name: '树精卫士',
+    name: 'treant',
+    act3_tag: ['nature', 'nature', 'armor']
+  },
+  ogre_magi: {
+    url: 'wiki.dota2.com.cn/hero/ogre_magi',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_ogre_magi.png',
+    chi_name: '食人魔魔法师',
+    name: 'ogre_magi',
+    act3_tag: ['flame', 'mystic', 'partner']
+  },
+  undying: {
+    url: 'wiki.dota2.com.cn/hero/undying',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_undying.png',
+    chi_name: '不朽尸王',
+    name: 'undying',
+    act3_tag: ['armor', 'helmet', 'minion']
+  },
+  rubick: {
+    url: 'wiki.dota2.com.cn/hero/rubick',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_rubick.png',
+    chi_name: '拉比克',
+    name: 'rubick',
+    act3_tag: ['mystic', 'cape', 'mask']
+  },
+  disruptor: {
+    url: 'wiki.dota2.com.cn/hero/disruptor',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_disruptor.png',
+    chi_name: '干扰者',
+    name: 'disruptor',
+    act3_tag: ['storm', 'storm', 'mystic']
+  },
+  nyx_assassin: {
+    url: 'wiki.dota2.com.cn/hero/nyx_assassin',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_nyx_assassin.png',
+    chi_name: '司夜刺客',
+    name: 'nyx_assassin',
+    act3_tag: ['nature', 'armor', 'shield']
+  },
+  naga_siren: {
+    url: 'wiki.dota2.com.cn/hero/naga_siren',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_naga_siren.png',
+    chi_name: '娜迦海妖',
+    name: 'naga_siren',
+    act3_tag: ['tide', 'illusion', 'illusion']
+  },
+  keeper_of_the_light: {
+    url: 'wiki.dota2.com.cn/hero/keeper_of_the_light',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_keeper_of_the_light.png',
+    chi_name: '光之守卫',
+    name: 'keeper_of_the_light',
+    act3_tag: ['mystic', 'mystic', 'illusion']
+  },
+  wisp: {
+    url: 'wiki.dota2.com.cn/hero/wisp',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_wisp.png',
+    chi_name: '艾欧',
+    name: 'wisp',
+    act3_tag: ['mystic', 'minion', 'partner']
+  },
+  visage: {
+    url: 'wiki.dota2.com.cn/hero/visage',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_visage.png',
+    chi_name: '维萨吉',
+    name: 'visage',
+    act3_tag: ['armor', 'minion', 'minion']
+  },
+  slark: {
+    url: 'wiki.dota2.com.cn/hero/slark',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_slark.png',
+    chi_name: '斯拉克',
+    name: 'slark',
+    act3_tag: ['tide', 'void', 'scale']
+  },
+  medusa: {
+    url: 'wiki.dota2.com.cn/hero/medusa',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_medusa.png',
+    chi_name: '美杜莎',
+    name: 'medusa',
+    act3_tag: ['mystic', 'shield', 'scale']
+  },
+  troll_warlord: {
+    url: 'wiki.dota2.com.cn/hero/troll_warlord',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_troll_warlord.png',
+    chi_name: '巨魔战将',
+    name: 'troll_warlord',
+    act3_tag: ['blood', 'blood', 'helmet']
+  },
+  centaur: {
+    url: 'wiki.dota2.com.cn/hero/centaur',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_centaur.png',
+    chi_name: '半人马战行者',
+    name: 'centaur',
+    act3_tag: ['blood', 'armor', 'fur']
+  },
+  magnataur: {
+    url: 'wiki.dota2.com.cn/hero/magnataur',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_magnataur.png',
+    chi_name: '马格纳斯',
+    name: 'magnataur',
+    act3_tag: ['mystic', 'fur', 'fur']
+  },
+  shredder: {
+    url: 'wiki.dota2.com.cn/hero/shredder',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_shredder.png',
+    chi_name: '伐木机',
+    name: 'shredder',
+    act3_tag: ['nature', 'armor', 'helmet']
+  },
+  bristleback: {
+    url: 'wiki.dota2.com.cn/hero/bristleback',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_bristleback.png',
+    chi_name: '钢背兽',
+    name: 'bristleback',
+    act3_tag: ['blood', 'armor', 'mask']
+  },
+  tusk: {
+    url: 'wiki.dota2.com.cn/hero/tusk',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_tusk.png',
+    chi_name: '巨牙海民',
+    name: 'tusk',
+    act3_tag: ['frost', 'frost', 'fur']
+  },
+  skywrath_mage: {
+    url: 'wiki.dota2.com.cn/hero/skywrath_mage',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_skywrath_mage.png',
+    chi_name: '天怒法师',
+    name: 'skywrath_mage',
+    act3_tag: ['mystic', 'armor', 'helmet']
+  },
+  abaddon: {
+    url: 'wiki.dota2.com.cn/hero/abaddon',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_abaddon.png',
+    chi_name: '亚巴顿',
+    name: 'abaddon',
+    act3_tag: ['mystic', 'armor', 'shield']
+  },
+  elder_titan: {
+    url: 'wiki.dota2.com.cn/hero/elder_titan',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_elder_titan.png',
+    chi_name: '上古巨神',
+    name: 'elder_titan',
+    act3_tag: ['void', 'illusion', 'partner']
+  },
+  legion_commander: {
+    url: 'wiki.dota2.com.cn/hero/legion_commander',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_legion_commander.png',
+    chi_name: '军团指挥官',
+    name: 'legion_commander',
+    act3_tag: ['armor', 'helmet', 'cape']
+  },
+  techies: {
+    url: 'wiki.dota2.com.cn/hero/techies',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_techies.png',
+    chi_name: '工程师',
+    name: 'techies',
+    act3_tag: ['helmet', 'ward', 'partner']
+  },
+  ember_spirit: {
+    url: 'wiki.dota2.com.cn/hero/ember_spirit',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_ember_spirit.png',
+    chi_name: '灰烬之灵',
+    name: 'ember_spirit',
+    act3_tag: ['flame', 'armor', 'illusion']
+  },
+  earth_spirit: {
+    url: 'wiki.dota2.com.cn/hero/earth_spirit',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_earth_spirit.png',
+    chi_name: '大地之灵',
+    name: 'earth_spirit',
+    act3_tag: ['nature', 'nature', 'ward']
+  },
+  abyssal_underlord: {
+    url: 'wiki.dota2.com.cn/hero/abyssal_underlord',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_abyssal_underlord.png',
+    chi_name: '孽主',
+    name: 'abyssal_underlord',
+    act3_tag: ['flame', 'void', 'scale']
+  },
+  terrorblade: {
+    url: 'wiki.dota2.com.cn/hero/terrorblade',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_terrorblade.png',
+    chi_name: '恐怖利刃',
+    name: 'terrorblade',
+    act3_tag: ['scale', 'illusion', 'illusion']
+  },
+  phoenix: {
+    url: 'wiki.dota2.com.cn/hero/phoenix',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_phoenix.png',
+    chi_name: '凤凰',
+    name: 'phoenix',
+    act3_tag: ['flame', 'flame', 'flame']
+  },
+  oracle: {
+    url: 'wiki.dota2.com.cn/hero/oracle',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_oracle.png',
+    chi_name: '神谕者',
+    name: 'oracle',
+    act3_tag: ['mystic', 'robe', 'robe']
+  },
+  winter_wyvern: {
+    url: 'wiki.dota2.com.cn/hero/winter_wyvern',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_winter_wyvern.png',
+    chi_name: '寒冬飞龙',
+    name: 'winter_wyvern',
+    act3_tag: ['frost', 'mystic', 'scale']
+  },
+  arc_warden: {
+    url: 'wiki.dota2.com.cn/hero/arc_warden',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_arc_warden.png',
+    chi_name: '天穹守望者',
+    name: 'arc_warden',
+    act3_tag: ['storm', 'helmet', 'partner']
+  },
+  monkey_king: {
+    url: 'wiki.dota2.com.cn/hero/monkey_king',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_monkey_king.png',
+    chi_name: '齐天大圣',
+    name: 'monkey_king',
+    act3_tag: ['fur', 'fur', 'minion']
+  },
+  dark_willow: {
+    url: 'wiki.dota2.com.cn/hero/dark_willow',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_dark_willow.png',
+    chi_name: '邪影芳灵',
+    name: 'dark_willow',
+    act3_tag: ['nature', 'mystic', 'partner']
+  },
+  pangolier: {
+    url: 'wiki.dota2.com.cn/hero/pangolier',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_pangolier.png',
+    chi_name: '石鳞剑士',
+    name: 'pangolier',
+    act3_tag: ['shield', 'shield', 'scale']
+  },
+  grimstroke: {
+    url: 'wiki.dota2.com.cn/hero/grimstroke',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_grimstroke.png',
+    chi_name: '天涯墨客',
+    name: 'grimstroke',
+    act3_tag: ['robe', 'mask', 'illusion']
+  },
+  hoodwink: {
+    url: 'wiki.dota2.com.cn/hero/hoodwink',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_hoodwink.png',
+    chi_name: '森海飞霞',
+    name: 'hoodwink',
+    act3_tag: ['nature', 'fur', 'illusion']
+  },
+  void_spirit: {
+    url: 'wiki.dota2.com.cn/hero/void_spirit',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_void_spirit.png',
+    chi_name: '虚无之灵',
+    name: 'void_spirit',
+    act3_tag: ['void', 'void', 'robe']
+  },
+  target_dummy: {
+    url: 'wiki.dota2.com.cn/hero/target_dummy',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_target_dummy.png',
+    chi_name: '傀儡目标',
+    name: 'target_dummy',
+    act3_tag: []
+  },
+  snapfire: {
+    url: 'wiki.dota2.com.cn/hero/snapfire',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_snapfire.png',
+    chi_name: '电炎绝手',
+    name: 'snapfire',
+    act3_tag: ['flame', 'scale', 'partner']
+  },
+  mars: {
+    url: 'wiki.dota2.com.cn/hero/mars',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_mars.png',
+    chi_name: '玛尔斯',
+    name: 'mars',
+    act3_tag: ['blood', 'helmet', 'shield']
+  },
+  dawnbreaker: {
+    url: 'wiki.dota2.com.cn/hero/dawnbreaker',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_dawnbreaker.png',
+    chi_name: '破晓辰星',
+    name: 'dawnbreaker',
+    act3_tag: ['flame', 'mystic', 'armor']
+  },
+  marci: {
+    url: 'wiki.dota2.com.cn/hero/marci',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_marci.png',
+    chi_name: '玛西',
+    name: 'marci',
+    act3_tag: ['blood', 'cape', 'partner']
+  },
+  primal_beast: {
+    url: 'wiki.dota2.com.cn/hero/primal_beast',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_primal_beast.png',
+    chi_name: '獸',
+    name: 'primal_beast',
+    act3_tag: ['blood', 'scale', 'scale']
+  },
+  muerta: {
+    url: 'wiki.dota2.com.cn/hero/muerta',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_muerta.png',
+    chi_name: '琼英碧灵',
+    name: 'muerta',
+    act3_tag: ['void', 'mystic', 'minion']
+  }
+};
+/* harmony default export */ const dota2_act3_dota2_heros = (dota2_heros);
 ;// CONCATENATED MODULE: ./src/dota2_act3/main.js
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -1076,18 +1243,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 
-function initScript() {
-  console.log(act3_token); //console.log(dota2_heros);
 
+
+
+function initScript() {
+  //console.log(act3_token);
+  //console.log(dota2_heros);
+  //console.log(act3token_url);
   var dd = new BaseClass();
   dd.init();
 }
-var heroimgList = {};
-
-for (var index = 0; index < dota2_heros.length; index++) {
-  heroimgList[dota2_heros[index].name] = dota2_heros[index];
-} // 等待网页完成加载
-
+Object.keys(dota2_act3_act3token_url).forEach(function (key) {
+  // 触发网络请求 让浏览器缓存图片
+  // https://juejin.cn/post/7340167256267391012
+  var img = new Image();
+  img.src = dota2_act3_act3token_url[key]; //img.setAttribute('style', 'display:none;');
+  //document.body.appendChild(img);
+  //console.log('img', img);
+  //console.log(key, act3token_url[key]);
+}); // 等待网页完成加载
 
 window.addEventListener('load', function () {
   initHeroToken();
@@ -1103,13 +1277,14 @@ function initHeroToken() {
     node.setAttribute('style', 'position:relative;z-index:1;'); //console.log(node.getAttribute('style'));
 
     var tokendiv = document.createElement('div');
-    tokendiv.setAttribute('style', 'right:0px;position:absolute;top:10px; z-index:2;');
-    var tokenList = heroimgList[name].act3_tag;
+    tokendiv.id = 'tokendiv_' + name;
+    tokendiv.setAttribute('style', 'right:0px;position:absolute;top:10px; z-index:2;opacity:1;');
+    var tokenList = dota2_act3_dota2_heros[name].act3_tag;
 
-    for (var _index = 0; _index < tokenList.length; _index++) {
-      var tokenstr = tokenList[_index];
+    for (var index = 0; index < tokenList.length; index++) {
+      var tokenstr = tokenList[index];
       var token_img = document.createElement('img');
-      token_img.setAttribute('src', 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/' + tokenstr + '.png');
+      token_img.src = dota2_act3_act3token_url[tokenstr];
       token_img.setAttribute('style', 'width:35px;height:35px;');
       tokendiv.appendChild(token_img);
     }
@@ -1187,42 +1362,9 @@ var BaseClass = /*#__PURE__*/function () {
       return canvas.toDataURL();
     }
   }, {
-    key: "initHeroImgList",
-    value: function initHeroImgList() {
-      // 初始化时先保存所有英雄图标
-
-      /*
-      heroimgList = {};
-      
-      let heroElements = document.evaluate(
-        '//*[@class="hl-wrapper"]/a[@class="HeroIcon"]',
-        document,
-        null,
-        XPathResult.ANY_TYPE,
-        null
-      );
-      let heroELem = heroElements.iterateNext();
-      while (heroELem) {
-        ///console.log(heroELem);
-        const href = heroELem.getAttribute('href');
-        const name = href.split('/')[2].split('.')[0];
-          var ibox = heroELem.getElementsByClassName('i-box');
-        const url = ibox[0].getAttribute('style').split('"')[1].split('"')[0];
-        heroimgList[name] = url;
-        heroELem = heroElements.iterateNext();
-      }*/
-      console.log(heroimgList);
-    }
-  }, {
     key: "setHeroImg",
     value: function setHeroImg(herolist) {
-      if (this.firstRendor) {
-        this.initHeroImgList();
-        this.firstRendor = false;
-      }
-
-      var heroElements2 = document.evaluate('//*[@class="hl-wrapper"]/a[@class="HeroIcon"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      var grayimg = '';
+      var heroElements2 = document.evaluate('//*[@class="hl-wrapper"]/a[@class="HeroIcon"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null); //let grayimg = '';
 
       for (var i = 0; i < heroElements2.snapshotLength; i++) {
         var node = heroElements2.snapshotItem(i);
@@ -1233,15 +1375,7 @@ var BaseClass = /*#__PURE__*/function () {
         var viewBox = svg[0].getAttribute('viewBox');
         var dddviewbox = viewBox.split(/\s+/).map(parseFloat); //console.log(dddviewbox);
 
-        var ibox = node.getElementsByClassName('i-box');
-        var url = '';
-
-        if (this.firstRendor) {
-          url = ibox[0].getAttribute('style').split('"')[1].split('"')[0];
-        } else {
-          url = heroimgList[name].img;
-        } //console.log(ibox[0]);
-
+        var ibox = node.getElementsByClassName('i-box'); //console.log(ibox[0]);
 
         var height = ibox[0].clientHeight;
         var width = ibox[0].clientWidth; //console.log(height, width);
@@ -1252,11 +1386,23 @@ var BaseClass = /*#__PURE__*/function () {
         }
           */
 
-        if (herolist == undefined || herolist.indexOf(name) >= 0) {
+        if (herolist == undefined) {
+          ibox[0].style.opacity = 1; // 透明度を50%に指定
+
+          var tokendiv = document.getElementById('tokendiv_' + name);
+          tokendiv.style.opacity = 1; // 透明度を50%に指定
+        } else if (herolist.indexOf(name) >= 0) {
           //console.log(name);
           ibox[0].style.opacity = 1; // 透明度を50%に指定
+
+          var tokendiv = document.getElementById('tokendiv_' + name);
+          tokendiv.style.opacity = 0.1; // 透明度を50%に指定
         } else {
           ibox[0].style.opacity = 0.1; // 透明度を50%に指定
+
+          var tokendiv = document.getElementById('tokendiv_' + name); //console.log(tokendiv);
+
+          tokendiv.style.opacity = 0.1; // 透明度を50%に指定
           //ibox[0].setAttribute('style', "background-image: url('" + grayimg + "');");
         }
       }
@@ -1272,7 +1418,7 @@ var BaseClass = /*#__PURE__*/function () {
       var _this2 = this;
 
       _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var _yield$_this2$alert$f, searchKeys, intersection, terminate, target_heros, rid, heroslist_chi, _index2;
+        var _yield$_this2$alert$f, searchKeys, intersection, terminate, target_heros, rid, heroslist_chi;
 
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) {
@@ -6467,7 +6613,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 //import api from './douyu_livebc';
-var main_1 = __importDefault(__webpack_require__(2705));
+var main_1 = __importDefault(__webpack_require__(5811));
 var app = function () {
     (0, main_1.default)();
 };
@@ -10012,6 +10158,63 @@ module.exports = Object.setPrototypeOf || ('__proto__' in {} ? function () {
 
 /***/ }),
 
+/***/ 9419:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var DESCRIPTORS = __webpack_require__(7697);
+var fails = __webpack_require__(3689);
+var uncurryThis = __webpack_require__(8844);
+var objectGetPrototypeOf = __webpack_require__(1868);
+var objectKeys = __webpack_require__(300);
+var toIndexedObject = __webpack_require__(5290);
+var $propertyIsEnumerable = (__webpack_require__(9556).f);
+
+var propertyIsEnumerable = uncurryThis($propertyIsEnumerable);
+var push = uncurryThis([].push);
+
+// in some IE versions, `propertyIsEnumerable` returns incorrect result on integer keys
+// of `null` prototype objects
+var IE_BUG = DESCRIPTORS && fails(function () {
+  // eslint-disable-next-line es/no-object-create -- safe
+  var O = Object.create(null);
+  O[2] = 2;
+  return !propertyIsEnumerable(O, 2);
+});
+
+// `Object.{ entries, values }` methods implementation
+var createMethod = function (TO_ENTRIES) {
+  return function (it) {
+    var O = toIndexedObject(it);
+    var keys = objectKeys(O);
+    var IE_WORKAROUND = IE_BUG && objectGetPrototypeOf(O) === null;
+    var length = keys.length;
+    var i = 0;
+    var result = [];
+    var key;
+    while (length > i) {
+      key = keys[i++];
+      if (!DESCRIPTORS || (IE_WORKAROUND ? key in O : propertyIsEnumerable(O, key))) {
+        push(result, TO_ENTRIES ? [key, O[key]] : O[key]);
+      }
+    }
+    return result;
+  };
+};
+
+module.exports = {
+  // `Object.entries` method
+  // https://tc39.es/ecma262/#sec-object.entries
+  entries: createMethod(true),
+  // `Object.values` method
+  // https://tc39.es/ecma262/#sec-object.values
+  values: createMethod(false)
+};
+
+
+/***/ }),
+
 /***/ 5073:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -11550,6 +11753,23 @@ $({ target: 'Array', proto: true, forced: FORCED }, {
 
 /***/ }),
 
+/***/ 3975:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var isArray = __webpack_require__(2297);
+
+// `Array.isArray` method
+// https://tc39.es/ecma262/#sec-array.isarray
+$({ target: 'Array', stat: true }, {
+  isArray: isArray
+});
+
+
+/***/ }),
+
 /***/ 752:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -11932,6 +12152,25 @@ var defineProperty = (__webpack_require__(2560).f);
 // eslint-disable-next-line es/no-object-defineproperty -- safe
 $({ target: 'Object', stat: true, forced: Object.defineProperty !== defineProperty, sham: !DESCRIPTORS }, {
   defineProperty: defineProperty
+});
+
+
+/***/ }),
+
+/***/ 6585:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var $entries = (__webpack_require__(9419).entries);
+
+// `Object.entries` method
+// https://tc39.es/ecma262/#sec-object.entries
+$({ target: 'Object', stat: true }, {
+  entries: function entries(O) {
+    return $entries(O);
+  }
 });
 
 
@@ -13170,7 +13409,7 @@ if (DESCRIPTORS && isCallable(NativeSymbol) && (!('description' in SymbolPrototy
 
 /***/ }),
 
-/***/ 3975:
+/***/ 8074:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -13222,7 +13461,7 @@ defineWellKnownSymbol('iterator');
 
 // TODO: Remove this module from `core-js@4` since it's split to modules listed below
 __webpack_require__(7855);
-__webpack_require__(3975);
+__webpack_require__(8074);
 __webpack_require__(1445);
 __webpack_require__(8324);
 __webpack_require__(9434);
