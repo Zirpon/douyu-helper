@@ -1,5 +1,5 @@
 {
-  "name": "dota2 倾天之战第三幕 冰川残骸 格罗德图书馆 代币筛选英雄 dev",
+  "name": "dev dota2 倾天之战第三幕 冰川残骸 格罗德图书馆 代币筛选英雄 dev",
   "namespace": "https://github.com/Zirpon/douyu-helper.git",
   "match": ["https://wiki.dota2.com.cn/", "*://*.localhost/*"],
   "grant": [
