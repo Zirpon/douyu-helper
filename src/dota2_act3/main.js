@@ -167,6 +167,11 @@ function resourceLoaded(todoFunc) {
     const img = new Image();
     img.alt = key;
     img.title = act3token_url[key].name;
+    img.onerror = () => {
+      // 图片加载失败则重试
+      img.src = act3token_url[key].url;
+      //alert('图片加载失败:' + img.title + '/' + img.src + ',请按F5重新刷新页面');
+    };
     img.onload = () => {
       loadCount++;
       console.log(loadCount, img.alt, img.title, img.src);

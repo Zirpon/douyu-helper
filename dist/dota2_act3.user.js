@@ -1439,6 +1439,11 @@ function resourceLoaded(todoFunc) {
     img.alt = key;
     img.title = dota2_act3_act3token_url[key].name;
 
+    img.onerror = function () {
+      // 图片加载失败则重试
+      img.src = dota2_act3_act3token_url[key].url; //alert('图片加载失败:' + img.title + '/' + img.src + ',请按F5重新刷新页面');
+    };
+
     img.onload = function () {
       loadCount++;
       console.log(loadCount, img.alt, img.title, img.src);
