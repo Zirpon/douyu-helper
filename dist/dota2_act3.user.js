@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name                dota2 倾天之战第三幕 冰川残骸 格罗德图书馆 代币筛选英雄
 // @namespace           https://github.com/Zirpon/douyu-helper.git
-// @version             1.2.3
+// @version             1.3.3
 // @description         手动打开 完美DOTA2维基官网页面(https://wiki.dota2.com.cn/) 即可食用
 // @author              zepung
 // @copyright           zepung
@@ -35,6 +35,16 @@ __webpack_require__.d(__webpack_exports__, {
   "default": () => (/* binding */ initScript)
 });
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.regexp.exec.js
+var es_regexp_exec = __webpack_require__(4043);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.split.js
+var es_string_split = __webpack_require__(9873);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.map.js
+var es_array_map = __webpack_require__(886);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.parse-float.js
+var es_parse_float = __webpack_require__(939);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.index-of.js
+var es_array_index_of = __webpack_require__(7195);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.for-each.js
 var es_array_for_each = __webpack_require__(9693);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
@@ -43,18 +53,6 @@ var es_object_to_string = __webpack_require__(228);
 var web_dom_collections_for_each = __webpack_require__(7522);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.keys.js
 var es_object_keys = __webpack_require__(9358);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.regexp.exec.js
-var es_regexp_exec = __webpack_require__(4043);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.split.js
-var es_string_split = __webpack_require__(9873);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.date.to-string.js
-var es_date_to_string = __webpack_require__(24);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.map.js
-var es_array_map = __webpack_require__(886);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.parse-float.js
-var es_parse_float = __webpack_require__(939);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.index-of.js
-var es_array_index_of = __webpack_require__(7195);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.concat.js
 var es_array_concat = __webpack_require__(4338);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.filter.js
@@ -79,10 +77,10 @@ var web_url_search_params = __webpack_require__(9307);
 var es_string_search = __webpack_require__(7872);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.entries.js
 var es_object_entries = __webpack_require__(6585);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.define-property.js
-var es_object_define_property = __webpack_require__(739);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.promise.js
-var es_promise = __webpack_require__(3964);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
+var es_function_name = __webpack_require__(4284);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.date.to-string.js
+var es_date_to_string = __webpack_require__(24);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.is-array.js
 var es_array_is_array = __webpack_require__(3975);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.js
@@ -93,8 +91,10 @@ var es_symbol_description = __webpack_require__(6544);
 var es_symbol_iterator = __webpack_require__(4254);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.slice.js
 var es_array_slice = __webpack_require__(9730);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
-var es_function_name = __webpack_require__(4284);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.define-property.js
+var es_object_define_property = __webpack_require__(739);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.promise.js
+var es_promise = __webpack_require__(3964);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.async-iterator.js
 var es_symbol_async_iterator = __webpack_require__(8373);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.to-string-tag.js
@@ -220,26 +220,86 @@ var act3 = {
 /* harmony default export */ const act3_token = (act3);
 ;// CONCATENATED MODULE: ./src/dota2_act3/act3token_url.js
 var act3token_url = {
-  flame: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/flame.png',
-  frost: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/frost.png',
-  storm: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/storm.png',
-  tide: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/tide.png',
-  nature: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/nature.png',
-  "void": 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/void.png',
-  blood: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/blood.png',
-  mystic: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/mystic.png',
-  armor: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/armor.png',
-  helmet: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/helmet.png',
-  shield: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/shield.png',
-  robe: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/robe.png',
-  cape: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/cape.png',
-  mask: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/mask.png',
-  fur: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/fur.png',
-  scale: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/scale.png',
-  minion: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/minion.png',
-  illusion: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/illusion.png',
-  ward: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/ward.png',
-  partner: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/partner.png'
+  flame: {
+    name: '火焰',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/flame.png'
+  },
+  frost: {
+    name: '冰霜',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/frost.png'
+  },
+  storm: {
+    name: '风暴',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/storm.png'
+  },
+  tide: {
+    name: '潮汐',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/tide.png'
+  },
+  nature: {
+    name: '自然',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/nature.png'
+  },
+  "void": {
+    name: '虚空',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/void.png'
+  },
+  blood: {
+    name: '鲜血',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/blood.png'
+  },
+  mystic: {
+    name: '玄奥',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/mystic.png'
+  },
+  armor: {
+    name: '战甲',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/armor.png'
+  },
+  helmet: {
+    name: '战盔',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/helmet.png'
+  },
+  shield: {
+    name: '战盾',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/shield.png'
+  },
+  robe: {
+    name: '长袍',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/robe.png'
+  },
+  cape: {
+    name: '披风',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/cape.png'
+  },
+  mask: {
+    name: '面具',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/mask.png'
+  },
+  fur: {
+    name: '毛皮',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/fur.png'
+  },
+  scale: {
+    name: '鳞甲',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/scale.png'
+  },
+  minion: {
+    name: '爪牙',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/minion.png'
+  },
+  illusion: {
+    name: '幻象',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/illusion.png'
+  },
+  ward: {
+    name: '守卫',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/ward.png'
+  },
+  partner: {
+    name: '伙伴',
+    url: 'https://raw.githubusercontent.com/Zirpon/douyu-helper/main/src/dota2_act3/assets/img/partner.png'
+  }
 };
 /* harmony default export */ const dota2_act3_act3token_url = (act3token_url);
 ;// CONCATENATED MODULE: ./src/dota2_act3/alertContent.html
@@ -1180,6 +1240,16 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -1192,15 +1262,6 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 
 
@@ -1244,34 +1305,193 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 
-
+ /////////////主逻辑//////////////////////////////////////
 
 function initScript() {
   //console.log(act3_token);
   //console.log(dota2_heros);
   //console.log(act3token_url);
-  var dd = new BaseClass();
-  dd.init();
+  new BaseClass();
 }
-Object.keys(dota2_act3_act3token_url).forEach(function (key) {
-  // 触发网络请求 让浏览器缓存图片
-  // https://juejin.cn/post/7340167256267391012
-  var img = new Image();
-  img.src = dota2_act3_act3token_url[key]; //img.setAttribute('style', 'display:none;');
-  //document.body.appendChild(img);
-  //console.log('img', img);
-  //console.log(key, act3token_url[key]);
-}); // 等待网页完成加载
+renderTokenButtonList(); // 等待网页完成加载
 
 window.addEventListener('load', function () {
+  // 因为英雄div渲染是由 JavaScript 完成 所以不能只能在load完以后再修改
   initHeroToken();
-}, false);
+}, false); /////////////接口函数/////////////////////////////////////////////
+// 展示英雄接口
 
-function initHeroToken() {
-  var heroElements2 = document.evaluate('//*[@class="hl-wrapper"]/a[@class="HeroIcon"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+function showHeroByToken(herolist) {
+  var heroElements2 = document.evaluate('//*[@class="hl-wrapper"]/a[@class="HeroIcon"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null); //let grayimg = '';
 
   for (var i = 0; i < heroElements2.snapshotLength; i++) {
     var node = heroElements2.snapshotItem(i);
+    var href = node.getAttribute('href');
+    var name = href.split('/')[2].split('.')[0];
+    var svg = node.getElementsByClassName('svg-box'); //console.log(svg);
+
+    var viewBox = svg[0].getAttribute('viewBox');
+    var dddviewbox = viewBox.split(/\s+/).map(parseFloat); //console.log(dddviewbox);
+
+    var ibox = node.getElementsByClassName('i-box'); //console.log(ibox[0]);
+
+    var height = ibox[0].clientHeight;
+    var width = ibox[0].clientWidth; //console.log(height, width);
+
+    /*
+    if (grayimg == '') {
+      grayimg = this.gray(url, height, width);
+    }
+      */
+
+    if (herolist == undefined) {
+      // 展示全部英雄
+      ibox[0].style.opacity = 1; // 透明度を50%に指定
+
+      var tokendiv = document.getElementById('tokendiv_' + name);
+      tokendiv.style.opacity = 1; // 透明度を50%に指定
+    } else if (herolist.indexOf(name) >= 0) {
+      // 展示匹配代币的英雄
+      //console.log(name);
+      ibox[0].style.opacity = 1; // 透明度を50%に指定
+
+      var tokendiv = document.getElementById('tokendiv_' + name);
+      tokendiv.style.opacity = 1; // 透明度を50%に指定
+    } else {
+      // 置灰不匹配英雄
+      ibox[0].style.opacity = 0.1; // 透明度を50%に指定
+
+      var tokendiv = document.getElementById('tokendiv_' + name);
+
+      if (tokendiv) {
+        tokendiv.style.opacity = 0.1; // 透明度を50%に指定
+      } else {
+        console.log(name, ibox[0]);
+      }
+    }
+  }
+} // 代币筛选英雄接口
+
+
+function hitSearchKey(searchKeys) {
+  // searchKeys null 就是menu点击了关闭窗口 就不做任何改变
+  // 选择了代币 展示筛选英雄
+  if (searchKeys && searchKeys.length > 0) {
+    console.log(searchKeys);
+    var intersection = [];
+    var terminate = false;
+    Object.keys(act3_token).forEach(function (key) {
+      if (terminate) {
+        return;
+      }
+
+      if (searchKeys.indexOf(key) >= 0) {
+        //console.log(key);
+        var tmp = [];
+        Object.keys(act3_token[key]).forEach(function (key2) {
+          tmp = tmp.concat(act3_token[key][key2]);
+        }); //console.log(tmp);
+
+        if (intersection.length == 0) {
+          intersection = tmp;
+        } else {
+          intersection = intersection.filter(function (item) {
+            return tmp.includes(item);
+          }); //console.log(tmp, intersection);
+        }
+
+        if (intersection.length == 0) {
+          terminate = true;
+          return;
+        }
+      }
+    });
+    console.log(intersection);
+    var target_heros = Array.from(new Set(intersection));
+
+    if (true) {
+      showHeroByToken(target_heros);
+    } else { var heroslist_chi, rid; }
+  } else if (searchKeys && searchKeys.length == 0) {
+    // 没选择代币 展示全部英雄
+    showHeroByToken();
+  }
+} /////////////初始化函数///////////////////////////////////////////
+// 初始化 为网页 增加 代币按钮列表
+
+
+function renderTokenButtonList() {
+  function insertBefore(node, newElement) {
+    node.insertBefore(newElement, node.firstChild);
+  } // 代币按钮列表 样式 设置
+
+
+  var tokenlistdiv = document.createElement('div');
+  tokenlistdiv.id = 'tokenlistdiv'; // 横向 居中 紧凑排列
+
+  tokenlistdiv.style = 'width: 100%;height: 100%;text-align: center;justify-content:safe center;align-items: center;display: flex;flex-direction: row-reverse;'; // 按钮 样式 设置
+
+  Object.keys(dota2_act3_act3token_url).forEach(function (key) {
+    // 触发网络请求 让浏览器缓存图片
+    // https://juejin.cn/post/7340167256267391012
+    var img = new Image();
+    img.src = dota2_act3_act3token_url[key].url;
+    img.style = 'width:80px;height:80px;';
+    img.alt = key;
+    img.title = dota2_act3_act3token_url[key].name;
+    var tokennode = document.createElement('div');
+    var tokennode_inputdiv = document.createElement('div');
+    var tokennode_input = document.createElement('input');
+    tokennode_input.type = 'checkbox';
+    tokennode_input.id = 'input_' + key;
+    tokennode_input.style.backgroundImage = "url('" + dota2_act3_act3token_url[key].url + "')";
+    tokennode_input.style.backgroundRepeat = 'no-repeat';
+    tokennode_input.style.backgroundPosition = 'center';
+    tokennode_inputdiv.appendChild(tokennode_input);
+    var tokennode_text = document.createElement('div');
+    tokennode_text.innerHTML = dota2_act3_act3token_url[key].name;
+    tokennode.appendChild(tokennode_inputdiv);
+    tokennode.appendChild(tokennode_text); //console.log('img', act3token_url[key].url, act3token_url[key].name);
+
+    tokenlistdiv.appendChild(tokennode); //console.log(key, act3token_url[key]);
+  }); // 添加为 hero-wrap 的第一个子节点
+
+  var container = document.getElementsByClassName('hero-wrap')[0];
+  insertBefore(container, tokenlistdiv); // 为每个代币按钮 注册按键回调函数
+
+  var inputTag = document.getElementsByTagName('input');
+  var tokenTag = [];
+
+  for (var i = 0; i < inputTag.length; i++) {
+    if (inputTag[i].id.indexOf('input_') >= 0) {
+      tokenTag.push(inputTag[i]);
+    }
+  }
+
+  for (var i = 0; i < tokenTag.length; i++) {
+    tokenTag[i].addEventListener('change', function () {
+      var tmpoutput = [];
+
+      for (var i = 0; i < tokenTag.length; i++) {
+        if (tokenTag[i].checked) {
+          tmpoutput.push(tokenTag[i].id.split('_')[1]);
+        }
+      }
+
+      hitSearchKey(tmpoutput);
+    }); //console.log(tokenTag[i].id, tokenTag[i].checked);
+  }
+} // 给页面的每个英雄添加 3个代币属性
+
+
+function initHeroToken() {
+  var heroElements2 = document.evaluate('//*[@class="hl-wrapper"]/a[@class="HeroIcon"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null); //console.log(heroElements2);
+  //console.log(heroElements2);
+  //console.log(heroElements2.snapshotLength);
+
+  for (var i = 0; i < heroElements2.snapshotLength; i++) {
+    var node = heroElements2.snapshotItem(i); //console.log(node);
+
     var href = node.getAttribute('href');
     var name = href.split('/')[2].split('.')[0];
     node.setAttribute('style', 'position:relative;z-index:1;'); //console.log(node.getAttribute('style'));
@@ -1284,14 +1504,15 @@ function initHeroToken() {
     for (var index = 0; index < tokenList.length; index++) {
       var tokenstr = tokenList[index];
       var token_img = document.createElement('img');
-      token_img.src = dota2_act3_act3token_url[tokenstr];
+      token_img.src = dota2_act3_act3token_url[tokenstr].url;
       token_img.setAttribute('style', 'width:35px;height:35px;');
       tokendiv.appendChild(token_img);
     }
 
     node.appendChild(tokendiv);
   }
-}
+} // 按钮类
+
 
 var BaseClass = /*#__PURE__*/function () {
   function BaseClass() {
@@ -1300,39 +1521,36 @@ var BaseClass = /*#__PURE__*/function () {
     _classCallCheck(this, BaseClass);
 
     this.firstRendor = true;
+    this.alert = sweetalert2_all_default().mixin({
+      // alert 模板 可自定义
+      html: alertContent,
+
+      /* 因为 css里有图片 直接import 让他预加载 而不是打开menu 再加载
+      customClass: {
+        htmlContainer: styles,
+      },
+      */
+      showCloseButton: true,
+      // 改为true 后 鼠标 点 非confirm button 的地方 会关闭alert 触发 dps()函数 执行
+      allowOutsideClick: false,
+      // optional classes to avoid backdrop blinking between steps
+      showClass: {
+        backdrop: 'swal2-noanimation'
+      },
+      hideClass: {
+        backdrop: 'swal2-noanimation'
+      }
+    });
     GM_registerMenuCommand('格罗德图书馆', function () {
       return _this.menu();
     });
     GM_registerMenuCommand('reset', function () {
-      return _this.setHeroImg();
+      return showHeroByToken();
     });
-  }
+  } // 置灰图片函数
+
 
   _createClass(BaseClass, [{
-    key: "init",
-    value: function init() {
-      this.alert = sweetalert2_all_default().mixin({
-        // alert 模板 可自定义
-        html: alertContent,
-
-        /* 因为 css里有图片 直接import 让他预加载 而不是打开menu 再加载
-        customClass: {
-          htmlContainer: styles,
-        },
-        */
-        showCloseButton: true,
-        // 改为true 后 鼠标 点 非confirm button 的地方 会关闭alert 触发 dps()函数 执行
-        allowOutsideClick: false,
-        // optional classes to avoid backdrop blinking between steps
-        showClass: {
-          backdrop: 'swal2-noanimation'
-        },
-        hideClass: {
-          backdrop: 'swal2-noanimation'
-        }
-      });
-    }
-  }, {
     key: "gray",
     value: function gray(imgObj, height, width) {
       var canvas = document.createElement('canvas');
@@ -1362,66 +1580,12 @@ var BaseClass = /*#__PURE__*/function () {
       return canvas.toDataURL();
     }
   }, {
-    key: "setHeroImg",
-    value: function setHeroImg(herolist) {
-      var heroElements2 = document.evaluate('//*[@class="hl-wrapper"]/a[@class="HeroIcon"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null); //let grayimg = '';
-
-      for (var i = 0; i < heroElements2.snapshotLength; i++) {
-        var node = heroElements2.snapshotItem(i);
-        var href = node.getAttribute('href');
-        var name = href.split('/')[2].split('.')[0];
-        var svg = node.getElementsByClassName('svg-box'); //console.log(svg);
-
-        var viewBox = svg[0].getAttribute('viewBox');
-        var dddviewbox = viewBox.split(/\s+/).map(parseFloat); //console.log(dddviewbox);
-
-        var ibox = node.getElementsByClassName('i-box'); //console.log(ibox[0]);
-
-        var height = ibox[0].clientHeight;
-        var width = ibox[0].clientWidth; //console.log(height, width);
-
-        /*
-        if (grayimg == '') {
-          grayimg = this.gray(url, height, width);
-        }
-          */
-
-        if (herolist == undefined) {
-          ibox[0].style.opacity = 1; // 透明度を50%に指定
-
-          var tokendiv = document.getElementById('tokendiv_' + name);
-          tokendiv.style.opacity = 1; // 透明度を50%に指定
-        } else if (herolist.indexOf(name) >= 0) {
-          //console.log(name);
-          ibox[0].style.opacity = 1; // 透明度を50%に指定
-
-          var tokendiv = document.getElementById('tokendiv_' + name);
-          tokendiv.style.opacity = 1; // 透明度を50%に指定
-        } else {
-          ibox[0].style.opacity = 0.1; // 透明度を50%に指定
-
-          var tokendiv = document.getElementById('tokendiv_' + name);
-
-          if (tokendiv) {
-            tokendiv.style.opacity = 0.1; // 透明度を50%に指定
-          } else {
-            console.log(name, ibox[0]);
-          }
-        }
-      }
-    }
-  }, {
-    key: "vendorHeros",
-    value: function vendorHeros(herolist) {
-      this.setHeroImg(herolist);
-    }
-  }, {
     key: "menu",
     value: function menu() {
       var _this2 = this;
 
       _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var _yield$_this2$alert$f, searchKeys, intersection, terminate, target_heros, rid, heroslist_chi;
+        var _yield$_this2$alert$f, searchKeys;
 
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) {
@@ -1455,44 +1619,7 @@ var BaseClass = /*#__PURE__*/function () {
               case 2:
                 _yield$_this2$alert$f = _context.sent;
                 searchKeys = _yield$_this2$alert$f.value;
-
-                if (searchKeys) {
-                  console.log(searchKeys);
-                  intersection = [];
-                  terminate = false;
-                  Object.keys(act3_token).forEach(function (key) {
-                    if (terminate) {
-                      return;
-                    }
-
-                    if (searchKeys.indexOf(key) >= 0) {
-                      //console.log(key);
-                      var tmp = [];
-                      Object.keys(act3_token[key]).forEach(function (key2) {
-                        tmp = tmp.concat(act3_token[key][key2]);
-                      }); //console.log(tmp);
-
-                      if (intersection.length == 0) {
-                        intersection = tmp;
-                      } else {
-                        intersection = intersection.filter(function (item) {
-                          return tmp.includes(item);
-                        }); //console.log(tmp, intersection);
-                      }
-
-                      if (intersection.length == 0) {
-                        terminate = true;
-                        return;
-                      }
-                    }
-                  });
-                  console.log(intersection);
-                  target_heros = Array.from(new Set(intersection));
-
-                  if (true) {
-                    _this2.vendorHeros(target_heros);
-                  } else {}
-                }
+                hitSearchKey(searchKeys);
 
               case 5:
               case "end":
