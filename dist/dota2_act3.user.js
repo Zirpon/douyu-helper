@@ -1312,12 +1312,13 @@ function initScript() {
   //console.log(dota2_heros);
   //console.log(act3token_url);
   new BaseClass();
-}
-renderTokenButtonList(); // 等待网页完成加载
+} // 等待网页完成加载
 
 window.addEventListener('load', function () {
-  // 因为英雄div渲染是由 JavaScript 完成 所以不能只能在load完以后再修改
-  initHeroToken();
+  resourceLoaded(function () {
+    renderTokenButtonList();
+    initHeroToken();
+  });
 }, false); /////////////接口函数/////////////////////////////////////////////
 // 展示英雄接口
 
@@ -1417,7 +1418,40 @@ function hitSearchKey(searchKeys) {
     showHeroByToken();
   }
 } /////////////初始化函数///////////////////////////////////////////
-// 初始化 为网页 增加 代币按钮列表
+// 等所有图片都加载完成后再执行
+
+
+var flagResLoaded = false;
+
+function resourceLoaded(todoFunc) {
+  if (flagResLoaded) {
+    todoFunc();
+    return;
+  } //let imgList = [];
+
+
+  var loadCount = 0; // 因为英雄div渲染是由 JavaScript 完成 所以不能只能在load完以后再修改
+
+  Object.keys(dota2_act3_act3token_url).forEach(function (key) {
+    // 触发网络请求 让浏览器缓存图片
+    // https://juejin.cn/post/7340167256267391012
+    var img = new Image();
+    img.alt = key;
+    img.title = dota2_act3_act3token_url[key].name;
+
+    img.onload = function () {
+      loadCount++;
+      console.log(loadCount, img.alt, img.title, img.src);
+
+      if (loadCount >= Object.keys(dota2_act3_act3token_url).length) {
+        flagResLoaded = true;
+        todoFunc();
+      }
+    };
+
+    img.src = dota2_act3_act3token_url[key].url; //imgList.push(img);
+  });
+} // 初始化 为网页 增加 代币按钮列表
 
 
 function renderTokenButtonList() {
@@ -1432,14 +1466,9 @@ function renderTokenButtonList() {
   tokenlistdiv.style = 'width: 100%;height: 100%;text-align: center;justify-content:safe center;align-items: center;display: flex;flex-direction: row-reverse;'; // 按钮 样式 设置
 
   Object.keys(dota2_act3_act3token_url).forEach(function (key) {
-    // 触发网络请求 让浏览器缓存图片
-    // https://juejin.cn/post/7340167256267391012
-    var img = new Image();
-    img.src = dota2_act3_act3token_url[key].url;
-    img.style = 'width:80px;height:80px;';
-    img.alt = key;
-    img.title = dota2_act3_act3token_url[key].name;
-    var tokennode = document.createElement('div');
+    var tokennode = document.createElement('div'); //tokennode.style.padding = '100px 2px';
+
+    tokennode.style.marginRight = '10px';
     var tokennode_inputdiv = document.createElement('div');
     var tokennode_input = document.createElement('input');
     tokennode_input.type = 'checkbox';
@@ -1447,8 +1476,10 @@ function renderTokenButtonList() {
     tokennode_input.style.backgroundImage = "url('" + dota2_act3_act3token_url[key].url + "')";
     tokennode_input.style.backgroundRepeat = 'no-repeat';
     tokennode_input.style.backgroundPosition = 'center';
+    tokennode_input.style.marginBottom = '10px';
     tokennode_inputdiv.appendChild(tokennode_input);
     var tokennode_text = document.createElement('div');
+    tokennode_text.style = 'font-size: 20px;color: #fefefe;text-shadow: 0 0 0.5em #0ae642, 0 0 0.2em #5c5c5c;';
     tokennode_text.innerHTML = dota2_act3_act3token_url[key].name;
     tokennode.appendChild(tokennode_inputdiv);
     tokennode.appendChild(tokennode_text); //console.log('img', act3token_url[key].url, act3token_url[key].name);
@@ -1584,7 +1615,7 @@ var BaseClass = /*#__PURE__*/function () {
     value: function menu() {
       var _this2 = this;
 
-      _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+      resourceLoaded( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         var _yield$_this2$alert$f, searchKeys;
 
         return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -1627,7 +1658,7 @@ var BaseClass = /*#__PURE__*/function () {
             }
           }
         }, _callee);
-      }))();
+      })));
     }
   }]);
 

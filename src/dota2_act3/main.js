@@ -13,13 +13,14 @@ export default function initScript() {
   new BaseClass();
 }
 
-renderTokenButtonList();
 // 等待网页完成加载
 window.addEventListener(
   'load',
   function () {
-    // 因为英雄div渲染是由 JavaScript 完成 所以不能只能在load完以后再修改
-    initHeroToken();
+    resourceLoaded(() => {
+      renderTokenButtonList();
+      initHeroToken();
+    });
   },
   false
 );
@@ -150,6 +151,36 @@ function hitSearchKey(searchKeys) {
 }
 
 /////////////初始化函数///////////////////////////////////////////
+// 等所有图片都加载完成后再执行
+let flagResLoaded = false;
+function resourceLoaded(todoFunc) {
+  if (flagResLoaded) {
+    todoFunc();
+    return;
+  }
+  //let imgList = [];
+  let loadCount = 0;
+  // 因为英雄div渲染是由 JavaScript 完成 所以不能只能在load完以后再修改
+  Object.keys(act3token_url).forEach(function (key) {
+    // 触发网络请求 让浏览器缓存图片
+    // https://juejin.cn/post/7340167256267391012
+    const img = new Image();
+    img.alt = key;
+    img.title = act3token_url[key].name;
+    img.onload = () => {
+      loadCount++;
+      console.log(loadCount, img.alt, img.title, img.src);
+
+      if (loadCount >= Object.keys(act3token_url).length) {
+        flagResLoaded = true;
+        todoFunc();
+      }
+    };
+    img.src = act3token_url[key].url;
+
+    //imgList.push(img);
+  });
+}
 // 初始化 为网页 增加 代币按钮列表
 function renderTokenButtonList() {
   function insertBefore(node, newElement) {
@@ -164,14 +195,6 @@ function renderTokenButtonList() {
     'width: 100%;height: 100%;text-align: center;justify-content:safe center;align-items: center;display: flex;flex-direction: row-reverse;';
   // 按钮 样式 设置
   Object.keys(act3token_url).forEach(function (key) {
-    // 触发网络请求 让浏览器缓存图片
-    // https://juejin.cn/post/7340167256267391012
-    const img = new Image();
-    img.src = act3token_url[key].url;
-    img.style = 'width:80px;height:80px;';
-    img.alt = key;
-    img.title = act3token_url[key].name;
-
     const tokennode = document.createElement('div');
     //tokennode.style.padding = '100px 2px';
     tokennode.style.marginRight = '10px';
@@ -314,7 +337,7 @@ class BaseClass {
   }
 
   menu() {
-    (async () => {
+    resourceLoaded(async () => {
       const { value: searchKeys } = await this.alert.fire({
         title: 'dota2 倾天之战第三幕冰川残骸 格罗德图书馆',
         text: '请选择代币',
@@ -340,6 +363,6 @@ class BaseClass {
       });
 
       hitSearchKey(searchKeys);
-    })();
+    });
   }
 }
