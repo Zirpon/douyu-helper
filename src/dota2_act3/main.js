@@ -173,6 +173,8 @@ function renderTokenButtonList() {
     img.title = act3token_url[key].name;
 
     const tokennode = document.createElement('div');
+    //tokennode.style.padding = '100px 2px';
+    tokennode.style.marginRight = '10px';
     const tokennode_inputdiv = document.createElement('div');
     const tokennode_input = document.createElement('input');
     tokennode_input.type = 'checkbox';
@@ -180,9 +182,12 @@ function renderTokenButtonList() {
     tokennode_input.style.backgroundImage = "url('" + act3token_url[key].url + "')";
     tokennode_input.style.backgroundRepeat = 'no-repeat';
     tokennode_input.style.backgroundPosition = 'center';
+    tokennode_input.style.marginBottom = '10px';
+
     tokennode_inputdiv.appendChild(tokennode_input);
 
     const tokennode_text = document.createElement('div');
+    tokennode_text.style = 'font-size: 20px;color: #fefefe;text-shadow: 0 0 0.5em #0ae642, 0 0 0.2em #5c5c5c;';
     tokennode_text.innerHTML = act3token_url[key].name;
 
     tokennode.appendChild(tokennode_inputdiv);
