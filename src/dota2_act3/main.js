@@ -158,7 +158,7 @@ class BaseClass {
         //console.log(name);
         ibox[0].style.opacity = 1; // 透明度を50%に指定
         var tokendiv = document.getElementById('tokendiv_' + name);
-        tokendiv.style.opacity = 0.1; // 透明度を50%に指定
+        tokendiv.style.opacity = 1; // 透明度を50%に指定
       } else {
         ibox[0].style.opacity = 0.1; // 透明度を50%に指定
         var tokendiv = document.getElementById('tokendiv_' + name);
