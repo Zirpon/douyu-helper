@@ -141,7 +141,7 @@ export default class AlertQueue {
             },
             didClose: () => {
               this.showFlag = false;
-              console.log('param didClose ', curstep, terminate);
+              //console.log('params didClose ', curstep, terminate);
               if (!terminate) {
                 //this.alert_queue.update({ 'progressSteps': this.step_arr });
                 this.dps();

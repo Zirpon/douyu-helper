@@ -312,8 +312,7 @@ var AlertQueue = /*#__PURE__*/function () {
                             willClose: function willClose(params) {//console.log('param willClose' , curstep, params);
                             },
                             didClose: function didClose() {
-                              _this2.showFlag = false;
-                              console.log('param didClose ', curstep, terminate);
+                              _this2.showFlag = false; //console.log('params didClose ', curstep, terminate);
 
                               if (!terminate) {
                                 //this.alert_queue.update({ 'progressSteps': this.step_arr });
