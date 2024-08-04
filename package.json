@@ -6,8 +6,10 @@
   "scripts": {
     "start": "webpack serve --config ./config/dota2_act3/dota.webpack.dev.js --env filename=dota2_act3.dev.user.js",
     "dev": "webpack --watch --config ./config/dota2_act3/dota.webpack.dev.js --env filename=dota2_act3.dev.user.js",
-    "build": "yarn lint:fix && webpack --config ./config/dota2_act3/dota.webpack.prod.js --env filename=dota2_act3.user.js --stats-error-details",
-    "builddev": "yarn lint:fix && webpack --config ./config/dota2_act3/dota.webpack.dev.js --env filename=dota2_act3.dev.user.js --stats-error-details",
+    "build-douyu": "yarn lint:fix && webpack --config ./config/webpack.prod.js --env filename=douyu.user.js --stats-error-details",
+    "builddev-douyu": "yarn lint:fix && webpack --config ./config/webpack.dev.js --env filename=douyu.dev.user.js --stats-error-details",
+    "build-dota2": "yarn lint:fix && webpack --config ./config/dota2_act3/dota.webpack.prod.js --env filename=dota2_act3.user.js --stats-error-details",
+    "builddev-dota2": "yarn lint:fix && webpack --config ./config/dota2_act3/dota.webpack.dev.js --env filename=dota2_act3.dev.user.js --stats-error-details",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "lint:fix": "yarn lint --fix"
   },

@@ -68,10 +68,10 @@ export default class AlertQueue {
 
   updateQueue(alert = '') {
     if (alert != '') {
-      this.altert_arr.push(alert);
+      this.altert_arr.unshift(alert);
       //console.log('updateQ ', this.altert_arr, this.step_arr, this.altert_arr.length);
       if (this.altert_arr.length >= 10) {
-        this.altert_arr = this.altert_arr.slice(-10);
+        this.altert_arr = this.altert_arr.slice(0, 10);
       }
     } else {
       this.altert_arr = [];

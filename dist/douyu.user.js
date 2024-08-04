@@ -32,7 +32,18 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ douyu_livebc)
+  "G_ALERT_QUEUE": () => (/* binding */ G_ALERT_QUEUE),
+  "initScript": () => (/* binding */ initScript),
+  "speak": () => (/* binding */ speak)
+});
+
+// NAMESPACE OBJECT: ./src/douyu_livebc.js
+var douyu_livebc_namespaceObject = {};
+__webpack_require__.r(douyu_livebc_namespaceObject);
+__webpack_require__.d(douyu_livebc_namespaceObject, {
+  "G_ALERT_QUEUE": () => (G_ALERT_QUEUE),
+  "initScript": () => (initScript),
+  "speak": () => (speak)
 });
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.timers.js
@@ -223,10 +234,10 @@ var AlertQueue = /*#__PURE__*/function () {
       var alert = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
       if (alert != '') {
-        this.altert_arr.push(alert); //console.log('updateQ ', this.altert_arr, this.step_arr, this.altert_arr.length);
+        this.altert_arr.unshift(alert); //console.log('updateQ ', this.altert_arr, this.step_arr, this.altert_arr.length);
 
-        if (this.altert_arr.length >= 20) {
-          this.altert_arr = this.altert_arr.slice(-20);
+        if (this.altert_arr.length >= 10) {
+          this.altert_arr = this.altert_arr.slice(0, 10);
         }
       } else {
         this.altert_arr = [];
@@ -256,6 +267,18 @@ var AlertQueue = /*#__PURE__*/function () {
     // 然后再 重新生成新的 alert queue
     // 因为 目前 Swal2 项目作者并没有进队出队的 api
 
+    /**
+     * 执行主要的处理逻辑，包括显示一系列的通知，并根据用户的交互决定是否刷新页面
+     *
+     * 这个函数在页面加载完成后立即执行。它首先检查一个名为 `show_alert` 的标志，如果未设置或设置为 `false`，则函数将提前终止。
+     * 通过 `alert_queue` 对象的 `fire` 方法，并将 `altert_arr` 中的每个元素作为参数传递给它，从而显示通知。在每次循环迭代中，
+     * 更新 `step_arr` 以显示当前进度。同时，函数内部使用了 `Swal2` 库，用于显示自定义的警告框，如询问用户是否刷新网页。
+     * 若用户点击弹窗的关闭按钮，会根据关闭方式执行不同的操作，如终止循环并关闭所有弹窗。最终，依据流程分别关闭或刷新页面。
+     *
+     * @param {Object} self - 上下文对象，包含 `altert_arr`、`step_arr` 和 `alert_queue` 属性
+     * @since 1.0.0
+     */
+
   }, {
     key: "dps",
     value: function dps(self) {
@@ -268,7 +291,7 @@ var AlertQueue = /*#__PURE__*/function () {
       }
 
       _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var terminate, _loop, index;
+        var terminate, showAlertArr, _loop, index;
 
         return _regeneratorRuntime().wrap(function _callee$(_context2) {
           while (1) {
@@ -276,6 +299,7 @@ var AlertQueue = /*#__PURE__*/function () {
               case 0:
                 _this2.showFlag = true;
                 terminate = false;
+                showAlertArr = _this2.altert_arr;
                 _loop = /*#__PURE__*/_regeneratorRuntime().mark(function _loop(index) {
                   var curstep;
                   return _regeneratorRuntime().wrap(function _loop$(_context) {
@@ -285,9 +309,9 @@ var AlertQueue = /*#__PURE__*/function () {
                           curstep = index + 1;
                           _context.next = 3;
                           return _this2.alert_queue.fire({
-                            title: _this2.altert_arr[index].title,
-                            text: _this2.altert_arr[index].text,
-                            imageUrl: _this2.altert_arr[index].image,
+                            title: showAlertArr[index].title,
+                            text: showAlertArr[index].text,
+                            imageUrl: showAlertArr[index].image,
                             imageWidth: 100,
                             imageAlt: '直播间头像',
                             // 下标从0开始
@@ -366,20 +390,20 @@ var AlertQueue = /*#__PURE__*/function () {
                             console.log('params ', curstep, index, params, (sweetalert2_all_default()).DismissReason.close);
 
                             if (params.isConfirmed) {
-                              if (curstep >= _this2.altert_arr.length) {
+                              if (curstep >= showAlertArr.length) {
                                 //读完所有消息 关闭弹窗 通知仍然保存在队列中
                                 terminate = true;
-                              } //console.log('params.isConfirmed' , curstep, index, this.altert_arr.length, params, terminate);
+                              } //console.log('params.isConfirmed' , curstep, index, showAlertArr.length, params, terminate);
 
                             } else if (params.isDismissed == true && params.dismiss == (sweetalert2_all_default()).DismissReason.close) {
-                              console.log('params.isDismissed ', curstep, index, _this2.altert_arr.length, params, terminate); // 关闭按钮 收起通知弹窗 通知仍然保存在队列中
+                              console.log('params.isDismissed ', curstep, index, showAlertArr.length, params, terminate); // 关闭按钮 收起通知弹窗 通知仍然保存在队列中
 
                               terminate = true; //不刷新
 
                               _this2.closeAlert();
                             } else {
                               //新弹窗显示 程序自动关闭 之前弹窗
-                              console.log('params.isDismissed ', curstep, index, _this2.altert_arr.length, params, terminate);
+                              console.log('params.isDismissed ', curstep, index, showAlertArr.length, params, terminate);
 
                               _this2.closeAlert();
                             }
@@ -394,20 +418,20 @@ var AlertQueue = /*#__PURE__*/function () {
                 });
                 index = 0;
 
-              case 4:
-                if (!(index < _this2.altert_arr.length)) {
-                  _context2.next = 9;
+              case 5:
+                if (!(index < showAlertArr.length)) {
+                  _context2.next = 10;
                   break;
                 }
 
-                return _context2.delegateYield(_loop(index), "t0", 6);
+                return _context2.delegateYield(_loop(index), "t0", 7);
 
-              case 6:
+              case 7:
                 index++;
-                _context2.next = 4;
+                _context2.next = 5;
                 break;
 
-              case 9:
+              case 10:
               case "end":
                 return _context2.stop();
             }
@@ -512,11 +536,11 @@ var BaseClass = /*#__PURE__*/function () {
     GM_registerMenuCommand('设置', function () {
       return _this.menuFun();
     });
-    GM_getValue('show_alert', true); //GM_setValue('alert_arr', []);
+    GM_getValue('show_alert', false); //GM_setValue('alert_arr', []);
 
-    douyu_livebc.G_ALERT_QUEUE.inheritAttrs(GM_getValue('alert_arr', []));
+    douyu_livebc_namespaceObject["default"].G_ALERT_QUEUE.inheritAttrs(GM_getValue('alert_arr', []));
     GM_registerMenuCommand('显示通知历史', function () {
-      return douyu_livebc.G_ALERT_QUEUE.add('showAlert');
+      return douyu_livebc_namespaceObject["default"].G_ALERT_QUEUE.add('showAlert');
     });
   }
 
@@ -636,7 +660,7 @@ var BaseClass = /*#__PURE__*/function () {
             var strLang = GM_getValue('LANG', 'zh-HK') === 'zh-CN' ? '国语' : '粤语';
             var sTxt = bSwitch + '，' + strGMSwitch + '，播报语言设置为' + strLang + '，语速设置为' + numRate;
             console.log(sTxt);
-            douyu_livebc.speak({
+            douyu_livebc_namespaceObject["default"].speak({
               text: sTxt
             }, function () {
               console.log('语音播放结束：' + sTxt);
@@ -925,12 +949,12 @@ function check() {
 var G_ALERT_QUEUE = new AlertQueue(reloadPage);
 
 function wrap_GM_notification(param) {
+  G_ALERT_QUEUE.add(param);
   var bGMnotice = GM_getValue('GM_notice', true);
 
   if (bGMnotice) {
     GM_notification(param);
-  } else {
-    G_ALERT_QUEUE.add(param); //console.log('GM_notification disabled');
+  } else {//console.log('GM_notification disabled');
   }
 }
 
@@ -947,11 +971,7 @@ function notifyTitle(s) {
   });
 }
 
-/* harmony default export */ const douyu_livebc = ({
-  initScript: initScript,
-  speak: speak,
-  G_ALERT_QUEUE: G_ALERT_QUEUE
-});
+
 
 /***/ }),
 
@@ -6091,17 +6111,15 @@ if (typeof this !== 'undefined' && this.Sweetalert2){this.swal = this.sweetAlert
 /***/ }),
 
 /***/ 6752:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var douyu_livebc_1 = __importDefault(__webpack_require__(4378));
+var douyu_livebc_1 = __webpack_require__(4378);
+//import initScript from './dota2_act3/main';
 var app = function () {
-    douyu_livebc_1.default.initScript();
+    (0, douyu_livebc_1.initScript)();
 };
 exports["default"] = app;
 

@@ -258,8 +258,4 @@ function notifyTitle(s) {
   });
 }
 
-export default {
-  initScript,
-  speak,
-  G_ALERT_QUEUE,
-};
+export { G_ALERT_QUEUE, initScript, speak };
