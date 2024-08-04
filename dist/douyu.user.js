@@ -37,15 +37,6 @@ __webpack_require__.d(__webpack_exports__, {
   "speak": () => (/* binding */ speak)
 });
 
-// NAMESPACE OBJECT: ./src/douyu_livebc.js
-var douyu_livebc_namespaceObject = {};
-__webpack_require__.r(douyu_livebc_namespaceObject);
-__webpack_require__.d(douyu_livebc_namespaceObject, {
-  "G_ALERT_QUEUE": () => (G_ALERT_QUEUE),
-  "initScript": () => (initScript),
-  "speak": () => (speak)
-});
-
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.timers.js
 var web_timers = __webpack_require__(6869);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.from.js
@@ -538,9 +529,9 @@ var BaseClass = /*#__PURE__*/function () {
     });
     GM_getValue('show_alert', false); //GM_setValue('alert_arr', []);
 
-    douyu_livebc_namespaceObject["default"].G_ALERT_QUEUE.inheritAttrs(GM_getValue('alert_arr', []));
+    G_ALERT_QUEUE.inheritAttrs(GM_getValue('alert_arr', []));
     GM_registerMenuCommand('显示通知历史', function () {
-      return douyu_livebc_namespaceObject["default"].G_ALERT_QUEUE.add('showAlert');
+      return G_ALERT_QUEUE.add('showAlert');
     });
   }
 
@@ -660,7 +651,7 @@ var BaseClass = /*#__PURE__*/function () {
             var strLang = GM_getValue('LANG', 'zh-HK') === 'zh-CN' ? '国语' : '粤语';
             var sTxt = bSwitch + '，' + strGMSwitch + '，播报语言设置为' + strLang + '，语速设置为' + numRate;
             console.log(sTxt);
-            douyu_livebc_namespaceObject["default"].speak({
+            speak({
               text: sTxt
             }, function () {
               console.log('语音播放结束：' + sTxt);

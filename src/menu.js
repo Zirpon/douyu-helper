@@ -1,6 +1,6 @@
 /*--create style--*/
 import './assets/styles.css';
-import api from './douyu_livebc';
+import { G_ALERT_QUEUE, speak } from './douyu_livebc';
 import menuinner from './menuinner.html';
 
 export default class BaseClass {
@@ -14,9 +14,9 @@ export default class BaseClass {
 
     GM_getValue('show_alert', false);
     //GM_setValue('alert_arr', []);
-    api.G_ALERT_QUEUE.inheritAttrs(GM_getValue('alert_arr', []));
+    G_ALERT_QUEUE.inheritAttrs(GM_getValue('alert_arr', []));
 
-    GM_registerMenuCommand('显示通知历史', () => api.G_ALERT_QUEUE.add('showAlert'));
+    GM_registerMenuCommand('显示通知历史', () => G_ALERT_QUEUE.add('showAlert'));
   }
 
   menuFun() {
@@ -135,7 +135,7 @@ export default class BaseClass {
           let strLang = GM_getValue('LANG', 'zh-HK') === 'zh-CN' ? '国语' : '粤语';
           let sTxt = bSwitch + '，' + strGMSwitch + '，播报语言设置为' + strLang + '，语速设置为' + numRate;
           console.log(sTxt);
-          api.speak(
+          speak(
             {
               text: sTxt,
             },
