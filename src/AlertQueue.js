@@ -212,7 +212,7 @@ export default class AlertQueue {
             },
           })
           .then((params) => {
-            console.log('params ', curstep, index, params, Swal2.DismissReason.close);
+            //console.log('params ', curstep, index, params, Swal2.DismissReason.close);
             if (params.isConfirmed) {
               if (curstep >= showAlertArr.length) {
                 //读完所有消息 关闭弹窗 通知仍然保存在队列中
@@ -220,14 +220,14 @@ export default class AlertQueue {
               }
               //console.log('params.isConfirmed' , curstep, index, showAlertArr.length, params, terminate);
             } else if (params.isDismissed == true && params.dismiss == Swal2.DismissReason.close) {
-              console.log('params.isDismissed ', curstep, index, showAlertArr.length, params, terminate);
+              //console.log('params.isDismissed ', curstep, index, showAlertArr.length, params, terminate);
               // 关闭按钮 收起通知弹窗 通知仍然保存在队列中
               terminate = true;
               //不刷新
               this.closeAlert();
             } else {
               //新弹窗显示 程序自动关闭 之前弹窗
-              console.log('params.isDismissed ', curstep, index, showAlertArr.length, params, terminate);
+              //console.log('params.isDismissed ', curstep, index, showAlertArr.length, params, terminate);
               this.closeAlert();
             }
           });

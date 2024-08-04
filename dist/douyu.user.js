@@ -378,8 +378,7 @@ var AlertQueue = /*#__PURE__*/function () {
                               }
                             }
                           }).then(function (params) {
-                            console.log('params ', curstep, index, params, (sweetalert2_all_default()).DismissReason.close);
-
+                            //console.log('params ', curstep, index, params, Swal2.DismissReason.close);
                             if (params.isConfirmed) {
                               if (curstep >= showAlertArr.length) {
                                 //读完所有消息 关闭弹窗 通知仍然保存在队列中
@@ -387,15 +386,14 @@ var AlertQueue = /*#__PURE__*/function () {
                               } //console.log('params.isConfirmed' , curstep, index, showAlertArr.length, params, terminate);
 
                             } else if (params.isDismissed == true && params.dismiss == (sweetalert2_all_default()).DismissReason.close) {
-                              console.log('params.isDismissed ', curstep, index, showAlertArr.length, params, terminate); // 关闭按钮 收起通知弹窗 通知仍然保存在队列中
-
+                              //console.log('params.isDismissed ', curstep, index, showAlertArr.length, params, terminate);
+                              // 关闭按钮 收起通知弹窗 通知仍然保存在队列中
                               terminate = true; //不刷新
 
                               _this2.closeAlert();
                             } else {
                               //新弹窗显示 程序自动关闭 之前弹窗
-                              console.log('params.isDismissed ', curstep, index, showAlertArr.length, params, terminate);
-
+                              //console.log('params.isDismissed ', curstep, index, showAlertArr.length, params, terminate);
                               _this2.closeAlert();
                             }
                           });
