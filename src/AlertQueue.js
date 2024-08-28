@@ -147,6 +147,7 @@ export default class AlertQueue {
                 this.dps();
               } else {
                 GM_setValue('show_alert', false);
+                /*
                 const swalWithBootstrapButtons = Swal2.mixin({
                   customClass: {
                     confirmButton: 'btn btn-success',
@@ -196,7 +197,6 @@ export default class AlertQueue {
                         });
                     } else if (
                       result.isDismissed
-                      /* Read more about handling dismissals below */
                       //result.dismiss === Swal2.DismissReason.cancel
                     ) {
                       swalWithBootstrapButtons.fire({
@@ -208,6 +208,7 @@ export default class AlertQueue {
                       });
                     }
                   });
+                  */
               }
             },
           })

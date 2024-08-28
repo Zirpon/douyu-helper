@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name                Douyu斗鱼 主播开播下播提醒 + 粤语/国语语音播报通知
 // @namespace           https://github.com/Zirpon/douyu-helper.git
-// @version             3.3.10
+// @version             3.4.10
 // @description         手动打开关注页面并放置在后台(https://www.douyu.com/directory/myFollow)  有主播开播/更改标题时自动发送通知提醒
 // @author              anonymous, hlc1209, P
 // @copyright           zepung
@@ -39,6 +39,10 @@ __webpack_require__.d(__webpack_exports__, {
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.timers.js
 var web_timers = __webpack_require__(6869);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.includes.js
+var es_array_includes = __webpack_require__(6801);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.includes.js
+var es_string_includes = __webpack_require__(3843);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.from.js
 var es_array_from = __webpack_require__(7049);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.iterator.js
@@ -51,8 +55,6 @@ var es_date_to_string = __webpack_require__(24);
 var es_array_iterator = __webpack_require__(752);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
 var web_dom_collections_iterator = __webpack_require__(6265);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.parse-int.js
-var es_parse_int = __webpack_require__(2320);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.define-property.js
 var es_object_define_property = __webpack_require__(739);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
@@ -98,7 +100,6 @@ function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyri
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 
 
 
@@ -319,61 +320,67 @@ var AlertQueue = /*#__PURE__*/function () {
                                 _this2.dps();
                               } else {
                                 GM_setValue('show_alert', false);
-                                var swalWithBootstrapButtons = sweetalert2_all_default().mixin({
+                                /*
+                                const swalWithBootstrapButtons = Swal2.mixin({
                                   customClass: {
                                     confirmButton: 'btn btn-success',
-                                    cancelButton: 'btn btn-danger'
+                                    cancelButton: 'btn btn-danger',
                                   },
-                                  buttonsStyling: true
+                                  buttonsStyling: true,
                                 });
-                                var timerInterval;
-                                swalWithBootstrapButtons.fire({
-                                  title: '刷新网页吗',
-                                  //text: 'You wont be able to revert this! ',
-                                  //icon: 'warning',
-                                  showCancelButton: true,
-                                  confirmButtonText: 'Yes, refresh it!',
-                                  cancelButtonText: 'No, cancel!',
-                                  reverseButtons: false,
-                                  timer: 3000,
-                                  timerProgressBar: true,
-                                  html: '<p>I will close in <b></b> seconds.</p>',
-                                  didOpen: function didOpen() {
-                                    //Swal2.showLoading();
-                                    var timer = sweetalert2_all_default().getPopup().querySelector('b');
-                                    timerInterval = setInterval(function () {
-                                      timer.textContent = "".concat(Math.ceil(parseInt(sweetalert2_all_default().getTimerLeft()) / 1000));
-                                    }, 100);
-                                  },
-                                  willClose: function willClose() {
-                                    clearInterval(timerInterval);
-                                  }
-                                }).then(function (result) {
-                                  if (result.isConfirmed) {
-                                    swalWithBootstrapButtons.fire({
-                                      title: 'refresh!',
-                                      text: '网页即将刷新 请稍候. 😘',
-                                      icon: 'success',
-                                      timer: 800,
-                                      showConfirmButton: false
-                                    }).then(function (result) {
-                                      if (result.isDismissed && result.dismiss == (sweetalert2_all_default()).DismissReason.timer && _this2.term_func) {
-                                        _this2.term_func(1);
-                                      }
-                                    });
-                                  } else if (result.isDismissed
-                                  /* Read more about handling dismissals below */
-                                  //result.dismiss === Swal2.DismissReason.cancel
-                                  ) {
-                                    swalWithBootstrapButtons.fire({
-                                      title: 'Cancelled',
-                                      text: '网页没刷新 请继续享用 😀:)',
-                                      timer: 800,
-                                      showConfirmButton: false //icon: 'error',
-
-                                    });
-                                  }
-                                });
+                                let timerInterval;
+                                swalWithBootstrapButtons
+                                  .fire({
+                                    title: '刷新网页吗',
+                                    //text: 'You wont be able to revert this! ',
+                                    //icon: 'warning',
+                                    showCancelButton: true,
+                                    confirmButtonText: 'Yes, refresh it!',
+                                    cancelButtonText: 'No, cancel!',
+                                    reverseButtons: false,
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                    html: '<p>I will close in <b></b> seconds.</p>',
+                                      didOpen: () => {
+                                      //Swal2.showLoading();
+                                      const timer = Swal2.getPopup().querySelector('b');
+                                      timerInterval = setInterval(() => {
+                                        timer.textContent = `${Math.ceil(parseInt(Swal2.getTimerLeft()) / 1000)}`;
+                                      }, 100);
+                                    },
+                                    willClose: () => {
+                                      clearInterval(timerInterval);
+                                    },
+                                  })
+                                  .then((result) => {
+                                    if (result.isConfirmed) {
+                                      swalWithBootstrapButtons
+                                        .fire({
+                                          title: 'refresh!',
+                                          text: '网页即将刷新 请稍候. 😘',
+                                          icon: 'success',
+                                          timer: 800,
+                                          showConfirmButton: false,
+                                        })
+                                        .then((result) => {
+                                          if (result.isDismissed && result.dismiss == Swal2.DismissReason.timer && this.term_func) {
+                                            this.term_func(1);
+                                          }
+                                        });
+                                    } else if (
+                                      result.isDismissed
+                                      //result.dismiss === Swal2.DismissReason.cancel
+                                    ) {
+                                      swalWithBootstrapButtons.fire({
+                                        title: 'Cancelled',
+                                        text: '网页没刷新 请继续享用 😀:)',
+                                        timer: 800,
+                                        showConfirmButton: false,
+                                        //icon: 'error',
+                                      });
+                                    }
+                                  });
+                                  */
                               }
                             }
                           }).then(function (params) {
@@ -680,6 +687,8 @@ var BaseClass = /*#__PURE__*/function () {
 
 
 
+
+
 var baseURL = 'https://douyu.com';
 var save = {};
 var save_name = {};
@@ -702,7 +711,18 @@ function initScript() {
   //window.onunload = function(event) {notifyTitle('斗鱼开播提醒已退出')}
 
 
-  window.setInterval(check, 10000);
+  window.setInterval(check, 10000); // 等待网页完成加载
+
+  window.addEventListener('load', function () {
+    var timerZhmIcon = setInterval(function () {
+      showHeroByToken(timerZhmIcon);
+    }, 200);
+    /*
+    resourceLoaded(() => {
+    renderTokenButtonList();
+    initHeroToken();
+    });*/
+  }, false);
 }
 /**
  * @description 文字转语音方法
@@ -957,6 +977,27 @@ function notifyTitle(s) {
       GM_openInTab('https://www.douyu.com', false); //window.focus ();
     }
   });
+}
+
+function showHeroByToken(timerZhmIcon) {
+  var heroElements2 = document.evaluate('//*[@class="layout-Cover-list"]/li[@class="layout-Cover-item"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null); //console.log(heroElements2);
+
+  for (var i = 0; i < heroElements2.snapshotLength; i++) {
+    clearInterval(timerZhmIcon); // 取消定时器
+
+    var node = heroElements2.snapshotItem(i);
+    var imgWrap = node.getElementsByClassName('DyLiveCover-imgWrap')[0];
+
+    if (imgWrap) {
+      //console.log(imgWrap);
+      var videoLogo = imgWrap.getElementsByClassName('DyLiveCover-videoLogo')[0];
+
+      if (videoLogo && videoLogo.innerHTML.includes('视频轮播')) {
+        //console.log(videoLogo.innerHTML);
+        imgWrap.style.opacity = 0.1; // 透明度を50%に指定
+      }
+    }
+  }
 }
 
 
@@ -6786,6 +6827,30 @@ module.exports = function (target, source, exceptions) {
 
 /***/ }),
 
+/***/ 7413:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var wellKnownSymbol = __webpack_require__(4201);
+
+var MATCH = wellKnownSymbol('match');
+
+module.exports = function (METHOD_NAME) {
+  var regexp = /./;
+  try {
+    '/./'[METHOD_NAME](regexp);
+  } catch (error1) {
+    try {
+      regexp[MATCH] = false;
+      return '/./'[METHOD_NAME](regexp);
+    } catch (error2) { /* empty */ }
+  } return false;
+};
+
+
+/***/ }),
+
 /***/ 1748:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -8027,6 +8092,27 @@ module.exports = false;
 
 /***/ }),
 
+/***/ 1245:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var isObject = __webpack_require__(8999);
+var classof = __webpack_require__(6648);
+var wellKnownSymbol = __webpack_require__(4201);
+
+var MATCH = wellKnownSymbol('match');
+
+// `IsRegExp` abstract operation
+// https://tc39.es/ecma262/#sec-isregexp
+module.exports = function (it) {
+  var isRegExp;
+  return isObject(it) && ((isRegExp = it[MATCH]) !== undefined ? !!isRegExp : classof(it) === 'RegExp');
+};
+
+
+/***/ }),
+
 /***/ 734:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -8573,33 +8659,20 @@ module.exports.f = function (C) {
 
 /***/ }),
 
-/***/ 7897:
+/***/ 2124:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
-var global = __webpack_require__(9037);
-var fails = __webpack_require__(3689);
-var uncurryThis = __webpack_require__(8844);
-var toString = __webpack_require__(4327);
-var trim = (__webpack_require__(1435).trim);
-var whitespaces = __webpack_require__(6350);
+var isRegExp = __webpack_require__(1245);
 
-var $parseInt = global.parseInt;
-var Symbol = global.Symbol;
-var ITERATOR = Symbol && Symbol.iterator;
-var hex = /^[+-]?0x/i;
-var exec = uncurryThis(hex.exec);
-var FORCED = $parseInt(whitespaces + '08') !== 8 || $parseInt(whitespaces + '0x16') !== 22
-  // MS Edge 18- broken with boxed symbols
-  || (ITERATOR && !fails(function () { $parseInt(Object(ITERATOR)); }));
+var $TypeError = TypeError;
 
-// `parseInt` method
-// https://tc39.es/ecma262/#sec-parseint-string-radix
-module.exports = FORCED ? function parseInt(string, radix) {
-  var S = trim(toString(string));
-  return $parseInt(S, (radix >>> 0) || (exec(hex, S) ? 16 : 10));
-} : $parseInt;
+module.exports = function (it) {
+  if (isRegExp(it)) {
+    throw new $TypeError("The method doesn't accept regular expressions");
+  } return it;
+};
 
 
 /***/ }),
@@ -9497,45 +9570,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ 1435:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-var uncurryThis = __webpack_require__(8844);
-var requireObjectCoercible = __webpack_require__(4684);
-var toString = __webpack_require__(4327);
-var whitespaces = __webpack_require__(6350);
-
-var replace = uncurryThis(''.replace);
-var ltrim = RegExp('^[' + whitespaces + ']+');
-var rtrim = RegExp('(^|[^' + whitespaces + '])[' + whitespaces + ']+$');
-
-// `String.prototype.{ trim, trimStart, trimEnd, trimLeft, trimRight }` methods implementation
-var createMethod = function (TYPE) {
-  return function ($this) {
-    var string = toString(requireObjectCoercible($this));
-    if (TYPE & 1) string = replace(string, ltrim, '');
-    if (TYPE & 2) string = replace(string, rtrim, '$1');
-    return string;
-  };
-};
-
-module.exports = {
-  // `String.prototype.{ trimLeft, trimStart }` methods
-  // https://tc39.es/ecma262/#sec-string.prototype.trimstart
-  start: createMethod(1),
-  // `String.prototype.{ trimRight, trimEnd }` methods
-  // https://tc39.es/ecma262/#sec-string.prototype.trimend
-  end: createMethod(2),
-  // `String.prototype.trim` method
-  // https://tc39.es/ecma262/#sec-string.prototype.trim
-  trim: createMethod(3)
-};
-
-
-/***/ }),
-
 /***/ 146:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -10069,18 +10103,6 @@ module.exports = function (name) {
 
 /***/ }),
 
-/***/ 6350:
-/***/ ((module) => {
-
-"use strict";
-
-// a string of all valid unicode whitespaces
-module.exports = '\u0009\u000A\u000B\u000C\u000D\u0020\u00A0\u1680\u2000\u2001\u2002' +
-  '\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
-
-
-/***/ }),
-
 /***/ 9693:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -10118,6 +10140,36 @@ var INCORRECT_ITERATION = !checkCorrectnessOfIteration(function (iterable) {
 $({ target: 'Array', stat: true, forced: INCORRECT_ITERATION }, {
   from: from
 });
+
+
+/***/ }),
+
+/***/ 6801:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var $includes = (__webpack_require__(4328).includes);
+var fails = __webpack_require__(3689);
+var addToUnscopables = __webpack_require__(7370);
+
+// FF99+ bug
+var BROKEN_ON_SPARSE = fails(function () {
+  // eslint-disable-next-line es/no-array-prototype-includes -- detection
+  return !Array(1).includes();
+});
+
+// `Array.prototype.includes` method
+// https://tc39.es/ecma262/#sec-array.prototype.includes
+$({ target: 'Array', proto: true, forced: BROKEN_ON_SPARSE }, {
+  includes: function includes(el /* , fromIndex = 0 */) {
+    return $includes(this, el, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+// https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
+addToUnscopables('includes');
 
 
 /***/ }),
@@ -10710,23 +10762,6 @@ if (!TO_STRING_TAG_SUPPORT) {
 
 /***/ }),
 
-/***/ 2320:
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-var $ = __webpack_require__(9989);
-var $parseInt = __webpack_require__(7897);
-
-// `parseInt` method
-// https://tc39.es/ecma262/#sec-parseint-string-radix
-$({ global: true, forced: parseInt !== $parseInt }, {
-  parseInt: $parseInt
-});
-
-
-/***/ }),
-
 /***/ 1692:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -11197,6 +11232,35 @@ var CHECK_WRAPPER = IS_PURE && !FORCED_PROMISE_CONSTRUCTOR;
 $({ target: 'Promise', stat: true, forced: IS_PURE || FORCED_PROMISE_CONSTRUCTOR }, {
   resolve: function resolve(x) {
     return promiseResolve(CHECK_WRAPPER && this === PromiseConstructorWrapper ? NativePromiseConstructor : this, x);
+  }
+});
+
+
+/***/ }),
+
+/***/ 3843:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(9989);
+var uncurryThis = __webpack_require__(8844);
+var notARegExp = __webpack_require__(2124);
+var requireObjectCoercible = __webpack_require__(4684);
+var toString = __webpack_require__(4327);
+var correctIsRegExpLogic = __webpack_require__(7413);
+
+var stringIndexOf = uncurryThis(''.indexOf);
+
+// `String.prototype.includes` method
+// https://tc39.es/ecma262/#sec-string.prototype.includes
+$({ target: 'String', proto: true, forced: !correctIsRegExpLogic('includes') }, {
+  includes: function includes(searchString /* , position = 0 */) {
+    return !!~stringIndexOf(
+      toString(requireObjectCoercible(this)),
+      toString(notARegExp(searchString)),
+      arguments.length > 1 ? arguments[1] : undefined
+    );
   }
 });
 

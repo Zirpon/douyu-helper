@@ -25,6 +25,22 @@ function initScript() {
   //window.onbeforeunload = function(event){notifyTitle('开播提醒已退出')}
   //window.onunload = function(event) {notifyTitle('斗鱼开播提醒已退出')}
   window.setInterval(check, 10000);
+
+  // 等待网页完成加载
+  window.addEventListener(
+    'load',
+    function () {
+      let timerZhmIcon = setInterval(function () {
+        showHeroByToken(timerZhmIcon);
+      }, 200);
+      /*
+    resourceLoaded(() => {
+      renderTokenButtonList();
+      initHeroToken();
+    });*/
+    },
+    false
+  );
 }
 
 /**
@@ -256,6 +272,33 @@ function notifyTitle(s) {
       //window.focus ();
     },
   });
+}
+
+function showHeroByToken(timerZhmIcon) {
+  let heroElements2 = document.evaluate(
+    '//*[@class="layout-Cover-list"]/li[@class="layout-Cover-item"]',
+    document,
+    null,
+    XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+    null
+  );
+
+  //console.log(heroElements2);
+
+  for (let i = 0; i < heroElements2.snapshotLength; i++) {
+    clearInterval(timerZhmIcon); // 取消定时器
+
+    let node = heroElements2.snapshotItem(i);
+    var imgWrap = node.getElementsByClassName('DyLiveCover-imgWrap')[0];
+    if (imgWrap) {
+      //console.log(imgWrap);
+      var videoLogo = imgWrap.getElementsByClassName('DyLiveCover-videoLogo')[0];
+      if (videoLogo && videoLogo.innerHTML.includes('视频轮播')) {
+        //console.log(videoLogo.innerHTML);
+        imgWrap.style.opacity = 0.1; // 透明度を50%に指定
+      }
+    }
+  }
 }
 
 export { G_ALERT_QUEUE, initScript, speak };
