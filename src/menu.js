@@ -3,6 +3,11 @@ import './assets/styles.css';
 import { G_ALERT_QUEUE, speak } from './douyu_livebc';
 import menuinner from './menuinner.html';
 
+let mainPage =
+  'https://greasyfork.org/zh-CN/scripts/498616-douyu%E6%96%97%E9%B1%BC-%E4%B8%BB%E6%92%AD%E5%BC%80%E6%92%AD%E4%B8%8B%E6%92%AD%E6%8F%90%E9%86%92-%E7%B2%A4%E8%AF%AD-%E5%9B%BD%E8%AF%AD%E8%AF%AD%E9%9F%B3%E6%92%AD%E6%8A%A5%E9%80%9A%E7%9F%A5';
+let updateURL =
+  'https://update.greasyfork.org/scripts/498616/Douyu%E6%96%97%E9%B1%BC%20%E4%B8%BB%E6%92%AD%E5%BC%80%E6%92%AD%E4%B8%8B%E6%92%AD%E6%8F%90%E9%86%92%20%2B%20%E7%B2%A4%E8%AF%AD%E5%9B%BD%E8%AF%AD%E8%AF%AD%E9%9F%B3%E6%92%AD%E6%8A%A5%E9%80%9A%E7%9F%A5.user.js';
+
 export default class BaseClass {
   constructor() {
     GM_getValue('LANG', 'zh-CN');
@@ -10,6 +15,8 @@ export default class BaseClass {
     GM_getValue('switchVoice', true);
     GM_getValue('GM_notice', true);
 
+    GM_registerMenuCommand('主页', () => window.open(mainPage));
+    GM_registerMenuCommand('更新', () => window.open(updateURL));
     GM_registerMenuCommand('设置', () => this.menuFun());
 
     GM_getValue('show_alert', false);
