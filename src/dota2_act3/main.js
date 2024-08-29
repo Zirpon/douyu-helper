@@ -268,9 +268,6 @@ function initHeroToken() {
   //console.log(heroElements2.snapshotLength);
 
   for (let i = 0; i < heroElements2.snapshotLength; i++) {
-    if (dota2_heros[name] == undefined) {
-      continue;
-    }
     let node = heroElements2.snapshotItem(i);
     //console.log(node);
     const href = node.getAttribute('href');
@@ -279,6 +276,9 @@ function initHeroToken() {
     node.setAttribute('style', 'position:relative;z-index:1;');
     //console.log(node.getAttribute('style'));
 
+    if (dota2_heros[name] == undefined) {
+      continue;
+    }
     const tokendiv = document.createElement('div');
     tokendiv.id = 'tokendiv_' + name;
     tokendiv.setAttribute('style', 'right:0px;position:absolute;top:10px; z-index:2;opacity:1;');
@@ -293,6 +293,11 @@ function initHeroToken() {
     node.appendChild(tokendiv);
   }
 }
+
+let mainPage =
+  'https://greasyfork.org/zh-CN/scripts/501114-dota2-%E5%80%BE%E5%A4%A9%E4%B9%8B%E6%88%98%E7%AC%AC%E4%B8%89%E5%B9%95-%E5%86%B0%E5%B7%9D%E6%AE%8B%E9%AA%B8-%E6%A0%BC%E7%BD%97%E5%BE%B7%E5%9B%BE%E4%B9%A6%E9%A6%86-%E4%BB%A3%E5%B8%81%E7%AD%9B%E9%80%89%E8%8B%B1%E9%9B%84';
+let updateURL =
+  'https://update.greasyfork.org/scripts/501114/dota2%20%E5%80%BE%E5%A4%A9%E4%B9%8B%E6%88%98%E7%AC%AC%E4%B8%89%E5%B9%95%20%E5%86%B0%E5%B7%9D%E6%AE%8B%E9%AA%B8%20%E6%A0%BC%E7%BD%97%E5%BE%B7%E5%9B%BE%E4%B9%A6%E9%A6%86%20%E4%BB%A3%E5%B8%81%E7%AD%9B%E9%80%89%E8%8B%B1%E9%9B%84.user.js';
 
 // 按钮类
 class BaseClass {
@@ -313,6 +318,8 @@ class BaseClass {
       showClass: { backdrop: 'swal2-noanimation' },
       hideClass: { backdrop: 'swal2-noanimation' },
     });
+    GM_registerMenuCommand('主页', () => window.open(mainPage));
+    GM_registerMenuCommand('更新', () => window.open(updateURL));
     GM_registerMenuCommand('格罗德图书馆', () => this.menu());
     GM_registerMenuCommand('reset', () => showHeroByToken());
   }
