@@ -4,6 +4,7 @@ import menu from './menu';
 var baseURL = 'https://douyu.com';
 var save = {};
 var save_name = {};
+var followURL = `https://www.douyu.com/wgapi/livenc/liveweb/follow/list?sort=0&cid1=0`;
 
 function initScript() {
   shim_GM_notification();
@@ -240,7 +241,7 @@ function check() {
   //console.log('Following rooms checking');
   GM_xmlhttpRequest({
     method: 'GET',
-    url: `https://www.douyu.com/wgapi/livenc/liveweb/follow/list?sort=0&cid1=0`,
+    url: followURL,
     onload: (response) => {
       var res = JSON.parse(response.responseText);
       append_notify(res);
