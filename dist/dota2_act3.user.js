@@ -1350,14 +1350,24 @@ function showHeroByToken(herolist) {
       ibox[0].style.opacity = 1; // 透明度を50%に指定
 
       var tokendiv = document.getElementById('tokendiv_' + name);
-      tokendiv.style.opacity = 1; // 透明度を50%に指定
+
+      if (tokendiv) {
+        tokendiv.style.opacity = 1; // 透明度を50%に指定
+      } else {
+        console.log(name, ibox[0]);
+      }
     } else if (herolist.indexOf(name) >= 0) {
       // 展示匹配代币的英雄
       //console.log(name);
       ibox[0].style.opacity = 1; // 透明度を50%に指定
 
       var tokendiv = document.getElementById('tokendiv_' + name);
-      tokendiv.style.opacity = 1; // 透明度を50%に指定
+
+      if (tokendiv) {
+        tokendiv.style.opacity = 1; // 透明度を50%に指定
+      } else {
+        console.log(name, ibox[0]);
+      }
     } else {
       // 置灰不匹配英雄
       ibox[0].style.opacity = 0.1; // 透明度を50%に指定
