@@ -1526,6 +1526,10 @@ function initHeroToken() {
   //console.log(heroElements2.snapshotLength);
 
   for (var i = 0; i < heroElements2.snapshotLength; i++) {
+    if (dota2_act3_dota2_heros[name] == undefined) {
+      continue;
+    }
+
     var node = heroElements2.snapshotItem(i); //console.log(node);
 
     var href = node.getAttribute('href');
@@ -6778,7 +6782,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-//import api from './douyu_livebc';
+//import { initScript } from './douyu_livebc';
 var main_1 = __importDefault(__webpack_require__(5811));
 var app = function () {
     (0, main_1.default)();

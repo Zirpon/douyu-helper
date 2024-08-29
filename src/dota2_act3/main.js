@@ -268,6 +268,9 @@ function initHeroToken() {
   //console.log(heroElements2.snapshotLength);
 
   for (let i = 0; i < heroElements2.snapshotLength; i++) {
+    if (dota2_heros[name] == undefined) {
+      continue;
+    }
     let node = heroElements2.snapshotItem(i);
     //console.log(node);
     const href = node.getAttribute('href');
