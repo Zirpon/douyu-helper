@@ -4,7 +4,9 @@ import menu from './menu';
 var baseURL = 'https://douyu.com';
 var save = {};
 var save_name = {};
+var save_fansBadgeList = {};
 var followURL = `https://www.douyu.com/wgapi/livenc/liveweb/follow/list?sort=0&cid1=0`;
+var getFansBadgeListURL = 'https://www.douyu.com/member/cp/getFansBadgeList';
 
 function initScript() {
   shim_GM_notification();
@@ -15,6 +17,7 @@ function initScript() {
   // 初始化所有GM value
   new menu();
 
+  getFansBadgeList();
   check();
 
   // 这里需要判断一下 否则会导致 alertQueue的add函数一直刷新网页
@@ -237,6 +240,31 @@ function append_notify(res) {
   //console.log('Following rooms checked');
 }
 
+function getFansBadgeList() {
+  fetch(getFansBadgeListURL, {
+    method: 'GET',
+    mode: 'no-cors',
+    cache: 'default',
+    credentials: 'include',
+  })
+    .then((res) => {
+      return res.text();
+    })
+    .then(async (doc) => {
+      doc = new DOMParser().parseFromString(doc, 'text/html');
+      let a = doc.getElementsByClassName('fans-badge-list')[0].lastElementChild;
+      let n = a.children.length;
+      for (let i = 0; i < n; i++) {
+        //console.log(a.children[i]);
+        let rid = a.children[i].getAttribute('data-fans-room'); // 获取房间号
+        let rFanLvl = a.children[i].getAttribute('data-fans-level'); // 牌子等级
+        let rname = a.children[i].children[1].children[0].innerHTML;
+        save_fansBadgeList[rid] = { rid: rid, rname: rname, rFanLvl: rFanLvl };
+      }
+      //console.log(save_fansBadgeList);
+    });
+}
+
 function check() {
   //console.log('Following rooms checking');
   GM_xmlhttpRequest({
@@ -276,6 +304,11 @@ function notifyTitle(s) {
 }
 
 function showHeroByToken(timerZhmIcon) {
+  console.log(save_fansBadgeList);
+
+  if (save_fansBadgeList.length == 0) {
+    // return;
+  }
   let heroElements2 = document.evaluate(
     '//*[@class="layout-Cover-list"]/li[@class="layout-Cover-item"]',
     document,
@@ -287,9 +320,25 @@ function showHeroByToken(timerZhmIcon) {
   //console.log(heroElements2);
 
   for (let i = 0; i < heroElements2.snapshotLength; i++) {
-    clearInterval(timerZhmIcon); // 取消定时器
-
     let node = heroElements2.snapshotItem(i);
+    var roomlink = node.getElementsByTagName('a')[0];
+    var roomlinkURL = roomlink.getAttribute('href');
+    var roomid = roomlinkURL.split('/')[1];
+    //console.log(roomlink, roomlinkURL, roomid, roomlinkURL.split('/')[0]);
+    if (roomid in save_fansBadgeList) {
+      clearInterval(timerZhmIcon); // 取消定时器
+
+      function insertBefore(node, newElement) {
+        node.insertBefore(newElement, node.firstChild);
+      }
+
+      const rainbowFrame = document.createElement('div');
+      rainbowFrame.className = 'border-layer';
+      insertBefore(node, rainbowFrame);
+    } else {
+      console.log(roomid + '不在列表中', save_fansBadgeList);
+    }
+
     var imgWrap = node.getElementsByClassName('DyLiveCover-imgWrap')[0];
     if (imgWrap) {
       //console.log(imgWrap);

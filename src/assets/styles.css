@@ -602,3 +602,51 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+/* 使用 CSS 实现边框环绕旋转动画 https://uovol.com/css-border-surround-animations*/
+/* 容器 */
+.layout-Cover-item {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+/* 作为边框的旋转层 */
+.layout-Cover-item .border-layer {
+  background-image: conic-gradient(
+    from 45deg,
+    #ffbe44 0deg 90deg,
+    #5dade2 90deg 180deg,
+    #ee5732 180deg 270deg,
+    #2ecc71 270deg 360deg
+  );
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 370px;
+  height: 370px;
+  margin-left: -185px;
+  margin-top: -185px;
+  animation: 6s infinite linear rotate;
+}
+/* 旋转动画 */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* 内容层 */
+.layout-Cover-item .box-content {
+  width: 100%;
+  height: 90%;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  padding: 10px;
+  box-sizing: border-box;
+}
