@@ -332,9 +332,16 @@ function showHeroByToken(timerZhmIcon) {
         node.insertBefore(newElement, node.firstChild);
       }
 
-      const rainbowFrame = document.createElement('div');
+      let originContent = node.removeChild(node.firstChild);
+
+      let rainbowFrame = document.createElement('div');
       rainbowFrame.className = 'border-layer';
-      insertBefore(node, rainbowFrame);
+      node.appendChild(rainbowFrame);
+
+      let rainbowFrameContent = document.createElement('div');
+      rainbowFrameContent.className = 'box-content';
+      rainbowFrameContent.appendChild(originContent);
+      node.appendChild(rainbowFrameContent);
     } else {
       console.log(roomid + '不在列表中', save_fansBadgeList);
     }

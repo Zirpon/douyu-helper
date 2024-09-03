@@ -603,9 +603,13 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-/* 使用 CSS 实现边框环绕旋转动画 https://uovol.com/css-border-surround-animations*/
+/* 使用 CSS 实现边框环绕旋转动画 https://uovol.com/css-border-surround-animations
+
+*/
 /* 容器 */
 .layout-Cover-item {
+  width: 324.4px;
+  height: 237.2px;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -622,10 +626,10 @@ input:checked + .slider:before {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 370px;
-  height: 370px;
-  margin-left: -185px;
-  margin-top: -185px;
+  width: 400px;
+  height: 400px;
+  margin-left: -200px;
+  margin-top: -200px;
   animation: 6s infinite linear rotate;
 }
 /* 旋转动画 */
@@ -637,16 +641,21 @@ input:checked + .slider:before {
     transform: rotate(360deg);
   }
 }
-/* 内容层 */
+/* 内容层 
+
+*/
 .layout-Cover-item .box-content {
-  width: 100%;
-  height: 90%;
+  width: 300px;
+  height: 220px;
   background-color: #fff;
   border-radius: 8px;
   overflow: hidden;
   position: absolute;
-  top: 4px;
-  left: 4px;
+  border-radius: 8px;
+  top: 8px;
+  left: 8px;
+  right: 4px;
+  bottom: 4px;
   padding: 10px;
   box-sizing: border-box;
 }
