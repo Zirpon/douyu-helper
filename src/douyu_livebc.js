@@ -23,7 +23,7 @@ function initScript() {
   // 这里需要判断一下 否则会导致 alertQueue的add函数一直刷新网页
   let bGMnotice = GM_getValue('GM_notice', true);
   if (bGMnotice) {
-    notifyTitle('斗鱼开播提醒启动了');
+    notifyTitle('斗鱼开播提醒启动了', false);
   }
 
   //window.onbeforeunload = function(event){notifyTitle('开播提醒已退出')}
@@ -278,8 +278,10 @@ function check() {
 }
 
 let G_ALERT_QUEUE = new AlertQueue(reloadPage);
-function wrap_GM_notification(param) {
-  G_ALERT_QUEUE.add(param);
+function wrap_GM_notification(param, b_AddQueue = true) {
+  if (b_AddQueue) {
+    G_ALERT_QUEUE.add(param);
+  }
   let bGMnotice = GM_getValue('GM_notice', true);
   if (bGMnotice) {
     GM_notification(param);
@@ -288,19 +290,22 @@ function wrap_GM_notification(param) {
   }
 }
 
-function notifyTitle(s) {
-  wrap_GM_notification({
-    text: '斗鱼开播提醒',
-    title: s,
-    timeout: 1800,
-    image:
-      'https://img.douyucdn.cn/data/yuba/admin/2018/08/13/201808131555573522222945055.jpg?i=31805464339f469e0d3f992e565e261803',
-    onclick: function () {
-      console.log('Notice clicked.');
-      GM_openInTab('https://www.douyu.com', false);
-      //window.focus ();
+function notifyTitle(s, b_AddQueue = true) {
+  wrap_GM_notification(
+    {
+      text: '斗鱼开播提醒',
+      title: s,
+      timeout: 1800,
+      image:
+        'https://img.douyucdn.cn/data/yuba/admin/2018/08/13/201808131555573522222945055.jpg?i=31805464339f469e0d3f992e565e261803',
+      onclick: function () {
+        console.log('Notice clicked.');
+        GM_openInTab('https://www.douyu.com', false);
+        //window.focus ();
+      },
     },
-  });
+    b_AddQueue
+  );
 }
 
 function showHeroByToken(timerZhmIcon) {
@@ -343,7 +348,7 @@ function showHeroByToken(timerZhmIcon) {
       rainbowFrameContent.appendChild(originContent);
       node.appendChild(rainbowFrameContent);
     } else {
-      console.log(roomid + '不在列表中', save_fansBadgeList);
+      //console.log(roomid + '不在列表中', save_fansBadgeList);
     }
 
     var imgWrap = node.getElementsByClassName('DyLiveCover-imgWrap')[0];

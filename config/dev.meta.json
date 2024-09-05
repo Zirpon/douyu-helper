@@ -1,7 +1,7 @@
 {
-  "name": "Douyu斗鱼 主播开播下播提醒 + 粤语/国语语音播报通知 dev",
+  "name": "Douyu dev 斗鱼主播开播下播提醒 + 粤语/国语语音播报通知",
   "namespace": "https://github.com/Zirpon/douyu-helper.git",
-  "match": ["*://*.localhost/*"],
+  "match": ["*://*.localhost/*", "https://www.douyu.com/directory/myFollow"],
   "grant": [
     "GM_xmlhttpRequest",
     "GM_openInTab",
