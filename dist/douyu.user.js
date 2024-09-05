@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name                Douyu斗鱼 主播开播下播提醒 + 粤语/国语语音播报通知
 // @namespace           https://github.com/Zirpon/douyu-helper.git
-// @version             3.4.11
+// @version             3.4.12
 // @description         斗鱼关注页面🌈彩虹旋转边框环绕带牌子直播间🍉有主播开播/更改标题时自动发送通知提醒🎏支持语音播报🌊可翻看最近10条历史通知♨️置灰斗鱼关注页面视频轮播单元格窗口
 // @author              anonymous, hlc1209, P
 // @copyright           zepung
