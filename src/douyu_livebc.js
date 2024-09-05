@@ -335,18 +335,13 @@ function showHeroByToken(timerZhmIcon) {
       clearInterval(timerZhmIcon); // 取消定时器
 
       let nodeHeight = node.clientHeight;
-      let nodeStyle = node.style;
-      //console.log('node.clientHeight', node.clientHeight, nodeStyle);
 
       let originContent = node.removeChild(node.firstChild);
-      node.style = nodeStyle;
 
       let rainbowBox = document.createElement('div');
       rainbowBox.className = 'box-wrap';
       rainbowBox.style.height = nodeHeight + 'px';
       node.appendChild(rainbowBox);
-
-      //console.log(rainbowBox.clientHeight, rainbowBox.style.height, node.clientHeight, node.style, nodeHeight);
 
       let rainbowFrame = document.createElement('div');
       rainbowFrame.className = 'border-layer';
