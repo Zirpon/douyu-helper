@@ -330,23 +330,32 @@ function showHeroByToken(timerZhmIcon) {
     var roomlinkURL = roomlink.getAttribute('href');
     var roomid = roomlinkURL.split('/')[1];
     //console.log(roomlink, roomlinkURL, roomid, roomlinkURL.split('/')[0]);
+
     if (roomid in save_fansBadgeList) {
       clearInterval(timerZhmIcon); // 取消定时器
 
-      function insertBefore(node, newElement) {
-        node.insertBefore(newElement, node.firstChild);
-      }
+      let nodeHeight = node.clientHeight;
+      let nodeStyle = node.style;
+      //console.log('node.clientHeight', node.clientHeight, nodeStyle);
 
       let originContent = node.removeChild(node.firstChild);
+      node.style = nodeStyle;
+
+      let rainbowBox = document.createElement('div');
+      rainbowBox.className = 'box-wrap';
+      rainbowBox.style.height = nodeHeight + 'px';
+      node.appendChild(rainbowBox);
+
+      //console.log(rainbowBox.clientHeight, rainbowBox.style.height, node.clientHeight, node.style, nodeHeight);
 
       let rainbowFrame = document.createElement('div');
       rainbowFrame.className = 'border-layer';
-      node.appendChild(rainbowFrame);
+      rainbowBox.appendChild(rainbowFrame);
 
-      let rainbowFrameContent = document.createElement('div');
-      rainbowFrameContent.className = 'box-content';
-      rainbowFrameContent.appendChild(originContent);
-      node.appendChild(rainbowFrameContent);
+      let rainbowContent = document.createElement('div');
+      rainbowContent.className = 'box-content';
+      rainbowContent.appendChild(originContent);
+      rainbowBox.appendChild(rainbowContent);
     } else {
       //console.log(roomid + '不在列表中', save_fansBadgeList);
     }
