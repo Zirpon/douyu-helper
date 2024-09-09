@@ -970,7 +970,7 @@ function append_notify(res) {
       }();
 
       wrap_GM_notification(notificationDetails_name);
-      changed = 1;
+      changed = 2;
     }
   };
 

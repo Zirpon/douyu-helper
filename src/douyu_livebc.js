@@ -229,7 +229,7 @@ function append_notify(res) {
         };
       })();
       wrap_GM_notification(notificationDetails_name);
-      changed = 1;
+      changed = 2;
     }
   }
   if (init_flag != 0 && changed == 1 && GM_getValue('GM_notice', true) == true) {
