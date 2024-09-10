@@ -943,8 +943,7 @@ function append_notify(res) {
 
 
     if (!(res.data.list[each].room_id in save_name)) {
-      save_name[res.data.list[each].room_id] = res.data.list[each].room_name;
-      changed = 2;
+      save_name[res.data.list[each].room_id] = res.data.list[each].room_name; //changed = 2;
     } else if (save_name[res.data.list[each].room_id] != res.data.list[each].room_name) {
       save_name[res.data.list[each].room_id] = res.data.list[each].room_name;
 
@@ -969,8 +968,7 @@ function append_notify(res) {
         };
       }();
 
-      wrap_GM_notification(notificationDetails_name);
-      changed = 2;
+      wrap_GM_notification(notificationDetails_name); //changed = 2;
     }
   };
 
