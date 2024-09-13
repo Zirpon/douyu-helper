@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name                Douyu斗鱼 主播开播下播提醒 + 粤语/国语语音播报通知
 // @namespace           https://github.com/Zirpon/douyu-helper.git
-// @version             3.4.12
+// @version             3.4.13
 // @description         斗鱼关注页面🌈彩虹旋转边框环绕带牌子直播间🍉有主播开播/更改标题时自动发送通知提醒🎏支持语音播报🌊可翻看最近10条历史通知♨️置灰斗鱼关注页面视频轮播单元格窗口
 // @author              anonymous, hlc1209, P
 // @copyright           zepung
 // @license             MIT
 // @match               https://www.douyu.com/directory/myFollow
+// @match               https://www.douyu.com/directory/watchHistory
 // @run-at              document-idle
 // @supportURL          https://greasyfork.org/zh-CN/scripts/498616-douyu%E6%96%97%E9%B1%BC-%E4%B8%BB%E6%92%AD%E5%BC%80%E6%92%AD%E4%B8%8B%E6%92%AD%E6%8F%90%E9%86%92-%E7%B2%A4%E8%AF%AD-%E5%9B%BD%E8%AF%AD%E8%AF%AD%E9%9F%B3%E6%92%AD%E6%8A%A5%E9%80%9A%E7%9F%A5/feedback
 // @homepage            https://greasyfork.org/zh-CN/scripts/498616-douyu%E6%96%97%E9%B1%BC-%E4%B8%BB%E6%92%AD%E5%BC%80%E6%92%AD%E4%B8%8B%E6%92%AD%E6%8F%90%E9%86%92-%E7%B2%A4%E8%AF%AD-%E5%9B%BD%E8%AF%AD%E8%AF%AD%E9%9F%B3%E6%92%AD%E6%8A%A5%E9%80%9A%E7%9F%A5
@@ -1084,7 +1085,8 @@ function showHeroByToken(timerZhmIcon) {
   if (save_fansBadgeList.length == 0) {// return;
   }
 
-  var heroElements2 = document.evaluate('//*[@class="layout-Cover-list"]/li[@class="layout-Cover-item"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null); //console.log(heroElements2);
+  var heroElements2 = document.evaluate( //'//*[@class="layout-Cover-list"]/li[@class="layout-Cover-item"]',
+  '//*[@class="layout-Cover-list"]/li[contains(@class,"layout-Cover-item")]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null); //console.log(heroElements2);
 
   for (var i = 0; i < heroElements2.snapshotLength; i++) {
     var node = heroElements2.snapshotItem(i);
@@ -1109,7 +1111,21 @@ function showHeroByToken(timerZhmIcon) {
       rainbowContent.appendChild(originContent);
       rainbowBox.appendChild(rainbowContent);
     } else {//console.log(roomid + '不在列表中', save_fansBadgeList);
-    }
+    } // 历史访问页面 非直播格子置灰
+
+
+    var isLive = node.getElementsByClassName('DyHistoryCover-isLive')[0];
+
+    if (isLive == undefined) {
+      var imgWrap = node.getElementsByClassName('DyHistoryCover-imgWrap')[0];
+
+      if (imgWrap) {
+        //console.log(imgWrap);
+        //console.log(videoLogo.innerHTML);
+        imgWrap.style.opacity = 0.1; // 透明度を50%に指定
+      }
+    } // 关注页面 非直播格子置灰
+
 
     var imgWrap = node.getElementsByClassName('DyLiveCover-imgWrap')[0];
 

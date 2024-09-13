@@ -315,7 +315,8 @@ function showHeroByToken(timerZhmIcon) {
     // return;
   }
   let heroElements2 = document.evaluate(
-    '//*[@class="layout-Cover-list"]/li[@class="layout-Cover-item"]',
+    //'//*[@class="layout-Cover-list"]/li[@class="layout-Cover-item"]',
+    '//*[@class="layout-Cover-list"]/li[contains(@class,"layout-Cover-item")]',
     document,
     null,
     XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
@@ -355,6 +356,18 @@ function showHeroByToken(timerZhmIcon) {
       //console.log(roomid + '不在列表中', save_fansBadgeList);
     }
 
+    // 历史访问页面 非直播格子置灰
+    var isLive = node.getElementsByClassName('DyHistoryCover-isLive')[0];
+    if (isLive == undefined) {
+      var imgWrap = node.getElementsByClassName('DyHistoryCover-imgWrap')[0];
+      if (imgWrap) {
+        //console.log(imgWrap);
+        //console.log(videoLogo.innerHTML);
+        imgWrap.style.opacity = 0.1; // 透明度を50%に指定
+      }
+    }
+
+    // 关注页面 非直播格子置灰
     var imgWrap = node.getElementsByClassName('DyLiveCover-imgWrap')[0];
     if (imgWrap) {
       //console.log(imgWrap);
