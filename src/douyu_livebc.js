@@ -1,4 +1,5 @@
 import AlertQueue from './AlertQueue';
+import entityName2char from './htmlEntity';
 import menu from './menu';
 
 var baseURL = 'https://douyu.com';
@@ -198,6 +199,10 @@ function append_notify(res) {
     }
 
     // for room name changing
+    if (res.data.list[each].room_name) {
+      res.data.list[each].room_name = entityName2char(res.data.list[each].room_name);
+    }
+
     if (!(res.data.list[each].room_id in save_name)) {
       save_name[res.data.list[each].room_id] = res.data.list[each].room_name;
       //changed = 2;
