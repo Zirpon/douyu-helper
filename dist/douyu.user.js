@@ -1153,20 +1153,23 @@ function showHeroByToken(timerZhmIcon) {
 
     if (roomid in save_fansBadgeList) {
       clearInterval(timerZhmIcon); // 取消定时器
+      // 当前直播的牌子直播间 彩虹框圈住
 
-      var nodeHeight = node.clientHeight;
-      var originContent = node.removeChild(node.firstChild);
-      var rainbowBox = document.createElement('div');
-      rainbowBox.className = 'box-wrap';
-      rainbowBox.style.height = nodeHeight + 'px';
-      node.appendChild(rainbowBox);
-      var rainbowFrame = document.createElement('div');
-      rainbowFrame.className = 'border-layer';
-      rainbowBox.appendChild(rainbowFrame);
-      var rainbowContent = document.createElement('div');
-      rainbowContent.className = 'box-content';
-      rainbowContent.appendChild(originContent);
-      rainbowBox.appendChild(rainbowContent);
+      if (save[room_id] == true) {
+        var nodeHeight = node.clientHeight;
+        var originContent = node.removeChild(node.firstChild);
+        var rainbowBox = document.createElement('div');
+        rainbowBox.className = 'box-wrap';
+        rainbowBox.style.height = nodeHeight + 'px';
+        node.appendChild(rainbowBox);
+        var rainbowFrame = document.createElement('div');
+        rainbowFrame.className = 'border-layer';
+        rainbowBox.appendChild(rainbowFrame);
+        var rainbowContent = document.createElement('div');
+        rainbowContent.className = 'box-content';
+        rainbowContent.appendChild(originContent);
+        rainbowBox.appendChild(rainbowContent);
+      }
     } else {//console.log(roomid + '不在列表中', save_fansBadgeList);
     } // 历史访问页面 非直播格子置灰
 
