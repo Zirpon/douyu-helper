@@ -341,7 +341,7 @@ function showHeroByToken(timerZhmIcon) {
       clearInterval(timerZhmIcon); // 取消定时器
 
       // 当前直播的牌子直播间 彩虹框圈住
-      if (save[room_id] == true) {
+      if (save[roomid] == true) {
         let nodeHeight = node.clientHeight;
         let originContent = node.removeChild(node.firstChild);
 
