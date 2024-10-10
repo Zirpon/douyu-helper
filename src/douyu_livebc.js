@@ -338,10 +338,10 @@ function showHeroByToken(timerZhmIcon) {
     //console.log(roomlink, roomlinkURL, roomid, roomlinkURL.split('/')[0]);
 
     if (roomid in save_fansBadgeList) {
-      clearInterval(timerZhmIcon); // 取消定时器
-
       // 当前直播的牌子直播间 彩虹框圈住
       if (save[roomid] == true) {
+        clearInterval(timerZhmIcon); // 取消定时器
+
         let nodeHeight = node.clientHeight;
         let originContent = node.removeChild(node.firstChild);
 
