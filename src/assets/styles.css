@@ -1,606 +1,606 @@
 .zhmMask {
-  z-index: 999999999;
-  background-color: #000;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  opacity: 0.8;
+    z-index: 999999999;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.8;
 }
 .wrap-box {
-  z-index: 1000000000;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -200px);
-  width: 300px;
-  color: #555;
-  background-color: #fff;
-  border-radius: 5px;
-  overflow: hidden;
-  font: 16px numFont, PingFangSC-Regular, Tahoma, Microsoft Yahei, sans-serif !important;
-  font-weight: 400 !important;
+    z-index: 1000000000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -200px);
+    width: 300px;
+    color: #555;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    font: 16px numFont, PingFangSC-Regular, Tahoma, Microsoft Yahei, sans-serif !important;
+    font-weight: 400 !important;
 }
 .setWrapHead {
-  background-color: #f24443;
-  height: 40px;
-  color: #fff;
-  text-align: center;
-  line-height: 40px;
+    background-color: #f24443;
+    height: 40px;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
 }
 .setWrapLi {
-  margin: 0px;
-  padding: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 .setWrapLi li {
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
-  margin: 0px !important;
-  padding: 12px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    margin: 0px !important;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
 }
 
 .setWrapLiContent {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .setWrapSave {
-  position: absolute;
-  top: -2px;
-  right: 10px;
-  font-size: 24px;
-  cursor: pointer;
+    position: absolute;
+    top: -2px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
 }
 .iconSetFoot {
-  position: absolute;
-  bottom: 0px;
-  padding: 10px 20px;
-  width: 100%;
-  z-index: 1000000009;
-  background: #fef9ef;
+    position: absolute;
+    bottom: 0px;
+    padding: 10px 20px;
+    width: 100%;
+    z-index: 1000000009;
+    background: #fef9ef;
 }
 .iconSetFootLi {
-  margin: 0px;
-  padding: 0px;
-  font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
 }
 
 .iconSetFootLi li {
-  display: inline-flex;
-  padding: 0px 2px;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
+    display: inline-flex;
+    padding: 0px 2px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
 }
 .iconSetFootLi li a {
-  color: #555;
+    color: #555;
 }
 .iconSetFootLi a:hover {
-  color: #fe6d73;
+    color: #fe6d73;
 }
 .iconSetPage {
-  z-index: 1000000001;
-  position: absolute;
-  top: 0px;
-  left: 300px;
-  background: #fff;
-  width: 300px;
-  height: 100%;
+    z-index: 1000000001;
+    position: absolute;
+    top: 0px;
+    left: 300px;
+    background: #fff;
+    width: 300px;
+    height: 100%;
 }
 .iconSetUlHead {
-  padding: 0px;
-  margin: 0px;
+    padding: 0px;
+    margin: 0px;
 }
 .iconSetPageHead {
-  border-bottom: 1px solid #ccc;
-  height: 40px;
-  line-height: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fe6d73;
-  color: #fff;
-  font-size: 15px;
+    border-bottom: 1px solid #ccc;
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fe6d73;
+    color: #fff;
+    font-size: 15px;
 }
 .iconSetPageLi {
-  margin: 0px;
-  padding: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 .iconSetPageLi li {
-  list-style: none;
-  padding: 8px 20px;
-  border-bottom: 1px solid #eee;
+    list-style: none;
+    padding: 8px 20px;
+    border-bottom: 1px solid #eee;
 }
 .zhihuSetPage {
-  z-index: 1000000002;
-  position: absolute;
-  top: 0px;
-  left: 300px;
-  background: #fff;
-  width: 300px;
-  height: 100%;
+    z-index: 1000000002;
+    position: absolute;
+    top: 0px;
+    left: 300px;
+    background: #fff;
+    width: 300px;
+    height: 100%;
 }
 .iconSetPageInput {
-  display: flex !important;
-  justify-content: space-between;
-  align-items: center;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
 }
 .zhihuSetPageLi {
-  margin: 0px;
-  padding: 0px;
-  height: 258px;
-  overflow-y: scroll;
+    margin: 0px;
+    padding: 0px;
+    height: 258px;
+    overflow-y: scroll;
 }
 
 .zhihuSetPageContent {
-  display: flex !important;
-  justify-content: space-between;
-  align-items: center;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .zhm_circular {
-  width: 40px;
-  height: 20px;
-  border-radius: 16px;
-  transition: 0.3s;
-  cursor: pointer;
-  box-shadow: 0 0 3px #999 inset;
+    width: 40px;
+    height: 20px;
+    border-radius: 16px;
+    transition: 0.3s;
+    cursor: pointer;
+    box-shadow: 0 0 3px #999 inset;
 }
 .round-button {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
-  transition: 0.3s;
-  position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+    position: relative;
 }
 .zhm_back {
-  border: solid #fff;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-  margin-left: 10px;
-  cursor: pointer;
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    margin-left: 10px;
+    cursor: pointer;
 }
 .to-right {
-  margin-left: 20px;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  cursor: pointer;
+    margin-left: 20px;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    cursor: pointer;
 }
 .iconSetSave {
-  font-size: 24px;
-  cursor: pointer;
-  margin-right: 5px;
-  margin-bottom: 4px;
-  color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-bottom: 4px;
+    color: #fff;
 }
 .zhm_set_page {
-  z-index: 1000000003;
-  position: absolute;
-  top: 0px;
-  left: 300px;
-  background: #fff;
-  width: 300px;
-  height: 100%;
+    z-index: 1000000003;
+    position: absolute;
+    top: 0px;
+    left: 300px;
+    background: #fff;
+    width: 300px;
+    height: 100%;
 }
 .zhm_set_page_header {
-  border-bottom: 1px solid #ccc;
-  height: 40px;
-  line-height: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fe6d73;
-  color: #fff;
-  font-size: 15px;
+    border-bottom: 1px solid #ccc;
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fe6d73;
+    color: #fff;
+    font-size: 15px;
 }
 .zhm_set_page_content {
-  display: flex !important;
-  justify-content: space-between;
-  align-items: center;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
 }
 .zhm_set_page_list {
-  margin: 0px;
-  padding: 0px;
-  height: 220px;
-  overflow-y: scroll;
+    margin: 0px;
+    padding: 0px;
+    height: 220px;
+    overflow-y: scroll;
 }
 
 .zhm_set_page_list::-webkit-scrollbar {
-  /*滚动条整体样式*/
-  width: 0px; /*高宽分别对应横竖滚动条的尺寸*/
-  height: 1px;
+    /*滚动条整体样式*/
+    width: 0px; /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
 }
 .zhm_set_page_list::-webkit-scrollbar-thumb {
-  /*滚动条里面小方块*/
-  border-radius: 2px;
-  background-color: #fe6d73;
+    /*滚动条里面小方块*/
+    border-radius: 2px;
+    background-color: #fe6d73;
 }
 .zhm_set_page_list::-webkit-scrollbar-track {
-  /*滚动条里面轨道*/
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-  background: #ededed;
-  border-radius: 10px;
+    /*滚动条里面轨道*/
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: #ededed;
+    border-radius: 10px;
 }
 .zhm_set_page_list li {
-  /*border-bottom:1px solid #ccc;*/
-  padding: 12px 20px;
-  display: block;
-  border-bottom: 1px solid #eee;
+    /*border-bottom:1px solid #ccc;*/
+    padding: 12px 20px;
+    display: block;
+    border-bottom: 1px solid #eee;
 }
 li:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 .zhm_scroll {
-  overflow-y: scroll !important;
+    overflow-y: scroll !important;
 }
 .zhm_scroll::-webkit-scrollbar {
-  /*滚动条整体样式*/
-  width: 0px; /*高宽分别对应横竖滚动条的尺寸*/
-  height: 1px;
+    /*滚动条整体样式*/
+    width: 0px; /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
 }
 .zhm_scroll::-webkit-scrollbar-thumb {
-  /*滚动条里面小方块*/
-  border-radius: 2px;
-  background-color: #fe6d73;
+    /*滚动条里面小方块*/
+    border-radius: 2px;
+    background-color: #fe6d73;
 }
 .zhm_scroll::-webkit-scrollbar-track {
-  /*滚动条里面轨道*/
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-  background: #ededed;
-  border-radius: 10px;
+    /*滚动条里面轨道*/
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: #ededed;
+    border-radius: 10px;
 }
 /*-form-*/
 :root {
-  --base-color: #434a56;
-  --white-color-primary: #f7f8f8;
-  --white-color-secondary: #fefefe;
-  --gray-color-primary: #c2c2c2;
-  --gray-color-secondary: #c2c2c2;
-  --gray-color-tertiary: #676f79;
-  --active-color: #227c9d;
-  --valid-color: #c2c2c2;
-  --invalid-color: #f72f47;
-  --invalid-icon: url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%20%3Cpath%20d%3D%22M13.41%2012l4.3-4.29a1%201%200%201%200-1.42-1.42L12%2010.59l-4.29-4.3a1%201%200%200%200-1.42%201.42l4.3%204.29-4.3%204.29a1%201%200%200%200%200%201.42%201%201%200%200%200%201.42%200l4.29-4.3%204.29%204.3a1%201%200%200%200%201.42%200%201%201%200%200%200%200-1.42z%22%20fill%3D%22%23f72f47%22%20%2F%3E%3C%2Fsvg%3E');
+    --base-color: #434a56;
+    --white-color-primary: #f7f8f8;
+    --white-color-secondary: #fefefe;
+    --gray-color-primary: #c2c2c2;
+    --gray-color-secondary: #c2c2c2;
+    --gray-color-tertiary: #676f79;
+    --active-color: #227c9d;
+    --valid-color: #c2c2c2;
+    --invalid-color: #f72f47;
+    --invalid-icon: url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%20%3Cpath%20d%3D%22M13.41%2012l4.3-4.29a1%201%200%201%200-1.42-1.42L12%2010.59l-4.29-4.3a1%201%200%200%200-1.42%201.42l4.3%204.29-4.3%204.29a1%201%200%200%200%200%201.42%201%201%200%200%200%201.42%200l4.29-4.3%204.29%204.3a1%201%200%200%200%201.42%200%201%201%200%200%200%200-1.42z%22%20fill%3D%22%23f72f47%22%20%2F%3E%3C%2Fsvg%3E');
 }
 .text-input {
-  font-size: 16px;
-  position: relative;
-  right: 0px;
-  z-index: 0;
+    font-size: 16px;
+    position: relative;
+    right: 0px;
+    z-index: 0;
 }
 .text-input__body {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: transparent;
-  border: 1px solid var(--gray-color-primary);
-  border-radius: 3px;
-  height: 1.7em;
-  line-height: 1.7;
-  overflow: hidden;
-  padding: 2px 1em;
-  text-overflow: ellipsis;
-  transition: background-color 0.3s;
-  width: 55%;
-  font-size: 14px;
-  box-sizing: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: 1px solid var(--gray-color-primary);
+    border-radius: 3px;
+    height: 1.7em;
+    line-height: 1.7;
+    overflow: hidden;
+    padding: 2px 1em;
+    text-overflow: ellipsis;
+    transition: background-color 0.3s;
+    width: 55%;
+    font-size: 14px;
+    box-sizing: initial;
 }
 .text-input__body:-ms-input-placeholder {
-  color: var(--gray-color-secondary);
+    color: var(--gray-color-secondary);
 }
 .text-input__body::-moz-placeholder {
-  color: var(--gray-color-secondary);
+    color: var(--gray-color-secondary);
 }
 .text-input__body::placeholder {
-  color: var(--gray-color-secondary);
+    color: var(--gray-color-secondary);
 }
 
 .text-input__body[data-is-valid] {
-  padding-right: 1em;
+    padding-right: 1em;
 }
 .text-input__body[data-is-valid='true'] {
-  border-color: var(--valid-color);
+    border-color: var(--valid-color);
 }
 .text-input__body[data-is-valid='false'] {
-  border-color: var(--invalid-color);
-  box-shadow: inset 0 0 0 1px var(--invalid-color);
+    border-color: var(--invalid-color);
+    box-shadow: inset 0 0 0 1px var(--invalid-color);
 }
 .text-input__body:focus {
-  border-color: var(--active-color);
-  box-shadow: inset 0 0 0 1px var(--active-color);
-  outline: none;
+    border-color: var(--active-color);
+    box-shadow: inset 0 0 0 1px var(--active-color);
+    outline: none;
 }
 .text-input__body:-webkit-autofill {
-  transition-delay: 9999s;
-  -webkit-transition-property: background-color;
-  transition-property: background-color;
+    transition-delay: 9999s;
+    -webkit-transition-property: background-color;
+    transition-property: background-color;
 }
 .text-input__validator {
-  background-position: right 0.5em center;
-  background-repeat: no-repeat;
-  background-size: 1.5em;
-  display: inline-block;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: -1;
+    background-position: right 0.5em center;
+    background-repeat: no-repeat;
+    background-size: 1.5em;
+    display: inline-block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
 }
 .text-input__body[data-is-valid='false'] + .text-input__validator {
-  background-image: var(--invalid-icon);
+    background-image: var(--invalid-icon);
 }
 .select-box {
-  box-sizing: inherit;
-  font-size: 16px;
-  position: relative;
-  transition: background-color 0.5s ease-out;
-  width: 90px;
+    box-sizing: inherit;
+    font-size: 16px;
+    position: relative;
+    transition: background-color 0.5s ease-out;
+    width: 90px;
 }
 .select-box::after {
-  border-color: var(--gray-color-secondary) transparent transparent transparent;
-  border-style: solid;
-  border-width: 6px 4px 0;
-  bottom: 0;
-  content: '';
-  display: inline-block;
-  height: 0;
-  margin: auto 0;
-  pointer-events: none;
-  position: absolute;
-  right: -72px;
-  top: 0;
-  width: 0;
-  z-index: 1;
+    border-color: var(--gray-color-secondary) transparent transparent transparent;
+    border-style: solid;
+    border-width: 6px 4px 0;
+    bottom: 0;
+    content: '';
+    display: inline-block;
+    height: 0;
+    margin: auto 0;
+    pointer-events: none;
+    position: absolute;
+    right: -72px;
+    top: 0;
+    width: 0;
+    z-index: 1;
 }
 .select-box__body {
-  box-sizing: initial;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: transparent;
-  border: 1px solid var(--gray-color-primary);
-  border-radius: 3px;
-  cursor: pointer;
-  height: 1.7em;
-  line-height: 1.7;
-  padding-left: 1em;
-  padding-right: calc(1em + 16px);
-  width: 140%;
-  font-size: 14px;
-  padding-top: 2px;
-  padding-bottom: 2px;
+    box-sizing: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: 1px solid var(--gray-color-primary);
+    border-radius: 3px;
+    cursor: pointer;
+    height: 1.7em;
+    line-height: 1.7;
+    padding-left: 1em;
+    padding-right: calc(1em + 16px);
+    width: 140%;
+    font-size: 14px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 .select-box__body[data-is-valid='true'] {
-  border-color: var(--valid-color);
-  box-shadow: inset 0 0 0 1px var(--valid-color);
+    border-color: var(--valid-color);
+    box-shadow: inset 0 0 0 1px var(--valid-color);
 }
 .select-box__body[data-is-valid='false'] {
-  border-color: var(--invalid-color);
-  box-shadow: inset 0 0 0 1px var(--invalid-color);
+    border-color: var(--invalid-color);
+    box-shadow: inset 0 0 0 1px var(--invalid-color);
 }
 .select-box__body.focus-visible {
-  border-color: var(--active-color);
-  box-shadow: inset 0 0 0 1px var(--active-color);
-  outline: none;
+    border-color: var(--active-color);
+    box-shadow: inset 0 0 0 1px var(--active-color);
+    outline: none;
 }
 .select-box__body:-webkit-autofill {
-  transition-delay: 9999s;
-  -webkit-transition-property: background-color;
-  transition-property: background-color;
+    transition-delay: 9999s;
+    -webkit-transition-property: background-color;
+    transition-property: background-color;
 }
 .textarea__body {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: transparent;
-  border: 1px solid var(--gray-color-primary);
-  border-radius: 0;
-  box-sizing: initial;
-  font: inherit;
-  left: 0;
-  letter-spacing: inherit;
-  overflow: hidden;
-  padding: 1em;
-  position: absolute;
-  resize: none;
-  top: 0;
-  transition: background-color 0.5s ease-out;
-  width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: 1px solid var(--gray-color-primary);
+    border-radius: 0;
+    box-sizing: initial;
+    font: inherit;
+    left: 0;
+    letter-spacing: inherit;
+    overflow: hidden;
+    padding: 1em;
+    position: absolute;
+    resize: none;
+    top: 0;
+    transition: background-color 0.5s ease-out;
+    width: 100%;
 }
 .textarea__body:only-child {
-  position: relative;
-  resize: vertical;
+    position: relative;
+    resize: vertical;
 }
 .textarea__body:focus {
-  border-color: var(--active-color);
-  box-shadow: inset 0 0 0 1px var(--active-color);
-  outline: none;
+    border-color: var(--active-color);
+    box-shadow: inset 0 0 0 1px var(--active-color);
+    outline: none;
 }
 .textarea__body[data-is-valid='true'] {
-  border-color: var(--valid-color);
-  box-shadow: inset 0 0 0 1px var(--valid-color);
+    border-color: var(--valid-color);
+    box-shadow: inset 0 0 0 1px var(--valid-color);
 }
 .textarea__body[data-is-valid='false'] {
-  border-color: var(--invalid-color);
-  box-shadow: inset 0 0 0 1px var(--invalid-color);
+    border-color: var(--invalid-color);
+    box-shadow: inset 0 0 0 1px var(--invalid-color);
 }
 
 .textarea ._dummy-box {
-  border: 1px solid;
-  box-sizing: border-box;
-  min-height: 240px;
-  overflow: hidden;
-  overflow-wrap: break-word;
-  padding: 1em;
-  visibility: hidden;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+    border: 1px solid;
+    box-sizing: border-box;
+    min-height: 240px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    padding: 1em;
+    visibility: hidden;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 .toLeftMove {
-  nimation: moveToLeft 0.5s infinite;
-  -webkit-animation: moveToLeft 0.5s infinite; /*Safari and Chrome*/
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+    animation: moveToLeft 0.5s infinite;
+    -webkit-animation: moveToLeft 0.5s infinite; /*Safari and Chrome*/
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 @keyframes moveToLeft {
-  from {
-    left: 200px;
-  }
-  to {
-    left: 0px;
-  }
+    from {
+        left: 200px;
+    }
+    to {
+        left: 0px;
+    }
 }
 
 @-webkit-keyframes moveToLeft /*Safari and Chrome*/ {
-  from {
-    left: 200px;
-  }
-  to {
-    left: 0px;
-  }
+    from {
+        left: 200px;
+    }
+    to {
+        left: 0px;
+    }
 }
 
 .toRightMove {
-  nimation: moveToRight 2s infinite;
-  -webkit-animation: moveToRight 2s infinite; /*Safari and Chrome*/
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+    animation: moveToRight 2s infinite;
+    -webkit-animation: moveToRight 2s infinite; /*Safari and Chrome*/
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 @keyframes moveToRight {
-  from {
-    left: 0px;
-  }
-  to {
-    left: 2000px;
-  }
+    from {
+        left: 0px;
+    }
+    to {
+        left: 2000px;
+    }
 }
 
 @-webkit-keyframes moveToRight /*Safari and Chrome*/ {
-  from {
-    left: 0px;
-  }
-  to {
-    left: 200px;
-  }
+    from {
+        left: 0px;
+    }
+    to {
+        left: 200px;
+    }
 }
 label {
-  margin-right: 15px;
-  line-height: 32px;
+    margin-right: 15px;
+    line-height: 32px;
 }
 
 input {
-  appearance: none;
+    appearance: none;
 
-  border-radius: 50%;
-  width: 16px;
-  height: 16px;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
 
-  border: 2px solid #999;
-  transition: 0.2s all linear;
-  margin-right: 5px;
+    border: 2px solid #999;
+    transition: 0.2s all linear;
+    margin-right: 5px;
 
-  position: relative;
-  top: 4px;
+    position: relative;
+    top: 4px;
 }
 
 input:checked {
-  border: 6px solid black;
+    border: 6px solid black;
 }
 
 button,
 legend {
-  color: white;
-  background-color: black;
-  padding: 5px 10px;
-  border-radius: 0;
-  border: 0;
-  font-size: 14px;
+    color: white;
+    background-color: black;
+    padding: 5px 10px;
+    border-radius: 0;
+    border: 0;
+    font-size: 14px;
 }
 
 button:hover,
 button:focus {
-  color: #999;
+    color: #999;
 }
 
 button:active {
-  background-color: white;
-  color: black;
-  outline: 1px solid black;
+    background-color: white;
+    color: black;
+    outline: 1px solid black;
 }
 /* 创建一个开关按钮的样式 */
 .switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
 }
 
 /* 隐藏开关按钮的输入框 */
 .switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
 /* 创建滑块的样式 */
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
 }
 
 /* 创建滑块的初始状态 */
 .slider:before {
-  position: absolute;
-  content: '';
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
+    position: absolute;
+    content: '';
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
 }
 /* 当输入框被选中时，改变滑块的背景颜色 */
 input:checked + .slider {
-  background-color: #2196f3;
+    background-color: #2196f3;
 }
 
 /* 当输入框被聚焦时，给滑块添加阴影 */
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+    box-shadow: 0 0 1px #2196f3;
 }
 
 /* 当输入框被选中时，移动滑块 */
 input:checked + .slider:before {
-  transform: translateX(26px);
+    transform: translateX(26px);
 }
 
 /* 创建滑块的圆角样式 */
 .slider.round {
-  border-radius: 34px;
+    border-radius: 34px;
 }
 
 /* 创建滑块的圆形样式 */
 .slider.round:before {
-  border-radius: 50%;
+    border-radius: 50%;
 }
 
 /* 使用 CSS 实现边框环绕旋转动画 https://uovol.com/css-border-surround-animations
@@ -618,51 +618,51 @@ input:checked + .slider:before {
 */
 /* 容器 */
 .box-wrap {
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
 }
 /* 作为边框的旋转层 */
 .box-wrap .border-layer {
-  background-image: conic-gradient(
-    from 45deg,
-    #ffbe44 0deg 90deg,
-    #5dade2 90deg 180deg,
-    #ee5732 180deg 270deg,
-    #2ecc71 270deg 360deg
-  );
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 400px;
-  height: 400px;
-  margin-left: -200px;
-  margin-top: -200px;
-  animation: 6s infinite linear rotate;
+    background-image: conic-gradient(
+        from 45deg,
+        #ffbe44 0deg 90deg,
+        #5dade2 90deg 180deg,
+        #ee5732 180deg 270deg,
+        #2ecc71 270deg 360deg
+    );
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 400px;
+    height: 400px;
+    margin-left: -200px;
+    margin-top: -200px;
+    animation: 6s infinite linear rotate;
 }
 /* 旋转动画 */
 @keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 /* 内容层 
 
 */
 .box-wrap .box-content {
-  width: 95%;
-  height: 94%;
-  background-color: #fff;
-  overflow: hidden;
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  bottom: 8px;
-  right: 8px;
-  padding: 10px;
-  border-radius: 8px;
-  box-sizing: border-box;
+    width: 95%;
+    height: 94%;
+    background-color: #fff;
+    overflow: hidden;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    bottom: 8px;
+    right: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    box-sizing: border-box;
 }

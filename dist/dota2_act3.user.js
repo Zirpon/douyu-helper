@@ -148,7 +148,7 @@ var act3 = {
   },
   blood: {
     3: ['pudge'],
-    2: ['bloodseeker', 'life_stealer', 'necrolyte', 'queenofpain', 'troll_warlord'],
+    2: ['bloodseeker', 'life_stealer', 'necrolyte', 'queenofpain', 'troll_warlord', 'kez'],
     1: ['axe', 'beastmaster', 'bounty_hunter', 'bristleback', 'broodmother', 'centaur', 'dazzle', 'huskar', 'juggernaut', 'marci', 'mars', 'phantom_assassin', 'primal_beast', 'riki', 'sand_king', 'shadow_demon', 'sniper', 'tiny', 'ursa', 'weaver', 'skeleton_king']
   },
   mystic: {
@@ -174,7 +174,7 @@ var act3 = {
   robe: {
     3: [],
     2: ['oracle'],
-    1: ['antimage', 'crystal_maiden', 'dark_seer', 'dazzle', 'death_prophet', 'grimstroke', 'invoker', 'kunkka', 'lich', 'lina', 'necrolyte', 'riki', 'storm_spirit', 'templar_assassin', 'vengefulspirit', 'void_spirit', 'warlock', 'windrunner', 'zuus']
+    1: ['antimage', 'crystal_maiden', 'dark_seer', 'dazzle', 'death_prophet', 'grimstroke', 'invoker', 'kunkka', 'lich', 'lina', 'necrolyte', 'riki', 'storm_spirit', 'templar_assassin', 'vengefulspirit', 'void_spirit', 'warlock', 'windrunner', 'zuus', 'kez']
   },
   cape: {
     3: [],
