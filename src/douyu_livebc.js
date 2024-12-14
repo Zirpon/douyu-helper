@@ -340,7 +340,7 @@ function showHeroByToken(timerZhmIcon) {
             // 当前直播的牌子直播间 彩虹框圈住
             if (save[roomid] == true) {
                 clearInterval(timerZhmIcon); // 取消定时器
-
+                /*
                 let nodeHeight = node.clientHeight;
                 let originContent = node.removeChild(node.firstChild);
 
@@ -357,6 +357,7 @@ function showHeroByToken(timerZhmIcon) {
                 rainbowContent.className = 'box-content';
                 rainbowContent.appendChild(originContent);
                 rainbowBox.appendChild(rainbowContent);
+                */
             }
         } else {
             //console.log(roomid + '不在列表中', save_fansBadgeList);
