@@ -1232,6 +1232,13 @@ var dota2_heros = {
     chi_name: '琼英碧灵',
     name: 'muerta',
     act3_tag: ['void', 'mystic', 'minion']
+  },
+  kez: {
+    url: 'wiki.dota2.com.cn/hero/kez',
+    img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_kez.png',
+    chi_name: '凯',
+    name: 'kez',
+    act3_tag: ['blood', 'blood', 'robe']
   }
 };
 /* harmony default export */ const dota2_act3_dota2_heros = (dota2_heros);
