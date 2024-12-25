@@ -1,23 +1,23 @@
 {
-  "name": "Douyu斗鱼 主播开播下播提醒 + 粤语/国语语音播报通知",
-  "namespace": "https://github.com/Zirpon/douyu-helper.git",
-  "version": "3.4.13",
-  "description": "斗鱼关注页面🌈彩虹旋转边框环绕带牌子直播间🍉有主播开播/更改标题时自动发送通知提醒🎏支持语音播报🌊可翻看最近10条历史通知♨️置灰斗鱼关注页面视频轮播单元格窗口",
+    "name": "Douyu斗鱼 主播开播下播提醒 + 粤语/国语语音播报通知",
+    "namespace": "https://github.com/Zirpon/douyu-helper.git",
+    "version": "3.4.20",
+    "description": "斗鱼关注页面🌈彩虹旋转边框环绕带牌子直播间🍉有主播开播/更改标题时自动发送通知提醒🎏支持语音播报🌊可翻看最近10条历史通知♨️置灰斗鱼关注页面视频轮播单元格窗口",
 
-  "author": "anonymous, hlc1209, P",
-  "copyright": "zepung",
-  "license": "MIT",
-  "match": ["https://www.douyu.com/directory/myFollow", "https://www.douyu.com/directory/watchHistory"],
-  "run-at": "document-idle",
-  "supportURL": "https://greasyfork.org/zh-CN/scripts/498616-douyu%E6%96%97%E9%B1%BC-%E4%B8%BB%E6%92%AD%E5%BC%80%E6%92%AD%E4%B8%8B%E6%92%AD%E6%8F%90%E9%86%92-%E7%B2%A4%E8%AF%AD-%E5%9B%BD%E8%AF%AD%E8%AF%AD%E9%9F%B3%E6%92%AD%E6%8A%A5%E9%80%9A%E7%9F%A5/feedback",
-  "homepage": "https://greasyfork.org/zh-CN/scripts/498616-douyu%E6%96%97%E9%B1%BC-%E4%B8%BB%E6%92%AD%E5%BC%80%E6%92%AD%E4%B8%8B%E6%92%AD%E6%8F%90%E9%86%92-%E7%B2%A4%E8%AF%AD-%E5%9B%BD%E8%AF%AD%E8%AF%AD%E9%9F%B3%E6%92%AD%E6%8A%A5%E9%80%9A%E7%9F%A5",
-  "grant": [
-    "GM_xmlhttpRequest",
-    "GM_openInTab",
-    "GM_notification",
-    "GM_getValue",
-    "GM_setValue",
-    "GM_registerMenuCommand"
-  ],
-  "icon": "https://www.douyu.com/favicon.ico"
+    "author": "anonymous, hlc1209, P",
+    "copyright": "zepung",
+    "license": "MIT",
+    "match": ["https://www.douyu.com/directory/myFollow", "https://www.douyu.com/directory/watchHistory"],
+    "run-at": "document-idle",
+    "supportURL": "https://greasyfork.org/zh-CN/scripts/498616-douyu%E6%96%97%E9%B1%BC-%E4%B8%BB%E6%92%AD%E5%BC%80%E6%92%AD%E4%B8%8B%E6%92%AD%E6%8F%90%E9%86%92-%E7%B2%A4%E8%AF%AD-%E5%9B%BD%E8%AF%AD%E8%AF%AD%E9%9F%B3%E6%92%AD%E6%8A%A5%E9%80%9A%E7%9F%A5/feedback",
+    "homepage": "https://greasyfork.org/zh-CN/scripts/498616-douyu%E6%96%97%E9%B1%BC-%E4%B8%BB%E6%92%AD%E5%BC%80%E6%92%AD%E4%B8%8B%E6%92%AD%E6%8F%90%E9%86%92-%E7%B2%A4%E8%AF%AD-%E5%9B%BD%E8%AF%AD%E8%AF%AD%E9%9F%B3%E6%92%AD%E6%8A%A5%E9%80%9A%E7%9F%A5",
+    "grant": [
+        "GM_xmlhttpRequest",
+        "GM_openInTab",
+        "GM_notification",
+        "GM_getValue",
+        "GM_setValue",
+        "GM_registerMenuCommand"
+    ],
+    "icon": "https://www.douyu.com/favicon.ico"
 }

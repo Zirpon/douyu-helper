@@ -340,7 +340,12 @@ function showHeroByToken(timerZhmIcon) {
             // 当前直播的牌子直播间 彩虹框圈住
             if (save[roomid] == true) {
                 clearInterval(timerZhmIcon); // 取消定时器
+                //CSS渐变彩虹边框 https://juejin.cn/post/7017701121619656711
+                node.firstChild.style.border = '2px solid';
+                node.firstChild.style.borderImageSource = 'linear-gradient(in hsl longer hue 45deg, red 0 0)';
+                node.firstChild.style.borderImageSlice = '1';
                 /*
+                // CSS 动态渐变彩虹框 耗CPU
                 let nodeHeight = node.clientHeight;
                 let originContent = node.removeChild(node.firstChild);
 

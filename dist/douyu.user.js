@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name                Douyu斗鱼 主播开播下播提醒 + 粤语/国语语音播报通知
 // @namespace           https://github.com/Zirpon/douyu-helper.git
-// @version             3.4.13
+// @version             3.4.20
 // @description         斗鱼关注页面🌈彩虹旋转边框环绕带牌子直播间🍉有主播开播/更改标题时自动发送通知提醒🎏支持语音播报🌊可翻看最近10条历史通知♨️置灰斗鱼关注页面视频轮播单元格窗口
 // @author              anonymous, hlc1209, P
 // @copyright           zepung
@@ -1156,8 +1156,13 @@ function showHeroByToken(timerZhmIcon) {
       // 当前直播的牌子直播间 彩虹框圈住
       if (save[roomid] == true) {
         clearInterval(timerZhmIcon); // 取消定时器
+        //CSS渐变彩虹边框 https://juejin.cn/post/7017701121619656711
 
+        node.firstChild.style.border = '2px solid';
+        node.firstChild.style.borderImageSource = 'linear-gradient(in hsl longer hue 45deg, red 0 0)';
+        node.firstChild.style.borderImageSlice = '1';
         /*
+        // CSS 动态渐变彩虹框 耗CPU
         let nodeHeight = node.clientHeight;
         let originContent = node.removeChild(node.firstChild);
           let rainbowBox = document.createElement('div');
