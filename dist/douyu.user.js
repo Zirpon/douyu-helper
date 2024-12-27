@@ -1158,7 +1158,7 @@ function showHeroByToken(timerZhmIcon) {
         clearInterval(timerZhmIcon); // 取消定时器
         //CSS渐变彩虹边框 https://juejin.cn/post/7017701121619656711
 
-        node.firstChild.style.border = '2px solid';
+        node.firstChild.style.border = '4px solid';
         node.firstChild.style.borderImageSource = 'linear-gradient(in hsl longer hue 45deg, red 0 0)';
         node.firstChild.style.borderImageSlice = '1';
         /*
