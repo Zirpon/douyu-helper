@@ -40,6 +40,12 @@ __webpack_require__.d(__webpack_exports__, {
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.timers.js
 var web_timers = __webpack_require__(6869);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.includes.js
+var es_array_includes = __webpack_require__(6801);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.includes.js
+var es_string_includes = __webpack_require__(3843);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
+var es_function_name = __webpack_require__(4284);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
 var es_object_to_string = __webpack_require__(228);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.promise.js
@@ -48,10 +54,6 @@ var es_promise = __webpack_require__(3964);
 var es_regexp_exec = __webpack_require__(4043);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.split.js
 var es_string_split = __webpack_require__(9873);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.includes.js
-var es_array_includes = __webpack_require__(6801);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.includes.js
-var es_string_includes = __webpack_require__(3843);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.js
 var es_symbol = __webpack_require__(9749);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.description.js
@@ -82,8 +84,6 @@ var es_object_get_prototype_of = __webpack_require__(8052);
 var es_array_for_each = __webpack_require__(9693);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.for-each.js
 var web_dom_collections_for_each = __webpack_require__(7522);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
-var es_function_name = __webpack_require__(4284);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.set-prototype-of.js
 var es_object_set_prototype_of = __webpack_require__(5399);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.reverse.js
@@ -793,6 +793,7 @@ var save_name = {};
 var save_fansBadgeList = {};
 var followURL = "https://www.douyu.com/wgapi/livenc/liveweb/follow/list?sort=0&cid1=0";
 var getFansBadgeListURL = 'https://www.douyu.com/member/cp/getFansBadgeList';
+var selectVoice = undefined;
 
 function initScript() {
   shim_GM_notification();
@@ -801,7 +802,8 @@ function initScript() {
   */
   // 初始化所有GM value
 
-  new BaseClass();
+  new BaseClass(); //console.log(selectVoice.lang, selectVoice.name);
+
   getFansBadgeList();
   check(); // 这里需要判断一下 否则会导致 alertQueue的add函数一直刷新网页
 
@@ -818,6 +820,16 @@ function initScript() {
   window.addEventListener('load', function () {
     var timerZhmIcon = setInterval(function () {
       showHeroByToken(timerZhmIcon);
+      var synth = window.speechSynthesis;
+      var voices = synth.getVoices();
+
+      for (var i = 0; i < voices.length; i++) {
+        if (voices[i].name.includes('Xiaoxiao')) {
+          //console.log(voices[i].lang, voices[i].name);
+          selectVoice = voices[i];
+          break;
+        }
+      }
     }, 200);
     /*
     resourceLoaded(() => {
@@ -869,6 +881,10 @@ function speak(_ref, endEvent, startEvent) {
   speechUtterance.lang = lang || setlang;
   speechUtterance.volume = volume || 1;
   speechUtterance.pitch = pitch || 1;
+
+  if (selectVoice != undefined && selectVoice != null) {
+    speechUtterance.voice = selectVoice;
+  }
 
   speechUtterance.onend = function () {
     endEvent && endEvent();
