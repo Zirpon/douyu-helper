@@ -8,6 +8,7 @@ var save_name = {};
 var save_fansBadgeList = {};
 var followURL = `https://www.douyu.com/wgapi/livenc/liveweb/follow/list?sort=0&cid1=0`;
 var getFansBadgeListURL = 'https://www.douyu.com/member/cp/getFansBadgeList';
+var selectVoice = undefined;
 
 function initScript() {
     shim_GM_notification();
@@ -18,6 +19,7 @@ function initScript() {
     // 初始化所有GM value
     new menu();
 
+    //console.log(selectVoice.lang, selectVoice.name);
     getFansBadgeList();
     check();
 
@@ -37,6 +39,16 @@ function initScript() {
         function () {
             let timerZhmIcon = setInterval(function () {
                 showHeroByToken(timerZhmIcon);
+
+                const synth = window.speechSynthesis;
+                var voices = synth.getVoices();
+                for (let i = 0; i < voices.length; i++) {
+                    if (voices[i].name.includes('Xiaoxiao')) {
+                        //console.log(voices[i].lang, voices[i].name);
+                        selectVoice = voices[i];
+                        break;
+                    }
+                }
             }, 200);
             /*
       resourceLoaded(() => {
@@ -81,6 +93,11 @@ function speak({ text, speechRate, lang, volume, pitch }, endEvent, startEvent) 
     speechUtterance.lang = lang || setlang;
     speechUtterance.volume = volume || 1;
     speechUtterance.pitch = pitch || 1;
+
+    if (selectVoice != undefined && selectVoice != null) {
+        speechUtterance.voice = selectVoice;
+    }
+
     speechUtterance.onend = function () {
         endEvent && endEvent();
     };
@@ -338,7 +355,7 @@ function showHeroByToken(timerZhmIcon) {
 
         if (roomid in save_fansBadgeList) {
             // 当前直播的牌子直播间 彩虹框圈住
-            if (save[roomid] == true) {
+            if (true || save[roomid] == true) {
                 clearInterval(timerZhmIcon); // 取消定时器
                 //CSS渐变彩虹边框 https://juejin.cn/post/7017701121619656711
                 node.firstChild.style.border = '4px solid';
