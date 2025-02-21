@@ -1154,7 +1154,7 @@ function showHeroByToken(timerZhmIcon) {
 
     if (roomid in save_fansBadgeList) {
       // 当前直播的牌子直播间 彩虹框圈住
-      if (save[roomid] == true) {
+      if (true) {
         clearInterval(timerZhmIcon); // 取消定时器
         //CSS渐变彩虹边框 https://juejin.cn/post/7017701121619656711
 
