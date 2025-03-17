@@ -19,6 +19,15 @@ function initScript() {
     // 初始化所有GM value
     new menu();
 
+    const synth = window.speechSynthesis;
+    var voices = synth.getVoices();
+    for (let i = 0; i < voices.length; i++) {
+        if (voices[i].name.includes('Xiaoxiao')) {
+            //console.log(voices[i].lang, voices[i].name);
+            selectVoice = voices[i];
+            break;
+        }
+    }
     //console.log(selectVoice.lang, selectVoice.name);
     getFansBadgeList();
     check();

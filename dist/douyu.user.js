@@ -38,14 +38,14 @@ __webpack_require__.d(__webpack_exports__, {
   "speak": () => (/* binding */ speak)
 });
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/web.timers.js
-var web_timers = __webpack_require__(6869);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.includes.js
 var es_array_includes = __webpack_require__(6801);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.includes.js
 var es_string_includes = __webpack_require__(3843);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
 var es_function_name = __webpack_require__(4284);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.timers.js
+var web_timers = __webpack_require__(6869);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
 var es_object_to_string = __webpack_require__(228);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.promise.js
@@ -802,7 +802,18 @@ function initScript() {
   */
   // 初始化所有GM value
 
-  new BaseClass(); //console.log(selectVoice.lang, selectVoice.name);
+  new BaseClass();
+  var synth = window.speechSynthesis;
+  var voices = synth.getVoices();
+
+  for (var i = 0; i < voices.length; i++) {
+    if (voices[i].name.includes('Xiaoxiao')) {
+      //console.log(voices[i].lang, voices[i].name);
+      selectVoice = voices[i];
+      break;
+    }
+  } //console.log(selectVoice.lang, selectVoice.name);
+
 
   getFansBadgeList();
   check(); // 这里需要判断一下 否则会导致 alertQueue的add函数一直刷新网页
@@ -823,10 +834,10 @@ function initScript() {
       var synth = window.speechSynthesis;
       var voices = synth.getVoices();
 
-      for (var i = 0; i < voices.length; i++) {
-        if (voices[i].name.includes('Xiaoxiao')) {
+      for (var _i = 0; _i < voices.length; _i++) {
+        if (voices[_i].name.includes('Xiaoxiao')) {
           //console.log(voices[i].lang, voices[i].name);
-          selectVoice = voices[i];
+          selectVoice = voices[_i];
           break;
         }
       }
