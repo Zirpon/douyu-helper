@@ -368,7 +368,8 @@ function showHeroByToken(timerZhmIcon) {
                 clearInterval(timerZhmIcon); // 取消定时器
                 //CSS渐变彩虹边框 https://juejin.cn/post/7017701121619656711
                 node.firstChild.style.border = '4px solid';
-                node.firstChild.style.borderImageSource = 'linear-gradient(in hsl longer hue 45deg, red 0 0)';
+                node.firstChild.style.borderImageSource = 'linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red)';
+                //'linear-gradient(in hsl longer hue 45deg, red 0 0)';
                 node.firstChild.style.borderImageSlice = '1';
                 /*
                 // CSS 动态渐变彩虹框 耗CPU
@@ -419,3 +420,4 @@ function showHeroByToken(timerZhmIcon) {
 }
 
 export { G_ALERT_QUEUE, initScript, speak };
+
