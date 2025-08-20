@@ -62,4 +62,5 @@ $RECYCLE.BIN/
 package-lock.json
 *.zip
 src/mock/test.js
+src/mock/test2.js
 src/test.js

@@ -407,13 +407,14 @@ function showHeroByToken(timerZhmIcon) {
         }
 
         // 关注页面 非直播格子置灰
-        var imgWrap = node.getElementsByClassName('DyLiveCover-imgWrap')[0];
+        var imgWrap = node.getElementsByClassName('Common-card-cover DyCareLiveListCover-cover')[0];
         if (imgWrap) {
             //console.log(imgWrap);
-            var videoLogo = imgWrap.getElementsByClassName('DyLiveCover-videoLogo')[0];
-            if (videoLogo && videoLogo.innerHTML.includes('视频轮播')) {
+            var videoLogo = imgWrap.getElementsByClassName('MgetIcon-carouse-text')[0];
+            if (videoLogo && videoLogo.innerHTML.includes('轮播')) {
                 //console.log(videoLogo.innerHTML);
-                imgWrap.style.opacity = 0.1; // 透明度を50%に指定
+                var imgCover = imgWrap.getElementsByClassName('Common-card-image')[0];
+                imgCover.style.opacity = 0.1; // 透明度を50%に指定
             }
         }
     }
