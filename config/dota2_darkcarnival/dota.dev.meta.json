@@ -1,0 +1,15 @@
+{
+  "name": "dev DOTA2 暗黑狂欢商店 Dark Carnival Store dev",
+  "namespace": "https://github.com/Zirpon/douyu-helper.git",
+  "match": ["https://wiki.dota2.com.cn/", "*://*.localhost/*"],
+  "grant": [
+    "GM_xmlhttpRequest",
+    "GM_openInTab",
+    "GM_notification",
+    "GM_getValue",
+    "GM_setValue",
+    "GM_registerMenuCommand",
+    "GM_addValueChangeListener"
+  ],
+  "require": ["file://E://MyDocs//git-repos//github//Zirpon//douyu-helper//dist//dota2_darkcarnival.dev.user.js"]
+}

@@ -881,6 +881,20 @@ const dota2_heros = {
         name: 'kez',
         act3_tag: ['blood', 'blood', 'robe'],
     },
+    ringmaster: {
+        url: 'wiki.dota2.com.cn/hero/ringmaster',
+        img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_ringmaster.png',
+        chi_name: '百戏大王',
+        name: 'ringmaster',
+        act3_tag: ['blood', 'mystic', 'minion'],
+    },
+    largo: {
+        url: 'wiki.dota2.com.cn/hero/largo',
+        img: 'https://img.dota2.com.cn/dota2static/herostatic/index/npc_dota_hero_largo.png',
+        chi_name: '朗戈',
+        name: 'largo',
+        act3_tag: ['blood', 'blood', 'robe'],
+    },
 };
 
 export default dota2_heros;

@@ -1,0 +1,22 @@
+{
+  "name": "DOTA2 暗黑狂欢商店 Dark Carnival Store",
+  "namespace": "https://github.com/Zirpon/douyu-helper.git",
+  "version": "1.0.0",
+  "description": "手动打开 完美DOTA2维基官网页面(https://wiki.dota2.com.cn/) 即可食用",
+  "author": "zepung",
+  "copyright": "zepung",
+  "license": "MIT",
+  "match": ["https://wiki.dota2.com.cn/"],
+  "run-at": "document-idle",
+  "supportURL": "https://github.com/Zirpon/douyu-helper",
+  "homepage": "https://github.com/Zirpon/douyu-helper",
+  "grant": [
+    "GM_xmlhttpRequest",
+    "GM_openInTab",
+    "GM_notification",
+    "GM_getValue",
+    "GM_setValue",
+    "GM_registerMenuCommand"
+  ],
+  "icon": "https://www.dota2.com.cn/favicon.ico"
+}
